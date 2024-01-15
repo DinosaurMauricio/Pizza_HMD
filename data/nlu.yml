@@ -211,6 +211,7 @@ nlu:
 
 - intent: order_confirm_positive
   examples: |
+    - yes the order is correct
     - all good
     - yeah all is good
     - yep
@@ -231,6 +232,8 @@ nlu:
     - Nope
     - No, I want to make a change
     - Noo
+    - no, i want to change my order
+    - the order is wrong
 
 - intent: out_of_scope
   examples: |
@@ -301,6 +304,19 @@ nlu:
     - [3](pizza_amount) pizzas
     - [2](pizza_amount) pizzas
 
+- intent: cancel_item_change
+  examples: |
+    - Nevermind, no changes.
+    - Keep my order as is.
+    - Cancel the changes.
+    - No modifications, please.
+    - I've changed my mind.
+    - Scratch the changes.
+    - Don't alter anything.
+    - Cancel item change.
+    - Keep it the same.
+    - Disregard the changes.
+
 - synonym: Americana
   examples: |
     - Americana
@@ -326,6 +342,13 @@ nlu:
     - small
     - Small
     - size S
+    - S
+    - 10-inch
+    - ten inches
+    - tiny
+    - little
+    - compact
+    - petite
 - synonym: 12"
   examples: |
     - 12
@@ -335,33 +358,104 @@ nlu:
     - normal
     - twelve inch
     - size M
+    - M
+    - 12-inch
+    - twelve inches
+    - regular
+    - standard
 - synonym: 14"
   examples: |
     - 14
     - 14 inch
     - large
     - size L
+    - L
+    - 14-inch
+    - fourteen inches
+    - big
+    - Big
+    - sizable
+    - substantial
+    - extensive
 - synonym: 18"
   examples: |
     - 18
     - jumbo
     - XXL
     - size XXL
+    - extra large
+    - enormous
+    - gigantic
+    - massive
+    - huge
+    - oversized
+    - substantial
+    - vast
+    - mega
 - synonym: Funghi
   examples: |
     - Funghi
+    - Mushroom
+    - Mushrooms
+    - Mushroom pizza
+    - Mushrooms pizza
+    - Pizza Funghi
+    - Funghi flavor
+    - Pizza with mushrooms
+    - Funghi style
+    - Funghi topping
+    - Mushroom topping
+    - Mushrooms topping
+    - Mushroom-flavored
 - synonym: Hawaii
   examples: |
     - Hawaii
+    - Hawaiian
+    - Hawaiian style
+    - Hawaii pizza
+    - Pizza Hawaii
+    - Tropical pizza
+    - Pineapple and ham pizza
+    - Hawaiian delight
+    - Pacific flavor
+    - Aloha pizza
+    - Tropicana pizza
 - synonym: Margherita
   examples: |
     - Margherita
     - margherita
+    - Classic Margherita
+    - Margherita style
+    - Margherita pizza
+    - Original Margherita
+    - Traditional Margherita
+    - Margherita flavor
+    - Classic Italian Margherita
+    - Authentic Margherita
 - synonym: Pepperoni
   examples: |
+    - Pepperoni
     - Pepp
+    - Classic Pepperoni
+    - Pepperoni style
+    - Pepperoni pizza
+    - Original Pepperoni
+    - Traditional Pepperoni
+    - Pepperoni flavor
+    - Classic Italian Pepperoni
 - synonym: Vegetarian
   examples: |
     - Vegetarian
-    - Vegetarian
     - Vegetable
+    - Veggie
+    - Veggie delight
+    - Vegetarian pizza
+    - Vegetable pizza
+    - Garden pizza
+    - Green delight
+    - Veggie special
+    - Plant-based pizza
+    - Meatless pizza
+    - Veggie blend
+    - Vegetarian option
+    - Veggie choice

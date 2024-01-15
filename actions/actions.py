@@ -41,10 +41,8 @@ class ActionChangeOrder(Action):
         pizza_size = tracker.get_slot("pizza_size")
         pizza_type = tracker.get_slot("pizza_type")
         pizza_amount = tracker.get_slot("pizza_amount")
-        SlotSet("pizza_type", pizza_type)
-        SlotSet("pizza_size", pizza_size)
-        SlotSet("pizza_amount", pizza_amount)
-        return []
+
+        return [SlotSet("pizza_type", pizza_type), SlotSet("pizza_size", pizza_size), SlotSet("pizza_amount", pizza_amount)]
 
 
 class ActionPizzaOrderAdd(Action):

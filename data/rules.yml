@@ -16,9 +16,14 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_slot_values_temp
+  - action: utter_summarize_order
 
 - rule: out-of-scope
   steps:
   - intent: out_of_scope
   - action: utter_out_of_scope
+
+- rule: questions on available pizza
+  steps:
+  - intent: init_pizza_question
+  - action: utter_init_pizza_question

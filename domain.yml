@@ -26,13 +26,14 @@ intents:
   - item_size
   - item_topping
   - item_amount
-
   - out_of_scope
 
   - item_type_start_negative
   - item_type_start_positive
 
   - order_response_positive
+
+  - cancel_item_change
 
 responses:
   utter_out_of_scope:
@@ -92,9 +93,10 @@ responses:
   utter_order_processing_negative:
   - text: Sorry, there is a problem with your order
   utter_summarize_order:
-  - text: "Okay Great. Your order is {} {} pizzas in {}. Can you confirm please"
-  utter_slot_values_temp:
-  - text: "Okay Great. Your order is {pizza_type} {pizza_amount} pizzas in {pizza_size}. Can you confirm please"
+  - text: "Okay Great. Your order is {pizza_amount} {pizza_type} pizzas in {pizza_size} size. Can you confirm please?"
+
+  utter_cancel_item_change:
+  - text: "Sure, we won't make any changes to your pizza order, can you confirm your order?"
 
 
 actions: 
@@ -102,13 +104,14 @@ actions:
 - utter_slot_values_temp
 - utter_welcome_greet
 - utter_init_request
-- utter_ask_pizza_size # missing story
-- utter_ask_pizza_type # missing story
-- utter_ask_pizza_amount # missing story
+- utter_ask_pizza_size # Missing story, this is because as default for slots in forms, Rasa will look for a utter_ask_{slot_name}
+- utter_ask_pizza_type 
+- utter_ask_pizza_amount
 - utter_init_pizza_question
 - utter_order_confirm_negative # missing story
 - utter_order_confirm_positive # missing story
 - utter_item_change
+
 - utter_extra_order
 - utter_final_order # missing story
 - utter_total_order_final
@@ -125,6 +128,9 @@ actions:
 - utter_order_add
 - utter_default # missing story
 - utter_summarize_order # missing story
+
+- utter_cancel_item_change
+
 - action_change_order
 - action_pizza_order_add
 - action_reset_pizza_form

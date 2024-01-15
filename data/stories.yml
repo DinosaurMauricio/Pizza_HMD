@@ -6,77 +6,55 @@ stories:
   - action: utter_welcome_greet
   - checkpoint: started_greeting
 
-- story: questions on pizza
-  steps:
-  - checkpoint: started_greeting
-  - intent: init_pizza_question
-  - action: utter_init_pizza_question
-#  - checkpoint: start_order
-
-- story: order pizza vague
+- story: start pizza order vague
   steps:
   - checkpoint: started_greeting
   - intent: init_request
   - action: utter_init_request
-##  - intent: item_start_generic
-##  - action: pizza_order_form ## Removed because rule should take care of it
-##  - active_loop: pizza_order_form
-#  - checkpoint: confirm_order
-#
-#- story: order pizza vague
-#  steps:
-#  - checkpoint: start_order
-#  - intent: init_request
-#  - action: utter_init_request
-#  - intent: item_start_generic
-#  - action: pizza_order_form
-#  - active_loop: pizza_order_form
-#  - checkpoint: confirm_order_pre_question
+  - checkpoint: start_order
+
+- story: confirm the pizza order
+  steps:
+  - action: utter_summarize_order
+  - intent: order_confirm_positive
+  - action: utter_order_confirm_positive
+
+- story: change the pizza order
+  steps:
+  - action: utter_summarize_order
+  - intent: order_confirm_negative
+  - action: utter_order_confirm_negative
+  - checkpoint: change_pizza_order
+
+- story: change order
+  steps:
+  - checkpoint: change_pizza_order
+  - intent: item_change
+    entities:
+      - pizza_type: "Pepperoni"
+      - pizza_size: "Small"
+      - pizza_amount: "three"
+  - action: action_change_order
+  - action: utter_item_change
+
+- story: cancel pizza order change and confirm order
+  steps:
+  - checkpoint: change_pizza_order
+  - intent: cancel_item_change
+  - action: utter_cancel_item_change
+  - intent: order_confirm_positive
+  - action: utter_order_confirm_positive
+    
+
 #
 #- story: order pizza precise
 #  steps:
-#  - checkpoint: start_order
 #  - checkpoint: new_order
 #  - intent: item_start_generic
 #  - action: pizza_order_form
 #  - active_loop: pizza_order_form
 #  - checkpoint: confirm_order
-#
-#- story: order pizza precise
-#  steps:
-#  - checkpoint: start_order
-#  - checkpoint: new_order
-#  - intent: item_start_generic
-#  - action: pizza_order_form
-#  - active_loop: pizza_order_form
-#  - checkpoint: confirm_order_pre_question
-#
-#- story: story_to_modify_order
-#  steps:
-#  - checkpoint: confirm_order
-#  - intent: response_negative
-#  - action: action_change_order
-#  - action: utter_item_change
-#  - checkpoint: confirm_order
-#
-#- story: story_to_modify_order_2
-#  steps:
-#  - checkpoint: confirm_order
-#  - intent: item_change
-#  - action: action_change_order
-#  - action: utter_item_change
-#  - checkpoint: confirm_order
-#
-#- story: story_to_modify_order_3
-#  steps:
-#  - checkpoint: confirm_order
-#  - intent: response_negative
-#  - action: utter_order_confirm_negative
-#  - intent: item_change
-#  - action: action_change_order
-#  - action: utter_item_change
-#  - checkpoint: confirm_order
-#
+
 #
 ### WARNING: THIS IS THE BROKEN STORY
 ##- story: story_to_proceed_furthur
