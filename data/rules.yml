@@ -1,0 +1,24 @@
+version: "3.1"
+
+rules:
+
+- rule: Activate pizza order form
+  steps:
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+
+- rule: Submit pizza order form
+  condition:
+  - active_loop: pizza_order_form
+  steps:
+  - action: pizza_order_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_slot_values_temp
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope

@@ -1,0 +1,14 @@
+# Ignore pickle files
+*.pkl
+
+# Ignore JSON files
+*.json
+
+# Ignore gzipped files
+*.gz
+
+# Ignore cache
+.rasa/cache/*
+
+# Ignore pycache
+actions/__pycache__/*
