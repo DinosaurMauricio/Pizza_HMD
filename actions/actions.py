@@ -61,6 +61,21 @@ class ActionPizzaOrderAdd(Action):
         return [SlotSet("total_order", [order_details]) if old_order is None else SlotSet("total_order", [old_order[0]+' and '+order_details])]
 
 
+class ActionPizzaTotalOrder(Action):
+    def name(self):
+        return 'action_total_order'
+
+    def run(self, dispatcher, tracker, domain):
+        pizza_size = tracker.get_slot("pizza_size")
+        pizza_type = tracker.get_slot("pizza_type")
+        pizza_amount = tracker.get_slot("pizza_amount")
+
+        order_details = str(pizza_amount + " " +
+                            pizza_type + " is of "+pizza_size)
+
+        return [SlotSet("total_order", order_details)]
+
+
 class ActionResetPizzaForm(Action):
     def name(self):
         return 'action_reset_pizza_form'

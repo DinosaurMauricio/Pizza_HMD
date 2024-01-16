@@ -179,15 +179,34 @@ nlu:
 
 - intent: order_take_home
   examples: |
-    - take away
-    - i prefer take away
-    - take away please
+    - take it away
+    - I'd like it for take away
+    - take away, please
+    - to go, please
+    - takeaway, please
+    - take it to go
+    - take out
+    - I prefer it for take away
+    - can you make it for take away?
+    - take away option, please
+    - take away is fine
+    - take out, please
 
 - intent: order_delivery
   examples: |
-    - delivery please
     - delivery
-    - i prefer delivery
+    - delivery, please
+    - for delivery, please
+    - I'd like it delivered
+    - can you arrange delivery?
+    - delivery option, please
+    - deliver it to my address
+    - I prefer delivery
+    - home delivery, please
+    - bring it to my doorstep
+    - I want it delivered
+    - arrange for delivery, please
+    - home delivery option
 
 - intent: order_delivery_address
   examples: |
@@ -204,37 +223,61 @@ nlu:
 
 - intent: response_name_phone
   examples: |
-    - my name is [Raymond](client_name) and number is [098765432](phone_number).
-    - [Raymond](client_name) and [098765432](phone_number)
-    - [Raymond](client_name) [098765432](phone_number)
-    - [Raymond](client_name) and my number is [098765432](phone_number)
+    - My name is [Alice](client_name) and my number is [123456789](phone_number)
+    - [Bob](client_name) and [987654321](phone_number)
+    - [Charlie](client_name) [5551234567](phone_number)
+    - [David](client_name) and my number is [999888777](phone_number)
+    - I'm [Eva](client_name) with phone number [1112233445](phone_number)
+    - This is [Frank](client_name) speaking, number is [4445556666](phone_number)
+    - [Grace](client_name) and [7778889999](phone_number)
+    - My name's [Hank](client_name), contact me at [2223334444](phone_number)
+    - [Ivy](client_name) [1231231234](phone_number)
+    - [Jack](client_name) here, my number is [9990001111](phone_number)
+
+- intent: response_negative
+  examples: |
+    - no
+    - no thanks
+    - no thank you
+    - nope
+    - nope thanks
+    - nope thank you
+    - no, thanks
+    - nah
+    - nah thanks
+    - nah thank you
 
 - intent: order_confirm_positive
   examples: |
-    - yes the order is correct
-    - all good
-    - yeah all is good
-    - yep
-    - yeah
-    - perfect
-    - yes, that is right
-    - yes
-    - that's right
-    - correct
-    - Yes
-    - Yeah
+    - yes, that's the correct order
+    - yeah, it's correct
+    - sure, that's right
+    - absolutely, that's it
+    - affirmative, that's correct
+    - indeed, that's the right one
+    - definitely, that's the order
+    - of course, that's correct
+    - absolutely, that's it
+    - certainly, that's the right one
+    - correct, that's it
+    - yes, that's correct
+    - Yess, that's the right order
 
 - intent: order_confirm_negative
   examples: |
-    - actually no
-    - nope
-    - no
-    - Nope
-    - No, I want to make a change
-    - Noo
-    - no, i want to change my order
-    - the order is wrong
+    - no, that's not right
+    - nah, that's incorrect
+    - nope, that's not it
+    - not really, that's not correct
+    - negative, that's not the order
+    - not at all, that's wrong
+    - I'm afraid not, that's not the correct one
+    - no way, that's not the order
+    - No, that's incorrect
+    - Nope, that's not it
+    - Noo, that's not right
 
+    
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
@@ -343,6 +386,7 @@ nlu:
     - Small
     - size S
     - S
+    - small size
     - 10-inch
     - ten inches
     - tiny
@@ -351,6 +395,7 @@ nlu:
     - petite
 - synonym: 12"
   examples: |
+    - medium size
     - 12
     - 12 inch
     - Medium
@@ -365,6 +410,7 @@ nlu:
     - standard
 - synonym: 14"
   examples: |
+    - large size
     - 14
     - 14 inch
     - large
@@ -379,6 +425,7 @@ nlu:
     - extensive
 - synonym: 18"
   examples: |
+    - jump size
     - 18
     - jumbo
     - XXL

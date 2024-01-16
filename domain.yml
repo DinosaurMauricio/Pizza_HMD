@@ -5,8 +5,8 @@ intents:
   - init_request
   - init_pizza_question
   - item_start_generic
-  - order_confirm_negative # missing
-  - order_confirm_positive # missing
+  - order_confirm_negative # maybe change the name to response_negative
+  - order_confirm_positive # maybe change the name to response_positive
   - item_change
   - extra_order_negative # missing everything
   - extra_order_positive # missing everything
@@ -30,8 +30,6 @@ intents:
 
   - item_type_start_negative
   - item_type_start_positive
-
-  - order_response_positive
 
   - cancel_item_change
 
@@ -64,10 +62,10 @@ responses:
   utter_final_order:
   - text: Your total order is {pizza_amount} {pizza_type} pizzas in {pizza_size}.
       Do you prefer take away or home delivery?
-  utter_total_order_final:
-  - text: Do you prefer takeaway or home delivery
+  utter_order_takeout:
+  - text: Thank you {client_name}, we will contact you at {phone_number}.  Do you prefer takeaway or home delivery?
   utter_name_phone:
-  - text: Here is your total order, {total_order} . what is your name and phone number?
+  - text: Here is your total order, {total_order}. what is your name and phone number?
   utter_order_complete:
   - text: Here is your order number {order_number}. Your order will be ready in 15
       minutes. Thanks for the opportunity to serve you
@@ -114,7 +112,7 @@ actions:
 
 - utter_extra_order
 - utter_final_order # missing story
-- utter_total_order_final
+- utter_order_takeout
 - utter_name_phone
 - utter_order_complete
 - utter_delivery_address
@@ -135,13 +133,13 @@ actions:
 - action_pizza_order_add
 - action_reset_pizza_form
 - action_order_number
+- action_total_order
 
 entities:
 - toppings
 - pizza_type
 - pizza_size
 - pizza_amount
-- active_form_pizza_order_form
 - client_name
 - phone_number
 - order_number
