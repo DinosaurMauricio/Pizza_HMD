@@ -43,7 +43,7 @@ stories:
   - checkpoint: change_pizza_order
   - intent: cancel_item_change
   - action: utter_cancel_item_change
-  - intent: order_confirm_positive # here issue lol
+  - intent: order_confirm_positive 
   - action: utter_order_confirm_positive
 
 - story: get details customer details
@@ -54,18 +54,8 @@ stories:
     - client_name: "Mauricio"
     - phone_number: "3331112222"
   - action: utter_order_takeout
-  - checkpoint: takeout_preference
-
-- story: order take home
-  steps:
-  - checkpoint: takeout_preference
-  - intent: order_take_home
-  - action: utter_order_complete
 
 - story: order delivery
   steps:
-  - checkpoint: takeout_preference
   - intent: order_delivery
   - action: utter_delivery_address
-  - intent: order_delivery_address
-  - action: utter_order_complete

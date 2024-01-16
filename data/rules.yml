@@ -35,3 +35,15 @@ rules:
   - action: action_total_order
   - action: utter_name_phone
   
+
+- rule: order take home
+  steps:
+  - intent: order_take_home
+  - action: action_order_number
+  - action: utter_order_complete
+
+- rule: provide address
+  steps:
+    - intent: order_delivery_address
+    - action: action_order_number
+    - action: utter_order_complete

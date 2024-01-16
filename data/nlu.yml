@@ -1,5 +1,4 @@
 version: "3.1"
-
 nlu:
 - intent: welcome_greet
   examples: |
@@ -15,9 +14,8 @@ nlu:
     - hi
     - Hi there
     - greetings
-    - long time no see 
+    - long time no see
     - hello
-
 - intent: init_request
   examples: |
     - I want pizza
@@ -49,7 +47,6 @@ nlu:
     - small pizza with tomatoes topping
     - medium with onion
     - large corns
-
 - intent: init_pizza_question
   examples: |
     - do you have pizza with no [meat](toppings)?
@@ -92,7 +89,6 @@ nlu:
     - any pizza without [cheese](toppings) please?
     - any pizza without [pepper](toppings) please?
     - any pizza without [vegetables](toppings) please?
-
 - intent: item_start_generic
   examples: |
     - I want [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
@@ -155,12 +151,15 @@ nlu:
     - [2](pizza_amount) please
     - [large](pizza_size) please
     - [large](pizza_size)
+    - [small](pizza_size) please
+    - [small](pizza_size)
+    - [medium](pizza_size) please
+    - [medium](pizza_size)
     - just [one](pizza_amount)
     - just [1](pizza_amount)
     - [one](pizza_amount) pizza [funghi](pizza_type)
     - i'd like [three](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type)
     - I'd like to order [3](pizza_amount)  [small](pizza_size) [hawaii](pizza_type) please
-
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -176,7 +175,6 @@ nlu:
     - I want to change the size to [medium](pizza_size)
     - I want to change the size to [large](pizza_size)
     - I want my pizza in [small](pizza_size) instead
-
 - intent: order_take_home
   examples: |
     - take it away
@@ -191,7 +189,7 @@ nlu:
     - take away option, please
     - take away is fine
     - take out, please
-
+    - i prefer take out, please
 - intent: order_delivery
   examples: |
     - delivery
@@ -207,7 +205,6 @@ nlu:
     - I want it delivered
     - arrange for delivery, please
     - home delivery option
-
 - intent: order_delivery_address
   examples: |
     - my address is #123, 456 Main Street
@@ -230,7 +227,7 @@ nlu:
     - #345, 678 Hemlock Lane is my current address
     - Find me at house number 901, street 234 Birch Avenue
     - House num 123, 456 Pine Street is where I reside
-
+    - my address is via della malpensada 150
 - intent: response_name_phone
   examples: |
     - My name is [Alice](client_name) and my number is [123456789](phone_number)
@@ -243,19 +240,16 @@ nlu:
     - My name's [Hank](client_name), contact me at [2223334444](phone_number)
     - [Ivy](client_name) [1231231234](phone_number)
     - [Jack](client_name) here, my number is [9990001111](phone_number)
-
 - intent: response_negative
   examples: |
     - no
     - nope
-    - nope 
     - nah
     - nu uh
     - no way
     - not really
     - not at all
     - negative
-
 - intent: order_confirm_positive
   examples: |
     - yes, that's the correct order
@@ -266,12 +260,10 @@ nlu:
     - indeed, that's the right one
     - definitely, that's the order
     - of course, that's correct
-    - absolutely, that's it
     - certainly, that's the right one
     - correct, that's it
     - yes, that's correct
     - Yess, that's the right order
-
 - intent: order_confirm_negative
   examples: |
     - I don't think so
@@ -283,9 +275,6 @@ nlu:
     - that's not the order
     - that's wrong
     - I'm afraid not, that's not the correct one
-    - that's not the order
-
-    
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
@@ -297,64 +286,6 @@ nlu:
     - book a flight from milan to ny
     - how far is the square
     - give me the directions to time square
-
-#- intent: item_change_request_without_entity
-#  examples: |
-#    - Actually i want to modify pizza type.
-#    - Actually i want to modify pizza size.
-#    - i want to change my order.
-
-#- intent: item_type_start_negative
-#  examples: |
-#    - do you have [Americana](pizza_type)
-#    - do you offer pizza [Americana](pizza_type)
-#
-#- intent: item_type_start_positive
-#  examples: |
-#    - do you have [hawaii](pizza_type)
-#    - do you offer pizza [margherita](pizza_type)
-
-
-#- intent: item_type
-#  examples: |
-#    - [hawaii](pizza_type)
-#    - [margherita](pizza_type)
-
-#- intent: item_size
-#  examples: |
-#    - [small](pizza_size) size
-#    - [large](pizza_size) size 
-#    - I want to order [large](pizza_size) pizza
-#    - I want a [large](pizza_size) pizza
-#    - I think its large
-#    - [medium](pizza_size) pizza
-#    - huge pizza
-#    - Little pizza
-#    - Probably avg
-#    - [small](pizza_size) size
-#
-#- intent: item_topping
-#  examples: |
-#    - I want to order pizza with OLIVES
-#    - My favourite topping is cheese
-#    - I like olive
-#    - Pepperoni is my favorite topping
-#    - Definitely onnion
-#    - I love tomatoes
-#    - favorite topping is Corns
-#    - I love cheese
-#    - cheese
-#    - Olive
-#    - pepperoni
-#    - tomatoes
-#    - Onions
-#    - Corn
-
-#- intent: item_amount
-#  examples: |
-#    - [3](pizza_amount) pizzas
-#    - [2](pizza_amount) pizzas
-
 - intent: cancel_item_change
   examples: |
     - Nevermind, no changes.
@@ -367,7 +298,6 @@ nlu:
     - Cancel item change.
     - Keep it the same.
     - Disregard the changes.
-
 - synonym: Americana
   examples: |
     - Americana

@@ -93,7 +93,6 @@ class ActionOrderNumber(Action):
         name_person = tracker.get_slot("client_name")
         number_person = tracker.get_slot("phone_number")
         order_number = str(name_person + "_"+number_person)
-        print(order_number)
         return [SlotSet("order_number", order_number)]
 
 

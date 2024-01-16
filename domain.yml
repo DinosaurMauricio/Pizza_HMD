@@ -1,49 +1,28 @@
-version: "3.1"
-
+version: '3.1'
 intents:
-  - welcome_greet
-  - init_request
-  - init_pizza_question
-  - item_start_generic
-  - order_confirm_negative # maybe change the name to response_negative
-  - order_confirm_positive # maybe change the name to response_positive
-  - item_change
-  #- extra_order_negative # missing everything
-  #- extra_order_positive # missing everything
-  - order_take_home
-  - order_delivery
-  - order_delivery_address
-  #- order_confirm_final # missing everything
-  #- item_confirm_no # missing everything
-  #- item_confirm_yes # missing everything
-  - response_negative
-  #- response_positive
-  - response_name_phone # Raymond is the client name and phone is 098765432
-  #- item_change_request_without_entity
-  #- item_change_start_negative
-  #- item_change_start_positive
-  #- item_type
-  #- item_size
-  #- item_topping
-  #- item_amount
-  - out_of_scope
-
-  #- item_type_start_negative
-  #- item_type_start_positive
-
-  - cancel_item_change
-
+- cancel_item_change
+- init_pizza_question
+- init_request
+- item_change
+- item_start_generic
+- order_confirm_negative
+- order_confirm_positive
+- order_delivery
+- order_delivery_address
+- order_take_home
+- out_of_scope
+- response_name_phone
+- response_negative
+- welcome_greet
 responses:
   utter_out_of_scope:
-    - text: Sorry, I can't handle that request.
+  - text: Sorry, I can't handle that request.
   utter_welcome_greet:
   - text: Hello There! Welcome to Pizzbot. How can I help you?
   utter_init_request:
-  - text: Okay. In today's menu, we have Funghi, Hawaii, Margherita, Pepperoni, Vegetarian,
-      all available in sizes Small, Medium or Large . What would you like to have?
+  - text: Okay. In today's menu, we have Funghi, Hawaii, Margherita, Pepperoni, Vegetarian, all available in sizes Small, Medium or Large . What would you like to have?
   utter_init_pizza_question:
-  - text: For pizza without meat we have.... For pizza without cheese we have. Sizes
-      available are Small, Medium and Large. What would you love to have?
+  - text: For pizza without meat we have.... For pizza without cheese we have. Sizes available are Small, Medium and Large. What would you love to have?
   utter_ask_pizza_size:
   - text: What size of pizza do you want?
   utter_ask_pizza_type:
@@ -55,84 +34,43 @@ responses:
   utter_order_confirm_positive:
   - text: Great. Anything else?
   utter_item_change:
-  - text: Ok! So you want {pizza_amount} {pizza_type} pizzas in {pizza_size}. Is that
-      correct?
-  #utter_extra_order:
-  #- text: Would you like to order anything else?
-  #utter_final_order:
-  #- text: Your total order is {pizza_amount} {pizza_type} pizzas in {pizza_size}.
-  #    Do you prefer take away or home delivery?
+  - text: Ok! So you want {pizza_amount} {pizza_type} pizzas in {pizza_size}. Is that correct?
   utter_order_takeout:
   - text: Thank you {client_name}, we will contact you at {phone_number}.  Do you prefer takeaway or home delivery?
   utter_name_phone:
   - text: Here is your total order, {total_order}. what is your name and phone number?
   utter_order_complete:
-  - text: Here is your order number {order_number}. Your order will be ready in 15
-      minutes. Thanks for the opportunity to serve you
+  - text: Here is your order number {order_number}. Your order will be ready in 15 minutes. Thanks for the opportunity to serve you
   utter_delivery_address:
   - text: Please provide us with your home/office address
-  #utter_order_add:
-  #- text: which pizza like to add in your order?
   utter_default:
   - text: Sorry, I didn’t understand that. Can you please retype it?
-  #utter_item_type_start_negative:
-  #- text: sadly , we don't offer {pizza_type}
-  #utter_item_type_start_postive:
-  #- text: yes, we do offer {pizza_type} would you like to order one?
-  #utter_item_type:
-  #- text: what pizza type would you like?
-  #utter_item_size:
-  #- text: what size do you want your {pizza_type} in
- # utter_item_amount:
- # - text: how many would like?
-#  utter_order_processing_positive:
-#  - text: Great. Your order is being processed. Please wait. We will get back to your
-#      shortly?
-#  utter_order_processing_negative:
-#  - text: Sorry, there is a problem with your order
   utter_summarize_order:
-  - text: "Okay Great. Your order is {pizza_amount} {pizza_type} pizzas in {pizza_size} size. Can you confirm please?"
-
+  - text: Okay Great. Your order is {pizza_amount} {pizza_type} pizzas in {pizza_size} size. Can you confirm please?
   utter_cancel_item_change:
-  - text: "Sure, we won't make any changes to your pizza order, can you confirm your order?"
-
-
-actions: 
+  - text: Sure, we won't make any changes to your pizza order, can you confirm your order?
+actions:
+- utter_delivery_address
+- utter_order_complete
 - utter_welcome_greet
 - utter_init_request
-- utter_ask_pizza_size # Missing story, this is because as default for slots in forms, Rasa will look for a utter_ask_{slot_name}
-- utter_ask_pizza_type 
+- utter_ask_pizza_size
+- utter_ask_pizza_type
 - utter_ask_pizza_amount
 - utter_init_pizza_question
-- utter_order_confirm_negative # missing story
-- utter_order_confirm_positive # missing story
+- utter_order_confirm_negative
+- utter_order_confirm_positive
 - utter_item_change
-
-#- utter_extra_order
-#- utter_final_order # missing story
 - utter_order_takeout
 - utter_name_phone
-- utter_order_complete
-- utter_delivery_address
-#- utter_item_type_start_negative # missing story
-#- utter_item_type_start_postive
-#- utter_item_type
-#- utter_item_size # missing story
-#- utter_item_amount # missing story
-#- utter_order_processing_positive # missing story
-#- utter_order_processing_negative # missing story
-#- utter_order_add
-- utter_default # missing story
-- utter_summarize_order # missing story
-
+- utter_default
+- utter_summarize_order
 - utter_cancel_item_change
-
 - action_change_order
 - action_pizza_order_add
 - action_reset_pizza_form
 - action_order_number
 - action_total_order
-
 entities:
 - toppings
 - pizza_type
@@ -141,7 +79,6 @@ entities:
 - client_name
 - phone_number
 - order_number
-
 slots:
   toppings:
     type: any
@@ -151,40 +88,42 @@ slots:
   pizza_amount:
     type: any
     mappings:
-      - type: from_entity
-        entity: pizza_amount
+    - type: from_entity
+      entity: pizza_amount
   pizza_size:
     type: any
     mappings:
-      - type: from_entity
-        entity: pizza_size
+    - type: from_entity
+      entity: pizza_size
   pizza_type:
     type: any
     mappings:
-      - type: from_entity
-        entity: pizza_type
+    - type: from_entity
+      entity: pizza_type
   client_name:
     type: any
     mappings:
-      - type: from_entity
-        entity: client_name
+    - type: from_entity
+      entity: client_name
   phone_number:
     type: any
     mappings:
-      - type: from_entity
-        entity: phone_number
+    - type: from_entity
+      entity: phone_number
   order_number:
     type: any
     mappings:
-      - type: custom
+    - type: custom
   total_order:
     type: any
     mappings:
-      - type: custom
-
+    - type: custom
 forms:
   pizza_order_form:
     required_slots:
     - pizza_amount
     - pizza_type
     - pizza_size
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
