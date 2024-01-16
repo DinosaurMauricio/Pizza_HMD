@@ -31,6 +31,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
+from collections import Counter
 
 
 class ActionChangeOrder(Action):
@@ -96,9 +97,30 @@ class ActionOrderNumber(Action):
         return [SlotSet("order_number", order_number)]
 
 
-class ActionPizzaQuestions(Action):
+class ActionSideDishAdd(Action):
     def name(self):
-        return 'action_pizza_questions'
+        return 'action_add_side_dish'
 
     def run(self, dispatcher, tracker, domain):
-        return []
+
+        side_dish = tracker.get_slot("side_dish")
+        side_dishes_list = tracker.get_slot("side_dishes") or []
+        side_dishes_list.append(side_dish)
+
+        if side_dishes_list is not None:
+            element_counts = Counter(side_dishes_list)
+            side_dishes = [f'{value} {key}' for key,
+                           value in element_counts.items()]
+            # create the string of side dishes
+            total_side_dishes = " and ".join(side_dishes)
+
+        return [SlotSet("total_side_dishes", total_side_dishes), SlotSet("side_dishes", side_dishes_list)]
+
+
+class ActionSideDishRemoveAll(Action):
+    def name(self):
+        return 'action_remove_all_side_dishes'
+
+    def run(self, dispatcher, tracker, domain):
+        # remove all side dishes from the list
+        return [SlotSet("side_dishes", None), SlotSet("total_side_dishes", None)]

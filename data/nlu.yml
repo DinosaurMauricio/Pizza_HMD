@@ -298,6 +298,78 @@ nlu:
     - Cancel item change.
     - Keep it the same.
     - Disregard the changes.
+- intent: ask_for_side_dish_options
+  examples: |
+    - Can you tell me about the side dishes?
+    - What sides do you offer?
+    - Any choices for side dishes?
+    - Give me information about the available sides
+    - Tell me more about the side options
+    - What kind of side dishes are there?
+    - Share details about the sides on the menu.
+    - Are there any additional items for the meal?
+    - I'm curious about the side dish choices
+    - Could you recommend some side dishes?
+- intent: repeat_side_dish_menu
+  examples: |
+    - Can you repeat the side dish options?
+    - What were the side dishes again?
+    - I didn't catch the side dish choices. Can you repeat them?
+    - Can you tell me the side dishes once more?
+    - I forgot the side dish menu. Repeat it for me, please
+    - I need to hear the side dishes again
+    - What are the side dish options one more time?
+    - I missed the side dishes. Repeat them, please
+    - I want to hear the side dish menu again
+    - Repeat the side dishes, please
+- intent: order_side_dish
+  examples: |
+    - I'd like to order [French Fries](side_dish).
+    - Can you add [Chicken Wings](side_dish) to my order?
+    - Give me [Meatball Subs](side_dish) with my pizza, please.
+    - Include [Caprese Salad](side_dish) in my order.
+    - Add [French Fries](side_dish) as a side dish.
+    - Please put [Chicken Wings](side_dish) in my order.
+    - I'm craving [Meatball Subs](side_dish) today.
+    - Make sure to include [Caprese Salad](side_dish) in my order.
+    - I want [French Fries](side_dish) with my meal.
+    - Include [Chicken Wings](side_dish) as one of the sides.
+    - Can I get [Meatball Subs](side_dish) with my order?
+    - Add [Caprese Salad](side_dish) to my meal.
+    - [French Fries](side_dish) would be a great addition.
+    - Please add [Chicken Wings](side_dish) to my order.
+    - I want [Meatball Subs](side_dish).
+    - I want [Caprese Salad](side_dish).
+    - I'd like [French Fries](side_dish).
+    - I want [Chicken Wings](side_dish).
+    - [Meatball Subs](side_dish)
+    - [Caprese Salad](side_dish)
+    - [French Fries](side_dish)
+    - [Chicken Wings](side_dish)
+    - I'd like [Caprese Salad](side_dish) on the side.
+    - I want [French Fries](side_dish) as a side dish.
+    - [Chicken Wings](side_dish) would complete my order.
+    - Include [Meatball Subs](side_dish) in my meal.
+    - Add [Caprese Salad](side_dish) to my order, please.
+- intent: cancel_side_dish
+  examples: |
+    - Nevermind, no side dish.
+    - Cancel the side dish.
+    - No side dish, please.
+    - I've changed my mind on the side dish.
+    - Scratch the side dishes.
+    - Don't add anything.
+    - Cancel side dish.
+    - Disregard the side dishes.
+    - I don't want a side dish.
+    - I don't want a side dish anymore.
+    - I don't want a side dish after all.
+    - Changed my mind on the side dish.
+    - I just want the pizza, afterall.
+    - I just want the pizza, no side dish.
+    - I dont't want any side dish
+
+
 - synonym: Americana
   examples: |
     - Americana
@@ -442,3 +514,46 @@ nlu:
     - Veggie blend
     - Vegetarian option
     - Veggie choice
+- synonym: Chicken Wings
+  examples: |
+    - Wings
+    - Drumettes
+    - Winglets
+    - Wing Pieces
+    - Chicken Drumettes
+- synonym: Meatball Subs
+  examples: |
+    - Meatball Sandwich
+    - Submarine Sandwich with Meatballs
+    - Meatball Hoagie
+    - Subs with Meatballs
+    - Italian Meatball Sub
+    - Meatball Grinder
+    - Meatball Hero
+    - Hoagie with Meatballs
+    - Meatball Submarine
+    - Sub Roll with Meatballs
+- synonym: Caprese Salad
+  examples: |
+    - Tomato Salad with Mozzarella
+    - Fresh Tomato and Mozzarella Salad
+    - Classic Caprese
+    - Mozzarella and Tomato Dish
+    - Tomato and Cheese Delight
+    - Basil Infused Tomato Salad
+    - Italian Tomato and Mozzarella Mix
+    - Tomato and Cheese Medley
+    - Traditional Caprese Dish
+    - Mozzarella Tomato Plate
+- synonym: French Fries
+  examples: |
+    - Fries
+    - Potato Fries
+    - Thin Cut Potatoes
+    - Golden Fries
+    - Crispy Potato Sticks
+    - Fried Potato Strips
+    - Skinny Potatoes
+    - Deep-Fried Potato Slices
+    - Classic Fries
+    - Traditional French Fries

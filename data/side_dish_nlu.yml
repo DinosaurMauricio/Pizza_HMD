@@ -1,0 +1,10 @@
+nlu:
+  - lookup: meat_side_dishes
+    examples: |
+      - Chicken Wings
+      - Meatball Subs
+
+  - lookup: vegetarian_side_dishes
+    examples: |
+      - Caprese Salad
+      - French Fries

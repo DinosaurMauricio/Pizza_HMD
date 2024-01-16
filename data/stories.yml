@@ -17,6 +17,7 @@ stories:
   - action: utter_summarize_order
   - intent: order_confirm_positive
   - action: utter_order_confirm_positive
+  - checkpoint: pizza_order_confirmed
 
 - story: change the pizza order
   steps:
@@ -32,11 +33,12 @@ stories:
     entities:
       - pizza_type: "Pepperoni"
       - pizza_size: "Small"
-      - pizza_amount: "three"
+      - pizza_amount: "Three"
   - action: action_change_order
   - action: utter_item_change
   - intent: order_confirm_positive
   - action: utter_order_confirm_positive
+  - checkpoint: pizza_order_confirmed
 
 - story: cancel pizza order change and confirm order
   steps:
@@ -45,6 +47,7 @@ stories:
   - action: utter_cancel_item_change
   - intent: order_confirm_positive 
   - action: utter_order_confirm_positive
+  - checkpoint: pizza_order_confirmed
 
 - story: get details customer details
   steps:
@@ -59,3 +62,56 @@ stories:
   steps:
   - intent: order_delivery
   - action: utter_delivery_address
+
+- story: order side dish
+  steps:
+  #- checkpoint: pizza_order_confirmed
+  - intent: order_side_dish
+    entities:
+    - side_dish: "Caprese Salad"
+  - action: action_add_side_dish
+  - action: utter_order_side_dish
+
+- story: question on side dish menu + add side dish
+  steps:
+  #- checkpoint: pizza_order_confirmed
+  - intent: ask_for_side_dish_options
+  - action: utter_ask_for_side_dish_options
+  - intent: order_side_dish
+    entities:
+    - side_dish: "French fries"
+  - action: action_add_side_dish
+  - action: utter_order_side_dish
+
+- story: repeat side dish menu + add side
+  steps:
+  #- checkpoint: pizza_order_confirmed
+  - intent: ask_for_side_dish_options
+  - action: utter_ask_for_side_dish_options
+  - intent: repeat_side_dish_menu
+  - action: utter_repeat_side_dish_menu
+  - intent: order_side_dish
+    entities:
+    - side_dish: "Chicken wings"
+  - action: action_add_side_dish
+  - action: utter_order_side_dish
+
+- story: cancel side dish + repeat side dish menu
+  steps:
+  #- checkpoint: pizza_order_confirmed
+  - intent: ask_for_side_dish_options
+  - action: utter_ask_for_side_dish_options
+  - intent: repeat_side_dish_menu
+  - action: utter_repeat_side_dish_menu
+  - intent: cancel_side_dish
+  - action: action_remove_side_dishes
+  - action: utter_cancel_side_dish
+
+- story: cancel side dish order
+  steps:
+  #- checkpoint: pizza_order_confirmed
+  - intent: ask_for_side_dish_options
+  - action: utter_ask_for_side_dish_options
+  - intent: cancel_side_dish
+  - action: action_remove_side_dishes
+  - action: utter_cancel_side_dish
