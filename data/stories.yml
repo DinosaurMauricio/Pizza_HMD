@@ -26,29 +26,29 @@ stories:
   - action: utter_order_confirm_negative
   - checkpoint: change_pizza_order
 
-- story: change order
-  steps:
-  - checkpoint: change_pizza_order
-  - intent: item_change
-    entities:
-      - pizza_type: "Pepperoni"
-      - pizza_size: "Small"
-      - pizza_amount: "three"
-  - action: action_change_order
-  - action: utter_item_change
-  - checkpoint: completed_order
-
+#- story: change order
+#  steps:
+#  - checkpoint: change_pizza_order
+#  - intent: item_change
+#    entities:
+#      - pizza_type: "Pepperoni"
+#      - pizza_size: "Small"
+#      - pizza_amount: "three"
+#  - action: action_change_order
+#  - action: utter_item_change
+#  - checkpoint: completed_order
+#
 - story: cancel pizza order change and confirm order
   steps:
   - checkpoint: change_pizza_order
   - intent: cancel_item_change
   - action: utter_cancel_item_change
-  - intent: utter_order_confirm_positive
+  - intent: order_confirm_positive # here issue lol
   - checkpoint: completed_order
 
 - story: complete order + get details
   steps:
-  - checkpoint: completed_order
+  #- checkpoint: completed_order
   - intent: response_negative
   - action: action_total_order
   - action: utter_name_phone
@@ -74,5 +74,37 @@ stories:
   - action: utter_order_complete
 
 
-
-
+- story: Cancel order change and confirm order
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: two
+    - pizza_type: Hawaii
+    - pizza_size: 12"
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_size: 12"
+  - slot_was_set:
+    - pizza_type: Hawaii
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_size: 12"
+  - slot_was_set:
+    - pizza_type: Hawaii
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_summarize_order
+  - intent: order_confirm_negative
+  - action: utter_item_change
+  - action: utter_order_confirm_negative
+  - intent: cancel_item_change
+  - action: utter_cancel_item_change
+  - intent: order_confirm_positive
+  - action: action_total_order
+  - slot_was_set:
+    - total_order: two Hawaii is of 12"

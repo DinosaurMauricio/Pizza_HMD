@@ -27,3 +27,13 @@ rules:
   steps:
   - intent: init_pizza_question
   - action: utter_init_pizza_question
+
+- rule: change order
+  steps:
+  - intent: item_change
+    entities:
+      - pizza_type: "Pepperoni"
+      - pizza_size: "Small"
+      - pizza_amount: "three"
+  - action: action_change_order
+  - action: utter_item_change
