@@ -70,7 +70,7 @@ responses:
   - text: Here is your order number {order_number}. Your order will be ready in 15
       minutes. Thanks for the opportunity to serve you
   utter_delivery_address:
-  - text: Please provide us with your home/ office address
+  - text: Please provide us with your home/office address
   #utter_order_add:
   #- text: which pizza like to add in your order?
   utter_default:

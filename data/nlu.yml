@@ -210,16 +210,26 @@ nlu:
 
 - intent: order_delivery_address
   examples: |
-    - my address is #46, 655 avenue du techno pole
-    - #46, 655 avenue du techno pole
-    - house number 46 street 655 avenue du technopole
-    - house num 46  655 avenue du techno pole street
-    - House No 46  655 avenue du techno pole street
-    - House No. 46  655 avenue du techno pole street
-    - my address is house number 46 street 655 avenue du techno pole
-    - my address is house num 46  655 avenue du techno pole street
-    - my address is No 46  655 avenue du techno pole street
-    - my address is No. 46  655 avenue du techno pole street
+    - my address is #123, 456 Main Street
+    - #789, 321 Elm Avenue, Apt 5B
+    - house number 987, 654 Oak Lane
+    - house num 234, 567 Pine Street, Unit 8
+    - Building No 876, 543 Maple Avenue
+    - Apartment No. 543, 210 Birch Lane
+    - my address is house number 345, 678 Cedar Street
+    - my address is house num 901, 234 Walnut Avenue, Suite 12
+    - my address is No 678, 901 Spruce Lane
+    - my address is No. 345, 678 Redwood Street
+    - I live at #567, 890 Cypress Avenue
+    - #432, 109 Pineapple Lane is my address
+    - You can find me at house number 210 on street 987 Sycamore Avenue
+    - The address is house num 876, street 543 Poplar Lane
+    - Building No 234, 567 Oak Avenue is where I live
+    - No. 876 on street 543 Cedar Lane is my address
+    - I'm located at #789, 012 Fir Street
+    - #345, 678 Hemlock Lane is my current address
+    - Find me at house number 901, street 234 Birch Avenue
+    - House num 123, 456 Pine Street is where I reside
 
 - intent: response_name_phone
   examples: |
@@ -244,8 +254,7 @@ nlu:
     - no way
     - not really
     - not at all
-    - I don't think so
-    - I don't believe so
+    - negative
 
 - intent: order_confirm_positive
   examples: |
@@ -265,17 +274,16 @@ nlu:
 
 - intent: order_confirm_negative
   examples: |
-    - no, that's not right
-    - nah, that's incorrect
-    - nope, that's not it
-    - not really, that's not correct
-    - negative, that's not the order
-    - not at all, that's wrong
+    - I don't think so
+    - I don't believe so
+    - that's not right
+    - that's incorrect
+    - that's not it
+    - that's not correct
+    - that's not the order
+    - that's wrong
     - I'm afraid not, that's not the correct one
-    - no way, that's not the order
-    - No, that's incorrect
-    - Nope, that's not it
-    - Noo, that's not right
+    - that's not the order
 
     
 - intent: out_of_scope

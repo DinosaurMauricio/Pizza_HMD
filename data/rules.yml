@@ -28,12 +28,10 @@ rules:
   - intent: init_pizza_question
   - action: utter_init_pizza_question
 
-- rule: change order
+- rule: give total order + start delivery details
   steps:
-  - intent: item_change
-    entities:
-      - pizza_type: "Pepperoni"
-      - pizza_size: "Small"
-      - pizza_amount: "three"
-  - action: action_change_order
-  - action: utter_item_change
+  - action: utter_order_confirm_positive
+  - intent: response_negative
+  - action: action_total_order
+  - action: utter_name_phone
+  
