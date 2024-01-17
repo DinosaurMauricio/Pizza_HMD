@@ -2,7 +2,7 @@ nlu:
   - lookup: meat_side_dishes
     examples: |
       - Chicken Wings
-      - Meatball Subs
+      - Bacon Jalapeño
 
   - lookup: vegetarian_side_dishes
     examples: |

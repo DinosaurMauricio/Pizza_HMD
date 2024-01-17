@@ -114,6 +114,8 @@ class ActionSideDishAdd(Action):
             # create the string of side dishes
             total_side_dishes = " and ".join(side_dishes)
 
+            dispatcher.utter_message(text=f"Adding {side_dish} to your order")
+
         return [SlotSet("total_side_dishes", total_side_dishes), SlotSet("side_dishes", side_dishes_list)]
 
 
@@ -124,3 +126,22 @@ class ActionSideDishRemoveAll(Action):
     def run(self, dispatcher, tracker, domain):
         # remove all side dishes from the list
         return [SlotSet("side_dishes", None), SlotSet("total_side_dishes", None)]
+
+
+class ActionSideDishRemove(Action):
+    def name(self):
+        return 'action_remove_side_dish'
+
+    def run(self, dispatcher, tracker, domain):
+        side_dish = tracker.get_slot("side_dish")
+        side_dishes_list = tracker.get_slot("side_dishes")
+        side_dishes_list.remove(side_dish)
+
+        if side_dishes_list is not None:
+            dispatcher.utter_message(
+                text=f"Removing {side_dish} from your order")
+        else:
+            dispatcher.utter_message(
+                text="You have no side dishes in your order")
+
+        return [SlotSet("side_dish", side_dish), SlotSet("side_dishes", side_dishes_list)]

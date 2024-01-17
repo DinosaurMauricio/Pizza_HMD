@@ -47,3 +47,14 @@ rules:
     - intent: order_delivery_address
     - action: action_order_number
     - action: utter_order_complete
+    
+- rule: remove all side dishes
+  steps:
+    - intent: cancel_side_dish
+    - action: action_remove_all_side_dishes
+    - action: utter_cancel_side_dish
+
+- rule: confirm side dish order
+  steps:
+    - intent: side_dishes_order_confirm_positive
+    - action: utter_order_side_dish_complete

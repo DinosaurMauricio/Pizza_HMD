@@ -17,7 +17,7 @@ stories:
   - action: utter_summarize_order
   - intent: order_confirm_positive
   - action: utter_order_confirm_positive
-  - checkpoint: pizza_order_confirmed
+  #- checkpoint: pizza_order_confirmed
 
 - story: change the pizza order
   steps:
@@ -38,7 +38,7 @@ stories:
   - action: utter_item_change
   - intent: order_confirm_positive
   - action: utter_order_confirm_positive
-  - checkpoint: pizza_order_confirmed
+  #- checkpoint: pizza_order_confirmed
 
 - story: cancel pizza order change and confirm order
   steps:
@@ -47,7 +47,7 @@ stories:
   - action: utter_cancel_item_change
   - intent: order_confirm_positive 
   - action: utter_order_confirm_positive
-  - checkpoint: pizza_order_confirmed
+  #- checkpoint: pizza_order_confirmed
 
 - story: get details customer details
   steps:
@@ -70,7 +70,7 @@ stories:
     entities:
     - side_dish: "Caprese Salad"
   - action: action_add_side_dish
-  - action: utter_order_side_dish
+  - action: utter_added_side_dish
 
 - story: question on side dish menu + add side dish
   steps:
@@ -81,7 +81,7 @@ stories:
     entities:
     - side_dish: "French fries"
   - action: action_add_side_dish
-  - action: utter_order_side_dish
+  - action: utter_added_side_dish
 
 - story: repeat side dish menu + add side
   steps:
@@ -94,7 +94,32 @@ stories:
     entities:
     - side_dish: "Chicken wings"
   - action: action_add_side_dish
-  - action: utter_order_side_dish
+  - action: utter_added_side_dish
+
+- story: remove side dish from order
+  steps:
+  - intent: remove_side_dish
+    entities:
+    - side_dish: "French fries"
+  - action: action_remove_side_dish
+  - action: utter_remove_side_dish
+
+- story: add and remove side dish from order
+  steps:
+  - intent: ask_for_side_dish_options
+  - action: utter_ask_for_side_dish_options
+  - intent: repeat_side_dish_menu
+  - action: utter_repeat_side_dish_menu
+  - intent: order_side_dish
+    entities:
+    - side_dish: "Chicken wings"
+  - action: action_add_side_dish
+  - action: utter_added_side_dish
+  - intent: remove_side_dish
+    entities:
+    - side_dish: "Chicken wings"
+  - action: action_remove_side_dish
+  - action: utter_remove_side_dish
 
 - story: cancel side dish + repeat side dish menu
   steps:
@@ -104,7 +129,7 @@ stories:
   - intent: repeat_side_dish_menu
   - action: utter_repeat_side_dish_menu
   - intent: cancel_side_dish
-  - action: action_remove_side_dishes
+  - action: action_remove_all_side_dishes
   - action: utter_cancel_side_dish
 
 - story: cancel side dish order
@@ -113,5 +138,17 @@ stories:
   - intent: ask_for_side_dish_options
   - action: utter_ask_for_side_dish_options
   - intent: cancel_side_dish
-  - action: action_remove_side_dishes
+  - action: action_remove_all_side_dishes
   - action: utter_cancel_side_dish
+
+- story: finish order side dishes just added
+  steps:
+  - action: utter_added_side_dish
+  - intent: response_negative
+  - action: utter_order_side_dish_complete
+
+- story: finish order side dishes just removed
+  steps:
+    - action: utter_remove_side_dish
+    - intent: response_negative
+    - action: utter_order_side_dish_complete

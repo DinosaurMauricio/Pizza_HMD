@@ -18,6 +18,8 @@ intents:
 - order_side_dish
 - repeat_side_dish_menu
 - cancel_side_dish
+- remove_side_dish
+- side_dishes_order_confirm_positive
 
 responses:
   utter_out_of_scope:
@@ -55,13 +57,17 @@ responses:
   utter_cancel_item_change:
   - text: Sure, we won't make any changes to your pizza order, can you confirm your order?
   utter_ask_for_side_dish_options:
-  - text: We have the following side dishes available in the menu, French Fries, Chicken Wings, Meatball Subs, Caprese Salad. What would you like to have?
+  - text: We have the following side dishes available in the menu, French Fries, Chicken Wings, Bacon Jalapeño, Caprese Salad. What would you like to have?
   utter_repeat_side_dish_menu:
-  - text: We have French Fries, Chicken Wings, Meatball Subs, Caprese Salad. What would you like to have?
+  - text: We have French Fries, Chicken Wings, Bacon Jalapeño, Caprese Salad. What would you like to have?
   utter_cancel_side_dish:
   - text: Sure, we won't add any side dish to your order, can you confirm your order?
-  utter_order_side_dish:
-  - text: Okay Great. Can you confirm you want {total_side_dishes} added to your order, please?
+  utter_added_side_dish:
+  - text: Great. Anything else?
+  utter_remove_side_dish:
+  - text: You have {total_side_dishes} as side dishes in your order. Anything else?
+  utter_order_side_dish_complete:
+  - text: We will add {total_side_dishes} to your order, can you confirm it?
 
 
 actions:
@@ -84,14 +90,17 @@ actions:
 - utter_ask_for_side_dish_options
 - utter_repeat_side_dish_menu
 - utter_cancel_side_dish
-- utter_order_side_dish
+- utter_added_side_dish
+- utter_remove_side_dish
+- utter_order_side_dish_complete
 - action_change_order
 - action_pizza_order_add
 - action_reset_pizza_form
 - action_order_number
 - action_total_order
 - action_add_side_dish
-- action_remove_side_dishes
+- action_remove_all_side_dishes
+- action_remove_side_dish
 entities:
 - toppings
 - pizza_type
