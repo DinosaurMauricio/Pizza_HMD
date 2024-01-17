@@ -54,7 +54,8 @@ rules:
     - action: action_remove_all_side_dishes
     - action: utter_cancel_side_dish
 
-- rule: confirm side dish order
+- rule : finish order side dishes + confirm order
   steps:
-    - intent: side_dishes_order_confirm_positive
-    - action: utter_order_side_dish_complete
+    - action: utter_side_dishes_order
+    - intent: response_negative
+    - action: utter_summarize_order

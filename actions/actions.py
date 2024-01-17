@@ -71,8 +71,22 @@ class ActionPizzaTotalOrder(Action):
         pizza_type = tracker.get_slot("pizza_type")
         pizza_amount = tracker.get_slot("pizza_amount")
 
+        side_dishes_list = tracker.get_slot("side_dishes")
+
+        total_side_dishes = ""
+
+        if side_dishes_list is not None:
+            element_counts = Counter(side_dishes_list)
+            side_dishes = [f'{value} {key}' for key,
+                           value in element_counts.items()]
+            # create the string of side dishes
+            total_side_dishes = " and ".join(side_dishes)
+
         order_details = str(pizza_amount + " " +
                             pizza_type + " is of "+pizza_size)
+
+        if total_side_dishes != "":
+            order_details = order_details + " with " + total_side_dishes
 
         return [SlotSet("total_order", order_details)]
 
@@ -135,13 +149,20 @@ class ActionSideDishRemove(Action):
     def run(self, dispatcher, tracker, domain):
         side_dish = tracker.get_slot("side_dish")
         side_dishes_list = tracker.get_slot("side_dishes")
-        side_dishes_list.remove(side_dish)
 
-        if side_dishes_list is not None:
+        if side_dishes_list is not None and side_dish in side_dishes_list:
+            side_dishes_list.remove(side_dish)
             dispatcher.utter_message(
                 text=f"Removing {side_dish} from your order")
-        else:
-            dispatcher.utter_message(
-                text="You have no side dishes in your order")
 
-        return [SlotSet("side_dish", side_dish), SlotSet("side_dishes", side_dishes_list)]
+            element_counts = Counter(side_dishes_list)
+            side_dishes = [f'{value} {key}' for key,
+                           value in element_counts.items()]
+            # create the string of side dishes
+            total_side_dishes = " and ".join(side_dishes)
+        else:
+            total_side_dishes = "no"
+            dispatcher.utter_message(
+                text=f"You have no {side_dish} in your order")
+
+        return [SlotSet("side_dish", side_dish), SlotSet("side_dishes", side_dishes_list), SlotSet("total_side_dishes", total_side_dishes)]

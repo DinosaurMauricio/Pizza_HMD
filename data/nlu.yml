@@ -391,18 +391,6 @@ nlu:
     - I just want the pizza, afterall.
     - I just want the pizza, no side dish.
     - I dont't want any side dish
-- intent: side_dishes_order_confirm_positive
-  examples: |
-    - yes, please add those side dishes
-    - yeah, those are the correct side dishes
-    - that's right, add those sides
-    - sure, that's the right side dish
-    - that's it for the side dishes
-    - yes, i like those side dishes
-    - affirmative, the order for side dishes is correct
-    - indeed, that's the right side dishes
-    - definitely, that's the side dishes
-    - of course, that's correct side dishes
 - synonym: Americana
   examples: |
     - Americana
