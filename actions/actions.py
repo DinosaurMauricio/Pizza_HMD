@@ -54,12 +54,22 @@ class ActionPizzaOrderAdd(Action):
         pizza_size = tracker.get_slot("pizza_size")
         pizza_type = tracker.get_slot("pizza_type")
         pizza_amount = tracker.get_slot("pizza_amount")
-        if pizza_size is None:
-            pizza_size = "standard"
-        order_details = str(pizza_amount + " " +
-                            pizza_type + " is of "+pizza_size)
-        old_order = tracker.get_slot("total_order")
-        return [SlotSet("total_order", [order_details]) if old_order is None else SlotSet("total_order", [old_order[0]+' and '+order_details])]
+
+        # check if the slot is empty
+        if pizza_size is None or pizza_type is None or pizza_amount is None:
+            return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("pizza_amount", None)]
+
+        pizzas_complete_order_list = tracker.get_slot(
+            "pizzas_complete_order") or []
+
+        pizzas_complete_order_list.append({
+            "size": pizza_size,
+            "type": pizza_type,
+            "amount": pizza_amount
+        })
+
+        # reset the slots
+        return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("pizza_amount", None), SlotSet("pizzas_complete_order", pizzas_complete_order_list)]
 
 
 class ActionPizzaTotalOrder(Action):
@@ -67,13 +77,13 @@ class ActionPizzaTotalOrder(Action):
         return 'action_total_order'
 
     def run(self, dispatcher, tracker, domain):
-        pizza_size = tracker.get_slot("pizza_size")
-        pizza_type = tracker.get_slot("pizza_type")
-        pizza_amount = tracker.get_slot("pizza_amount")
 
         side_dishes_list = tracker.get_slot("side_dishes")
+        pizzas_complete_order_list = tracker.get_slot(
+            "pizzas_complete_order")
 
-        total_side_dishes = ""
+        order_details = " and ".join(
+            [f"{pizza['amount']} {pizza['type']} {pizza['size']} size" for pizza in pizzas_complete_order_list])
 
         if side_dishes_list is not None:
             element_counts = Counter(side_dishes_list)
@@ -82,22 +92,10 @@ class ActionPizzaTotalOrder(Action):
             # create the string of side dishes
             total_side_dishes = " and ".join(side_dishes)
 
-        order_details = str(pizza_amount + " " +
-                            pizza_type + " is of "+pizza_size)
-
-        if total_side_dishes != "":
-            order_details = order_details + " with " + total_side_dishes
+            if total_side_dishes != "":
+                order_details = order_details + " with " + total_side_dishes
 
         return [SlotSet("total_order", order_details)]
-
-
-class ActionResetPizzaForm(Action):
-    def name(self):
-        return 'action_reset_pizza_form'
-
-    def run(self, dispatcher, tracker, domain):
-
-        return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("pizza_amount", None)]
 
 
 class ActionOrderNumber(Action):

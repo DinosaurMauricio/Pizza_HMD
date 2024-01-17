@@ -307,9 +307,14 @@ nlu:
     - Tell me more about the side options
     - What kind of side dishes are there?
     - Share details about the sides on the menu.
+    - Give me the side dish menu
     - Are there any additional items for the meal?
     - I'm curious about the side dish choices
     - Could you recommend some side dishes?
+    - Do you have any side dishes?
+    - What are the side dishes?
+    - What are the side dish options?
+    - What are the side dish choices?
 - intent: repeat_side_dish_menu
   examples: |
     - Can you repeat the side dish options?

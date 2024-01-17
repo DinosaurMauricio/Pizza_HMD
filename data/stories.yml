@@ -16,6 +16,7 @@ stories:
   steps:
   - action: utter_summarize_order
   - intent: order_confirm_positive
+  - action: action_pizza_order_add
   - action: utter_order_confirm_positive
   #- checkpoint: pizza_order_confirmed
 
@@ -37,6 +38,7 @@ stories:
   - action: action_change_order
   - action: utter_item_change
   - intent: order_confirm_positive
+  - action: action_pizza_order_add
   - action: utter_order_confirm_positive
   #- checkpoint: pizza_order_confirmed
 
@@ -46,6 +48,7 @@ stories:
   - intent: cancel_item_change
   - action: utter_cancel_item_change
   - intent: order_confirm_positive 
+  - action: action_pizza_order_add
   - action: utter_order_confirm_positive
   #- checkpoint: pizza_order_confirmed
 

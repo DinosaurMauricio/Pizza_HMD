@@ -99,6 +99,7 @@ entities:
 - pizza_type
 - pizza_size
 - pizza_amount
+- pizzas_complete_order
 - client_name
 - phone_number
 - order_number
@@ -111,6 +112,11 @@ slots:
     mappings:
     - type: from_entity
       entity: toppings
+  pizzas_complete_order:
+    type: list
+    mappings:
+    - type: from_entity
+      entity: pizzas_complete_order
   pizza_amount:
     type: any
     mappings:
