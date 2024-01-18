@@ -184,6 +184,11 @@ nlu:
     - I want my pizza in [medium](pizza_size) instead
     - I want my pizza in [large](pizza_size) instead
     - i prefer [small](pizza_size) instead
+    - rather have a [medium](pizza_size) instead
+    - i prefer [large](pizza_size) instead
+    - i would like [small](pizza_size) instead
+    - i rather have [vegetarian](pizza_type) instead
+    - i prefer [pepperoni](pizza_type) instead
     - i prefer [medium](pizza_size) [pepperoni](pizza_type) instead
     - i prefer [large](pizza_size) [hawaii](pizza_type) instead
     - i would like [small](pizza_size) [margherita](pizza_type) instead
