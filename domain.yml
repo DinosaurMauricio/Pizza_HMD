@@ -39,7 +39,7 @@ responses:
   utter_pizza_order_confirm_negative:
   - text: What would you like to change?
   utter_pizza_order_confirm_positive:
-  - text: Great we added your pizza to the order. Anything else?
+  - text: Great, we added your pizza to the order. Anything else?
   utter_item_change:
   - text: Ok! So you want {pizza_amount} {pizza_type} pizzas in {pizza_size}. Is that correct?
   utter_order_takeout:
@@ -49,9 +49,9 @@ responses:
   utter_order_complete:
   - text: Here is your order number {order_number}. Your order will be ready in 15 minutes. Thanks for the opportunity to serve you
   utter_delivery_address:
-  - text: Please provide us with your home/office address
+  - text: Please provide us with your home address
   utter_default:
-  - text: Sorry, I didn’t understand that. Can you please retype it?
+  - text: Sorry, I didn’t understand that. Can you please repeat it?
   utter_summarize_pizza_order:
   - text: Okay Great. Your order is {pizza_amount} {pizza_type} pizzas in {pizza_size} size. Can you confirm please?
   utter_summarize_complete_order:

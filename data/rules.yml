@@ -17,7 +17,6 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_summarize_pizza_order
-  
 - rule: out-of-scope
   steps:
   - intent: out_of_scope

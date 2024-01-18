@@ -20,33 +20,42 @@ nlu:
   examples: |
     - I want pizza
     - I want to order a pizza
-    - I want to order large pizza with olives
-    - I want large tomatoes pizza
-    - I want a medium cheese pizza
-    - want to order pizza
-    - want to oder large cheese pizza
-    - want to order medium tomatoes pizza
-    - want to order least carnivore pizza
-    - need large pepperoni pizza
-    - want medium onions pizza
-    - want large pepper pizza
-    - pizza
-    - pizza please
-    - Pizza please
-    - Pizza will do
-    - pizza will do
-    - Pizza
-    - I like small olives pizza
-    - pepperoni small pizza
-    - large onions
-    - My favorite pizza is Small corn
-    - my favorite pizza is small corn
-    - cheese and SMALL
-    - medium and Olives
-    - peperoni, large
-    - small pizza with tomatoes topping
-    - medium with onion
-    - large corns
+    - What do you have for todays menu?
+    - What pizzas do you have for today?
+    - What do you have for today's menu?
+    - What pizzas do you have for today?
+    - What pizza do you offer?
+    - I feel like eating pizza
+    - I want to order pizza
+    - I'm in the mood for some pizza
+    - Can you show me the pizza options available?
+    - Tell me about your pizza offerings
+    - What's on the pizza menu today?
+    - I'm thinking of ordering pizza
+    - I'm hungry for pizza
+    - Can you provide details on your pizza selection?
+    - Let's explore the pizza choices
+    - I'd like to check out your pizza menu
+    - Tell me what pizzas you have
+    - I'm interested in ordering pizza
+    - What kind of pizza can I get?
+    - I'm curious about your pizza options
+    - What's available for pizza today?
+    - I want to see the pizza menu
+    - Can you recommend a pizza to me?
+    - What are the pizza choices for today?
+    - I'm interested in your pizza offerings
+    - What's on offer for pizza?
+    - I'd like to see the pizza options
+    - Tell me about the available pizza varieties
+    - What's the pizza selection like?
+    - I'm looking for information on your pizza menu
+    - I want to know more about your pizzas
+    - What's on the menu for pizza?
+    - Can you share details about your pizza selection?
+    - I'm considering ordering pizza
+    - Tell me about the pizza choices you have
+    - What's the pizza menu for today like?
 - intent: init_pizza_question
   examples: |
     - do you have pizza with no [meat](toppings)?
@@ -160,6 +169,27 @@ nlu:
     - [one](pizza_amount) pizza [funghi](pizza_type)
     - i'd like [three](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type)
     - I'd like to order [3](pizza_amount)  [small](pizza_size) [hawaii](pizza_type) please
+    - I want to order [two](pizza_amount) [large](pizza_size) [Pepperoni](pizza_type) pizzas, please
+    - Give me [four](pizza_amount) [medium](pizza_size) [Vegetarian](pizza_type) pizzas
+    - I think I'll choose [one](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
+    - Can you prepare [three](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) pizzas for me?
+    - I'd like to order [two](pizza_amount) [medium](pizza_size) [Margherita](pizza_type) pizzas
+    - How about [one](pizza_amount) [small](pizza_size) [Pepperoni](pizza_type) pizza?
+    - I want [two](pizza_amount) [large](pizza_size) [Pepperoni](pizza_type)
+    - How about [three](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizzas
+    - Give me [four](pizza_amount) [medium](pizza_size) [Hawaii](pizza_type) pizzas
+    - I think I'll go with [one](pizza_amount) [large](pizza_size) [Margherita](pizza_type) pizza
+    - I'd like to order [large](pizza_size) [Pepperoni](pizza_type) pizza, [three](pizza_amount) of them
+    - I'll go with [medium](pizza_size) [Vegetarian](pizza_type) pizza, [four](pizza_amount) please
+    - How about [one](pizza_amount) [small](pizza_size) [Pepperoni](pizza_type) pizza?
+    - I'll take [three](pizza_amount) [medium](pizza_size) [Hawaii](pizza_type) pizzas.
+    - Give me [large](pizza_size) [Funghi](pizza_type) pizza, [two](pizza_amount)
+    - I think I'll choose [small](pizza_size) [Margherita](pizza_type) pizza. 
+    - I'd like to order [Vegetarian](pizza_type) pizza, [two](pizza_amount) [large](pizza_size).
+    - I want [large](pizza_size) [Pepperoni](pizza_type) pizza.
+    - Give me [one](pizza_amount) [large](pizza_size) [Funghi](pizza_type) pizza for takeout
+    - I think I'll go with [two](pizza_amount) [medium](pizza_size) [Pepperoni](pizza_type) pizzas.
+    - Can you prepare [small](pizza_size) [Vegetarian](pizza_type) pizza? I'll take [four](pizza_amount) for takeout.
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -168,8 +198,8 @@ nlu:
     - I want a [pepperoni](pizza_type) instead.
     - I want a [hawaii](pizza_type) instead.
     - I want a [margherita](pizza_type) instead.
-    - actually , can I get [margherita](pizza_type)?
-    - actually , i 'd like [small](pizza_size) pizza.
+    - actually, can I get [margherita](pizza_type)?
+    - actually, i'd like [small](pizza_size) pizza.
     - I'd like in [small](pizza_size) instead.
     - i need [two](pizza_amount) instead
     - i rather have [three](pizza_amount) instead
@@ -207,6 +237,32 @@ nlu:
     - take away is fine
     - take out, please
     - i prefer take out, please
+    - I want it to go
+    - can I get that to go?
+    - make it to go, please
+    - for takeout, please
+    - to take away, if possible
+    - could you prepare it for take away?
+    - I'll take it with me
+    - is take away an option?
+    - can you pack that for take out?
+    - I'd like to take it home
+    - takeaway is my preference
+    - I'm taking it to go
+    - make it takeout, please
+    - for take away, thank you
+    - I prefer taking it out
+    - to go order, please
+    - I'd like to grab it to go
+    - make it takeaway
+    - packing it for take away
+    - take out order, please
+    - can you make it portable?
+    - for takeaway, thank you
+    - I want take away, please
+    - I'll take it with me, thanks
+    - is takeout available?
+
 - intent: order_delivery
   examples: |
     - delivery
@@ -221,7 +277,28 @@ nlu:
     - bring it to my doorstep
     - I want it delivered
     - arrange for delivery, please
-    - home delivery option
+    - deliver to my location
+    - arrange for home delivery
+    - bring it to my address
+    - for delivery to my place
+    - I prefer home delivery
+    - have it delivered, please
+    - to my doorstep, if possible
+    - arrange for a delivery service
+    - bring it to my house
+    - delivery to my residence
+    - I'd like doorstep delivery
+    - can you send it to my place?
+    - arrange for a home delivery, please
+    - to my home, for delivery
+    - deliver to my specified address
+    - I want it brought to my location
+    - arrange for it to be delivered
+    - doorstep drop-off, please
+    - delivery service, please
+    - I prefer delivery to my home
+    - bring it to my specified address
+    - arrange for delivery at my place
 - intent: order_delivery_address
   examples: |
     - my address is #123, 456 Main Street
@@ -280,6 +357,18 @@ nlu:
     - not really
     - not at all
     - negative
+    - definitely not
+    - I disagree
+    - not interested
+    - I'm afraid not
+    - I'll pass
+    - not feeling it
+    - I would rather not
+    - not in the mood
+    - not happening
+    - not a chance
+    - not on your life
+    - I don't believe so
 - intent: pizza_order_confirm_positive
   examples: |
     - yes, that's the correct pizza
@@ -295,6 +384,15 @@ nlu:
     - Yess, the pizza i wanted
     - yes, thats the size, type and amount of pizza i wanted
     - the pizza seems right
+    - absolutely, that's the correct pizza
+    - yes, that matches my order
+    - sure, that's the pizza I asked for
+    - of course, that's the right one
+    - correct, that's the pizza I'm expecting
+    - that's the pizza I'm looking for
+    - yes, that's the pizza I've been waiting for
+    - yes, that's the correct size and type
+    - that's exactly the pizza I wanted
 - intent: pizza_order_confirm_negative
   examples: |
     - The pizza order is not correct
@@ -324,25 +422,31 @@ nlu:
     - the pizza amount is not correct
 - intent: complete_order_confirm
   examples: |
-    - yes thats my order
+    - yes, that's my order
     - the order seems right
     - the order is correct
     - the order is right
-    - the order seems ok
+    - the order seems okay
     - yes, that's the correct order
-    - yeah, the order i correct
+    - yeah, the order is correct
     - sure, that's right, the order is correct
     - absolutely, my order is correct
     - indeed, that's the right order
-    - i think thats the correct one
-    - thats the complete order
-    - i agree its the complete order
+    - I think that's the correct one
+    - that's the complete order
+    - I agree, it's the complete order
     - everything looks good to me
     - everything seems right in my order
-    - yep, that's what i ordered
+    - yep, that's what I ordered
     - that will be all
+    - yes, the order is corect
     - that would be all, thanks
-    - the order is fine thank you
+    - the order is fine, thank you
+    - that's it, the order is correct
+    - that's the right one, the complete order
+    - I confirm, the order is correct
+    - that's my entire order, thank you
+    - I confirm everything in my order is right
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
@@ -498,10 +602,14 @@ nlu:
     - compact
     - petite
     - small sized
+    - Small size
+    - Small Sized
 - synonym: 12"
   examples: |
     - medium size
     - medium sized
+    - Medium size
+    - Medium Sized
     - 12
     - 12 inch
     - Medium
@@ -518,6 +626,8 @@ nlu:
   examples: |
     - large sized
     - large size
+    - Large sized
+    - Large Size
     - 14
     - 14 inch
     - large
@@ -537,7 +647,8 @@ nlu:
     - jumbo
     - XXL
     - size XXL
-    - extra large
+    - extra large size
+    - extra large sized
     - enormous
     - gigantic
     - massive

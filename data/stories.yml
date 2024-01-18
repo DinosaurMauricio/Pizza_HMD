@@ -32,7 +32,6 @@ stories:
   - intent: pizza_order_confirm_positive
   - action: action_pizza_order_add
   - action: utter_pizza_order_confirm_positive
-  #- checkpoint: pizza_order_confirmed
 
 - story: finish order
   steps:
