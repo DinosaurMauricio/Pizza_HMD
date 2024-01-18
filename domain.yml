@@ -5,8 +5,8 @@ intents:
 - init_request
 - item_change
 - item_start_generic
-- order_confirm_negative
-- order_confirm_positive
+- pizza_order_confirm_negative
+- pizza_order_confirm_positive
 - order_delivery
 - order_delivery_address
 - order_take_home
@@ -19,6 +19,7 @@ intents:
 - repeat_side_dish_menu
 - cancel_side_dish
 - remove_side_dish
+- complete_order_confirm
 
 responses:
   utter_out_of_scope:
@@ -35,26 +36,26 @@ responses:
   - text: What type of pizza do you want?
   utter_ask_pizza_amount:
   - text: How many pizzas do you want?
-  utter_order_confirm_negative:
+  utter_pizza_order_confirm_negative:
   - text: What would you like to change?
-  utter_order_confirm_positive:
-  - text: Great. Anything else?
+  utter_pizza_order_confirm_positive:
+  - text: Great we added your pizza to the order. Anything else?
   utter_item_change:
   - text: Ok! So you want {pizza_amount} {pizza_type} pizzas in {pizza_size}. Is that correct?
   utter_order_takeout:
   - text: Thank you {client_name}, we will contact you at {phone_number}.  Do you prefer takeaway or home delivery?
   utter_name_phone:
-  - text: Here is your total order, {total_order}. what is your name and phone number?
+  - text: To finish your order, what is your name and phone number?
   utter_order_complete:
   - text: Here is your order number {order_number}. Your order will be ready in 15 minutes. Thanks for the opportunity to serve you
   utter_delivery_address:
   - text: Please provide us with your home/office address
   utter_default:
   - text: Sorry, I didn’t understand that. Can you please retype it?
-  utter_summarize_order:
+  utter_summarize_pizza_order:
   - text: Okay Great. Your order is {pizza_amount} {pizza_type} pizzas in {pizza_size} size. Can you confirm please?
-  utter_cancel_item_change:
-  - text: Sure, we won't make any changes to your pizza order, can you confirm your order?
+  utter_summarize_complete_order:
+  - text: Your complete order is {total_order}. Can you confirm please?
   utter_ask_for_side_dish_options:
   - text: We have the following side dishes available in the menu, French Fries, Chicken Wings, Bacon Jalapeño, Caprese Salad. What would you like to have?
   utter_repeat_side_dish_menu:
@@ -74,18 +75,17 @@ actions:
 - utter_ask_pizza_type
 - utter_ask_pizza_amount
 - utter_init_pizza_question
-- utter_order_confirm_negative
-- utter_order_confirm_positive
+- utter_pizza_order_confirm_negative
+- utter_pizza_order_confirm_positive
 - utter_item_change
 - utter_order_takeout
 - utter_name_phone
 - utter_default
-- utter_summarize_order
-- utter_cancel_item_change
 - utter_ask_for_side_dish_options
 - utter_repeat_side_dish_menu
 - utter_cancel_side_dish
 - utter_side_dishes_order
+- utter_summarize_complete_order
 - action_change_order
 - action_pizza_order_add
 - action_reset_pizza_form

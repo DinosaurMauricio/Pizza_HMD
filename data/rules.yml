@@ -16,8 +16,8 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_summarize_order
-
+  - action: utter_summarize_pizza_order
+  
 - rule: out-of-scope
   steps:
   - intent: out_of_scope
@@ -27,14 +27,6 @@ rules:
   steps:
   - intent: init_pizza_question
   - action: utter_init_pizza_question
-
-- rule: give total order + start delivery details
-  steps:
-  - action: utter_order_confirm_positive
-  - intent: response_negative
-  - action: action_total_order
-  - action: utter_name_phone
-  
 
 - rule: order take home
   steps:
@@ -58,4 +50,12 @@ rules:
   steps:
     - action: utter_side_dishes_order
     - intent: response_negative
-    - action: utter_summarize_order
+    - action: action_total_order
+    - action: utter_summarize_complete_order
+
+- rule: order pizza + confirm its correct
+  steps:
+  - action: utter_summarize_pizza_order
+  - intent: pizza_order_confirm_positive
+  - action: action_pizza_order_add
+  - action: utter_pizza_order_confirm_positive

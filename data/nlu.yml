@@ -165,9 +165,15 @@ nlu:
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
     - I'd like a  [margherita](pizza_type) pizza instead.
     - can i get a [vegetarian](pizza_type) instead?
+    - I want a [pepperoni](pizza_type) instead.
+    - I want a [hawaii](pizza_type) instead.
+    - I want a [margherita](pizza_type) instead.
     - actually , can I get [margherita](pizza_type)?
     - actually , i 'd like [small](pizza_size) pizza.
     - I'd like in [small](pizza_size) instead.
+    - i need [two](pizza_amount) instead
+    - i rather have [three](pizza_amount) instead
+    - the [small](pizza_size) is too small, i want [medium](pizza_size)
     - actually, i would like a [small](pizza_size) [vegetarian](pizza_type).
     - wait, can i get  it in [large](pizza_size).
     - I want [funghi](pizza_type)
@@ -175,6 +181,12 @@ nlu:
     - I want to change the size to [medium](pizza_size)
     - I want to change the size to [large](pizza_size)
     - I want my pizza in [small](pizza_size) instead
+    - I want my pizza in [medium](pizza_size) instead
+    - I want my pizza in [large](pizza_size) instead
+    - i prefer [small](pizza_size) instead
+    - i prefer [medium](pizza_size) [pepperoni](pizza_type) instead
+    - i prefer [large](pizza_size) [hawaii](pizza_type) instead
+    - i would like [small](pizza_size) [margherita](pizza_type) instead
 - intent: order_take_home
   examples: |
     - take it away
@@ -230,6 +242,8 @@ nlu:
     - my address is via della malpensada 150
 - intent: response_name_phone
   examples: |
+    - Name is [Mauricio] and my number is [3331112222]
+    - [Mateo] and [3331112222]
     - My name is [Alice](client_name) and my number is [123456789](phone_number)
     - [Bob](client_name) and [987654321](phone_number)
     - [Charlie](client_name) [5551234567](phone_number)
@@ -240,6 +254,17 @@ nlu:
     - My name's [Hank](client_name), contact me at [2223334444](phone_number)
     - [Ivy](client_name) [1231231234](phone_number)
     - [Jack](client_name) here, my number is [9990001111](phone_number)
+    - [Katie](client_name) and my num [6667778888](phone_number)
+    - [Liam](client_name) and phone number [3334445555](phone_number)
+    - my phone number is [1112223333](phone_number) and my name is [Jose](client_name)
+    - phone is [2223334444](phone_number) and name is [Lisa](client_name)
+    - number is [3334445555](phone_number) and I'm [Mike](client_name)
+    - [Nancy](client_name) and number is [4445556666](phone_number)
+    - name is [Oscar] and number is [5556667777]
+    - I'm [Isabel](client_name), and my contact number is [1234567890](phone_number)
+    - [James] here, my phone is [9876543210](phone_number)
+    - I go by [Leo](client_name), and my phone is [9998887776](phone_number)
+
 - intent: response_negative
   examples: |
     - no
@@ -250,31 +275,69 @@ nlu:
     - not really
     - not at all
     - negative
-- intent: order_confirm_positive
+- intent: pizza_order_confirm_positive
   examples: |
-    - yes, that's the correct order
-    - yeah, it's correct
+    - yes, that's the correct pizza
+    - yeah, the pizza i correct 
     - sure, that's right
     - absolutely, that's it
-    - affirmative, that's correct
-    - indeed, that's the right one
-    - definitely, that's the order
-    - of course, that's correct
+    - indeed, that's the right pizza
+    - definitely, that's the pizza
+    - of course, that's correct pizza i ordered
     - certainly, that's the right one
-    - correct, that's it
-    - yes, that's correct
-    - Yess, that's the right order
-- intent: order_confirm_negative
+    - correct, that's the pizza i wanted
+    - that's the correct pizza
+    - Yess, the pizza i wanted
+    - yes, thats the size, type and amount of pizza i wanted
+    - the pizza seems right
+- intent: pizza_order_confirm_negative
   examples: |
-    - I don't think so
-    - I don't believe so
-    - that's not right
-    - that's incorrect
-    - that's not it
-    - that's not correct
-    - that's not the order
-    - that's wrong
-    - I'm afraid not, that's not the correct one
+    - The pizza order is not correct
+    - The pizza order is wrong
+    - The pizza order is incorrect
+    - the pizza is not right
+    - the pizza is not correct
+    - the pizza is wrong
+    - that's not the right pizza
+    - that's not the correct pizza
+    - that's not the pizza I ordered
+    - I ordered something different
+    - I ordered something else
+    - It's the wrong pizza
+    - It's not the right pizza
+    - It's not the correct pizza
+    - It's not the pizza I ordered
+    - There's a mistake on the pizza
+    - I don't want this pizza, its wrong
+    - There's an error on the pizza
+    - that's not the correct
+    - the type of pizza is wrong
+    - the size of pizza is wrong
+    - the amount of pizza is wrong
+    - the pizza size is not correct
+    - the pizza type is not correct
+    - the pizza amount is not correct
+- intent: complete_order_confirm
+  examples: |
+    - yes thats my order
+    - the order seems right
+    - the order is correct
+    - the order is right
+    - the order seems ok
+    - yes, that's the correct order
+    - yeah, the order i correct
+    - sure, that's right, the order is correct
+    - absolutely, my order is correct
+    - indeed, that's the right order
+    - i think thats the correct one
+    - thats the complete order
+    - i agree its the complete order
+    - everything looks good to me
+    - everything seems right in my order
+    - yep, that's what i ordered
+    - that will be all
+    - that would be all, thanks
+    - the order is fine thank you
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
@@ -288,15 +351,15 @@ nlu:
     - give me the directions to time square
 - intent: cancel_item_change
   examples: |
-    - Nevermind, no changes.
-    - Keep my order as is.
+    - Nevermind, no changes on the pizza.
+    - Keep my pizza order as is.
     - Cancel the changes.
-    - No modifications, please.
-    - I've changed my mind.
+    - No modifications on the pizza, please.
+    - I've changed my mind, the pizza is correct.
     - Scratch the changes.
-    - Don't alter anything.
-    - Cancel item change.
-    - Keep it the same.
+    - Don't alter anything on my pizza.
+    - Cancel the pizza change.
+    - Keep the pizza the same.
     - Disregard the changes.
 - intent: ask_for_side_dish_options
   examples: |
@@ -383,7 +446,7 @@ nlu:
   examples: |
     - Nevermind, no side dish.
     - Cancel the side dish.
-    - No side dish, please.
+    - Afertall without side dish, please.
     - I've changed my mind on the side dish.
     - Scratch the side dishes.
     - Don't add anything.
@@ -429,9 +492,11 @@ nlu:
     - little
     - compact
     - petite
+    - small sized
 - synonym: 12"
   examples: |
     - medium size
+    - medium sized
     - 12
     - 12 inch
     - Medium
@@ -446,6 +511,7 @@ nlu:
     - standard
 - synonym: 14"
   examples: |
+    - large sized
     - large size
     - 14
     - 14 inch
@@ -458,6 +524,7 @@ nlu:
     - Big
     - sizable
     - extensive
+    - big sized
 - synonym: 18"
   examples: |
     - jump size
@@ -473,6 +540,7 @@ nlu:
     - oversized
     - vast
     - mega
+    - mega sized
 - synonym: Funghi
   examples: |
     - Funghi

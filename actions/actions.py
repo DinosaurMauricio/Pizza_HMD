@@ -55,10 +55,6 @@ class ActionPizzaOrderAdd(Action):
         pizza_type = tracker.get_slot("pizza_type")
         pizza_amount = tracker.get_slot("pizza_amount")
 
-        # check if the slot is empty
-        if pizza_size is None or pizza_type is None or pizza_amount is None:
-            return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("pizza_amount", None)]
-
         pizzas_complete_order_list = tracker.get_slot(
             "pizzas_complete_order") or []
 
@@ -68,7 +64,7 @@ class ActionPizzaOrderAdd(Action):
             "amount": pizza_amount
         })
 
-        # reset the slots
+        # reset the slots and add the new pizza to the list
         return [SlotSet("pizza_type", None), SlotSet("pizza_size", None), SlotSet("pizza_amount", None), SlotSet("pizzas_complete_order", pizzas_complete_order_list)]
 
 
@@ -78,9 +74,9 @@ class ActionPizzaTotalOrder(Action):
 
     def run(self, dispatcher, tracker, domain):
 
-        side_dishes_list = tracker.get_slot("side_dishes")
+        side_dishes_list = tracker.get_slot("side_dishes") or []
         pizzas_complete_order_list = tracker.get_slot(
-            "pizzas_complete_order")
+            "pizzas_complete_order") or []
 
         order_details = " and ".join(
             [f"{pizza['amount']} {pizza['type']} {pizza['size']} size" for pizza in pizzas_complete_order_list])
@@ -94,6 +90,8 @@ class ActionPizzaTotalOrder(Action):
 
             if total_side_dishes != "":
                 order_details = order_details + " with " + total_side_dishes
+
+        # dispatcher.utter_message(response="utter_complete_order")
 
         return [SlotSet("total_order", order_details)]
 
@@ -126,7 +124,8 @@ class ActionSideDishAdd(Action):
             # create the string of side dishes
             total_side_dishes = " and ".join(side_dishes)
 
-            dispatcher.utter_message(text=f"Adding {side_dish} to your order")
+            dispatcher.utter_message(
+                text=f"We added {side_dish} to your order")
 
         return [SlotSet("total_side_dishes", total_side_dishes), SlotSet("side_dishes", side_dishes_list)]
 
@@ -146,12 +145,12 @@ class ActionSideDishRemove(Action):
 
     def run(self, dispatcher, tracker, domain):
         side_dish = tracker.get_slot("side_dish")
-        side_dishes_list = tracker.get_slot("side_dishes")
+        side_dishes_list = tracker.get_slot("side_dishes") or []
 
         if side_dishes_list is not None and side_dish in side_dishes_list:
             side_dishes_list.remove(side_dish)
             dispatcher.utter_message(
-                text=f"Removing {side_dish} from your order")
+                text=f"We removed {side_dish} from your order")
 
             element_counts = Counter(side_dishes_list)
             side_dishes = [f'{value} {key}' for key,
@@ -159,8 +158,10 @@ class ActionSideDishRemove(Action):
             # create the string of side dishes
             total_side_dishes = " and ".join(side_dishes)
         else:
-            total_side_dishes = "no"
             dispatcher.utter_message(
                 text=f"You have no {side_dish} in your order")
+
+        if not side_dishes_list:
+            total_side_dishes = "nothing"
 
         return [SlotSet("side_dish", side_dish), SlotSet("side_dishes", side_dishes_list), SlotSet("total_side_dishes", total_side_dishes)]
