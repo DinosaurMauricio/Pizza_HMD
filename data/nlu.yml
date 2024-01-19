@@ -458,18 +458,6 @@ nlu:
     - book a flight from milan to ny
     - how far is the square
     - give me the directions to time square
-- intent: cancel_item_change
-  examples: |
-    - Nevermind, no changes on the pizza.
-    - Keep my pizza order as is.
-    - Cancel the changes.
-    - No modifications on the pizza, please.
-    - I've changed my mind, the pizza is correct.
-    - Scratch the changes.
-    - Don't alter anything on my pizza.
-    - Cancel the pizza change.
-    - Keep the pizza the same.
-    - Disregard the changes.
 - intent: ask_for_side_dish_options
   examples: |
     - Can you tell me about the side dishes?
@@ -768,3 +756,68 @@ nlu:
     - Deep-Fried Potato Slices
     - Classic Fries
     - Traditional French Fries
+
+# vague conversation
+- intent: promotions_faq/ask_general_pizza_promotions
+  examples: |
+    - What offers do you have?
+    - What are your offers?
+    - Do you have any deals?
+    - What deals do you have?
+    - Any specials for today?
+    - What are your specials?
+    - Tell me about you promotions
+    - promotions
+    - offers 
+    - Deals
+    - Specials 
+    - today specials
+    - give me promotions
+    - give specials
+    - Do you have any offers?
+    - Any promotions available?
+    - Tell me about your current promotions.
+    - Are there any discounts right now?
+    - What promotions do you offer?
+    - Any special discounts today?
+    - Can you share details on your current deals?
+    - What kind of specials are available?
+    - Any exclusive offers today?
+    - What promotions are running currently?
+    - Can you tell me about your ongoing offers?
+    - Do you have any promotions for today?
+    - What are your current discounts?
+    - Any special deals on the menu?
+    - Can you inform me about your current specials?
+    - What promotions do you have for today?
+    - Any discounts on certain items?
+    - Tell me about your current offers and promotions.
+    - Are there any exclusive deals available?
+    - What are your current special offers?
+    - Any promotions I should know about?
+
+- intent: promotions_faq/ask_pizza_promotions
+  examples: |
+    - Any deals for [Margherita](pizza_type) pizza?
+    - What are the offers for [Funghi](pizza_type) pizza?
+    - Do you have promotions on [Pepperoni](pizza_type) pizza?
+    - Any discounts for [Vegetarian](pizza_type) pizza?
+    - Specials for [Hawaii](pizza_type) pizza?
+    - Deals on [Margherita](pizza_type)?
+    - What's the offer on [Funghi](pizza_type) pizza?
+    - Any promotions for [Pepperoni](pizza_type) pizza?
+    - Discounts on [Vegetarian](pizza_type) pizza?
+    - Specials for [Hawaii](pizza_type)?
+    - Any deals for [Margherita](pizza_type)?
+    - What are the current offers for [Funghi](pizza_type) pizza?
+    - Promotions on [Pepperoni](pizza_type) pizza?
+    - Discounts for [Vegetarian](pizza_type) pizza?
+    - Any specials for [Hawaii](pizza_type) pizza?
+    - What are the current offers for [Funghi](pizza_type)?
+    - Promotions on [Pepperoni](pizza_type)?
+    - Discounts for [Vegetarian](pizza_type)?
+    - Any specials for [Hawaii](pizza_type)?
+    - Tell me about the discounts on [Margherita](pizza_type).
+    - What promotions do you have for [Funghi](pizza_type)?
+    - Are there any deals on [Pepperoni](pizza_type)?
+    - Any discounts for [Vegetarian](pizza_type)?

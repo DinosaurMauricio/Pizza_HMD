@@ -1,0 +1,6 @@
+version: "3.1"
+nlu:
+- lookup: promotion_type
+  examples: |
+    - Duo Party
+    - Veggie Feast

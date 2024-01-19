@@ -1,6 +1,5 @@
 version: '3.1'
 intents:
-- cancel_item_change
 - init_pizza_question
 - init_request
 - item_change
@@ -20,6 +19,7 @@ intents:
 - cancel_side_dish
 - remove_side_dish
 - complete_order_confirm
+- promotions_faq
 
 responses:
   utter_out_of_scope:
@@ -64,6 +64,23 @@ responses:
   - text: Sure, we won't add any side dish to your order, can you confirm your order?
   utter_side_dishes_order:
   - text: You have {total_side_dishes} as side dishes in your order. Anything else?
+
+  utter_promotions_faq/ask_general_pizza_promotions:
+  - text: We have two promotions available! You can buy Duo Party which is 2 Pizzas and get 1 side dish for free or Veggie Feast where you buy 1 vegetarian pizza and get 2 side dishes of your choice for free. Would you like more details on any specific offer?
+
+
+  # it can ask about  funghi is included in the promotion "Sorry, Funghi is not included in the promotion"
+
+  # can you recommend me a good side dish for vegetarian pizza? "Sure, I recommend you to try the Caprese Salad"
+
+  # specific vegetarian promotions
+  utter_promotions_faq/ask_pizza_vegetarian_promotions:
+  - text: We have a Veggie Feast for Vegetarian pizzas, you can get 1 vegetarian and get 2 side dishes of your choice for free, would you like to order it?
+
+  # vague promotions
+  utter_promotions_faq/ask_vague_pizza_promotions:
+  - text: We have Duo Party promotion for all pizzas, you can get 2 and get 1 side dish of your choice for free, would you like to order it?
+
 
 
 actions:

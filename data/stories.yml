@@ -44,7 +44,7 @@ stories:
   steps:
   - action: action_pizza_order_add
   - action: utter_pizza_order_confirm_positive
-  - intent: response_negative #that would be all
+  - intent: response_negative
   - action: action_total_order
   - action: utter_summarize_complete_order
   - intent: complete_order_confirm
@@ -68,7 +68,6 @@ stories:
 
 - story: order add side dish
   steps:
-  #- checkpoint: pizza_order_confirmed
   - intent: order_side_dish
     entities:
     - side_dish: "Caprese Salad"
@@ -77,7 +76,6 @@ stories:
 
 - story: question on side dish menu + add side dish
   steps:
-  #- checkpoint: pizza_order_confirmed
   - intent: ask_for_side_dish_options
   - action: utter_ask_for_side_dish_options
   - intent: order_side_dish
@@ -88,7 +86,6 @@ stories:
 
 - story: repeat side dish menu + add side
   steps:
-  #- checkpoint: pizza_order_confirmed
   - intent: ask_for_side_dish_options
   - action: utter_ask_for_side_dish_options
   - intent: repeat_side_dish_menu
@@ -126,7 +123,6 @@ stories:
 
 - story: cancel side dish + repeat side dish menu
   steps:
-  #- checkpoint: pizza_order_confirmed
   - intent: ask_for_side_dish_options
   - action: utter_ask_for_side_dish_options
   - intent: repeat_side_dish_menu
@@ -137,7 +133,6 @@ stories:
 
 - story: cancel side dish order
   steps:
-  #- checkpoint: pizza_order_confirmed
   - intent: ask_for_side_dish_options
   - action: utter_ask_for_side_dish_options
   - intent: cancel_side_dish

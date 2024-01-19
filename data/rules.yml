@@ -58,3 +58,8 @@ rules:
   - intent: pizza_order_confirm_positive
   - action: action_pizza_order_add
   - action: utter_pizza_order_confirm_positive
+
+- rule: respond to FAQs
+  steps:
+  - intent: promotions_faq
+  - action: utter_promotions_faq

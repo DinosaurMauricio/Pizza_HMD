@@ -66,6 +66,9 @@ pipeline:
     epochs: 100
     constrain_similarities: yes
   - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 50
+    retrieval_intent: promotions_faq
 
 policies:
   - name: RulePolicy
