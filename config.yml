@@ -69,6 +69,12 @@ pipeline:
   - name: ResponseSelector
     epochs: 50
     retrieval_intent: promotions_faq
+  - name: ResponseSelector
+    epochs: 50
+    retrieval_intent: duo_party_faq
+  - name: ResponseSelector
+    epochs: 50
+    retrieval_intent: veggie_feast_faq
 
 policies:
   - name: RulePolicy

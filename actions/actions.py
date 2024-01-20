@@ -165,3 +165,22 @@ class ActionSideDishRemove(Action):
             total_side_dishes = "nothing"
 
         return [SlotSet("side_dish", side_dish), SlotSet("side_dishes", side_dishes_list), SlotSet("total_side_dishes", total_side_dishes)]
+
+
+class ActionHandleDetailsOnPromotion(Action):
+    def name(self):
+        return 'action_handle_details_on_promotion'
+
+    def run(self, dispatcher, tracker, dominan):
+        promotion_type = tracker.get_slot("promotion_type")
+
+        if promotion_type == "Duo Party":
+            dispatcher.utter_message(
+                response="utter_specific_duo_party_promotion")
+        elif promotion_type == "Veggie Feast":
+            dispatcher.utter_message(
+                response="utter_specific_veggie_feast_promotion")
+        else:
+            dispatcher.utter_message(response="utter_vague_promotion")
+
+        return []

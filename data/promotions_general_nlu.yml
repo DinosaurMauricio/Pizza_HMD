@@ -1,0 +1,160 @@
+version: "3.1"
+nlu:
+- intent: promotions_faq/ask_general_pizza_promotions
+  examples: |
+    - What offers do you have?
+    - What are your offers?
+    - Do you have any deals?
+    - What deals do you have?
+    - Any specials for today?
+    - What are your specials?
+    - Tell me about you promotions
+    - promotions information
+    - please provide offers info
+    - Deals details please
+    - Specials information please
+    - today specials 
+    - give me promotions information
+    - give specials details
+    - Do you have any offers?
+    - Any promotions available?
+    - Tell me about your current promotions.
+    - Are there any discounts right now?
+    - What promotions do you offer?
+    - Any special discounts today?
+    - Can you share details on your current deals?
+    - What kind of specials are available?
+    - Any exclusive offers today?
+    - What promotions are running currently?
+    - Can you tell me about your ongoing offers?
+    - Do you have any promotions for today?
+    - What are your current discounts?
+    - Any special deals on the menu?
+    - Can you inform me about your current specials?
+    - What promotions do you have for today?
+    - Any discounts on certain items?
+    - Tell me about your current offers and promotions.
+    - Are there any exclusive deals available?
+    - What are your current special offers?
+    - Any promotions I should know about?
+
+- intent: promotions_faq/ask_promotions_takeout
+  examples: |
+    - Does the promotions only apply on take away?
+    - Can the offers be on delivery?
+    - Are deals only available on take away?
+    - Can I order a promotion for delivery?
+    - Are the promotions limited to takeout orders only?
+    - Can I get the deals if I choose delivery instead of takeout?
+    - Do the offers apply to both takeout and delivery orders?
+    - Is takeout the only option for getting the deals?
+    - Do the promotional discounts apply to delivery as well?
+    - Are the deals exclusive to takeout orders?
+    - Can I order a promotion for home delivery?
+    - Do the special offers cover both takeout and delivery?
+    - Are the promotions available if I opt for delivery?
+    - Can I enjoy the deals when I choose delivery?
+    - Is takeout the only way to benefit from the promotions?
+    - Can I receive the promotional discounts for a delivered order?
+    - Are the offers valid for both takeout and delivery services?
+    - Can I get the promotional items delivered to my address?
+    - Is delivery included in the promotional offers?
+    - Can I apply the promotions when ordering for delivery?
+    - Are takeout promotions different from delivery promotions?
+    - Can I order a promotion and have it delivered to my location?
+    - can you order for take out your promotions?
+    - are your promotions available for delivery?
+
+- intent: promotions_faq/ask_how_to_apply_promotion
+  examples: |
+    - How can i apply a promotion?
+    - Can you tell me how deals work?
+    - How can i order a promotion?
+    - How do I use a promotion?
+    - Explain how deals work.
+    - Can you guide me through ordering a promotion?
+    - How do I apply a promotion?
+    - Tell me the steps to use a deal.
+    - How can I order a promotion?
+    - What's the process for applying promotions?
+    - Explain how to use deals.
+    - Can you help me understand ordering promotions?
+    - How do I redeem a promotion?
+    - Tell me how to apply a deal.
+    - What steps do I follow to order a promotion?
+    - Explain the process of applying promotions.
+    - How can I use a deal?
+    - Walk me through ordering promotions.
+    - What's the procedure for applying a promotion?
+    - Explain how to redeem deals.
+    - Can you guide me on ordering a promotion?
+    - How do I apply promotions to my order?
+  
+- intent: promotions_faq/ask_promotions_on_side_dishes
+  examples: |
+    - does your promotions include side dishes?
+    - do you include side dishes on your deals?
+    - Do your deals come with side dishes?
+    - Are side dishes included in your promotions?
+    - Do promotions have side items?
+    - Are side dishes part of your deals?
+    - Do your promotions include sides?
+    - Are there side dishes with your deals?
+    - Do deals include side items?
+    - Are side dishes part of your promotions?
+    - Do promotions offer side dishes?
+    - Are sides included in your deals?
+    - Do your promotions come with side items?
+    - Are side dishes part of the deal?
+    - Do deals include side dishes?
+    - Are there sides with your promotions?
+    - Do promotions cover side items?
+    - Are side dishes part of your current deals?
+    - Do your promotions feature side dishes?
+    - Are side items included in your deals?
+    - Do promotions include any sides?
+    - Are side dishes part of your current promotions?
+
+
+- intent: details_on_promotion 
+  examples: |
+    - i would like to know more about [Veggie Feast](promotion_type) please
+    - can you give me more dettails on [Veggie Feast](promotion_type)
+    - can you share the details on [Duo Party](promotion_type)
+    - what can i get for [Veggie Feast]?
+    - Tell me about [Veggie Feast](promotion_type).
+    - What's in the [Duo Party](promotion_type) promotion?
+    - Can you share details on [Veggie Feast](promotion_type)?
+    - What do I get with [Duo Party](promotion_type)?
+    - More info on [Veggie Feast](promotion_type), please.
+    - Details about [Duo Party](promotion_type)?
+    - What's included in [Veggie Feast](promotion_type)?
+    - Explain [Duo Party](promotion_type) to me.
+    - Tell me about [Veggie Feast](promotion_type), please.
+    - What's the deal with [Duo Party](promotion_type)?
+    - i would like to hear more about [Duo Party](promotion_type) 
+
+- intent: order_promotion
+  examples: |
+    - I'd like to order the [Duo Party](promotion_type) promotion.
+    - I want the [Duo Party](promotion_type)
+    - I'm interested in getting the [Veggie Feast](promotion_type).
+    - Include the [Duo Party](promotion_type) in my upcoming order.
+    - I want to order the [Veggie Feast](promotion_type)
+    - I'm need an order for the [Veggie Feast](promotion_type).
+    - I'd like to include the [Veggie Feast](promotion_type)
+    - Order the [Duo Party](promotion_type) promotion
+    - Can you arrange for the [Veggie Feast](promotion_type)?
+    - I want to order the [Duo Party](promotion_type) for takeout.
+    - Include the [Veggie Feast](promotion_type) promotion
+    - I'm placing an order, and I'd like to add the [Duo Party](promotion_type).
+    - Can I order the [Veggie Feast](promotion_type) promotion?
+    - I would like to order [Veggie Feast](promotion_type)
+    - I want to order [Duo Party](promotion_type)
+    - Can I get the [Veggie Feast](promotion_type), please?
+    - I'd like to order the [Duo Party](promotion_type).
+    - Add the [Veggie Feast](promotion_type) to my order.
+    - Place an order for the [Duo Party](promotion_type).
+    - Include the [Veggie Feast](promotion_type) in my order.
+    - Can you arrange the [Duo Party](promotion_type) for me?
+    - I'm interested in ordering the [Veggie Feast](promotion_type).

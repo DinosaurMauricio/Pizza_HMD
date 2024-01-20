@@ -1,0 +1,202 @@
+version: "3.1"
+nlu:
+- synonym: Americana
+  examples: |
+    - Americana
+- synonym: Calzone
+  examples: |
+    - Calzone
+- synonym: Caprese
+  examples: |
+    - Caprese
+- synonym: Crudo
+  examples: |
+    - Crudo
+- synonym: Chicken BBC
+  examples: |
+    - Chicken BBC
+- synonym: Rustica
+  examples: |
+    - Rustica
+- synonym: 10"
+  examples: |
+    - 10
+    - 10 inch
+    - small
+    - Small
+    - size S
+    - S
+    - small size
+    - 10-inch
+    - ten inches
+    - tiny
+    - little
+    - compact
+    - petite
+    - small sized
+    - Small size
+    - Small Sized
+- synonym: 12"
+  examples: |
+    - medium size
+    - medium sized
+    - Medium size
+    - Medium Sized
+    - 12
+    - 12 inch
+    - Medium
+    - medium
+    - normal
+    - twelve inch
+    - size M
+    - M
+    - 12-inch
+    - twelve inches
+    - regular
+    - standard
+- synonym: 14"
+  examples: |
+    - large sized
+    - large size
+    - Large sized
+    - Large Size
+    - 14
+    - 14 inch
+    - large
+    - size L
+    - L
+    - 14-inch
+    - fourteen inches
+    - big
+    - Big
+    - sizable
+    - extensive
+    - big sized
+- synonym: 18"
+  examples: |
+    - jump size
+    - 18
+    - jumbo
+    - XXL
+    - size XXL
+    - extra large size
+    - extra large sized
+    - enormous
+    - gigantic
+    - massive
+    - huge
+    - oversized
+    - vast
+    - mega
+    - mega sized
+- synonym: Funghi
+  examples: |
+    - Funghi
+    - Mushroom
+    - Mushrooms
+    - Mushroom pizza
+    - Mushrooms pizza
+    - Pizza Funghi
+    - Funghi flavor
+    - Pizza with mushrooms
+    - Funghi style
+    - Funghi topping
+    - Mushroom topping
+    - Mushrooms topping
+    - Mushroom-flavored
+- synonym: Hawaii
+  examples: |
+    - Hawaii
+    - Hawaiian
+    - Hawaiian style
+    - Hawaii pizza
+    - Pizza Hawaii
+    - Tropical pizza
+    - Pineapple and ham pizza
+    - Hawaiian delight
+    - Pacific flavor
+    - Aloha pizza
+    - Tropicana pizza
+- synonym: Margherita
+  examples: |
+    - Margherita
+    - margherita
+    - Classic Margherita
+    - Margherita style
+    - Margherita pizza
+    - Original Margherita
+    - Traditional Margherita
+    - Margherita flavor
+    - Classic Italian Margherita
+    - Authentic Margherita
+- synonym: Pepperoni
+  examples: |
+    - Pepperoni
+    - Pepp
+    - Classic Pepperoni
+    - Pepperoni style
+    - Pepperoni pizza
+    - Original Pepperoni
+    - Traditional Pepperoni
+    - Pepperoni flavor
+    - Classic Italian Pepperoni
+- synonym: Vegetarian
+  examples: |
+    - Vegetarian
+    - Vegetable
+    - Veggie
+    - Veggie delight
+    - Vegetarian pizza
+    - Vegetable pizza
+    - Garden pizza
+    - Green delight
+    - Veggie special
+    - Plant-based pizza
+    - Meatless pizza
+    - Veggie blend
+    - Vegetarian option
+    - Veggie choice
+- synonym: Chicken Wings
+  examples: |
+    - Wings
+    - Drumettes
+    - Winglets
+    - Wing Pieces
+    - Chicken Drumettes
+- synonym: Bacon Jalapeño
+  examples: |
+    - Becon
+    - Jalapeno
+    - Bacon Jalapeno
+    - Jalapeño
+    - Jalapeno Bites
+    - Bacon with Jalapeno
+    - Jalapenos with Bacon
+    - Bacon and Jalapeno
+    - Jalapeno and Bacon
+    - Bacon Jalapeno Bites
+    - Jalapeno Bacon Bites
+- synonym: Caprese Salad
+  examples: |
+    - Tomato Salad with Mozzarella
+    - Fresh Tomato and Mozzarella Salad
+    - Classic Caprese
+    - Mozzarella and Tomato Dish
+    - Tomato and Cheese Delight
+    - Basil Infused Tomato Salad
+    - Italian Tomato and Mozzarella Mix
+    - Tomato and Cheese Medley
+    - Traditional Caprese Dish
+    - Mozzarella Tomato Plate
+- synonym: French Fries
+  examples: |
+    - Fries
+    - Potato Fries
+    - Thin Cut Potatoes
+    - Golden Fries
+    - Crispy Potato Sticks
+    - Fried Potato Strips
+    - Skinny Potatoes
+    - Deep-Fried Potato Slices
+    - Classic Fries
+    - Traditional French Fries

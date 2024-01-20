@@ -63,3 +63,30 @@ rules:
   steps:
   - intent: promotions_faq
   - action: utter_promotions_faq
+
+- rule: details on promotions was asked
+  condition:
+  - slot_was_set:
+    - promotion_type: 
+        - "Duo Party"
+        - "Veggie Feast"
+        - null
+  steps:
+  - intent: details_on_promotion
+  - action: action_handle_details_on_promotion
+
+- rule: Promotion Duo Party FAQ
+  condition:
+  - slot_was_set:
+      - promotion_type: "Duo Party"
+  steps:
+  - intent: duo_party_faq
+  - action: utter_duo_party_faq
+
+- rule: Promotion Duo Party FAQ
+  condition:
+  - slot_was_set:
+      - promotion_type: "Veggie Feast"
+  steps:
+  - intent: veggie_feast_faq
+  - action: utter_veggie_feast_faq

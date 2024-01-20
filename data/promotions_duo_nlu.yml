@@ -1,0 +1,40 @@
+version: "3.1"
+nlu:
+- intent: duo_party_faq/ask_available_side_dishes
+  examples: |
+    - What sides do you offer for [Duo Party](promotion_type)?
+    - What are the side dishes for [Duo Party](promotion_type)?
+    - What sides are available for [Duo Party](promotion_type)?
+    - Which side dishes are available in [Duo Party](promotion_type)
+    - I'm intersted in [Duo Party](promotion_type), can you tell me what side dishes can i get?
+    - I would like to know the side dishes in [Duo Party](promotion_type)
+    - Can you tell me what is available for [Duo Party](promotion_type) on the side dishes
+    - Can you share the available side dishes on [Duo Party](promotion_type)?
+    - Share details about the side dishes in the [Duo Party](promotion_type).
+    - What comes on the side with the [Duo Party](promotion_type)?
+
+- intent: duo_party_faq/ask_on_available_pizzas
+  examples: |
+    - What pizzas are included in the [Duo Party](promotion_type)?
+    - Tell me about the available pizzas for [Duo Party](promotion_type).
+    - Which pizzas can I get with the [Duo Party](promotion_type)?
+    - Can you list the pizzas included in the [Duo Party](promotion_type)?
+    - I'm interested in [Duo Party](promotion_type), what pizzas are part of it?
+    - What are the pizza options for [Duo Party](promotion_type)?
+    - Share details about the pizzas available in [Duo Party](promotion_type).
+    - What kinds of pizzas come with the [Duo Party](promotion_type)?
+    - Tell me the pizza choices for [Duo Party](promotion_type).
+    - Which pizza flavors are included in the [Duo Party](promotion_type)?
+
+- intent: duo_party_faq/ask_mix_pizzas
+  examples: |
+    - Can I get different pizzas in the [Duo Party](promotion_type)?
+    - Can I get two different pizzas in the [Duo Party](promotion_type)?
+    - In the [Duo Party](promotion_type), can I get two different pizzas?
+    - Are mixed pizzas allowed in the [Duo Party](promotion_type)?
+    - Can I choose different pizza flavors for the [Duo Party](promotion_type)?
+    - Is it possible to mix and match pizzas in the [Duo Party](promotion_type)?
+    - Are there options to customize the pizza selection in the [Duo Party](promotion_type)?
+    - Can I select different types of pizzas for the [Duo Party](promotion_type)?
+    - What are the rules for selecting pizza flavors in the [Duo Party](promotion_type)?
+    - Is there flexibility in choosing pizza varieties for the [Duo Party](promotion_type)?
