@@ -17,6 +17,43 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_summarize_pizza_order
+
+- rule: Activate costumer details form
+  steps:
+  - intent: response_name_phone
+  - action: costumer_details_form
+  - active_loop: costumer_details_form
+
+- rule: Submit costumer details form
+  condition:
+  - active_loop: costumer_details_form
+  steps:
+  - action: costumer_details_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_order_takeout
+
+- rule: Activate Duo Party Form
+  condition:
+    - slot_was_set:
+      - promotion_type: "Duo Party"
+  steps:
+    - intent: promotion_order_confirm
+    - action: action_recommend_on_promotion_form
+    - action: duo_party_form
+    - active_loop: duo_party_form
+
+- rule: Submit Duo Party form
+  condition:
+  - active_loop: duo_party_form
+  steps:
+  - action: duo_party_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_finish_promotion #TODO: change this to a proper utterance
+
 - rule: out-of-scope
   steps:
   - intent: out_of_scope
@@ -70,7 +107,6 @@ rules:
     - promotion_type: 
         - "Duo Party"
         - "Veggie Feast"
-        - null
   steps:
   - intent: details_on_promotion
   - action: action_handle_details_on_promotion
@@ -90,3 +126,8 @@ rules:
   steps:
   - intent: veggie_feast_faq
   - action: utter_veggie_feast_faq
+
+- rule: order promotion
+  steps:
+  - intent: order_promotion_vague
+  - action: action_recommend_promotion

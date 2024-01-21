@@ -27,11 +27,13 @@
 #         return []
 
 
-from typing import Any, Text, Dict, List
-from rasa_sdk import Action, Tracker
+from typing import Any, Optional, Text, Dict, List
+from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.types import DomainDict
 from rasa_sdk.events import SlotSet
 from collections import Counter
+import random
 
 
 class ActionChangeOrder(Action):
@@ -184,3 +186,101 @@ class ActionHandleDetailsOnPromotion(Action):
             dispatcher.utter_message(response="utter_vague_promotion")
 
         return []
+
+
+class ActionRecommendPromotion(Action):
+    def name(self):
+        return 'action_recommend_promotion'
+
+    def run(self, dispatcher, tracker, dominan):
+        is_reunion = tracker.get_slot("is_reunion")
+        is_vegetarian = tracker.get_slot("is_vegetarian")
+
+        promotion_type = ""
+
+        if is_reunion is not None and is_reunion == 'True':
+            dispatcher.utter_message(
+                response="utter_recommend_duo_party_promotion")
+            promotion_type = "Duo Party"
+        elif is_vegetarian is not None and is_vegetarian == 'True':
+            dispatcher.utter_message(
+                response="utter_recommend_veggie_feast_promotion")
+            promotion_type = "Veggie Feast"
+        else:
+            # case both reunion and vegetarian are None
+            dispatcher.utter_message(
+                response=f"utter_vague_order_promotion")
+            return [SlotSet("promotion_type", None)]
+
+        return [SlotSet("promotion_type", promotion_type)]
+
+
+class ActionRecommendOnPromotionForm(Action):
+    def name(self):
+        return 'action_recommend_on_promotion_form'
+
+    def run(self, dispatcher, tracker, domain):
+        promotion_type = tracker.get_slot("promotion_type")
+        if promotion_type == "Duo Party":
+            return [SlotSet("recommend_pizza", "Margherita"), SlotSet("recommend_side_dish", "Chicken Wings")]
+        elif promotion_type == "Veggie Feast":  # Veggie Feast
+            return [SlotSet("first_pizza_promotion", "Vegetarian"), SlotSet("recommend_side_dish", "French Fries")]
+        else:
+            # set slots to None
+            return [SlotSet("recommend_pizza", None), SlotSet("recommend_side_dish", None), SlotSet("first_pizza_promotion", None), SlotSet("recommend_side_dish", None), SlotSet("second_pizza_promotion", None), SlotSet("second_side_dish", None)]
+
+
+class ValidateDuoPartyForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_duo_party_form"
+
+    def validate_first_pizza_promotion(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `first_pizza_promotion` value."""
+
+        # If the name is super short, it might be wrong.
+        name = ""
+        print('name is ', name)
+        if len(name) == 0:
+            dispatcher.utter_message(text="That must've been a typo.")
+            return {"first_pizza_promotion": None}
+        return {"first_pizza_promotion": name}
+
+    def validate_second_pizza_promotion(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `second_pizza_promotion` value."""
+
+        # If the name is super short, it might be wrong.
+        name = ""
+        print('name is ', name)
+        if len(name) == 0:
+            dispatcher.utter_message(text="That must've been a typo.")
+            return {"second_pizza_promotion": None}
+        return {"second_pizza_promotion": name}
+
+    def validate_first_side_dish_promotion(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `first_side_dish_promotion` value."""
+
+        # If the name is super short, it might be wrong.
+        name = ""
+        print('name is ', name)
+        if len(name) == 0:
+            dispatcher.utter_message(text="That must've been a typo.")
+            return {"first_side_dish_promotion": None}
+        return {"first_side_dish_promotion": name}

@@ -7,3 +7,21 @@ nlu:
     - Margherita
     - Pepperoni
     - Vegetarian
+
+
+- lookup: first_pizza_promotion
+  examples: |
+    - Funghi
+    - Hawaii
+    - Margherita
+    - Pepperoni
+    - Vegetarian
+
+
+- lookup: second_pizza_promotion
+  examples: |
+    - Funghi
+    - Hawaii
+    - Margherita
+    - Pepperoni
+    - Vegetarian

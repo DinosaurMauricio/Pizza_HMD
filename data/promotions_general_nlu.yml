@@ -115,9 +115,28 @@ nlu:
     - Do promotions include any sides?
     - Are side dishes part of your current promotions?
 
+- intent: promotions_faq/details_on_both_promotions
+  examples: |
+    - can you share all promotions you have?
+    - can you tell me more about both promotions?
+    - can you tell me about [Duo Party](promotion_type) and [Veggie Feast](promotion_type)?
+    - explain both promotions to me
+    - what are the details on both promotions?
+    - please explain [Duo Party](promotion_type) and [Veggie Feast](promotion_type)
+    - please explain [Veggie Feast](promotion_type) and [Duo Party](promotion_type)
+    - explain [Duo Party](promotion_type) and [Veggie Feast](promotion_type)
+    - explain [Veggie Feast](promotion_type) and [Duo Party](promotion_type) to me
+    - can you tell me about [Veggie Feast](promotion_type) and [Duo Party](promotion_type)?
+    - would you be able to explain me [Duo Party](promotion_type) and [Veggie Feast](promotion_type)?
+    - give me details on both promotions
+    - give me details on [Duo Party](promotion_type) and [Veggie Feast](promotion_type)
+    - can you tell me about [Duo Party](promotion_type) and [Veggie Feast](promotion_type)?
+    - can you tell me about [Veggie Feast](promotion_type) and [Duo Party](promotion_type)?
 
 - intent: details_on_promotion 
   examples: |
+    - tell me about [Duo Party](promotion_type)
+    - tell me about [Veggie Feast](promotion_type)
     - i would like to know more about [Veggie Feast](promotion_type) please
     - can you give me more dettails on [Veggie Feast](promotion_type)
     - can you share the details on [Duo Party](promotion_type)
@@ -132,7 +151,7 @@ nlu:
     - Explain [Duo Party](promotion_type) to me.
     - Tell me about [Veggie Feast](promotion_type), please.
     - What's the deal with [Duo Party](promotion_type)?
-    - i would like to hear more about [Duo Party](promotion_type) 
+    - i would like to hear more about [Duo Party](promotion_type)
 
 - intent: order_promotion
   examples: |
@@ -158,3 +177,89 @@ nlu:
     - Include the [Veggie Feast](promotion_type) in my order.
     - Can you arrange the [Duo Party](promotion_type) for me?
     - I'm interested in ordering the [Veggie Feast](promotion_type).
+
+- intent: order_promotion_vague
+  examples: | 
+    - i want to order a promotion
+    - can i have a promotion please?
+    - i would like to order a promotion
+    - i want to place a promotion order
+    - i will have a promotion Please
+    - i want to order a promotion
+    - i will have a special
+    - can i have one of the deals?
+    - i want to order a deal
+    - i want to order a special
+    - i have a [vegetarian]{"entity":"is_vegetarian", "value":"True"} [friend coming]{"entity":"is_reunion", "value":"True"}, what can you recommend me?
+    - I have a suprise [party]{"entity":"is_reunion", "value":"True"} for a friend whom is [vegetarian]{"entity":"is_vegetarian", "value":"True"} do you have any deals on veggies?
+    - I'd like to order one of your special deals, i want pizza but my [friends]{"entity":"is_reunion", "value":"True"} want some side dishes
+    - i'm staying [alone]{"entity":"is_reunion", "value":"False"} at the office and i would like to order some special for myself
+    - I want to take a promotion but i'm not sure which one, i have some [friends coming]{"entity":"is_reunion", "value":"True"}
+    - I'm [vegetarian]{"entity":"is_vegetarian", "value":"True"} and i want a promotion
+    - I'm having a [party]{"entity":"is_reunion", "value":"True"}, do you have any promotions?
+    - i feel like eating [vegetables]{"entity":"is_vegetarian", "value":"True"} today, do you have any special?
+    - I'm having a family [reunion]{"entity":"is_reunion", "value":"True"}, do you have any deals?
+    - I'm having a [party]{"entity":"is_reunion", "value":"True"}, do you have any promotions?
+    - Can you recommend give me any deal for me, I want to have a [gathering]{"entity":"is_reunion", "value":"True"} with some friends?
+    - I'm not sure which promotion to choose. Any recommendations if i want something with [meat]{"entity":"is_vegetarian", "value":"False"}?
+    - I'm a [vegetarian]{"entity":"is_vegetarian", "value":"True"}, do you have any special promotions for me?
+    - I want to order a promotion, but I'm not sure which one to go for, i feel like eating some [veggies]{"entity":"is_vegetarian", "value":"True"} today
+    - [No meat]{"entity":"is_vegetarian", "value":"True"} for me today, any special offers?
+    - We're having a family [reunion] {"entity":"is_reunion", "value":"True"}, any group deals available?
+    - We're having a [party]{"entity":"is_reunion", "value":"True"}, do you have any promotions for a [group]{"entity":"is_reunion", "value":"True"}?
+    - What promotions do you have for someone who prefers [vegetarian]{"entity":"is_vegetarian", "value":"True"} options?
+    - I'm looking for a promotion suitable for a [gathering]{"entity":"is_reunion", "value":"True"}, any suggestions?
+    - Any promotions for a [party]{"entity":"is_reunion", "value":"True"} with a mix of meat and [vegetarian]{"entity":"is_vegetarian", "value":"True"} options?
+    - I'm considering a promotion for our [celebration]{"entity":"is_reunion", "value":"True"}, what do you recommend?
+    - Can you suggest a special deal for my [event]{"entity":"is_reunion", "value":"True"}?
+    - Any promotions suitable for a [group]{"entity":"is_reunion", "value":"True"} with diverse food preferences?
+    - What promotions do you have for a [group]{"entity":"is_reunion", "value":"True"} with varied dietary requirements?
+    - I'm not sure what promotion to choose, can you help me decide, i have some [friends over]{"entity":"is_reunion", "value":"True"}?
+    - Do you have promotions suitable for a [group]{"entity":"is_reunion", "value":"True"} of [vegetarian]{"entity":"is_vegetarian", "value":"True"} preferences?
+    - i'm [vegetarian]{"entity": "is_vegetarian", "value": "True"}, do you have any deals?
+
+- intent: promotion_order_confirm
+  examples: |
+    - Yes, i want [Duo Party](promotion_type) promotion
+    - Totally, [Veggie Fest](promotion_type)  it's what I need for my reunion
+    - I want to accept this promotion
+    - I would love to have [Duo Party](promotion_type)  promotion
+    - I think i will take [Veggie Feast](promotion_type)  offer
+    - This is what i'm looking for i will take this deal
+    - i would love to have this offer
+    - i need this promotion 
+    - I think its the best option for me and my friends to have this offer
+    - this sounds like a good deal to me, i will take it
+    - i will take it this order
+    - i so totally will take this promotion
+    - yes, i want this deal
+    - of course, i want a [Pepperoni](first_pizza_promotion) for my combo
+    - okay, i would like a [Hawaii](first_pizza_promotion) in my promotion
+    - yes for my [Veggie Feast] i want some [French Fries](first_side_dish_promotion)
+    - i will take it, can i get some [Bacon Jalapeño](first_side_dish_promotion) on my deal?
+    - [Duo Party](promotion_type) sounds good to me, can I have a [Funghi](first_pizza_promotion) with it?
+    - [Veggie Feast](promotion_type) sounds interesting, can you add a [Caprese Salad](first_side_dish_promotion)?
+    - I need [Margherita] on my promotion [Duo Party] promotion
+    - I want the [Duo Party](promotion_type) promotion with a [Funghi](first_pizza_promotion) pizza
+    - I'll take the [Veggie Feast](promotion_type) promotion with [Caprese Salad](first_side_dish_promotion)
+    - Yes, add a [Margherita](first_pizza_promotion) pizza to my [Duo Party](promotion_type) promotion
+    - Sure, I'll go for [Duo Party](promotion_type) promotion
+    - Absolutely, [Veggie Feast](promotion_type) is what I need
+    - Confirming my order for [Duo Party](promotion_type) promotion
+    - Yes, I'd like to proceed with [Veggie Feast](promotion_type)
+    - I'm in, give me the [Duo Party](promotion_type) deal
+    - Yes, I want to avail the [Veggie Feast](promotion_type) offer
+    - I'll take this promotion, it's exactly what I'm looking for
+    - I'm confirming my order, this promotion works for me
+    - Definitely, I want this promotion
+    - Yes, include a [Pepperoni](first_pizza_promotion) in my combo
+    - I'd like to add a [Hawaii](first_pizza_promotion) to my promotion
+    - Yes, for my [Veggie Feast], I want [French Fries](first_side_dish_promotion)
+    - I'll take it, add [Chicken Wings](first_side_dish_promotion) to my deal
+    - Include a [Funghi](first_pizza_promotion) with my [Duo Party](promotion_type)
+    - I want [Veggie Feast](promotion_type) with a side of [Caprese Salad](first_side_dish_promotion)
+    - Add a [Margherita] pizza to my [Duo Party](promotion_type) promotion
+    - Yes, include a [Funghi](first_pizza_promotion) in my [Veggie Feast](promotion_type)
+    - I'll take the [Duo Party](promotion_type) promotion with [Bacon Jalapeño](first_side_dish_promotion)
+    - Confirming my order for [Veggie Feast](promotion_type) with [Caprese Salad](first_side_dish_promotion)
+    - Yes, add [Margherita] pizza to my [Duo Party](promotion_type) deal

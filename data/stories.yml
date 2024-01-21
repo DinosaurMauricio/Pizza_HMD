@@ -12,6 +12,26 @@ stories:
   - intent: init_request
   - action: utter_init_request
 
+- story: order pizza
+  steps:
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_type
+  #- slot_was_set:
+  #  - pizza_type: Pepperoni
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  #- slot_was_set:
+  #  - pizza_amount: three
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_summarize_pizza_order
+
 - story: change the pizza order
   steps:
   - action: utter_summarize_pizza_order
@@ -55,11 +75,6 @@ stories:
   - action: utter_summarize_complete_order
   - intent: complete_order_confirm
   - action: utter_name_phone
-  - intent: response_name_phone
-    entities:
-    - client_name: "Mauricio"
-    - phone_number: "3331112222"
-  - action: utter_order_takeout
 
 - story: order delivery
   steps:
@@ -139,3 +154,71 @@ stories:
   - action: action_remove_all_side_dishes
   - action: utter_cancel_side_dish
 
+- story: ask for promotions
+  steps:
+  - intent: promotions_faq
+  - action: utter_promotions_faq
+  - intent: order_promotion
+    entities:
+    - promotion_type: "Duo Party"
+
+# TODO: might have to improve this stories
+- story: vague recommend promotion veggie feast
+  steps:
+  - intent: order_promotion_vague
+    entities:
+    - is_vegetarian: 'True'
+  - slot_was_set:
+    - is_vegetarian: 'True'
+  - action: action_recommend_promotion
+  - slot_was_set:
+    - promotion_type: Veggie Feast
+
+- story: vague recommend promotion duo party
+  steps:
+  - intent: order_promotion_vague
+    entities:
+    - is_reunion: 'True'
+  - slot_was_set:
+    - is_reunion: 'True'
+  - action: action_recommend_promotion
+  - slot_was_set:
+    - promotion_type: Duo Party
+
+- story: duo party form
+  steps:
+  - intent: promotion_order_confirm
+  - action: action_recommend_on_promotion_form
+  - action: duo_party_form
+  - active_loop: duo_party_form
+  - slot_was_set:
+    - requested_slot: first_pizza_promotion
+#  #- slot_was_set:
+#  #  - pizza_type: Pepperoni
+  - slot_was_set:
+    - requested_slot: second_pizza_promotion
+#  #- slot_was_set:
+#  #  - pizza_amount: three
+  - slot_was_set:
+    - requested_slot: first_side_dish_promotion
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_finish_promotion #TODO: change this to a proper utterance
+
+#- story: confirm promotion ordering 
+#  steps:
+#  - intent: promotion_order_confirm
+#  - action: action_handle_promotion_order_confirm
+#  - action: utter_promotion_order_confirm
+
+
+#possible story
+#- story: vague recommend undecided and ask questions
+#  steps:
+#  - intent: order_promotion_vague
+#    entities:
+#    - is_vegetarian: null
+#    - is_reunion: null
+#  - action: utter_vague_order_promotion
+#  - intent: promotions_faq

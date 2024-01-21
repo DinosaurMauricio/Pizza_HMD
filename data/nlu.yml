@@ -373,6 +373,7 @@ nlu:
   examples: |
     - yes, that's the correct pizza
     - yeah, the pizza is correct 
+    - the pizza is correct 
     - sure, that's right
     - absolutely, that's it
     - indeed, that's the right pizza
@@ -385,7 +386,7 @@ nlu:
     - yes, thats the size, type and amount of pizza i wanted
     - the pizza seems right
     - absolutely, that's the correct pizza
-    - yes, that matches my order
+    - yes, that matches my pizza
     - sure, that's the pizza I asked for
     - of course, that's the right one
     - correct, that's the pizza I'm expecting
@@ -427,7 +428,7 @@ nlu:
     - the order is correct
     - the order is right
     - the order seems okay
-    -that's the correct order
+    - that's the correct order
     - sure, that's right, the order is correct
     - absolutely, my order is correct
     - indeed, that's the right order

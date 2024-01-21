@@ -67,14 +67,17 @@ pipeline:
     constrain_similarities: yes
   - name: EntitySynonymMapper
   - name: ResponseSelector
-    epochs: 50
+    epochs: 60
     retrieval_intent: promotions_faq
+    constrain_similarities: true
   - name: ResponseSelector
-    epochs: 50
+    epochs: 60
     retrieval_intent: duo_party_faq
+    constrain_similarities: true
   - name: ResponseSelector
-    epochs: 50
+    epochs: 60
     retrieval_intent: veggie_feast_faq
+    constrain_similarities: true
 
 policies:
   - name: RulePolicy

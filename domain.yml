@@ -24,6 +24,8 @@ intents:
 - duo_party_faq
 - veggie_feast_faq
 - order_promotion
+- order_promotion_vague
+- promotion_order_confirm
 
 responses:
   utter_out_of_scope:
@@ -34,11 +36,11 @@ responses:
   - text: Okay. In today's menu, we have Funghi, Hawaii, Margherita, Pepperoni, Vegetarian, all available in sizes Small, Medium or Large . What would you like to have?
   utter_init_pizza_question:
   - text: For pizza without meat we have.... For pizza without cheese we have. Sizes available are Small, Medium and Large. What would you love to have?
-  utter_ask_pizza_size:
+  utter_ask_pizza_order_form_pizza_size:
   - text: What size of pizza do you want?
-  utter_ask_pizza_type:
+  utter_ask_pizza_order_form_pizza_type:
   - text: What type of pizza do you want?
-  utter_ask_pizza_amount:
+  utter_ask_pizza_order_form_pizza_amount:
   - text: How many pizzas do you want?
   utter_pizza_order_confirm_negative:
   - text: What would you like to change?
@@ -50,6 +52,12 @@ responses:
   - text: Thank you {client_name}, we will contact you at {phone_number}.  Do you prefer takeaway or home delivery?
   utter_name_phone:
   - text: To finish your order, what is your name and phone number?
+  utter_ask_client_name:
+  - text: I didn't catch your name. Can you please repeat it?
+  - text: Can you repeat your name?
+  utter_ask_phone_number:
+  - text: Sorry, I didn't understand your phone number. Can you please repeat it?
+  - text: Could you please repeat your phone number?
   utter_order_complete:
   - text: Here is your order number {order_number}. Your order will be ready in 15 minutes. Thanks for the opportunity to serve you
   utter_delivery_address:
@@ -77,14 +85,16 @@ responses:
   - text: Tell me what promotion you want! We we won't be able to apply your promotion if you start a pizza order. Which promotion would you like to order? Do you need more details?
   utter_promotions_faq/ask_promotions_on_side_dishes:
   - text: Our current promotions include side dishes and pizzas! Would you like more details on our promotions?
+  utter_promotions_faq/details_on_both_promotions:
+  - text: With Duo Party promotion you can buy 2 large pizzas and get 1 side dish for free of your choice and with Veggie Feast promotion you can buy 1 large vegetarian pizza and get 2 vegetarian side dishes of your choice for free
   utter_vague_promotion:
   - text: Sorry, I couldn't understand, could you please provide which promotion you are interested in? We currently offer Duo Party and Veggie Feast.
   utter_specific_duo_party_promotion:
-  - text: With Duo Party promotion you can buy 2 pizzas and get 1 side dish for free of your choice. Would you like to order it?
+  - text: With Duo Party promotion you can buy 2 large pizzas and get 1 side dish for free of your choice. Would you like to order it?
   utter_specific_veggie_feast_promotion:
-  - text: With Veggie Feast promotion you can buy 1 vegetarian pizza and get 2 vegetarian side dishes of your choice for free. Would you like to order it?
+  - text: With Veggie Feast promotion you can buy 1 large vegetarian pizza and get 2 vegetarian side dishes of your choice for free. Would you like to order it?
   utter_duo_party_faq/ask_on_available_pizzas:
-  - text: You can get any Pizza you want for this promotion, it includes Funghi, Pepperoni, Vegetarian, Margherita and Hawaii. Want to order a Duo Party?
+  - text: You can get any medium Pizza you want for this promotion, it includes Funghi, Pepperoni, Vegetarian, Margherita and Hawaii. Want to order a Duo Party?
   utter_duo_party_faq/ask_available_side_dishes:
   - text: You can get any Side Dish you want for this promotion, it includes French Fries, Chicken Wings, Bacon Jalapeño and Caprese Salad. Want to order a Duo Party?
   utter_duo_party_faq/ask_mix_pizzas:
@@ -97,8 +107,32 @@ responses:
   utter_veggie_feast_faq/ask_mix_pizzas:
   - text: You can only get vegetarian on this promotion! Want to order a Veggie Feast?
 
-  utter_order_promotion:
-  - text: Great! We can start with your {promotion_type} promotion, have you decided what to have?
+  # I would like to order a promotion
+  utter_vague_order_promotion:
+  - text: No worries, we have two promotions available, Duo Party and Veggie Feast. Which one would you like to order?
+  utter_recommend_duo_party_promotion:
+  - text: I can you recommend getting the Duo Party promotion, it includes 2 medium pizzas and 1 side dish of your choice. Would you like to order it?
+  utter_recommend_veggie_feast_promotion:
+  - text: If you would like a vegetarian meal, I would recommend getting the Veggie Feast promotion, Would you like to order it?
+
+  # : asks questions on what is each promotion about: 
+
+  # I would like to take this promotion
+  # have to check if theres a pizza or side dishes and depending on that we utter the next one
+  utter_ask_first_pizza_promotion:
+  - text:  I would recommend you to try our {recommend_pizza} Pizza. What would you like to have for your pizzas?
+  utter_ask_second_pizza_promotion:
+  - text: As a second pizza what would you like to have? I think you would love {recommend_pizza}!
+  utter_ask_first_side_dish_promotion:
+  - text: We think {first_pizza_promotion} would go great with {recommend_side_dish}. Which side dish you want?
+  - text: How about {recommend_side_dish} to go along with your {first_pizza_promotion} pizza. Which side dish you want?
+  utter_ask_second_side_dish_promotion:
+  - text: With {first_side_dish_promotion} how about you add {second_side_dish}, its an usual combination. Which second side dish would you like?
+  - text: Maybe {second_side_dish} would go great with {first_side_dish_promotion}. Which second side dish would you like?
+  #utter_order_duo_party_promotion_:
+  #
+  utter_finish_promotion:
+  - text: Done. Hope you enjoy your pizza, bitch.
  # duo_party_faq/recommendation:
  #- text: We would recommend getting 
   # it can ask about  funghi is included in the promotion "Sorry, Funghi is not included in the promotion"
@@ -112,9 +146,9 @@ actions:
 - utter_order_complete
 - utter_welcome_greet
 - utter_init_request
-- utter_ask_pizza_size
-- utter_ask_pizza_type
-- utter_ask_pizza_amount
+- utter_ask_pizza_order_form_pizza_size
+- utter_ask_pizza_order_form_pizza_type
+- utter_ask_pizza_order_form_pizza_amount
 - utter_init_pizza_question
 - utter_pizza_order_confirm_negative
 - utter_pizza_order_confirm_positive
@@ -130,6 +164,7 @@ actions:
 - utter_specific_veggie_feast_promotion
 - utter_specific_duo_party_promotion
 - utter_vague_promotion
+- action_recommend_promotion
 - action_change_order
 - action_pizza_order_add
 - action_reset_pizza_form
@@ -139,6 +174,8 @@ actions:
 - action_remove_all_side_dishes
 - action_remove_side_dish
 - action_handle_details_on_promotion
+- action_recommend_on_promotion_form
+- validate_duo_party_form
 entities:
 - toppings
 - pizza_type
@@ -152,6 +189,14 @@ entities:
 - side_dishes
 - total_side_dishes
 - promotion_type
+- is_vegetarian
+- is_reunion
+- first_side_dish_promotion
+- second_side_dish_promotion
+- first_pizza_promotion
+- second_pizza_promotion
+- recommend_pizza
+- recommend_side_dish
 slots:
   promotion_type:
     type: any
@@ -218,6 +263,46 @@ slots:
     type: any
     mappings:
     - type: custom
+  is_vegetarian:
+    type: bool
+    mappings:
+    - type: from_entity
+      entity: is_vegetarian
+  is_reunion:
+    type: bool
+    mappings:
+    - type: from_entity
+      entity: is_reunion
+  first_side_dish_promotion:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: first_side_dish_promotion
+  second_side_dish_promotion:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: second_side_dish_promotion
+  first_pizza_promotion:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: first_pizza_promotion
+  second_pizza_promotion:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: second_pizza_promotion
+  recommend_pizza:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: recommend_pizza
+  recommend_side_dish:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: recommend_side_dish
 
 forms:
   pizza_order_form:
@@ -225,6 +310,23 @@ forms:
     - pizza_amount
     - pizza_type
     - pizza_size
+  costumer_details_form:
+    required_slots:
+    - client_name
+    - phone_number
+  duo_party_form:
+  #another approach is to make a  action_ask_<slot_name>, and check if promotion_type is set, if yes continue with this
+    ignored_intents:
+      - item_start_generic
+    required_slots:
+    - first_pizza_promotion
+    - second_pizza_promotion
+    - first_side_dish_promotion
+  veggie_feast_form:
+    required_slots:
+    - first_pizza_promotion
+    - first_side_dish_promotion
+    - second_side_dish_promotion
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
