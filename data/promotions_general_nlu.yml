@@ -217,6 +217,7 @@ nlu:
     - I'm not sure what promotion to choose, can you help me decide, i have some [friends over]{"entity":"is_reunion", "value":"True"}?
     - Do you have promotions suitable for a [group]{"entity":"is_reunion", "value":"True"} of [vegetarian]{"entity":"is_vegetarian", "value":"True"} preferences?
     - i'm [vegetarian]{"entity": "is_vegetarian", "value": "True"}, do you have any deals?
+    - do you have any promotions for a [party]{"entity":"is_reunion", "value":"True"}?
 
 - intent: promotion_order_confirm
   examples: |
