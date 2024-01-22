@@ -4,7 +4,7 @@ rules:
 
 - rule: Activate pizza order form
   steps:
-  - intent: item_start_generic
+  - intent: pizza_order_start
   - action: pizza_order_form
   - active_loop: pizza_order_form
 

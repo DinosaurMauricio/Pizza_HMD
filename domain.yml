@@ -1,9 +1,8 @@
 version: '3.1'
 intents:
-- init_pizza_question
 - init_request
-- item_change
-- item_start_generic
+- pizza_order_change
+- pizza_order_start
 - pizza_order_confirm_negative
 - pizza_order_confirm_positive
 - order_delivery
@@ -26,6 +25,7 @@ intents:
 - order_promotion
 - order_promotion_vague
 - promotion_order_confirm
+- pizza_duo_promotion_order
 
 responses:
   utter_out_of_scope:
@@ -44,7 +44,7 @@ responses:
   - text: What would you like to change?
   utter_pizza_order_confirm_positive:
   - text: Great, we added your pizza to the order. Anything else?
-  utter_item_change:
+  utter_pizza_order_change:
   - text: So you want {pizza_amount} {pizza_type} pizzas in {pizza_size}. Is that correct?
   utter_order_takeout:
   - text: Thank you {client_name}, we will contact you at {phone_number}.  Do you prefer takeaway or home delivery?
@@ -156,7 +156,7 @@ actions:
 - utter_ask_pizza_order_form_pizza_amount
 - utter_pizza_order_confirm_negative
 - utter_pizza_order_confirm_positive
-- utter_item_change
+- utter_pizza_order_change
 - utter_order_takeout
 - utter_name_phone
 - utter_default
@@ -321,7 +321,7 @@ forms:
   duo_party_form:
   #another approach is to make a  action_ask_<slot_name>, and check if promotion_type is set, if yes continue with this
     ignored_intents:
-      - item_start_generic
+      - pizza_order_start
     required_slots:
     - first_pizza_promotion
     - second_pizza_promotion

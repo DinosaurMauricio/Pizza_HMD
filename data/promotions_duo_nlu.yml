@@ -38,3 +38,19 @@ nlu:
     - Can I select different types of pizzas for the [Duo Party](promotion_type)?
     - What are the rules for selecting pizza flavors in the [Duo Party](promotion_type)?
     - Is there flexibility in choosing pizza varieties for the [Duo Party](promotion_type)?
+
+- intent: pizza_duo_promotion_order
+  examples: |
+    - for my [Duo Party](promotion_type) I want [Funghi](first_pizza_promotion)
+    - for my [Duo Party](promotion_type) I want [Hawaii](first_pizza_promotion)
+    - i would like [Margherita](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - i want [Pepperoni](first_pizza_promotion) for starters
+    - i want [Vegetarian](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - i want [Funghi](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - i think i will go with the [Margherita](first_pizza_promotion)
+    - thanks but i will have [Pepperoni](first_pizza_promotion)
+    - i will have [Vegetarian](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - i would prefer to have [Funghi](first_pizza_promotion)
+    - i would prefer to have [Hawaii](first_pizza_promotion)
+    - [Hawaii](first_pizza_promotion) initially
+    - for my first pizza i want [Margherita](first_pizza_promotion)

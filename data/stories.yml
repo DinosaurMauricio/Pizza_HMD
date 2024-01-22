@@ -14,7 +14,7 @@ stories:
 
 - story: order pizza
   steps:
-  - intent: item_start_generic
+  - intent: pizza_order_start
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
@@ -42,13 +42,13 @@ stories:
 - story: change order + confirm order
   steps:
   - checkpoint: change_pizza_order
-  - intent: item_change
+  - intent: pizza_order_change
     entities:
       - pizza_type: "Pepperoni"
       - pizza_size: "Small"
       - pizza_amount: "Three"
   - action: action_change_order
-  - action: utter_item_change
+  - action: utter_pizza_order_change
   - intent: pizza_order_confirm_positive
   - action: action_pizza_order_add
   - action: utter_pizza_order_confirm_positive
