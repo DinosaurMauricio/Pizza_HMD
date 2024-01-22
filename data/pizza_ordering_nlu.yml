@@ -1,0 +1,203 @@
+version: "3.1"
+nlu:
+- intent: pizza_order_start
+  examples: |
+    - I want [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
+    - I want [one](pizza_amount) [Funghi](pizza_type) [small](pizza_size) pizza
+    - I want [Funghi](pizza_type) pizza
+    - I want [Funghi](pizza_type) pizza please
+    - I [hawaii](pizza_type) pizza small
+    - I want [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
+    - I want [four](pizza_amount) [small](pizza_size) pizza [Funghi](pizza_type)
+    - I want [2](pizza_amount) [medium](pizza_size) pizza [hawaii](pizza_type) please
+    - [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
+    - [two](pizza_amount) [medium](pizza_size) [Margherita](pizza_type) pizza
+    - just [2](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) pizza
+    - [two](pizza_amount) [medium](pizza_size) [Pepperoni](pizza_type) pizza
+    - just [4](pizza_amount) [small](pizza_size) [Vegetarian](pizza_type) pizza pizza
+    - [four](pizza_amount) [small](pizza_size) pizza [Funghi](pizza_type)
+    - [two](pizza_amount) [large](pizza_size) pizza [hawaii](pizza_type)
+    - [four](pizza_amount) [medium](pizza_size) pizza [Margherita](pizza_type)
+    - [4](pizza_amount) [large](pizza_size) pizza [Hawaii](pizza_type)
+    - [four](pizza_amount) [medium](pizza_size) pizza [Pepperoni](pizza_type)
+    - [four](pizza_amount) [small](pizza_size) pizza [Vegetarian](pizza_type)
+    - [one](pizza_amount) [Funghi](pizza_type) [small](pizza_size) pizza
+    - [one](pizza_amount) [Margherita](pizza_type) [medium](pizza_size) pizza
+    - [1](pizza_amount) [Hawaii](pizza_type) [large](pizza_size) pizza
+    - [one](pizza_amount) [Pepperoni](pizza_type) [medium](pizza_size) pizza
+    - [3](pizza_amount) [Vegetarian](pizza_type) [small](pizza_size) pizza
+    - [one](pizza_amount) [Funghi](pizza_type) pizza [small](pizza_size)
+    - [one](pizza_amount) [Margherita](pizza_type) pizza [medium](pizza_size)
+    - [1](pizza_amount) [Hawaii](pizza_type) pizza [large](pizza_size)
+    - [one](pizza_amount) [Pepperoni](pizza_type) pizza [medium](pizza_size)
+    - [3](pizza_amount) [Vegetarian](pizza_type) pizza [small](pizza_size)
+    - [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
+    - [Margherita](pizza_type) [medium](pizza_size) pizza [6](pizza_amount)
+    - [Hawaii](pizza_type) [large](pizza_size) pizza [9](pizza_amount)
+    - [Pepperoni](pizza_type) [medium](pizza_size) pizza  [4](pizza_amount)
+    - [Vegetarian](pizza_type) [small](pizza_size) pizza [two](pizza_amount)
+    - [Funghi](pizza_type) pizza [small](pizza_size)  [three](pizza_amount)
+    - [Margherita](pizza_type) pizza [medium](pizza_size)  [6](pizza_amount)
+    - [Hawaii](pizza_type) pizza [large](pizza_size)  [9](pizza_amount)
+    - [Pepperoni](pizza_type) pizza [medium](pizza_size)   [4](pizza_amount)
+    - [Vegetarian](pizza_type) pizza [small](pizza_size)  [two](pizza_amount)
+    - [Funghi](pizza_type) pizza
+    - [Margherita](pizza_type) pizza
+    - [Hawaii](pizza_type) pizza
+    - [Pepperoni](pizza_type) pizza
+    - [Vegetarian](pizza_type) pizza pizza
+    - [Funghi](pizza_type)
+    - [Margherita](pizza_type)
+    - [Hawaii](pizza_type)
+    - [Pepperoni](pizza_type)
+    - [Vegetarian](pizza_type)
+    - [hawaii](pizza_type) pizza small
+    - [hawaii](pizza_type) pizza small please
+    - small [hawaii](pizza_type) pizza
+    - [two](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type) please
+    - [two](pizza_amount)
+    - [2](pizza_amount)
+    - [two](pizza_amount) please
+    - [2](pizza_amount) please
+    - [large](pizza_size) please
+    - [large](pizza_size)
+    - [small](pizza_size) please
+    - [small](pizza_size)
+    - [medium](pizza_size) please
+    - [medium](pizza_size)
+    - [big])[pizza_size] please
+    - [big](pizza_size)
+    - just [one](pizza_amount)
+    - just [1](pizza_amount)
+    - [one](pizza_amount) pizza [funghi](pizza_type)
+    - i'd like [three](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type)
+    - I'd like to order [3](pizza_amount)  [small](pizza_size) [hawaii](pizza_type) please
+    - I want to order [two](pizza_amount) [large](pizza_size) [Pepperoni](pizza_type) pizzas, please
+    - Give me [four](pizza_amount) [medium](pizza_size) [Vegetarian](pizza_type) pizzas
+    - I think I'll choose [one](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
+    - Can you prepare [three](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) pizzas for me?
+    - I'd like to order [two](pizza_amount) [medium](pizza_size) [Margherita](pizza_type) pizzas
+    - How about [one](pizza_amount) [small](pizza_size) [Pepperoni](pizza_type) pizza?
+    - I want [two](pizza_amount) [large](pizza_size) [Pepperoni](pizza_type)
+    - How about [three](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizzas
+    - Give me [four](pizza_amount) [medium](pizza_size) [Hawaii](pizza_type) pizzas
+    - I think I'll go with [one](pizza_amount) [large](pizza_size) [Margherita](pizza_type) pizza
+    - I'd like to order [large](pizza_size) [Pepperoni](pizza_type) pizza, [three](pizza_amount) of them
+    - I'll go with [medium](pizza_size) [Vegetarian](pizza_type) pizza, [four](pizza_amount) please
+    - How about [one](pizza_amount) [small](pizza_size) [Pepperoni](pizza_type) pizza?
+    - I'll take [three](pizza_amount) [medium](pizza_size) [Hawaii](pizza_type) pizzas.
+    - Give me [large](pizza_size) [Funghi](pizza_type) pizza, [two](pizza_amount)
+    - I think I'll choose [small](pizza_size) [Margherita](pizza_type) pizza. 
+    - I'd like to order [Vegetarian](pizza_type) pizza, [two](pizza_amount) [large](pizza_size).
+    - I want [large](pizza_size) [Pepperoni](pizza_type) pizza.
+    - I think I'll go with [two](pizza_amount) [medium](pizza_size) [Pepperoni](pizza_type) pizzas.
+- intent: pizza_order_change
+  examples: |
+    - I changed my mind. Can I get  a [funghi](pizza_type) instead?
+    - I'd like a  [margherita](pizza_type) pizza instead.
+    - can i get a [vegetarian](pizza_type) instead?
+    - I want a [pepperoni](pizza_type) instead.
+    - I want a [hawaii](pizza_type) instead.
+    - I want a [margherita](pizza_type) instead.
+    - actually, can I get [margherita](pizza_type)?
+    - actually, i'd like [small](pizza_size) pizza.
+    - I'd like in [small](pizza_size) instead.
+    - i need [two](pizza_amount) instead
+    - i rather have [three](pizza_amount) instead
+    - the [small](pizza_size) is too small, i want [medium](pizza_size)
+    - actually, i would like a [small](pizza_size) [vegetarian](pizza_type).
+    - wait, can i get  it in [large](pizza_size).
+    - I want [funghi](pizza_type)
+    - I want [funghi](pizza_type) instead
+    - I want to change the size to [medium](pizza_size)
+    - I want to change the size to [large](pizza_size)
+    - I want my pizza in [small](pizza_size) instead
+    - I want my pizza in [medium](pizza_size) instead
+    - I want my pizza in [large](pizza_size) instead
+    - i prefer [small](pizza_size) instead
+    - rather have a [medium](pizza_size) instead
+    - i prefer [large](pizza_size) instead
+    - i would like [small](pizza_size) instead
+    - i rather have [vegetarian](pizza_type) instead
+    - i prefer [pepperoni](pizza_type) instead
+    - i prefer [medium](pizza_size) [pepperoni](pizza_type) instead
+    - i prefer [large](pizza_size) [hawaii](pizza_type) instead
+    - i would like [small](pizza_size) [margherita](pizza_type) instead
+    
+- intent: pizza_order_confirm_positive
+  examples: |
+    - yes, that's the correct pizza
+    - yeah, the pizza is correct 
+    - the pizza is correct 
+    - sure, that's right
+    - absolutely, that's it
+    - indeed, that's the right pizza
+    - definitely, that's the pizza
+    - of course, that's correct pizza i ordered
+    - certainly, that's the right one
+    - correct, that's the pizza i wanted
+    - that's the correct pizza
+    - Yess, the pizza i wanted
+    - yes, thats the size, type and amount of pizza i wanted
+    - the pizza seems right
+    - absolutely, that's the correct pizza
+    - yes, that matches my pizza
+    - sure, that's the pizza I asked for
+    - of course, that's the right one
+    - correct, that's the pizza I'm expecting
+    - that's the pizza I'm looking for
+    - yes, that's the pizza I've been waiting for
+    - yes, that's the correct size and type
+    - that's exactly the pizza I wanted
+- intent: pizza_order_confirm_negative
+  examples: |
+    - The pizza order is not correct
+    - The pizza order is wrong
+    - The pizza order is incorrect
+    - the pizza is not right
+    - the pizza is not correct
+    - the pizza is wrong
+    - that's not the right pizza
+    - that's not the correct pizza
+    - that's not the pizza I ordered
+    - I ordered something different
+    - I ordered something else
+    - It's the wrong pizza
+    - It's not the right pizza
+    - It's not the correct pizza
+    - It's not the pizza I ordered
+    - There's a mistake on the pizza
+    - I don't want this pizza, its wrong
+    - There's an error on the pizza
+    - that's not the correct
+    - the type of pizza is wrong
+    - the size of pizza is wrong
+    - the amount of pizza is wrong
+    - the pizza size is not correct
+    - the pizza type is not correct
+    - the pizza amount is not correct
+- intent: complete_order_confirm
+  examples: |
+    - that's my order
+    - the order seems right
+    - the order is correct
+    - the order is right
+    - the order seems okay
+    - that's the correct order
+    - sure, that's right, the order is correct
+    - absolutely, my order is correct
+    - indeed, that's the right order
+    - I think that's the correct one
+    - that's the complete order
+    - I agree, it's the complete order
+    - everything looks good to me
+    - everything seems right in my order
+    - yep, that's what I ordered
+    - that will be all
+    - that would be all, thanks
+    - the order is fine, thank you
+    - that's it, the order is correct
+    - that's the right one, the complete order
+    - I confirm, the order is correct
+    - that's my entire order, thank you
+    - I confirm everything in my order is right

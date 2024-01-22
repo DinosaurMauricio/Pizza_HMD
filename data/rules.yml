@@ -2,6 +2,13 @@ version: "3.1"
 
 rules:
 
+#################### OTHER ####################
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+#################### PIZZA ORDERING ####################
 - rule: Activate pizza order form
   steps:
   - intent: pizza_order_start
@@ -18,6 +25,13 @@ rules:
     - requested_slot: null
   - action: utter_summarize_pizza_order
 
+- rule: order pizza + confirm its correct
+  steps:
+  - action: utter_summarize_pizza_order
+  - intent: pizza_order_confirm_positive
+  - action: action_pizza_order_add
+  - action: utter_pizza_order_confirm_positive
+
 - rule: Activate costumer details form
   steps:
   - intent: response_name_phone
@@ -33,6 +47,39 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: utter_order_takeout
+
+- rule: order take home
+  steps:
+  - intent: order_take_home
+  - action: action_order_number
+  - action: utter_order_complete
+
+- rule: provide address
+  steps:
+    - intent: order_delivery_address
+    - action: action_order_number
+    - action: utter_order_complete
+
+#################### SIDE DISHES ####################
+- rule : finish order side dishes + confirm order
+  steps:
+    - action: utter_side_dishes_order
+    - intent: response_negative
+    - action: action_total_order
+    - action: utter_summarize_complete_order
+#- rule: remove all side dishes
+#  steps:
+#    - intent: cancel_side_dish
+#    - action: action_remove_all_side_dishes
+#    - action: utter_cancel_side_dish
+
+#################### PROMOTIONS #####################
+
+
+- rule: respond to FAQs
+  steps:
+  - intent: promotions_faq
+  - action: utter_promotions_faq
 
 - rule: Activate Duo Party Form
   condition:
@@ -54,47 +101,6 @@ rules:
     - requested_slot: null
   - action: utter_finish_promotion #TODO: change this to a proper utterance
 
-- rule: out-of-scope
-  steps:
-  - intent: out_of_scope
-  - action: utter_out_of_scope
-
-- rule: order take home
-  steps:
-  - intent: order_take_home
-  - action: action_order_number
-  - action: utter_order_complete
-
-- rule: provide address
-  steps:
-    - intent: order_delivery_address
-    - action: action_order_number
-    - action: utter_order_complete
-    
-- rule: remove all side dishes
-  steps:
-    - intent: cancel_side_dish
-    - action: action_remove_all_side_dishes
-    - action: utter_cancel_side_dish
-
-- rule : finish order side dishes + confirm order
-  steps:
-    - action: utter_side_dishes_order
-    - intent: response_negative
-    - action: action_total_order
-    - action: utter_summarize_complete_order
-
-- rule: order pizza + confirm its correct
-  steps:
-  - action: utter_summarize_pizza_order
-  - intent: pizza_order_confirm_positive
-  - action: action_pizza_order_add
-  - action: utter_pizza_order_confirm_positive
-
-- rule: respond to FAQs
-  steps:
-  - intent: promotions_faq
-  - action: utter_promotions_faq
 
 - rule: details on promotions was asked
   condition:
@@ -114,14 +120,14 @@ rules:
   - intent: duo_party_faq
   - action: utter_duo_party_faq
 
-- rule: Promotion Duo Party FAQ
-  condition:
-  - slot_was_set:
-      - promotion_type: "Veggie Feast"
-  steps:
-  - intent: veggie_feast_faq
-  - action: utter_veggie_feast_faq
-
+#- rule: Promotion Veggie Feast FAQ
+#  condition:
+#  - slot_was_set:
+#      - promotion_type: "Veggie Feast"
+#  steps:
+#  - intent: veggie_feast_faq
+#  - action: utter_veggie_feast_faq
+#
 - rule: order promotion
   steps:
   - intent: order_promotion_vague

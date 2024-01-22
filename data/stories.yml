@@ -1,14 +1,11 @@
 version: "3.1"
 stories:
+
+##################### Pizza Ordering
 - story: greeting
   steps:
   - intent: welcome_greet
   - action: utter_welcome_greet
-  - checkpoint: started_greeting
-
-- story: start pizza order vague
-  steps:
-  - checkpoint: started_greeting
   - intent: init_request
   - action: utter_init_request
 
@@ -19,12 +16,8 @@ stories:
   - active_loop: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_type
-  #- slot_was_set:
-  #  - pizza_type: Pepperoni
   - slot_was_set:
     - requested_slot: pizza_amount
-  #- slot_was_set:
-  #  - pizza_amount: three
   - slot_was_set:
     - requested_slot: pizza_size
   - slot_was_set:
@@ -32,16 +25,54 @@ stories:
   - active_loop: null
   - action: utter_summarize_pizza_order
 
+- story: complete pizza order
+  steps:
+  - intent: pizza_order_start
+    entities:
+    - pizza_amount: two
+    - pizza_type: Funghi
+    - pizza_size: 10"
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_size: 10"
+  - slot_was_set:
+    - pizza_type: Funghi
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Funghi
+  - slot_was_set:
+    - pizza_size: 10''
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_summarize_pizza_order
+  - intent: pizza_order_confirm_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizzas_complete_order:
+      - size: 10''
+        type: Funghi
+        amount: two
+  - action: utter_pizza_order_confirm_positive
+  - intent: response_negative
+  - action: action_total_order
+  
+
 - story: change the pizza order
   steps:
   - action: utter_summarize_pizza_order
   - intent: pizza_order_confirm_negative
   - action: utter_pizza_order_confirm_negative
-  - checkpoint: change_pizza_order
-
-- story: change order + confirm order
-  steps:
-  - checkpoint: change_pizza_order
   - intent: pizza_order_change
     entities:
       - pizza_type: "Pepperoni"
@@ -53,21 +84,17 @@ stories:
   - action: action_pizza_order_add
   - action: utter_pizza_order_confirm_positive
 
-- story: finish order
-  steps:
-  - action: action_total_order
-  - action: utter_summarize_complete_order
-  - intent: complete_order_confirm
-  - action: utter_name_phone
-
 - story:  accept pizza and utter the complete order
   steps:
+  - action: utter_summarize_pizza_order
+  - intent: pizza_order_confirm_positive
   - action: action_pizza_order_add
   - action: utter_pizza_order_confirm_positive
   - intent: response_negative
   - action: action_total_order
   - action: utter_summarize_complete_order
   - intent: complete_order_confirm
+  - action: utter_name_phone
 
 - story: get details customer details
   steps:
@@ -78,8 +105,27 @@ stories:
 
 - story: order delivery
   steps:
+  - action: utter_name_phone
   - intent: order_delivery
   - action: utter_delivery_address
+
+
+- story: give costumer details
+  steps:
+  - intent: response_name_phone
+  - action: costumer_details_form
+  - active_loop: costumer_details_form
+  - slot_was_set:
+    - requested_slot: client_name
+  - slot_was_set:
+    - requested_slot: phone_number
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_order_takeout
+
+
+##################### Side Dishes
 
 - story: order add side dish
   steps:
@@ -154,6 +200,8 @@ stories:
   - action: action_remove_all_side_dishes
   - action: utter_cancel_side_dish
 
+##################### Promotions
+
 - story: ask for promotions
   steps:
   - intent: promotions_faq
@@ -211,14 +259,14 @@ stories:
 #  - intent: promotion_order_confirm
 #  - action: action_handle_promotion_order_confirm
 #  - action: utter_promotion_order_confirm
-
-
-#possible story
-#- story: vague recommend undecided and ask questions
-#  steps:
-#  - intent: order_promotion_vague
-#    entities:
-#    - is_vegetarian: null
-#    - is_reunion: null
-#  - action: utter_vague_order_promotion
-#  - intent: promotions_faq
+##
+##
+###possible story
+###- story: vague recommend undecided and ask questions
+###  steps:
+###  - intent: order_promotion_vague
+###    entities:
+###    - is_vegetarian: null
+###    - is_reunion: null
+###  - action: utter_vague_order_promotion
+###  - intent: promotions_faq

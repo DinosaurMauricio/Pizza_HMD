@@ -1,40 +1,40 @@
-version: "3.1"
-nlu:
-- intent: veggie_feast_faq/ask_available_side_dishes
-  examples: |
-    - What sides do you offer for [Veggie Feast](promotion_type)?
-    - What are the side dishes for [Veggie Feast](promotion_type)?
-    - What sides are available for [Veggie Feast](promotion_type)?
-    - Which side dishes are available in [Veggie Feast](promotion_type)?
-    - I'm interested in [Veggie Feast](promotion_type), can you tell me what side dishes I can get?
-    - I would like to know the side dishes in [Veggie Feast](promotion_type).
-    - Can you tell me what is available for [Veggie Feast](promotion_type) in terms of side dishes?
-    - Can you share the available side dishes on [Veggie Feast](promotion_type)?
-    - Share details about the side dishes in the [Veggie Feast](promotion_type).
-    - What comes on the side with the [Veggie Feast](promotion_type)?
-
-- intent: veggie_feast_faq/ask_on_available_pizzas
-  examples: |
-    - What pizzas are included in the [Veggie Feast](promotion_type)?
-    - Tell me about the available pizzas for [Veggie Feast](promotion_type).
-    - Which pizzas can I get with the [Veggie Feast](promotion_type)?
-    - Can you list the pizzas included in the [Veggie Feast](promotion_type)?
-    - I'm interested in [Veggie Feast](promotion_type), what pizzas are part of it?
-    - What are the pizza options for [Veggie Feast](promotion_type)?
-    - Share details about the pizzas available in [Veggie Feast](promotion_type).
-    - What kinds of pizzas come with the [Veggie Feast](promotion_type)?
-    - Tell me the pizza choices for [Veggie Feast](promotion_type).
-    - Which pizza flavors are included in the [Veggie Feast](promotion_type)?
-
-- intent: duo_party_faq/ask_mix_pizzas
-  examples: |
-    - Can I get a funghi pizza instead of the vegetarian pizza in the [Veggie Feast](promotion_type)?
-    - Is it possible to substitute the vegetariana with a Funghi pizza in the [Veggie Feast](promotion_type)?
-    - Can I swap the Vegetaria for a funghi pizza in the [Veggie Feast](promotion_type)?
-    - In the [Veggie Feast](promotion_type), can I choose a hawaii pizza instead of the vegetarian?
-    - Is there an option to replace the vegetarian with a pepperoni pizza in the [Veggie Feast](promotion_type)?
-    - Can I customize the pizza selection in the [Veggie Feast](promotion_type) by choosing a Funghi pizza?
-    - If I prefer, can I have a Funghi pizza instead of the Vegetarian in the [Veggie Feast](promotion_type)?
-    - Are substitutions allowed, like getting a Funghi pizza instead of the Vegetariana in the [Veggie Feast](promotion_type)?
-    - Can I change one of the pizzas to a funghi in the [Veggie Feast](promotion_type)?
-    - Is there flexibility to modify the pizza choices, like selecting a Funghi pizza instead of the Vegetariana in the [Veggie Feast](promotion_type)?
+#version: "3.1"
+#nlu:
+#- intent: veggie_feast_faq/ask_available_side_dishes
+#  examples: |
+#    - What sides do you offer for [Veggie Feast](promotion_type)?
+#    - What are the side dishes for [Veggie Feast](promotion_type)?
+#    - What sides are available for [Veggie Feast](promotion_type)?
+#    - Which side dishes are available in [Veggie Feast](promotion_type)?
+#    - I'm interested in [Veggie Feast](promotion_type), can you tell me what side dishes I can get?
+#    - I would like to know the side dishes in [Veggie Feast](promotion_type).
+#    - Can you tell me what is available for [Veggie Feast](promotion_type) in terms of side dishes?
+#    - Can you share the available side dishes on [Veggie Feast](promotion_type)?
+#    - Share details about the side dishes in the [Veggie Feast](promotion_type).
+#    - What comes on the side with the [Veggie Feast](promotion_type)?
+#
+#- intent: veggie_feast_faq/ask_on_available_pizzas
+#  examples: |
+#    - What pizzas are included in the [Veggie Feast](promotion_type)?
+#    - Tell me about the available pizzas for [Veggie Feast](promotion_type).
+#    - Which pizzas can I get with the [Veggie Feast](promotion_type)?
+#    - Can you list the pizzas included in the [Veggie Feast](promotion_type)?
+#    - I'm interested in [Veggie Feast](promotion_type), what pizzas are part of it?
+#    - What are the pizza options for [Veggie Feast](promotion_type)?
+#    - Share details about the pizzas available in [Veggie Feast](promotion_type).
+#    - What kinds of pizzas come with the [Veggie Feast](promotion_type)?
+#    - Tell me the pizza choices for [Veggie Feast](promotion_type).
+#    - Which pizza flavors are included in the [Veggie Feast](promotion_type)?
+#
+#- intent: duo_party_faq/ask_mix_pizzas
+#  examples: |
+#    - Can I get a funghi pizza instead of the vegetarian pizza in the [Veggie Feast](promotion_type)?
+#    - Is it possible to substitute the vegetariana with a Funghi pizza in the [Veggie Feast](promotion_type)?
+#    - Can I swap the Vegetaria for a funghi pizza in the [Veggie Feast](promotion_type)?
+#    - In the [Veggie Feast](promotion_type), can I choose a hawaii pizza instead of the vegetarian?
+#    - Is there an option to replace the vegetarian with a pepperoni pizza in the [Veggie Feast](promotion_type)?
+#    - Can I customize the pizza selection in the [Veggie Feast](promotion_type) by choosing a Funghi pizza?
+#    - If I prefer, can I have a Funghi pizza instead of the Vegetarian in the [Veggie Feast](promotion_type)?
+#    - Are substitutions allowed, like getting a Funghi pizza instead of the Vegetariana in the [Veggie Feast](promotion_type)?
+#    - Can I change one of the pizzas to a funghi in the [Veggie Feast](promotion_type)?
+#    - Is there flexibility to modify the pizza choices, like selecting a Funghi pizza instead of the Vegetariana in the [Veggie Feast](promotion_type)?

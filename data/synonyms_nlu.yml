@@ -1,23 +1,5 @@
 version: "3.1"
 nlu:
-- synonym: Americana
-  examples: |
-    - Americana
-- synonym: Calzone
-  examples: |
-    - Calzone
-- synonym: Caprese
-  examples: |
-    - Caprese
-- synonym: Crudo
-  examples: |
-    - Crudo
-- synonym: Chicken BBC
-  examples: |
-    - Chicken BBC
-- synonym: Rustica
-  examples: |
-    - Rustica
 - synonym: 10"
   examples: |
     - 10
