@@ -277,8 +277,9 @@ stories:
   - active_loop: duo_party_form
   - intent: stop_promotion_order
   - action: utter_ask_continue_with_promotion
-  - intent: stop_promotion_order
+  - intent: confirm_stop_promotion_order
   - action: action_promotion_reset
   - action: action_deactivate_loop
   - active_loop: null
-  - action: utterance_promotion_canceled
+  - action: action_promotion_reset
+  - action: utter_promotion_canceled

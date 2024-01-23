@@ -39,6 +39,26 @@ nlu:
     - What are the rules for selecting pizza flavors in the [Duo Party](promotion_type)?
     - Is there flexibility in choosing pizza varieties for the [Duo Party](promotion_type)?
 
+- intent: duo_party_faq/ask_third_pizza
+  examples: |
+    - Can I get a third pizza in [Duo Party](promotion_type)?
+    - Can I get three pizzas in [Duo Party](promotion_type) instead of two?
+    - Can i change the number of pizzas in [Duo Party](promotion_type)?
+    - Can I get three pizzas in [Duo Party](promotion_type) instead of the side dish?
+    - Would it be possible to get three pizzas in [Duo Party](promotion_type)?
+    - Is it possible to change the side dish for a third pizza in [Duo Party](promotion_type)?
+    - I would like to get three pizzas in [Duo Party](promotion_type)
+
+- intent: duo_party_faq/ask_change_pizza_for_side_dish
+  examples: |
+    - Would it be possible to change a pizza for a side dish in [Duo Party](promotion_type)?
+    - Can I change one of the pizzas for a side dish in [Duo Party](promotion_type)?
+    - Can I get a side dish instead of one of the pizzas in [Duo Party](promotion_type)?
+    - Is it possible to change one of the pizzas for a side dish in [Duo Party](promotion_type)?
+    - Change one of the pizzas for a side dish in [Duo Party](promotion_type)
+    - I would like to change one of the pizzas for a side dish in [Duo Party](promotion_type)
+    - I rather have second side dish instead of one of the pizzas in [Duo Party](promotion_type)
+
 # TODO: Fix this to accept recommend, recommendation, recommended
 - intent: pizza_duo_promotion_order
   examples: |

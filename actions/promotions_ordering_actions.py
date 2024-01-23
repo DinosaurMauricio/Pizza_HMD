@@ -82,7 +82,7 @@ class ActionRecommendOnPromotionForm(Action):
                     SlotSet("first_pizza_promotion", None),
                     SlotSet("recommend_side_dish", None),
                     SlotSet("second_pizza_promotion", None),
-                    SlotSet("first_side_dish_promotion", None)
+                    SlotSet("first_side_dish_promotion", None),
                     SlotSet("second_side_dish_promotion", None)]
 
 
@@ -100,19 +100,23 @@ class ActionPromotionTotalOrder(Action):
             second_pizza_promotion = tracker.get_slot("second_pizza_promotion")
             first_side_dish = tracker.get_slot("first_side_dish_promotion")
 
+            size = "medium"
+
             if first_pizza_promotion == second_pizza_promotion:
-                total_order_promotion += f" {promotion_type} includes two {first_pizza_promotion} pizzas and {first_side_dish} as a side dish"
+                total_order_promotion += f" {promotion_type} includes two {size} {first_pizza_promotion} pizzas and {first_side_dish} as a side dish"
             else:
-                total_order_promotion += f" {promotion_type} includes one {first_pizza_promotion} pizza, one {second_pizza_promotion} pizza and {first_side_dish} as a side dish"
+                total_order_promotion += f" {promotion_type} includes one {size} {first_pizza_promotion} pizza, one {size} {second_pizza_promotion} pizza and {first_side_dish} as a side dish"
 
         # because we don't have a third promotion yet we can just use else
         else:
             first_side_dish = tracker.get_slot("first_side_dish_promotion")
             second_side_dish = tracker.get_slot("second_side_dish_promotion")
+            size = "large"
+
             if first_side_dish == second_side_dish:
-                total_order_promotion += f" {promotion_type} includes one {first_pizza_promotion} pizza and two {first_side_dish} as a side dishes"
+                total_order_promotion += f" {promotion_type} includes one size {first_pizza_promotion} pizza and two {first_side_dish} as a side dishes"
             else:
-                total_order_promotion += f" {promotion_type} includes one {first_pizza_promotion} pizza, one {first_side_dish} and {second_side_dish} as side dishes"
+                total_order_promotion += f" {promotion_type} includes one size {first_pizza_promotion} pizza, one {first_side_dish} and {second_side_dish} as side dishes"
 
         return [SlotSet("total_promotion_order", total_order_promotion)]
 
@@ -130,5 +134,5 @@ class ActionPromotionReset(Action):
                 SlotSet("recommend_pizza", None),
                 SlotSet("second_pizza_promotion", None),
                 SlotSet("second_side_dish_promotion", None),
-                SlotSet("first_side_dish_promotion", None)
+                SlotSet("first_side_dish_promotion", None),
                 SlotSet("total_promotion_order", None)]

@@ -263,20 +263,41 @@ nlu:
     - Yes, include a [Funghi](first_pizza_promotion) in my [Veggie Feast](promotion_type)
     - I'll take the [Duo Party](promotion_type) promotion with [Bacon Jalapeño](first_side_dish_promotion)
     - Confirming my order for [Veggie Feast](promotion_type) with [Caprese Salad](first_side_dish_promotion)
-    - Yes, add [Margherita] pizza to my [Duo Party](promotion_type) deal
-
+    - Yes, add for my second pizza [Margherita](second_pizza_promotion) pizza to my [Duo Party](promotion_type) deal
+    - i want [Vegetarian](second_pizza_promotion) for my second pizza
+    - i'm craving for [Vegetarian](second_pizza_promotion) as the second option
+    - as second option i will have [Funghi](second_pizza_promotion)
+    - first [Vegetarian](first_pizza_promotion) and second [Margherita](second_pizza_promotion)
+    - i will have [Bacon Jalapeno](first_side_dish_promotion) with a [Margherita](first_pizza_promotion) pizza
 
 - intent: stop_promotion_order
   examples: |
     - i changed my mind, i don't want this promotion anymore
     - please cancel this order, i don't want this promotion anymore
     - i don't want this promotion anymore
-    - please stop this order i don't want it anymore
+    - please stop this promotion i don't want it anymore
     - stop the promotion order
-    - i don't want this promotion anymore
     - yeah, please stop this order
     - i'm sure i don't want this order anymore
     - i'm sorry but at the end i don't want this promotion anymore
     - yes, i'm sure i don't want this promotion anymore
     - i would like to stop this promotion order
     - no please stop the promotion order
+    - i rather have something else
+    - sorry but i don't want this promotion anymore
+    - afterall i won't take this promotion
+    - i will get something else, not this promotion
+
+- intent: confirm_stop_promotion_order
+  examples: |
+    - yes, i don't want to have this promotion anymore
+    - i'm sure i don't want this promotion anymore
+    - correct i ant to get something else
+    - yes, please stop the promotion ordering
+    - yes, i want to stop this promotion order
+    - affirmative, please stop this promotion
+
+- intent: change_item_promotion
+  examples: |
+    - can i change my first pizza for a [Margherita](first_pizza_promotion)?
+    - if its possible i would like to change my second pizza for a [Margherita](second_pizza_promotion)
