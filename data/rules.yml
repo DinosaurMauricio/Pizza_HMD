@@ -99,7 +99,20 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: utter_finish_promotion #TODO: change this to a proper utterance
+  - action: action_promotion_total_order
+  - action: utter_summarize_promotion_order #TODO: change this to a proper utterance
+
+- rule: Duo Party form unhappy path + asked FAQ on promotion
+  condition:
+  - active_loop: duo_party_form
+  steps:
+  # This unhappy path handles the case of an intent `duo_party_faq`.
+  # TODO: add an action here to modify the utterance
+  - intent: duo_party_faq
+  - action: utter_duo_party_faq
+  # Return to form after handling the `duo_party_faq` intent
+  - action: duo_party_form
+  - active_loop: duo_party_form
 
 
 - rule: details on promotions was asked

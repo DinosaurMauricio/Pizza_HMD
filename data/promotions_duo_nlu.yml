@@ -39,6 +39,7 @@ nlu:
     - What are the rules for selecting pizza flavors in the [Duo Party](promotion_type)?
     - Is there flexibility in choosing pizza varieties for the [Duo Party](promotion_type)?
 
+# TODO: Fix this to accept recommend, recommendation, recommended
 - intent: pizza_duo_promotion_order
   examples: |
     - for my [Duo Party](promotion_type) I want [Funghi](first_pizza_promotion)
@@ -51,8 +52,44 @@ nlu:
     - thanks but i will have [Pepperoni](first_pizza_promotion)
     - i will have [Vegetarian](first_pizza_promotion) for my [Duo Party](promotion_type)
     - i would prefer to have [Funghi](first_pizza_promotion)
-    - i would prefer to have [Hawaii](first_pizza_promotion)
+    - i would prefer to have [Hawaii](first_pizza_promotion) and as a second pizza i will choose [Margherita](second_pizza_promotion)
     - [Hawaii](first_pizza_promotion) initially
     - for my first pizza i want [Margherita](first_pizza_promotion)
-    - i think i will take your recommended pizza
-    - i will go with your recommendations
+    - i will take [Pepperoni](first_pizza_promotion) for starters and [Vegetarian](second_pizza_promotion)
+    - i will take [Funghi](first_pizza_promotion) and [French Fries](first_side_dish_promotion)
+    - how about some [Chicken Wings](first_side_dish_promotion) and [Hawaii](first_pizza_promotion) pizza
+    - i will take [Margherita](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
+    - i will take [Pepperoni](first_pizza_promotion) and [Vegetarian](second_pizza_promotion) and some [French Fries](first_side_dish_promotion) for my promotion
+    - in my order i will have [Funghi](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
+    - for my side dish i think i will go with [Caprese Salad](first_side_dish_promotion)
+    - for my second pizza i think i will have [Margherita](second_pizza_promotion)
+    - for second pizza i will have [Hawaii](second_pizza_promotion)
+    - maybe i will go for [Funghi](second_pizza_promotion) for my second pizza
+    - second pizza i will have [Hawaii](second_pizza_promotion)
+    - my second pizza will be [Margherita](second_pizza_promotion)
+- intent: submit_promotion_confirm_positive
+  examples: |
+    - my full promotion order is correct
+    - my promotion order is correct
+    - my offer is correct
+    - the promotion order is ok
+    - that is what i want for my deal
+    - that is what i want for my promotion
+    - it is correct for my promotion
+    - affirmative, the promotion is correct
+    - those are the things i ordered for my promotion
+    - that is what i want for my promotion
+    - that's what i want for my promotion
+
+# TODO: expand such that it can provide "first pizz" "second pizza" "first side dish" "second side dish"
+- intent: submit_promotion_confirm_negative
+  examples: |
+    - actually, could you change my promotion order?
+    - i would like to change my promotion order
+    - i changed my mind on the first pizza, can it be changed?
+    - i changed my mind on the second pizza, can it be changed?
+    - i changed my mind on the first side dish, can it be changed?
+    - i changed my mind on the second side dish, can it be changed?
+    - could i change my promotion order?
+    - i would like to change my items for the promotion
+    - i would like to change my promotion order

@@ -12,6 +12,12 @@ PIZZA_OPTIONS = ["Hawaii", "Funghi",
 SIDES_OPTIONS = ["French Fries", "Caprese Salad",
                  "Chicken Wings", "Bacon Jalapeno"]
 
+NOT_AVAILABLE_PIZZAS = ["Quattro Formaggi", "Diavola", "Capricciosa", "Prosciutto e Funghi",
+                        "BBQ Chicken", "Americana", "Supreme", "Meat Lovers"]
+
+NOT_AVAILABLE_SIDES = ["Onion Rings", "Garlic Bread",
+                       "Mozzarella Sticks", "Caesar Salad", "Sweet Potato Fries"]
+
 
 class ActionOrderNumber(Action):
     def name(self):
@@ -22,59 +28,3 @@ class ActionOrderNumber(Action):
         number_person = tracker.get_slot("phone_number")
         order_number = str(name_person + "_"+number_person)
         return [SlotSet("order_number", order_number)]
-
-
-class ValidateDuoPartyForm(FormValidationAction):
-    def name(self) -> Text:
-        return "validate_duo_party_form"
-
-    def validate_first_pizza_promotion(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `first_pizza_promotion` value."""
-
-        # If the name is super short, it might be wrong.
-        name = ""
-        print('name is ', name)
-        if len(name) == 0:
-            dispatcher.utter_message(text="That must've been a typo.")
-            return {"first_pizza_promotion": None}
-        return {"first_pizza_promotion": name}
-
-    def validate_second_pizza_promotion(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `second_pizza_promotion` value."""
-
-        # If the name is super short, it might be wrong.
-        name = ""
-        print('name is ', name)
-        if len(name) == 0:
-            dispatcher.utter_message(text="That must've been a typo.")
-            return {"second_pizza_promotion": None}
-        return {"second_pizza_promotion": name}
-
-    def validate_first_side_dish_promotion(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        """Validate `first_side_dish_promotion` value."""
-
-        # If the name is super short, it might be wrong.
-        name = ""
-        print('name is ', name)
-        if len(name) == 0:
-            dispatcher.utter_message(text="That must've been a typo.")
-            return {"first_side_dish_promotion": None}
-        return {"first_side_dish_promotion": name}

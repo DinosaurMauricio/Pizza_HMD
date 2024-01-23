@@ -241,32 +241,44 @@ stories:
   - active_loop: duo_party_form
   - slot_was_set:
     - requested_slot: first_pizza_promotion
-#  #- slot_was_set:
-#  #  - pizza_type: Pepperoni
   - slot_was_set:
     - requested_slot: second_pizza_promotion
-#  #- slot_was_set:
-#  #  - pizza_amount: three
   - slot_was_set:
     - requested_slot: first_side_dish_promotion
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
-  - action: utter_finish_promotion #TODO: change this to a proper utterance
+  - action: action_promotion_total_order
+  - action: utter_summarize_promotion_order #TODO: change this to a proper utterance
 
-#- story: confirm promotion ordering 
-#  steps:
-#  - intent: promotion_order_confirm
-#  - action: action_handle_promotion_order_confirm
-#  - action: utter_promotion_order_confirm
-##
-##
-###possible story
-###- story: vague recommend undecided and ask questions
-###  steps:
-###  - intent: order_promotion_vague
-###    entities:
-###    - is_vegetarian: null
-###    - is_reunion: null
-###  - action: utter_vague_order_promotion
-###  - intent: promotions_faq
+- story: submit duo party form
+  steps:
+  - action: utter_summarize_promotion_order
+  - intent: submit_promotion_confirm_positive
+  #TODO: if it can add more than one promotion, this story should be changed, # action: add_promotion_to_list
+  #- action: action_promotion_add
+  - action: action_promotion_reset
+  - action: utter_name_phone
+
+- story: decline duo party form want to change item
+  steps:
+  - action: utter_summarize_promotion_order
+  - intent: submit_promotion_confirm_negative
+  - action: utter_promotion_change_options
+
+# TODO: add  path to change item on order
+
+
+- story: User doesn't want the promotion anymore
+  steps:
+  - intent: promotion_order_confirm
+  - action: action_recommend_on_promotion_form
+  - action: duo_party_form
+  - active_loop: duo_party_form
+  - intent: stop_promotion_order
+  - action: utter_ask_continue_with_promotion
+  - intent: stop_promotion_order
+  - action: action_promotion_reset
+  - action: action_deactivate_loop
+  - active_loop: null
+  - action: utterance_promotion_canceled

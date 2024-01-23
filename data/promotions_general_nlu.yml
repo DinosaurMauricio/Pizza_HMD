@@ -231,7 +231,7 @@ nlu:
     - i need this promotion 
     - I think its the best option for me and my friends to have this offer
     - this sounds like a good deal to me, i will take it
-    - i will take it this order
+    - i will take it this promotion
     - i so totally will take this promotion
     - yes, i want this deal
     - of course, i want a [Pepperoni](first_pizza_promotion) for my combo
@@ -264,3 +264,19 @@ nlu:
     - I'll take the [Duo Party](promotion_type) promotion with [Bacon Jalapeño](first_side_dish_promotion)
     - Confirming my order for [Veggie Feast](promotion_type) with [Caprese Salad](first_side_dish_promotion)
     - Yes, add [Margherita] pizza to my [Duo Party](promotion_type) deal
+
+
+- intent: stop_promotion_order
+  examples: |
+    - i changed my mind, i don't want this promotion anymore
+    - please cancel this order, i don't want this promotion anymore
+    - i don't want this promotion anymore
+    - please stop this order i don't want it anymore
+    - stop the promotion order
+    - i don't want this promotion anymore
+    - yeah, please stop this order
+    - i'm sure i don't want this order anymore
+    - i'm sorry but at the end i don't want this promotion anymore
+    - yes, i'm sure i don't want this promotion anymore
+    - i would like to stop this promotion order
+    - no please stop the promotion order
