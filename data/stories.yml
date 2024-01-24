@@ -256,18 +256,29 @@ stories:
   - action: utter_summarize_promotion_order
   - intent: submit_promotion_confirm_positive
   #TODO: if it can add more than one promotion, this story should be changed, # action: add_promotion_to_list
-  #- action: action_promotion_add
+  - action: action_promotion_add
   - action: action_promotion_reset
+  #- action: utter_name_phone # change this to start adding more promotions
+  - action: utter_summarize_complete_order
+  - intent: complete_order_confirm
   - action: utter_name_phone
+# TODO: add  path to change item on order
 
-- story: decline duo party form want to change item
+- story: modified order + confirm
   steps:
   - action: utter_summarize_promotion_order
   - intent: submit_promotion_confirm_negative
-  - action: utter_promotion_change_options
-
-# TODO: add  path to change item on order
-
+  - action: utter_promotion_change
+  - intent: change_item_promotion_specific
+    entities:
+    - first_pizza_promotion: "Margherita"
+    - second_pizza_promotion: "Hawaii"
+    - first_side_dish_promotion: "French Fries"
+    - second_side_dish_promotion: "Caprese Salad"
+  - action: action_change_promotion_item
+  - action: action_promotion_total_order
+  - action: utter_promotion_change_summarize
+  - intent: submit_promotion_confirm_positive
 
 - story: User doesn't want the promotion anymore
   steps:
@@ -283,3 +294,4 @@ stories:
   - active_loop: null
   - action: action_promotion_reset
   - action: utter_promotion_canceled
+  

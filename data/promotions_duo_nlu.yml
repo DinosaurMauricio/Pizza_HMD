@@ -59,6 +59,15 @@ nlu:
     - I would like to change one of the pizzas for a side dish in [Duo Party](promotion_type)
     - I rather have second side dish instead of one of the pizzas in [Duo Party](promotion_type)
 
+- intent: duo_party_faq/ask_different_size_pizza
+  examples: |
+    - Can I get a different size pizza in [Duo Party](promotion_type)?
+    - Could i get a different size pizza in [Duo Party](promotion_type)?
+    - is it possible to get a large pizza instead of two medium pizzas in [Duo Party](promotion_type)?
+    - can it be two small pizzas instead in [Duo Party](promotion_type)?
+    - can i get a large pizza instead of two medium pizzas in [Duo Party](promotion_type)?
+    - can i get two small pizzas instead in [Duo Party](promotion_type)?
+
 # TODO: Fix this to accept recommend, recommendation, recommended
 - intent: pizza_duo_promotion_order
   examples: |
@@ -100,16 +109,32 @@ nlu:
     - those are the things i ordered for my promotion
     - that is what i want for my promotion
     - that's what i want for my promotion
-
-# TODO: expand such that it can provide "first pizz" "second pizza" "first side dish" "second side dish"
+    - the promotion is now correct
+    - now my promotion is correct
+    - everything is fine for my promotion
+    - everything is now fine for my promotion
+    - i like the promotion now
+    - my promotion is ok Now
+    - i'm done now, my promotion is ok
+    - i want to confirm my promotion
+    
+# this is more vague when change is not specified
 - intent: submit_promotion_confirm_negative
   examples: |
-    - actually, could you change my promotion order?
-    - i would like to change my promotion order
+    - actually, could i modify some items?
     - i changed my mind on the first pizza, can it be changed?
     - i changed my mind on the second pizza, can it be changed?
     - i changed my mind on the first side dish, can it be changed?
     - i changed my mind on the second side dish, can it be changed?
-    - could i change my promotion order?
+    - could i change some items on my promotion order?
     - i would like to change my items for the promotion
     - i would like to change my promotion order
+    - i want to change my promotion order
+    - i want to change my promotion pizza
+    - i want to change my promotion items
+    - i would like to make some changes in my promotion
+    - if i can, i would like to change a pizza
+    - is it possible to change the side dish?
+    - i changed my mind on the pizza, can it be changed?
+    - i changed my mind on the side dish, can it be changed?
+    - could i change my promotion order items?

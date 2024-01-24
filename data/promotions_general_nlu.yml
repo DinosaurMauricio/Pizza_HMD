@@ -219,6 +219,7 @@ nlu:
     - i'm [vegetarian]{"entity": "is_vegetarian", "value": "True"}, do you have any deals?
     - do you have any promotions for a [party]{"entity":"is_reunion", "value":"True"}?
 
+# here i have it as vague and specific, but it can be handled as one intent
 - intent: promotion_order_confirm
   examples: |
     - Yes, i want [Duo Party](promotion_type) promotion
@@ -297,7 +298,33 @@ nlu:
     - yes, i want to stop this promotion order
     - affirmative, please stop this promotion
 
-- intent: change_item_promotion
+
+# specific intent
+- intent: change_item_promotion_specific
   examples: |
     - can i change my first pizza for a [Margherita](first_pizza_promotion)?
     - if its possible i would like to change my second pizza for a [Margherita](second_pizza_promotion)
+    - i would like to change my first pizza for a [Margherita](first_pizza_promotion)
+    - the second pizza i got it wrong, could it be a [Margherita](second_pizza_promotion)?
+    - i would like to change my first side dish for a [French Fries](first_side_dish_promotion)
+    - it seems i made a mistake on my second side dish, can i change it for a [French Fries](second_side_dish_promotion)?
+    - can i change my second side dish for a [French Fries](second_side_dish_promotion)?
+    - i would like to change my second side dish for a [French Fries](second_side_dish_promotion)
+    - change first Pizza for a [Funghi](first_pizza_promotion)
+    - change second Pizza for a [Margherita](second_pizza_promotion)
+    - change first side dish for a [French Fries](first_side_dish_promotion)
+    - change second side dish for a [Chicken Wings](second_side_dish_promotion)
+    - i made a mistake on my promotion order. please change the first pizza for a [Hawaii](first_pizza_promotion)
+    - i made an error on my promotion, i wanted a [Pepperoni](second_pizza_promotion) as second Pizza
+    - sorry, but i rather have a [Hawaii](second_pizza_promotion) as second Pizza
+    - i think i rather have [Chicken Wings](second_side_dish_promotion) as second side dish
+    - i want to eat more healthy, can i get a [Caprese Salad](second_side_dish_promotion) as second side dish?
+    - my friend told me the wrong pizza, could you change the first pizza for a [Funghi](first_pizza_promotion)?
+    - i think i will change my second pizza for a [Vegetarian](second_pizza_promotion)
+    - instead of meat i will have a [Vegetarian](second_pizza_promotion) as second pizza
+    - modify the first side dish for a [French Fries](first_side_dish_promotion)
+    - modify the second side dish for a [Chicken Wings](second_side_dish_promotion)
+    - modify second side dish with [French Fries](second_side_dish_promotion)
+    - change [Margherita](first_pizza_promotion) for [Funghi](first_pizza_promotion)	
+    - change [Hawaii](second_pizza_promotion) for [Vegetarian](second_pizza_promotion)
+# might need to check if for example they said change french fries for hawaii, see if this is possible

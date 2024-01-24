@@ -9,6 +9,37 @@ import random
 from actions.general_actions import PIZZA_OPTIONS, SIDES_OPTIONS
 
 
+def get_promotion_values(tracker):
+    first_side_dish = tracker.get_slot("first_side_dish_promotion")
+    second_side_dish = tracker.get_slot("second_side_dish_promotion")
+    first_pizza = tracker.get_slot("first_pizza_promotion")
+    second_pizza = tracker.get_slot("second_pizza_promotion")
+
+    return first_pizza, second_pizza, first_side_dish, second_side_dish
+
+
+class ActionChangePromotionOrderItem(Action):
+    def name(self):
+        return 'action_change_promotion_item'
+
+    def run(self, dispatcher, tracker, domain):
+        first_pizza, second_pizza, first_side_dish, second_side_dish = get_promotion_values(
+            tracker)
+        promotion_type = tracker.get_slot("promotion_type")
+
+        print(first_pizza, second_pizza, first_side_dish, second_side_dish)
+
+        # TODO: if it were trying to change something not valid on the promotion you would throw an utter that its not possible to change
+        if promotion_type == "Duo Party":
+            return [SlotSet("first_pizza_promotion", first_pizza),
+                    SlotSet("second_pizza_promotion", second_pizza),
+                    SlotSet("first_side_dish_promotion", first_side_dish)]
+
+        else:  # promotion_type == "Veggie Feast":
+            return [SlotSet("first_side_dish_promotion", first_side_dish),
+                    SlotSet("second_side_dish_promotion", second_side_dish)]
+
+
 class ActionHandleDetailsOnPromotion(Action):
     def name(self):
         return 'action_handle_details_on_promotion'
@@ -103,9 +134,9 @@ class ActionPromotionTotalOrder(Action):
             size = "medium"
 
             if first_pizza_promotion == second_pizza_promotion:
-                total_order_promotion += f" {promotion_type} includes two {size} {first_pizza_promotion} pizzas and {first_side_dish} as a side dish"
+                total_order_promotion += f" includes two {size} {first_pizza_promotion} pizzas and {first_side_dish} as a side dish"
             else:
-                total_order_promotion += f" {promotion_type} includes one {size} {first_pizza_promotion} pizza, one {size} {second_pizza_promotion} pizza and {first_side_dish} as a side dish"
+                total_order_promotion += f" includes one {size} {first_pizza_promotion} pizza, one {size} {second_pizza_promotion} pizza and {first_side_dish} as a side dish"
 
         # because we don't have a third promotion yet we can just use else
         else:
@@ -114,9 +145,9 @@ class ActionPromotionTotalOrder(Action):
             size = "large"
 
             if first_side_dish == second_side_dish:
-                total_order_promotion += f" {promotion_type} includes one size {first_pizza_promotion} pizza and two {first_side_dish} as a side dishes"
+                total_order_promotion += f" includes one size {first_pizza_promotion} pizza and two {first_side_dish} as a side dishes"
             else:
-                total_order_promotion += f" {promotion_type} includes one size {first_pizza_promotion} pizza, one {first_side_dish} and {second_side_dish} as side dishes"
+                total_order_promotion += f" includes one size {first_pizza_promotion} pizza, one {first_side_dish} and {second_side_dish} as side dishes"
 
         return [SlotSet("total_promotion_order", total_order_promotion)]
 

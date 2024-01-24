@@ -114,6 +114,20 @@ rules:
   - active_loop: duo_party_form
 
 
+- rule: decline duo party form want to change item
+  steps:
+  - action: utter_summarize_promotion_order
+  - intent: submit_promotion_confirm_negative
+  - action: utter_promotion_change
+
+- rule: User wants change in promotion specific
+  steps:
+  - intent: change_item_promotion_specific
+  - action: action_change_promotion_item
+  - action: action_promotion_total_order
+  - action: utter_promotion_change_summarize
+
+
 - rule: details on promotions was asked
   condition:
   - slot_was_set:
