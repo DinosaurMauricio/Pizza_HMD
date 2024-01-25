@@ -24,12 +24,27 @@ class ActionPizzaTotalOrder(Action):
 
     def run(self, dispatcher, tracker, domain):
 
+        order_details = ""
         side_dishes_list = tracker.get_slot("side_dishes") or []
         pizzas_complete_order_list = tracker.get_slot(
             "pizzas_complete_order") or []
+        promotions_order_list = tracker.get_slot(
+            "complete_promotion_orders") or []
 
-        order_details = " and ".join(
-            [f"{pizza['amount']} {pizza['type']} {pizza['size']} size" for pizza in pizzas_complete_order_list])
+        if promotions_order_list is not None:
+            # count the number of times the value "Duo Party" appears in the list
+            element_counts = Counter(
+                [promotion["promotion_type"] for promotion in promotions_order_list])
+
+            # get the number of times the value "Duo Party" appears in the list
+            promotions = [f'{value} {key}' for key,
+                          value in element_counts.items()]
+
+            order_details = order_details + " and ".join(promotions)
+
+        if pizzas_complete_order_list is not None:
+            order_details = order_details + " and ".join(
+                [f" {pizza['amount']} {pizza['type']} {pizza['size']} size" for pizza in pizzas_complete_order_list])
 
         if side_dishes_list is not None:
             element_counts = Counter(side_dishes_list)

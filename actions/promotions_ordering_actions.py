@@ -18,6 +18,32 @@ def get_promotion_values(tracker):
     return first_pizza, second_pizza, first_side_dish, second_side_dish
 
 
+class ActionPromotionAdd(Action):
+    def name(self):
+        return 'action_promotion_add'
+
+    def run(self, dispatcher, tracker, domain):
+
+        first_pizza, second_pizza, first_side, second_side = get_promotion_values(
+            tracker)
+
+        promotion_type = tracker.get_slot("promotion_type")
+        complete_promotion_orders = tracker.get_slot(
+            "complete_promotion_orders") or []
+
+        print(complete_promotion_orders)
+
+        complete_promotion_orders.append({
+            "promotion_type": promotion_type,
+            "first_side_dish_promotion": first_side,
+            "second_side_dish_promotion": second_side,
+            "first_pizza_promotion": first_pizza,
+            "second_pizza_promotion": second_pizza
+        })
+
+        return [SlotSet("complete_promotion_orders", complete_promotion_orders)]
+
+
 class ActionChangePromotionOrderItem(Action):
     def name(self):
         return 'action_change_promotion_item'

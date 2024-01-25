@@ -71,6 +71,9 @@ nlu:
 # TODO: Fix this to accept recommend, recommendation, recommended
 - intent: pizza_duo_promotion_order
   examples: |
+    - i want another [Hawaii](second_pizza_promotion)
+    - add another [Margherita](second_pizza_promotion)
+    - i think i will go for another [Pepperoni](second_pizza_promotion)
     - for my [Duo Party](promotion_type) I want [Funghi](first_pizza_promotion)
     - for my [Duo Party](promotion_type) I want [Hawaii](first_pizza_promotion)
     - i would like [Margherita](first_pizza_promotion) for my [Duo Party](promotion_type)

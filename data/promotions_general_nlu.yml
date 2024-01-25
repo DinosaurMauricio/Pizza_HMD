@@ -135,6 +135,7 @@ nlu:
 
 - intent: details_on_promotion 
   examples: |
+    - give me more details on your promotion
     - tell me about [Duo Party](promotion_type)
     - tell me about [Veggie Feast](promotion_type)
     - i would like to know more about [Veggie Feast](promotion_type) please

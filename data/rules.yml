@@ -100,7 +100,7 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_promotion_total_order
-  - action: utter_summarize_promotion_order #TODO: change this to a proper utterance
+  - action: utter_summarize_promotion_order
 
 - rule: Duo Party form unhappy path + asked FAQ on promotion
   condition:
@@ -127,6 +127,12 @@ rules:
   - action: action_promotion_total_order
   - action: utter_promotion_change_summarize
 
+- rule: add promotion order to list
+  steps:
+  - intent: submit_promotion_confirm_positive
+  - action: action_promotion_add
+  - action: utter_recommend_other_items
+  - action: action_promotion_reset
 
 - rule: details on promotions was asked
   condition:

@@ -30,8 +30,6 @@ class ValidateDuoPartyForm(FormValidationAction):
 
         pizza = slot_value.lower()
         if pizza not in available_pizzas:
-            print(pizza, available_pizzas)
-            print('======inside first==========')
             dispatcher.utter_message(
                 text="Sorry, we currently don't serve that pizza.")
             return {"first_pizza_promotion": None}
@@ -54,8 +52,6 @@ class ValidateDuoPartyForm(FormValidationAction):
         domain.update()
         pizza = slot_value.lower()
         if pizza not in available_pizzas:
-            print(pizza, available_pizzas)
-            print('=======inside second=========')
             dispatcher.utter_message(
                 text="Sorry, we currently don't serve that pizza.")
             return {"second_pizza_promotion": None}

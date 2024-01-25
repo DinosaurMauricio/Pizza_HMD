@@ -66,6 +66,7 @@ stories:
   - action: utter_pizza_order_confirm_positive
   - intent: response_negative
   - action: action_total_order
+  - action: utter_summarize_complete_order
   
 
 - story: change the pizza order
@@ -249,22 +250,22 @@ stories:
     - requested_slot: null
   - active_loop: null
   - action: action_promotion_total_order
-  - action: utter_summarize_promotion_order #TODO: change this to a proper utterance
+  - action: utter_summarize_promotion_order
 
 - story: submit duo party form
   steps:
   - action: utter_summarize_promotion_order
   - intent: submit_promotion_confirm_positive
-  #TODO: if it can add more than one promotion, this story should be changed, # action: add_promotion_to_list
   - action: action_promotion_add
+  - action: utter_recommend_other_items
   - action: action_promotion_reset
-  #- action: utter_name_phone # change this to start adding more promotions
+  - intent: response_negative
+  - action: action_total_order
   - action: utter_summarize_complete_order
   - intent: complete_order_confirm
   - action: utter_name_phone
-# TODO: add  path to change item on order
 
-- story: modified order + confirm
+- story: modified promotion + confirm
   steps:
   - action: utter_summarize_promotion_order
   - intent: submit_promotion_confirm_negative
@@ -279,6 +280,9 @@ stories:
   - action: action_promotion_total_order
   - action: utter_promotion_change_summarize
   - intent: submit_promotion_confirm_positive
+  - action: action_promotion_add
+  - action: utter_recommend_other_items
+  - action: action_promotion_reset
 
 - story: User doesn't want the promotion anymore
   steps:
