@@ -68,9 +68,20 @@ nlu:
     - can i get a large pizza instead of two medium pizzas in [Duo Party](promotion_type)?
     - can i get two small pizzas instead in [Duo Party](promotion_type)?
 
+- intent: duo_party_faq/ask_change_promotion_type
+  examples: |
+    - could i switch to other promotion?
+    - is it possible to change this promotion for Veggie Feast?
+    - can i change this promotion for Veggie Feast?
+    - i would like to change this promotion for Veggie Feast
+    - would you please change this promotion?
+    - i would like to change this promotion
+    - i would like to change this promotion for Veggie Feast
+
 # TODO: Fix this to accept recommend, recommendation, recommended
 - intent: pizza_duo_promotion_order
   examples: |
+    - I'll go with [pepperoni](first_pizza_promotion) and [funghi](second_pizza_promotion)
     - i want another [Hawaii](second_pizza_promotion)
     - add another [Margherita](second_pizza_promotion)
     - i think i will go for another [Pepperoni](second_pizza_promotion)

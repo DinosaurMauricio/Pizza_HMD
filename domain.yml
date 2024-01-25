@@ -102,6 +102,10 @@ responses:
   utter_promotions_faq/remove_promotion:
   - text: I can take care of that, which promotion would you like to remove?
   - text: Sure, which promotion would you like to remove?
+  utter_promotions_faq/ask_ask_multiple_promotions:
+  - text: You can order multiple promotions, but you have to order them one by one. Which promotion would you like to order?
+  - text: You can only order one promotion at a time. Which promotion would you like to order?
+  
   ## specific promotion faq
   ##duo party
 
@@ -169,6 +173,8 @@ responses:
   - text: Sorry, you can only get 1 side dish on this promotion.
   utter_duo_party_faq/ask_different_size_pizza:
   - text: The promotion just applies on medium pizzas, sorry!
+  utter_duo_party_faq/ask_change_promotion_type:
+  - text: To order a different promotion, you have to finish or cancel your current promotion order. Would you like to cancel your current promotion order?
 
   ### Change item in promotion
   utter_promotion_change:
@@ -290,11 +296,12 @@ slots:
     initial_value: false  
     mappings:
     - type: custom
+  # TODO: add validation for final order utter
   is_cart_empty:
-    type: bool
+    type: bool    
+    initial_value: true
     mappings:
-    - type: from_entity
-      entity: is_cart_empty
+    - type: custom
   promotion_numbering:
     type: any
     mappings:

@@ -145,6 +145,18 @@ nlu:
     - is there an issue if i order more than one promotion?
     - can i order more than one promotion?
 
+- intent: promotions_faq/ask_ask_multiple_promotions
+  examples: |
+    - i would like to have two promotions in my order
+    - can i order two promotions?
+    - i will take two promotions of Duo Party
+    - i want to order more than one promotion
+    - for my order i would like to order more than one promotion
+    - could i order more than one promotion?
+    - i want to order more than one promotion
+    - can i take one veggie feast and duo party?
+    - can i have duo party and veggie feast?
+
 - intent: promotions_faq/ask_reinsert_promotion
   examples: |
     - i removed a promotion by mistake, can you add it again?
