@@ -234,9 +234,20 @@ stories:
   - slot_was_set:
     - promotion_type: Duo Party
 
+- story: duo party form max promotion reached
+  steps:
+  - intent: promotion_order_confirm
+  - action: action_validate_promotion_posibility
+  - slot_was_set:
+    - is_max_promotion_reached: true
+  - action: utter_promotion_limit_reached
+
 - story: duo party form
   steps:
   - intent: promotion_order_confirm
+  - action: action_validate_promotion_posibility
+  - slot_was_set:
+    - is_max_promotion_reached: false
   - action: action_recommend_on_promotion_form
   - action: duo_party_form
   - active_loop: duo_party_form
@@ -287,6 +298,9 @@ stories:
 - story: User doesn't want the promotion anymore
   steps:
   - intent: promotion_order_confirm
+  - action: action_validate_promotion_posibility
+  - slot_was_set:
+    - is_max_promotion_reached: false
   - action: action_recommend_on_promotion_form
   - action: duo_party_form
   - active_loop: duo_party_form

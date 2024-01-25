@@ -18,6 +18,30 @@ def get_promotion_values(tracker):
     return first_pizza, second_pizza, first_side_dish, second_side_dish
 
 
+class ActionValidatePromotionPosibility(Action):
+    def name(self):
+        return 'action_validate_promotion_posibility'
+
+    def run(self, dispatcher, tracker, domain):
+        number_of_promotions = len(tracker.get_slot(
+            "complete_promotion_orders") or [])
+
+        if number_of_promotions == 2:
+            return [SlotSet("is_max_promotion_reached", True),
+                    SlotSet("promotion_type", None),
+                    SlotSet("is_reunion", None),
+                    SlotSet("is_vegetarian", None),
+                    SlotSet("first_pizza_promotion", None),
+                    SlotSet("recommend_side_dish", None),
+                    SlotSet("recommend_pizza", None),
+                    SlotSet("second_pizza_promotion", None),
+                    SlotSet("second_side_dish_promotion", None),
+                    SlotSet("first_side_dish_promotion", None),
+                    SlotSet("total_promotion_order", None)]
+        else:
+            return [SlotSet("is_max_promotion_reached", False)]
+
+
 class ActionPromotionAdd(Action):
     def name(self):
         return 'action_promotion_add'
@@ -50,8 +74,6 @@ class ActionChangePromotionOrderItem(Action):
         first_pizza, second_pizza, first_side_dish, second_side_dish = get_promotion_values(
             tracker)
         promotion_type = tracker.get_slot("promotion_type")
-
-        print(first_pizza, second_pizza, first_side_dish, second_side_dish)
 
         # TODO: if it were trying to change something not valid on the promotion you would throw an utter that its not possible to change
         if promotion_type == "Duo Party":
@@ -204,17 +226,15 @@ class ActonRemovePromotion(Action):
                 dispatcher.utter_message(
                     message=f"Okay, I removed your {complete_promotion_orders[promotion_to_remove]['promotion_type']} promotion.")
 
-                # print(complete_promotion_orders)
                 complete_promotion_orders.pop(promotion_to_remove)
 
-                print(complete_promotion_orders)
                 if len(complete_promotion_orders) > 0:
                     # if there are still promotions left, in this case index can be 0 because either 0 or 1 was removed so the other one is still there
                     dispatcher.utter_message(
-                        message=f"You still have {complete_promotion_orders[0]['promotion_type']} on your order.")
+                        text=f"You still have {complete_promotion_orders[0]['promotion_type']} on your order.")
                 else:
                     dispatcher.utter_message(
-                        message=f"You have no more promotions on your order.")
+                        text=f"You have no more promotions on your order.")
 
                 dispatcher.utter_message(
                     response="utter_promotion_removed_complete")

@@ -309,6 +309,10 @@ nlu:
     - as second option i will have [Funghi](second_pizza_promotion)
     - first [Vegetarian](first_pizza_promotion) and second [Margherita](second_pizza_promotion)
     - i will have [Bacon Jalapeno](first_side_dish_promotion) with a [Margherita](first_pizza_promotion) pizza
+    - i want another [Duo Party](promotion_type)
+    - i will take another [Veggie Feast](promotion_type)
+    - i want to order another [Duo Party](promotion_type)
+    - add another [Veggie Feast](promotion_type)
 
 - intent: stop_promotion_order
   examples: |

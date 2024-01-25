@@ -107,6 +107,12 @@ nlu:
     - for second make it [Hawaii](second_pizza_promotion)
     - for first [Vegetarian](first_pizza_promotion)
     - for second [Margherita](second_pizza_promotion)
+    - for starters i will take [Vegetarian](first_pizza_promotion)
+    - for seconds i will take [Margherita](second_pizza_promotion)
+    - i will go for [Pepperoni](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
+    - i will go for [Vegetarian](first_pizza_promotion) for first option
+    - i will go for [Margherita](second_pizza_promotion) for second option
+
 - intent: submit_promotion_confirm_positive
   examples: |
     - my full promotion order is correct

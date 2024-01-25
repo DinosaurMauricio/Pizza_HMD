@@ -134,7 +134,7 @@ responses:
   utter_summarize_promotion_order:
   - text: We are almost done, could you please only confirm your promotion {total_promotion_order}?
   - text: Your promotion order is almost complete, can you only confirm your promotion {total_promotion_order}?
-  - text: I just need you to confirm your promotion {total_promotion_order} and we are done!
+  - text: I just need you to confirm your promotion {total_promotion_order}!
   - text: To finish your promotion order, can you please confirm your promotion {total_promotion_order}?
 
   utter_recommend_other_items:
@@ -144,10 +144,10 @@ responses:
   utter_ask_duo_party_form_first_pizza_promotion:
   - text: I don't think i got your first pizza, in {promotion_type} for starters I would recommend you to try our {recommend_pizza} Pizza. What would you like to take on your first pizza?
   - text: What would you like to take on your first pizza in {promotion_type}? You might like our {recommend_pizza} Pizza.
-  - text: I don't think I heard your first pizza, for {promotion_type} I can recommend {recommend_pizza} Pizza for starters. What would you like for your first pizza?
+  - text: I missed your first pizza, for {promotion_type} I can recommend {recommend_pizza} for starters. What would you like for your first pizza?
   - text: For your first pizza in your {promotion_type}, could you please tell me which one you want? One of our best pizzas is {recommend_pizza}!
   utter_ask_duo_party_form_second_pizza_promotion:
-  - text: I couldn't catch your second pizza you want to have, which one will you take? I think you would love {recommend_pizza}!
+  - text: I couldn't catch your second pizza you want to have, which one will you take? You might want to try {recommend_pizza}!
   - text: Maybe i missed your second pizza for your {promotion_type}, could you repeat it please? I think you would love {recommend_pizza}!
   - text: You might love to try {recommend_pizza} as your second pizza, which one will you take in your {promotion_type}?
   utter_ask_duo_party_form_first_side_dish_promotion:
@@ -196,17 +196,21 @@ responses:
   # I don't like this but oh well
   utter_remove_wrong_promotion:
   - text: I can't seem to find that order, can you repeat did you mean the first or second promotion?
-  - text: Sorry, I didn't catch that, could you please repeat if you want to remove the first or second promotion?
+  - text: Sorry, I cannot find this order, could you please repeat if you want to remove the first or second promotion?
 
   utter_promotion_removed_complete:
   - text: What would you like to take from our pizzas or other promotions? 
   - text: I can still help you ordering any of our pizzas or other promotions! If so, what would you like?
+
+  utter_promotion_limit_reached:
+  - text: Sorry, you can only order two promotions per costumer. Would you like to remove one of your promotions? or maybe order pizza without a promotion?
 
   ### Empty cart
   utter_empty_cart:
   - text: You have not ordered anything yet, how about you ask for our promotions or pizza?
 
 actions:
+- utter_promotion_limit_reached
 - utter_recommend_other_items
 - utter_promotion_canceled
 - utter_ask_continue_with_promotion
@@ -252,6 +256,7 @@ actions:
 - action_promotion_add
 - action_remove_promotion
 - action_check_cart_is_empty
+- action_validate_promotion_posibility
 - validate_duo_party_form
 - validate_pizza_order_form
 entities:
@@ -278,7 +283,13 @@ entities:
 - complete_promotion_orders
 - promotion_numbering
 - is_cart_empty
+- is_max_promotion_reached
 slots:
+  is_max_promotion_reached:
+    type: bool
+    initial_value: false  
+    mappings:
+    - type: custom
   is_cart_empty:
     type: bool
     mappings:

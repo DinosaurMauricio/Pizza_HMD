@@ -85,9 +85,10 @@ rules:
   condition:
     - slot_was_set:
       - promotion_type: "Duo Party"
+      - is_max_promotion_reached: false
   steps:
     - intent: promotion_order_confirm
-    #- action: action_validate_promotion_posibi
+    - action: action_validate_promotion_posibility
     - action: action_recommend_on_promotion_form
     - action: duo_party_form
     - active_loop: duo_party_form

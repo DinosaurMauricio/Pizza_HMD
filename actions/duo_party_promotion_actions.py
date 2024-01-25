@@ -49,7 +49,6 @@ class ValidateDuoPartyForm(FormValidationAction):
         if slot_value is None:
             return {"second_pizza_promotion": None}
 
-        domain.update()
         pizza = slot_value.lower()
         if pizza not in available_pizzas:
             dispatcher.utter_message(
