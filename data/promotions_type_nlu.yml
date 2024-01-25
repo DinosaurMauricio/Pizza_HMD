@@ -4,3 +4,8 @@ nlu:
   examples: |
     - Duo Party
     - Veggie Feast
+
+- lookup: promotion_numbering
+  examples: |
+    - first
+    - second

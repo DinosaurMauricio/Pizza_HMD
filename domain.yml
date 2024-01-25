@@ -31,6 +31,7 @@ intents:
 - stop_promotion_order
 - confirm_stop_promotion_order
 - change_item_promotion_specific
+- remove_promotion_from_order
 
 responses:
   utter_out_of_scope:
@@ -94,24 +95,19 @@ responses:
   - text: Our current promotions include side dishes and pizzas! Would you like more details on our promotions?
   utter_promotions_faq/details_on_both_promotions:
   - text: With Duo Party promotion you can buy 2 large pizzas and get 1 side dish for free of your choice and with Veggie Feast promotion you can buy 1 large vegetarian pizza and get 2 vegetarian side dishes of your choice for free
-
+  utter_promotions_faq/ask_how_many_promotions_can_take:
+  - text: You are limited to two promotions per costumer.
+  utter_promotions_faq/ask_reinsert_promotion:
+  - text: I can't reinsert a promotion once removed, but certenly I can help you to order a new one! Which promotion would you like to order?
+  utter_promotions_faq/remove_promotion:
+  - text: I can take care of that, which promotion would you like to remove?
+  - text: Sure, which promotion would you like to remove?
   ## specific promotion faq
   ##duo party
 
   utter_specific_duo_party_promotion:
   - text: With Duo Party promotion you can buy 2 large pizzas and get 1 side dish for free of your choice.
-  utter_duo_party_faq/ask_on_available_pizzas:
-  - text: You can get any medium Pizza you want for this promotion, it includes Funghi, Pepperoni, Vegetarian, Margherita and Hawaii.
-  utter_duo_party_faq/ask_available_side_dishes:
-  - text: You can get any Side Dish you want for this promotion, it includes French Fries, Chicken Wings, Bacon Jalapeño and Caprese Salad.
-  utter_duo_party_faq/ask_mix_pizzas:
-  - text: Both pizzas can be of different type, it doesn't have to be the same one!
-  utter_duo_party_faq/ask_third_pizza:
-  - text: Sorry, you can only get 2 pizzas on this promotion.
-  utter_duo_party_faq/ask_change_pizza_for_side_dish:
-  - text: Sorry, you can only get 1 side dish on this promotion.
-  utter_duo_party_faq/ask_different_size_pizza:
-  - text: The promotion just applies on medium pizzas, sorry!
+
 #
   ## veggie_ feast
   #utter_specific_veggie_feast_promotion:
@@ -135,7 +131,16 @@ responses:
   utter_recommend_veggie_feast_promotion:
   - text: If you would like a vegetarian meal, I would recommend getting the Veggie Feast promotion, Would you like to order it?
 
+  utter_summarize_promotion_order:
+  - text: We are almost done, could you please only confirm your promotion {total_promotion_order}?
+  - text: Your promotion order is almost complete, can you only confirm your promotion {total_promotion_order}?
+  - text: I just need you to confirm your promotion {total_promotion_order} and we are done!
+  - text: To finish your promotion order, can you please confirm your promotion {total_promotion_order}?
 
+  utter_recommend_other_items:
+  - text: Perfect, your {promotion_type} was added to your order. Would you like to order something else?
+
+  ### duo party promotion faq
   utter_ask_duo_party_form_first_pizza_promotion:
   - text: I don't think i got your first pizza, in {promotion_type} for starters I would recommend you to try our {recommend_pizza} Pizza. What would you like to take on your first pizza?
   - text: What would you like to take on your first pizza in {promotion_type}? You might like our {recommend_pizza} Pizza.
@@ -151,21 +156,19 @@ responses:
   utter_ask_duo_party_form_second_side_dish_promotion:
   - text: With {first_side_dish_promotion} how about you add {second_side_dish_promotion} to your {promotion_type}. Which second side dish would you like?
   - text: An usual combination for {promotion_type} is {second_side_dish_promotion} with {recommend_side_dish}. Which second side dish would you like?
-
- # duo_party_faq/recommendation:
- #- text: We would recommend getting 
-  # it can ask about  funghi is included in the promotion "Sorry, Funghi is not included in the promotion"
-  # can you recommend me a good side dish for vegetarian pizza? "Sure, I recommend you to try the Caprese Salad"
-
-  utter_summarize_promotion_order:
-  - text: We are almost done, could you please only confirm your promotion {total_promotion_order}?
-  - text: Your promotion order is almost complete, can you only confirm your promotion {total_promotion_order}?
-  - text: I just need you to confirm your promotion {total_promotion_order} and we are done!
-  - text: To finish your promotion order, can you please confirm your promotion {total_promotion_order}?
-
-  utter_recommend_other_items:
-  # TODO: Add an action so it gets to know what you already ordered and based on that recommend other promotion or pizza
-  - text: Perfect, your {promotion_type} was added to your order. Would you like to order something else?
+  
+  utter_duo_party_faq/ask_on_available_pizzas:
+  - text: You can get any medium Pizza you want for this promotion, it includes Funghi, Pepperoni, Vegetarian, Margherita and Hawaii.
+  utter_duo_party_faq/ask_available_side_dishes:
+  - text: You can get any Side Dish you want for this promotion, it includes French Fries, Chicken Wings, Bacon Jalapeño and Caprese Salad.
+  utter_duo_party_faq/ask_mix_pizzas:
+  - text: Both pizzas can be of different type, it doesn't have to be the same one!
+  utter_duo_party_faq/ask_third_pizza:
+  - text: Sorry, you can only get 2 pizzas on this promotion.
+  utter_duo_party_faq/ask_change_pizza_for_side_dish:
+  - text: Sorry, you can only get 1 side dish on this promotion.
+  utter_duo_party_faq/ask_different_size_pizza:
+  - text: The promotion just applies on medium pizzas, sorry!
 
   ### Change item in promotion
   utter_promotion_change:
@@ -179,12 +182,29 @@ responses:
   - text: Now your deal includes {total_promotion_order}. Do you need another change?
 
   ### Cancel promotion
-
   utter_ask_continue_with_promotion:
   - text: Do you want to stop ordering this promotion? If I heard wrong, plase tell me what do you want on your {promotion_type} promotion.
 
   utter_promotion_canceled:
   - text: No problem, we will cancel your promotion order. Can I help you to order one of our pizzas or other promotions?
+
+  ### Removal of promotion
+  utter_no_promotions_to_remove:
+  - text: Sorry, you don't have any promotions to remove. Would you like to order a promotion?
+  - text: Your order doesn't have any promotions to remove. Can I help you to order one of our promotions?
+
+  # I don't like this but oh well
+  utter_remove_wrong_promotion:
+  - text: I can't seem to find that order, can you repeat did you mean the first or second promotion?
+  - text: Sorry, I didn't catch that, could you please repeat if you want to remove the first or second promotion?
+
+  utter_promotion_removed_complete:
+  - text: What would you like to take from our pizzas or other promotions? 
+  - text: I can still help you ordering any of our pizzas or other promotions! If so, what would you like?
+
+  ### Empty cart
+  utter_empty_cart:
+  - text: You have not ordered anything yet, how about you ask for our promotions or pizza?
 
 actions:
 - utter_recommend_other_items
@@ -230,6 +250,8 @@ actions:
 - action_promotion_reset
 - action_change_promotion_item
 - action_promotion_add
+- action_remove_promotion
+- action_check_cart_is_empty
 - validate_duo_party_form
 - validate_pizza_order_form
 entities:
@@ -254,7 +276,22 @@ entities:
 - recommend_side_dish
 - total_promotion_order
 - complete_promotion_orders
+- promotion_numbering
+- is_cart_empty
 slots:
+  is_cart_empty:
+    type: bool
+    mappings:
+    - type: from_entity
+      entity: is_cart_empty
+  promotion_numbering:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: promotion_numbering
+      values:
+        - first
+        - second
   # this is to store ALL the promotions ordered
   complete_promotion_orders:
     type: list

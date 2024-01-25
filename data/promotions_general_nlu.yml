@@ -133,6 +133,42 @@ nlu:
     - can you tell me about [Duo Party](promotion_type) and [Veggie Feast](promotion_type)?
     - can you tell me about [Veggie Feast](promotion_type) and [Duo Party](promotion_type)?
 
+- intent: promotions_faq/ask_how_many_promotions_can_take
+  examples: |
+    - how many promotions can i have in my order?
+    - how many promotions can i order?
+    - what's the max number of promotions i can order?
+    - what's the maximum number of promotions i can order?
+    - what's the limit on the number of promotions i can order?
+    - what's the maximum number of promotions i can have in my order?
+    - is there a limit on number of promotions i can order?
+    - is there an issue if i order more than one promotion?
+    - can i order more than one promotion?
+
+- intent: promotions_faq/ask_reinsert_promotion
+  examples: |
+    - i removed a promotion by mistake, can you add it again?
+    - i removed a promotion by mistake, can you add it back?
+    - afterall i don't want to remove my promotion, can you add it back?
+    - can you reinsert my promotion?
+    - can i reinsert a promotion i just removed?
+    - can you add back a promotion i removed?
+
+- intent: promotions_faq/remove_promotion
+  examples: |
+    - i want to remove a promotion from my order
+    - could i remove a promotion from my order?
+    - can i remove a promotion from my order?
+    - i need to remove a promotion from my order afterall
+    - i woud like to remove a promotion from my order
+    - is it possible to remove an order?
+    - actually, i want to remove the promotion
+    - forget my promotion
+    - can i remove one of my promotions?
+    - can i remove promotions?
+    - can i remove deals from my order?
+    - can i remove offers from my order?
+
 - intent: details_on_promotion 
   examples: |
     - give me more details on your promotion
@@ -223,6 +259,8 @@ nlu:
 # here i have it as vague and specific, but it can be handled as one intent
 - intent: promotion_order_confirm
   examples: |
+    - i want to order a [Duo Party](promotion_type)
+    - i want to order a [Veggie Feast](promotion_type)
     - Yes, i want [Duo Party](promotion_type) promotion
     - Totally, [Veggie Fest](promotion_type)  it's what I need for my reunion
     - I want to accept this promotion
@@ -329,3 +367,29 @@ nlu:
     - change [Margherita](first_pizza_promotion) for [Funghi](first_pizza_promotion)	
     - change [Hawaii](second_pizza_promotion) for [Vegetarian](second_pizza_promotion)
 # might need to check if for example they said change french fries for hawaii, see if this is possible
+
+- intent: remove_promotion_from_order
+  examples: |
+    - i want to remove the [first](promotion_numbering) promotion from my order
+    - could i remove the [second](promotion_numbering) promotion from my order?
+    - can i remove the [first](promotion_numbering) promotion from my order?
+    - i need to remove the [second](promotion_numbering) promotion from my order afterall
+    - i woud like to remove the [first](promotion_numbering) promotion from my order
+    - is it possible to remove the [second](promotion_numbering) promotion from my order?
+    - i want to remove the [first](promotion_numbering) promotion from my order
+    - could i remove the [second](promotion_numbering) promotion from my order?
+    - can i remove the [first](promotion_numbering) promotion from my order?
+    - i need to remove the [second](promotion_numbering) promotion from my order afterall
+    - i woud like to remove the [first](promotion_numbering) promotion from my order
+    - is it possible to remove the [second](promotion_numbering) promotion from my order?
+    - i want to remove the [first](promotion_numbering) promotion from my order
+    - i need to remove the [second](promotion_numbering) promotion
+    - i woud like to remove the [first](promotion_numbering) promotion
+    - is it possible to remove the [second](promotion_numbering) promotion?
+    - i want to remove the [first](promotion_numbering) promotion
+    - remove [second](promotion_numbering) promotion
+    - remove [first](promotion_numbering) promotion
+    - eliminate [second](promotion_numbering) promotion
+    - eliminate [first](promotion_numbering) promotion
+    - delete [second](promotion_numbering) promotion
+    - delete [first](promotion_numbering) promotion

@@ -99,6 +99,14 @@ nlu:
     - maybe i will go for [Funghi](second_pizza_promotion) for my second pizza
     - second pizza i will have [Hawaii](second_pizza_promotion)
     - my second pizza will be [Margherita](second_pizza_promotion)
+    - for first pizza i will have [Pepperoni](first_pizza_promotion) and for second [Hawaii](second_pizza_promotion)
+    - for my second pizza i will have [Margherita](second_pizza_promotion)
+    - i want [Margherita](first_pizza_promotion) and [Hawaii](second_pizza_promotion) for my promotion
+    - make it [Margherita](first_pizza_promotion) and [Hawaii](second_pizza_promotion) with [French Fries](first_side_dish_promotion)
+    - for first make it [Pepperoni](first_pizza_promotion)
+    - for second make it [Hawaii](second_pizza_promotion)
+    - for first [Vegetarian](first_pizza_promotion)
+    - for second [Margherita](second_pizza_promotion)
 - intent: submit_promotion_confirm_positive
   examples: |
     - my full promotion order is correct

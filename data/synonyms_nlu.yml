@@ -182,3 +182,25 @@ nlu:
     - Deep-Fried Potato Slices
     - Classic Fries
     - Traditional French Fries
+
+- synonym: first
+  examples: |
+    - 1st
+    - First
+    - Initial
+    - Primary
+    - Foremost
+    - Premier
+    - Primary
+    - Leading
+- synonym: second
+  examples: |
+    - 2nd
+    - Second
+    - Secondary
+    - Subsequent
+    - Next
+    - Latter
+    - Alternate
+    - Additional
+    - Consequent

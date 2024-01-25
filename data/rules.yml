@@ -87,6 +87,7 @@ rules:
       - promotion_type: "Duo Party"
   steps:
     - intent: promotion_order_confirm
+    #- action: action_validate_promotion_posibi
     - action: action_recommend_on_promotion_form
     - action: duo_party_form
     - active_loop: duo_party_form
@@ -164,3 +165,10 @@ rules:
   steps:
   - intent: order_promotion_vague
   - action: action_recommend_promotion
+
+### Removal of promotion
+- rule: remove promotion
+  steps:
+  # - action: utter_summarize_complete_order
+  - intent: remove_promotion_from_order
+  - action: action_remove_promotion

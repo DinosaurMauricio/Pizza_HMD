@@ -298,4 +298,3 @@ stories:
   - active_loop: null
   - action: action_promotion_reset
   - action: utter_promotion_canceled
-  

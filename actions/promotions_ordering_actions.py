@@ -31,8 +31,6 @@ class ActionPromotionAdd(Action):
         complete_promotion_orders = tracker.get_slot(
             "complete_promotion_orders") or []
 
-        print(complete_promotion_orders)
-
         complete_promotion_orders.append({
             "promotion_type": promotion_type,
             "first_side_dish_promotion": first_side,
@@ -176,6 +174,55 @@ class ActionPromotionTotalOrder(Action):
                 total_order_promotion += f" includes one size {first_pizza_promotion} pizza, one {first_side_dish} and {second_side_dish} as side dishes"
 
         return [SlotSet("total_promotion_order", total_order_promotion)]
+
+
+class ActonRemovePromotion(Action):
+    def name(self):
+        return 'action_remove_promotion'
+
+    def run(self, dispatcher, tracker, domain):
+
+        complete_promotion_orders = tracker.get_slot(
+            "complete_promotion_orders") or []
+
+        if len(complete_promotion_orders) == 0:
+            dispatcher.utter_message(response="utter_no_promotions_to_remove")
+            return [SlotSet("complete_promotion_orders", None)]
+
+        promotion_mapping = {'first': 0, 'second': 1}
+
+        promotion_numbering = tracker.get_slot("promotion_numbering")
+
+        if promotion_numbering is None:
+            dispatcher.utter_message(response="utter_remove_wrong_promotion")
+            return [SlotSet("complete_promotion_orders", None)]
+
+        promotion_to_remove = promotion_mapping.get(promotion_numbering, -1)
+
+        try:
+            if promotion_to_remove is not -1:
+                dispatcher.utter_message(
+                    message=f"Okay, I removed your {complete_promotion_orders[promotion_to_remove]['promotion_type']} promotion.")
+
+                # print(complete_promotion_orders)
+                complete_promotion_orders.pop(promotion_to_remove)
+
+                print(complete_promotion_orders)
+                if len(complete_promotion_orders) > 0:
+                    # if there are still promotions left, in this case index can be 0 because either 0 or 1 was removed so the other one is still there
+                    dispatcher.utter_message(
+                        message=f"You still have {complete_promotion_orders[0]['promotion_type']} on your order.")
+                else:
+                    dispatcher.utter_message(
+                        message=f"You have no more promotions on your order.")
+
+                dispatcher.utter_message(
+                    response="utter_promotion_removed_complete")
+                return [SlotSet("complete_promotion_orders", complete_promotion_orders)]
+        except IndexError:
+            dispatcher.utter_message(response="utter_remove_wrong_promotion")
+
+        return []
 
 
 class ActionPromotionReset(Action):
