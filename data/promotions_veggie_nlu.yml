@@ -1,5 +1,5 @@
-#version: "3.1"
-#nlu:
+version: "3.1"
+nlu:
 #- intent: veggie_feast_faq/ask_available_side_dishes
 #  examples: |
 #    - What sides do you offer for [Veggie Feast](promotion_type)?
@@ -38,3 +38,18 @@
 #    - Are substitutions allowed, like getting a Funghi pizza instead of the Vegetariana in the [Veggie Feast](promotion_type)?
 #    - Can I change one of the pizzas to a funghi in the [Veggie Feast](promotion_type)?
 #    - Is there flexibility to modify the pizza choices, like selecting a Funghi pizza instead of the Vegetariana in the [Veggie Feast](promotion_type)?
+
+
+- intent: pizza_veggie_promotion_order
+  examples: |
+    - for first side dish i will take [French Fries](first_side_dish_promotion)
+    - for seconds sides [Caprese Salad](second_side_dish_promotion)
+    - i will take [French Fries](first_side_dish_promotion) as first side dish
+    - i think i will go for [Caprese Salad](second_side_dish_promotion) as second side dish
+    - first side dish [French Fries](first_side_dish_promotion)
+    - second side dish [Caprese Salad](second_side_dish_promotion)
+    - i would like to have [French Fries](first_side_dish_promotion) as first side dish
+    - first side dish [French Fries](first_side_dish_promotion) and second side dish [Caprese Salad](second_side_dish_promotion)
+    - maybe [French Fries](first_side_dish_promotion) as first side dish and [Caprese Salad](second_side_dish_promotion) as second side dish
+    - [French Fries](first_side_dish_promotion) as first side dish and [Caprese Salad](second_side_dish_promotion) as second side dish
+    - [French Fries](first_side_dish_promotion) and [Caprese Salad](second_side_dish_promotion) as side dishess

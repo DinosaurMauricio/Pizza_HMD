@@ -222,7 +222,7 @@ stories:
   - intent: promotion_order_accept_recommended
   - slot_was_set:
     - promotion_type: Veggie Feast
-  - action: utter_duo_party_order_start
+  - action: utter_veggie_feast_order_start
 
 # ex. "I want to order a promotion" or "I need a promotion for a party"
 - story: vague recommend promotion duo party
@@ -248,7 +248,7 @@ stories:
 #    - is_max_promotion_reached: true
 #  - action: utter_promotion_limit_reached
 
-- story: duo party form - vague
+- story: order promotion vague - duo party
   steps:
   - intent: order_promotion_vague
   - action: action_validate_promotion_posibility
@@ -256,8 +256,28 @@ stories:
     - is_max_promotion_reached: false
   - action: action_recommend_promotion
   - intent: promotion_order_accept_recommended
+    entities:
+      - promotion_type: "Duo Party"
+  - slot_was_set:
+      - promotion_type: "Duo Party"
+  - action: action_activate_recommend_promotion_form
 
-  #here should start checkpoint
+- story: order promotion vague - veggie feast
+  steps:
+  - intent: order_promotion_vague
+  - action: action_validate_promotion_posibility
+  - slot_was_set:
+    - is_max_promotion_reached: false
+  - action: action_recommend_promotion
+  - intent: promotion_order_accept_recommended
+    entities:
+      - promotion_type: "Veggie Feast"
+  - slot_was_set:
+      - promotion_type: "Veggie Feast"
+  - action: action_activate_recommend_promotion_form
+
+- story: duo party promotion
+  steps:
   - action: utter_duo_party_order_start
   - intent: pizza_duo_promotion_order
   - action: action_recommend_items
@@ -272,12 +292,28 @@ stories:
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
-  - action: action_promotion_total_order
-  #here should be final checkpoint
-  - action: utter_summarize_promotion_order
+  - checkpoint: end_promotion_vague
 
-- story: submit duo party form
+- story: veggie feast promotion
   steps:
+  - action: utter_veggie_feast_order_start
+  - intent: pizza_veggie_promotion_order
+  - action: action_recommend_items
+  - action: veggie_feast_form
+  - active_loop: veggie_feast_form
+  - slot_was_set:
+    - requested_slot: first_side_dish_promotion
+  - slot_was_set:
+    - requested_slot: second_side_dish_promotion
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - checkpoint: end_promotion_vague
+
+- story: submit promotion form
+  steps:
+  - checkpoint: end_promotion_vague
+  - action: action_promotion_total_order
   - action: utter_summarize_promotion_order
   - intent: submit_promotion_confirm_positive
   - action: action_promotion_add

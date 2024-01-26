@@ -98,12 +98,33 @@ rules:
     - action: action_recommend_items
     - action: duo_party_form
     - active_loop: duo_party_form
-#
+
 - rule: Submit Duo Party form
   condition:
   - active_loop: duo_party_form
   steps:
   - action: duo_party_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_promotion_total_order
+  - action: utter_summarize_promotion_order
+
+- rule: Activate Veggie Feast Form
+  condition:
+    - slot_was_set:
+      - promotion_type: "Veggie Feast"
+  steps:
+    - intent: pizza_veggie_promotion_order
+    - action: action_recommend_items
+    - action: veggie_feast_form
+    - active_loop: veggie_feast_form
+
+- rule: Submit Veggie Feast form
+  condition:
+  - active_loop: veggie_feast_form
+  steps:
+  - action: veggie_feast_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
