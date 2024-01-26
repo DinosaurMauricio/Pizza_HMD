@@ -22,7 +22,7 @@ intents:
 - details_on_promotion
 - duo_party_faq
 #- veggie_feast_faq
-- order_promotion
+#- order_promotion
 - order_promotion_vague
 - promotion_order_confirm
 - pizza_duo_promotion_order
@@ -32,6 +32,7 @@ intents:
 - confirm_stop_promotion_order
 - change_item_promotion_specific
 - remove_promotion_from_order
+- promotion_order_accept_recommended
 
 responses:
   utter_out_of_scope:
@@ -84,6 +85,12 @@ responses:
   - text: Sure, we won't add any side dish to your order, can you confirm your order?
   utter_side_dishes_order:
   - text: You have {total_side_dishes} as side dishes in your order. Anything else?
+
+  utter_duo_party_order_start:
+  - text: Great choice, let's start your Duo Party order. What would you like to have on your first pizza?
+
+  utter_veggie_feast_order_start:
+  - text: Great choice, let's start your Veggie Feast order. What would you like to have on your first side dish?
 
   utter_promotions_faq/ask_general_pizza_promotions:
   - text: We currently have two great promotions Veggie Feast and Duo Party! Would you like more details on any specific offer?
@@ -255,7 +262,7 @@ actions:
 - action_remove_all_side_dishes
 - action_remove_side_dish
 - action_handle_details_on_promotion
-- action_recommend_on_promotion_form
+- action_recommend_items
 - action_promotion_total_order
 - action_promotion_reset
 - action_change_promotion_item
@@ -263,6 +270,7 @@ actions:
 - action_remove_promotion
 - action_check_cart_is_empty
 - action_validate_promotion_posibility
+- action_activate_recommend_promotion_form
 - validate_duo_party_form
 - validate_pizza_order_form
 entities:
@@ -427,7 +435,7 @@ forms:
   pizza_order_form:
     ignored_intents:
       - order_promotion_vague
-      - order_promotion
+#      - order_promotion
     required_slots:
     - pizza_amount
     - pizza_type

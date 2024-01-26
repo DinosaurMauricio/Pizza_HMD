@@ -2,7 +2,7 @@ from typing import Any, Optional, Text, Dict, List
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet, FollowupAction
 from collections import Counter
 import random
 
@@ -132,9 +132,9 @@ class ActionRecommendPromotion(Action):
         return [SlotSet("promotion_type", promotion_type)]
 
 
-class ActionRecommendOnPromotionForm(Action):
+class ActionRecommendItems(Action):
     def name(self):
-        return 'action_recommend_on_promotion_form'
+        return 'action_recommend_items'
 
     def run(self, dispatcher, tracker, domain):
         promotion_type = tracker.get_slot("promotion_type")
@@ -260,3 +260,22 @@ class ActionPromotionReset(Action):
                 SlotSet("second_side_dish_promotion", None),
                 SlotSet("first_side_dish_promotion", None),
                 SlotSet("total_promotion_order", None)]
+
+
+class ActionActivateRecommendedPromotion(Action):
+    def name(self):
+        return 'action_activate_recommend_promotion_form'
+
+    def run(self, dispatcher, tracker, domain):
+        promotion_type = tracker.get_slot("promotion_type")
+
+        if promotion_type == "Duo Party":
+            dispatcher.utter_message(
+                response="utter_duo_party_order_start")
+            return []
+            # return [FollowupAction('duo_party_form')]
+        else:
+            dispatcher.utter_message(
+                response="utter_veggie_feast_order_start")
+            return []
+           # return [FollowupAction('veggie_feast_form')]

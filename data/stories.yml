@@ -207,22 +207,24 @@ stories:
   steps:
   - intent: promotions_faq
   - action: utter_promotions_faq
-  - intent: order_promotion
-    entities:
-    - promotion_type: "Duo Party"
+# TODO: could be extended so that it can reject and ask for other promotions
 
-# TODO: might have to improve this stories
-- story: vague recommend promotion veggie feast
+# ex. "I want to order a promotion" or "I'm vegetarian and want a promotion"
+- story: vague recommend promotion veggie feast 
   steps:
   - intent: order_promotion_vague
     entities:
     - is_vegetarian: 'True'
   - slot_was_set:
     - is_vegetarian: 'True'
+  - action: action_validate_promotion_posibility
   - action: action_recommend_promotion
+  - intent: promotion_order_accept_recommended
   - slot_was_set:
     - promotion_type: Veggie Feast
+  - action: utter_duo_party_order_start
 
+# ex. "I want to order a promotion" or "I need a promotion for a party"
 - story: vague recommend promotion duo party
   steps:
   - intent: order_promotion_vague
@@ -230,25 +232,35 @@ stories:
     - is_reunion: 'True'
   - slot_was_set:
     - is_reunion: 'True'
+  - action: action_validate_promotion_posibility
   - action: action_recommend_promotion
+  - intent: promotion_order_accept_recommended
   - slot_was_set:
     - promotion_type: Duo Party
+  - action: utter_duo_party_order_start
 
-- story: duo party form max promotion reached
-  steps:
-  - intent: promotion_order_confirm
-  - action: action_validate_promotion_posibility
-  - slot_was_set:
-    - is_max_promotion_reached: true
-  - action: utter_promotion_limit_reached
+#- story: duo party form max promotion reached - vague
+#  steps:
+#  - intent: order_promotion_vague
+#  - action: action_recommend_promotion
+#  - action: action_validate_promotion_posibility
+#  - slot_was_set:
+#    - is_max_promotion_reached: true
+#  - action: utter_promotion_limit_reached
 
-- story: duo party form
+- story: duo party form - vague
   steps:
-  - intent: promotion_order_confirm
+  - intent: order_promotion_vague
   - action: action_validate_promotion_posibility
   - slot_was_set:
     - is_max_promotion_reached: false
-  - action: action_recommend_on_promotion_form
+  - action: action_recommend_promotion
+  - intent: promotion_order_accept_recommended
+
+  #here should start checkpoint
+  - action: utter_duo_party_order_start
+  - intent: pizza_duo_promotion_order
+  - action: action_recommend_items
   - action: duo_party_form
   - active_loop: duo_party_form
   - slot_was_set:
@@ -261,6 +273,7 @@ stories:
     - requested_slot: null
   - active_loop: null
   - action: action_promotion_total_order
+  #here should be final checkpoint
   - action: utter_summarize_promotion_order
 
 - story: submit duo party form
@@ -276,39 +289,73 @@ stories:
   - intent: complete_order_confirm
   - action: utter_name_phone
 
-- story: modified promotion + confirm
-  steps:
-  - action: utter_summarize_promotion_order
-  - intent: submit_promotion_confirm_negative
-  - action: utter_promotion_change
-  - intent: change_item_promotion_specific
-    entities:
-    - first_pizza_promotion: "Margherita"
-    - second_pizza_promotion: "Hawaii"
-    - first_side_dish_promotion: "French Fries"
-    - second_side_dish_promotion: "Caprese Salad"
-  - action: action_change_promotion_item
-  - action: action_promotion_total_order
-  - action: utter_promotion_change_summarize
-  - intent: submit_promotion_confirm_positive
-  - action: action_promotion_add
-  - action: utter_recommend_other_items
-  - action: action_promotion_reset
 
-- story: User doesn't want the promotion anymore
-  steps:
-  - intent: promotion_order_confirm
-  - action: action_validate_promotion_posibility
-  - slot_was_set:
-    - is_max_promotion_reached: false
-  - action: action_recommend_on_promotion_form
-  - action: duo_party_form
-  - active_loop: duo_party_form
-  - intent: stop_promotion_order
-  - action: utter_ask_continue_with_promotion
-  - intent: confirm_stop_promotion_order
-  - action: action_promotion_reset
-  - action: action_deactivate_loop
-  - active_loop: null
-  - action: action_promotion_reset
-  - action: utter_promotion_canceled
+#
+#- story: duo party form max promotion reached
+#  steps:
+#  - intent: promotion_order_confirm
+#  - action: action_validate_promotion_posibility
+#  - slot_was_set:
+#    - is_max_promotion_reached: true
+#  - action: utter_promotion_limit_reached
+#
+#- story: duo party form
+#  steps:
+#  - intent: promotion_order_confirm
+#  - action: action_validate_promotion_posibility
+#  - slot_was_set:
+#    - is_max_promotion_reached: false
+#  - action: action_recommend_items
+#  - action: duo_party_form
+#  - active_loop: duo_party_form
+#  - slot_was_set:
+#    - requested_slot: first_pizza_promotion
+#  - slot_was_set:
+#    - requested_slot: second_pizza_promotion
+#  - slot_was_set:
+#    - requested_slot: first_side_dish_promotion
+#  - slot_was_set:
+#    - requested_slot: null
+#  - active_loop: null
+#  - action: action_promotion_total_order
+#  - action: utter_summarize_promotion_order
+#
+
+#
+#- story: modified promotion + confirm
+#  steps:
+#  - action: utter_summarize_promotion_order
+#  - intent: submit_promotion_confirm_negative
+#  - action: utter_promotion_change
+#  - intent: change_item_promotion_specific
+#    entities:
+#    - first_pizza_promotion: "Margherita"
+#    - second_pizza_promotion: "Hawaii"
+#    - first_side_dish_promotion: "French Fries"
+#    - second_side_dish_promotion: "Caprese Salad"
+#  - action: action_change_promotion_item
+#  - action: action_promotion_total_order
+#  - action: utter_promotion_change_summarize
+#  - intent: submit_promotion_confirm_positive
+#  - action: action_promotion_add
+#  - action: utter_recommend_other_items
+#  - action: action_promotion_reset
+#
+#- story: User doesn't want the promotion anymore
+#  steps:
+#  - intent: promotion_order_confirm
+#  - action: action_validate_promotion_posibility
+#  - slot_was_set:
+#    - is_max_promotion_reached: false
+#  - action: action_recommend_items
+#  - action: duo_party_form
+#  - active_loop: duo_party_form
+#  - intent: stop_promotion_order
+#  - action: utter_ask_continue_with_promotion
+#  - intent: confirm_stop_promotion_order
+#  - action: action_promotion_reset
+#  - action: action_deactivate_loop
+#  - active_loop: null
+#  - action: action_promotion_reset
+#  - action: utter_promotion_canceled
+#

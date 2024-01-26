@@ -81,18 +81,24 @@ rules:
   - intent: promotions_faq
   - action: utter_promotions_faq
 
+
+# This sets the promotion type slot to the value of the entity 'promotion_type'
+- rule: order promotion vague
+  steps:
+  - intent: order_promotion_vague
+  - action: action_validate_promotion_posibility
+  - action: action_recommend_promotion
+
 - rule: Activate Duo Party Form
   condition:
     - slot_was_set:
       - promotion_type: "Duo Party"
-      - is_max_promotion_reached: false
   steps:
-    - intent: promotion_order_confirm
-    - action: action_validate_promotion_posibility
-    - action: action_recommend_on_promotion_form
+    - intent: pizza_duo_promotion_order
+    - action: action_recommend_items
     - action: duo_party_form
     - active_loop: duo_party_form
-
+#
 - rule: Submit Duo Party form
   condition:
   - active_loop: duo_party_form
@@ -103,73 +109,80 @@ rules:
     - requested_slot: null
   - action: action_promotion_total_order
   - action: utter_summarize_promotion_order
-
-- rule: Duo Party form unhappy path + asked FAQ on promotion
-  condition:
-  - active_loop: duo_party_form
-  steps:
-  # This unhappy path handles the case of an intent `duo_party_faq`.
-  - intent: duo_party_faq
-  - action: utter_duo_party_faq
-  # Return to form after handling the `duo_party_faq` intent
-  - action: duo_party_form
-  - active_loop: duo_party_form
-
-
-- rule: decline duo party form want to change item
-  steps:
-  - action: utter_summarize_promotion_order
-  - intent: submit_promotion_confirm_negative
-  - action: utter_promotion_change
-
-- rule: User wants change in promotion specific
-  steps:
-  - intent: change_item_promotion_specific
-  - action: action_change_promotion_item
-  - action: action_promotion_total_order
-  - action: utter_promotion_change_summarize
-
-- rule: add promotion order to list
-  steps:
-  - intent: submit_promotion_confirm_positive
-  - action: action_promotion_add
-  - action: utter_recommend_other_items
-  - action: action_promotion_reset
-
-- rule: details on promotions was asked
-  condition:
-  - slot_was_set:
-    - promotion_type: 
-        - "Duo Party"
-        - "Veggie Feast"
-  steps:
-  - intent: details_on_promotion
-  - action: action_handle_details_on_promotion
-
-- rule: Promotion Duo Party FAQ
-  condition:
-  - slot_was_set:
-      - promotion_type: "Duo Party"
-  steps:
-  - intent: duo_party_faq
-  - action: utter_duo_party_faq
-
-#- rule: Promotion Veggie Feast FAQ
+#
+#- rule: Duo Party form unhappy path + asked FAQ on promotion
+#  condition:
+#  - active_loop: duo_party_form
+#  steps:
+#  # This unhappy path handles the case of an intent `duo_party_faq`.
+#  - intent: duo_party_faq
+#  - action: utter_duo_party_faq
+#  # Return to form after handling the `duo_party_faq` intent
+#  - action: duo_party_form
+#  - active_loop: duo_party_form
+#
+#
+#- rule: decline duo party form want to change item
+#  steps:
+#  - action: utter_summarize_promotion_order
+#  - intent: submit_promotion_confirm_negative
+#  - action: utter_promotion_change
+#
+#- rule: User wants change in promotion specific
+#  steps:
+#  - intent: change_item_promotion_specific
+#  - action: action_change_promotion_item
+#  - action: action_promotion_total_order
+#  - action: utter_promotion_change_summarize
+#
+#- rule: add promotion order to list
+#  steps:
+#  - intent: submit_promotion_confirm_positive
+#  - action: action_promotion_add
+#  - action: utter_recommend_other_items
+#  - action: action_promotion_reset
+#
+#- rule: details on promotions was asked
 #  condition:
 #  - slot_was_set:
-#      - promotion_type: "Veggie Feast"
+#    - promotion_type: 
+#        - "Duo Party"
+#        - "Veggie Feast"
 #  steps:
-#  - intent: veggie_feast_faq
-#  - action: utter_veggie_feast_faq
+#  - intent: details_on_promotion
+#  - action: action_handle_details_on_promotion
 #
-- rule: order promotion
-  steps:
-  - intent: order_promotion_vague
-  - action: action_recommend_promotion
+#- rule: Promotion Duo Party FAQ
+#  condition:
+#  - slot_was_set:
+#      - promotion_type: "Duo Party"
+#  steps:
+#  - intent: duo_party_faq
+#  - action: utter_duo_party_faq
+#
+##- rule: Promotion Veggie Feast FAQ
+##  condition:
+##  - slot_was_set:
+##      - promotion_type: "Veggie Feast"
+##  steps:
+##  - intent: veggie_feast_faq
+##  - action: utter_veggie_feast_faq
+##
 
-### Removal of promotion
-- rule: remove promotion
-  steps:
-  # - action: utter_summarize_complete_order
-  - intent: remove_promotion_from_order
-  - action: action_remove_promotion
+#
+#- rule: accept recommend promotion
+#  condition:
+#  - slot_was_set:
+#    - promotion_type: 
+#        - "Duo Party"
+#        - "Veggie Feast"
+#  steps:
+#  - intent: promotion_order_accept_recommneded
+#  - action: action_activate_recommend_promotion_form
+#
+#### Removal of promotion
+#- rule: remove promotion
+#  steps:
+#  # - action: utter_summarize_complete_order
+#  - intent: remove_promotion_from_order
+#  - action: action_remove_promotion
