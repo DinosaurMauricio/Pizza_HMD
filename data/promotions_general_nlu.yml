@@ -242,6 +242,7 @@ nlu:
     - i want to order a special
     - can you recommend me a special?
     - i want another promotion
+    - i want a promotion for a [party]{"entity":"is_reunion", "value":"True"}
     - [i have a vegan]{"entity":"is_vegetarian", "value":"True"} [friend coming]{"entity":"is_reunion", "value":"True"}, what can you recommend me?
     - I have a suprise [party]{"entity":"is_reunion", "value":"True"} for a friend whom [doesn't eat meat]{"entity":"is_vegetarian", "value":"True"} do you have any deals on veggies?
     - I'd like to order one of your special deals, i want pizza but my [friends]{"entity":"is_reunion", "value":"True"} want some side dishes
@@ -351,6 +352,10 @@ nlu:
     - sorry but i don't want this promotion anymore
     - afterall i won't take this promotion
     - i will get something else, not this promotion
+    - you know what, i don't want it anymore
+    - i dont need this promotion anymore
+    - cancel this promotion order
+    - cancel this promotion
 
 - intent: confirm_stop_promotion_order
   examples: |
@@ -360,6 +365,7 @@ nlu:
     - yes, please stop the promotion ordering
     - yes, i want to stop this promotion order
     - affirmative, please stop this promotion
+    - yes i want to cancel it
 
 
 # specific intent

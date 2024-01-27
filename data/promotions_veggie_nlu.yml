@@ -1,17 +1,17 @@
 version: "3.1"
 nlu:
-#- intent: veggie_feast_faq/ask_available_side_dishes
-#  examples: |
-#    - What sides do you offer for [Veggie Feast](promotion_type)?
-#    - What are the side dishes for [Veggie Feast](promotion_type)?
-#    - What sides are available for [Veggie Feast](promotion_type)?
-#    - Which side dishes are available in [Veggie Feast](promotion_type)?
-#    - I'm interested in [Veggie Feast](promotion_type), can you tell me what side dishes I can get?
-#    - I would like to know the side dishes in [Veggie Feast](promotion_type).
-#    - Can you tell me what is available for [Veggie Feast](promotion_type) in terms of side dishes?
-#    - Can you share the available side dishes on [Veggie Feast](promotion_type)?
-#    - Share details about the side dishes in the [Veggie Feast](promotion_type).
-#    - What comes on the side with the [Veggie Feast](promotion_type)?
+- intent: veggie_feast_faq/ask_available_side_dishes
+  examples: |
+    - What sides do you offer for [Veggie Feast](promotion_type)?
+    - What are the side dishes for [Veggie Feast](promotion_type)?
+    - What sides are available for [Veggie Feast](promotion_type)?
+    - Which side dishes are available in [Veggie Feast](promotion_type)?
+    - I'm interested in [Veggie Feast](promotion_type), can you tell me what side dishes I can get?
+    - I would like to know the side dishes in [Veggie Feast](promotion_type).
+    - Can you tell me what is available for [Veggie Feast](promotion_type) in terms of side dishes?
+    - Can you share the available side dishes on [Veggie Feast](promotion_type)?
+    - Share details about the side dishes in the [Veggie Feast](promotion_type).
+    - What comes on the side with the [Veggie Feast](promotion_type)?
 #
 #- intent: veggie_feast_faq/ask_on_available_pizzas
 #  examples: |

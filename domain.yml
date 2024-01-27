@@ -21,7 +21,7 @@ intents:
 - promotions_faq
 - details_on_promotion
 - duo_party_faq
-#- veggie_feast_faq
+- veggie_feast_faq
 #- order_promotion
 - order_promotion_vague
 - promotion_order_confirm
@@ -121,15 +121,15 @@ responses:
   - text: With Duo Party promotion you can buy 2 large pizzas and get 1 side dish for free of your choice.
 
 #
-  ## veggie_ feast
-  #utter_specific_veggie_feast_promotion:
-  #- text: With Veggie Feast promotion you can buy 1 large vegetarian pizza and get 2 vegetarian side dishes of your choice for free. Would you like to order it?
-  #utter_veggie_feast_faq/ask_on_available_pizzas:
-  #- text: Only vegetarian applies for this promotion. Want to order a Veggie Feast?
-  #utter_veggie_feast_faq/ask_available_side_dishes:
-  #- text: You can French Fries or Caprese Salad on this promotion. Want to order a Veggie Feast?
-  #utter_veggie_feast_faq/ask_mix_pizzas:
-  #- text: You can only get vegetarian on this promotion! Want to order a Veggie Feast?
+  # veggie_ feast
+  utter_specific_veggie_feast_promotion:
+  - text: With Veggie Feast promotion you can buy 1 large vegetarian pizza and get 2 vegetarian side dishes of your choice for free. Would you like to order it?
+  utter_veggie_feast_faq/ask_on_available_pizzas:
+  - text: Only vegetarian applies for this promotion. Want to order a Veggie Feast?
+  utter_veggie_feast_faq/ask_available_side_dishes:
+  - text: You can French Fries or Caprese Salad on this promotion. Want to order a Veggie Feast?
+  utter_veggie_feast_faq/ask_mix_pizzas:
+  - text: You can only get vegetarian on this promotion! Want to order a Veggie Feast?
 #
   ## vague promotion faq
   utter_vague_promotion:

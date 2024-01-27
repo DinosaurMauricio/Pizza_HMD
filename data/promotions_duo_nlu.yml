@@ -123,6 +123,7 @@ nlu:
     - i will go for [Pepperoni](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
     - i will go for [Vegetarian](first_pizza_promotion) for first option
     - i will go for [Margherita](second_pizza_promotion) for second option
+    - i will take [French Fries](first_side_dish_promotion) as a side
 
 - intent: submit_promotion_confirm_positive
   examples: |
