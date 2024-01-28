@@ -6,7 +6,7 @@ from rasa_sdk.events import SlotSet, FollowupAction
 from collections import Counter
 import random
 
-from actions.general_actions import PIZZA_OPTIONS, SIDES_OPTIONS
+from actions.general_actions import PIZZA_OPTIONS, SIDES_OPTIONS, MAX_PROMOTIONS
 
 
 def get_promotion_values(tracker):
@@ -26,7 +26,7 @@ class ActionValidatePromotionPosibility(Action):
         number_of_promotions = len(tracker.get_slot(
             "complete_promotion_orders") or [])
 
-        if number_of_promotions == 2:
+        if number_of_promotions == MAX_PROMOTIONS:
             return [SlotSet("is_max_promotion_reached", True),
                     SlotSet("promotion_type", None),
                     SlotSet("is_reunion", None),
@@ -110,6 +110,14 @@ class ActionRecommendPromotion(Action):
         return 'action_recommend_promotion'
 
     def run(self, dispatcher, tracker, dominan):
+
+        # if there are already two promotions on the order, we don't recommend any more
+        is_max_promotion_reached = tracker.get_slot("is_max_promotion_reached")
+        if is_max_promotion_reached:
+            dispatcher.utter_message(
+                response="utter_promotion_limit_reached")
+            return []
+
         is_reunion = tracker.get_slot("is_reunion")
         is_vegetarian = tracker.get_slot("is_vegetarian")
 
@@ -186,6 +194,7 @@ class ActionPromotionTotalOrder(Action):
 
         # because we don't have a third promotion yet we can just use else
         else:
+            first_pizza_promotion = tracker.get_slot("first_pizza_promotion")
             first_side_dish = tracker.get_slot("first_side_dish_promotion")
             second_side_dish = tracker.get_slot("second_side_dish_promotion")
             size = "large"

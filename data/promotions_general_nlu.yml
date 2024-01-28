@@ -272,6 +272,7 @@ nlu:
     - [i'm a vegan]{"entity": "is_vegetarian", "value": "True"}, do you have any deals?
     - do you have any promotions for a [party]{"entity":"is_reunion", "value":"True"}?
     - [i like a lot vegetables]{"entity": "is_vegetarian", "value": "True"} food, do you have any promotions?
+    - i want a promotion [without meat]{"entity": "is_vegetarian", "value": "True"}, do you have any?
 
 - intent: promotion_order_accept_recommended
   examples: |
@@ -288,9 +289,8 @@ nlu:
     - yes, i want this deal
     - I want to accept this promotion
     - Totally, it's what I need right now
+    - i will take this promotion
 
-
-# here i have it as vague and specific, but it can be handled as one intent
 - intent: promotion_order_confirm #TODO: change this to order_specific_promotion
   examples: |
     - i want to order a [Duo Party](promotion_type)

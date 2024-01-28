@@ -239,24 +239,12 @@ stories:
     - promotion_type: Duo Party
   - action: utter_duo_party_order_start
 
-#- story: duo party form max promotion reached - vague
-#  steps:
-#  - intent: order_promotion_vague
-#  - action: action_recommend_promotion
-#  - action: action_validate_promotion_posibility
-#  - slot_was_set:
-#    - is_max_promotion_reached: true
-#  - action: utter_promotion_limit_reached
-
-#
-#- story: duo party form max promotion reached
-#  steps:
-#  - intent: promotion_order_confirm
-#  - action: action_validate_promotion_posibility
-#  - slot_was_set:
-#    - is_max_promotion_reached: true
-#  - action: utter_promotion_limit_reached
-#
+- story: max promotion reached
+  steps:
+  - action: action_validate_promotion_posibility
+  - slot_was_set:
+    - is_max_promotion_reached: true
+  - action: utter_promotion_limit_reached
 
 - story: order promotion vague - duo party
   steps:

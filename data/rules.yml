@@ -82,6 +82,17 @@ rules:
   - action: utter_promotions_faq
 
 
+- rule: details on promotions was asked
+  condition:
+  - slot_was_set:
+    - promotion_type: 
+        - "Duo Party"
+        - "Veggie Feast"
+  steps:
+  - intent: details_on_promotion
+  - action: action_handle_details_on_promotion
+
+
 # This sets the promotion type slot to the value of the entity 'promotion_type'
 - rule: order promotion vague
   steps:
@@ -110,6 +121,18 @@ rules:
   - action: action_promotion_total_order
   - action: utter_promotion_change_summarize
 
+  #### Removal of promotion
+- rule: remove promotion
+  steps:
+  - action: utter_summarize_complete_order
+  - intent: remove_promotion_from_order
+  - action: action_remove_promotion
+
+- rule: remove promotion when full
+  steps:
+  - intent: remove_promotion_from_order
+  - action: action_remove_promotion
+
   ############## Duo Party Promotion ##############
 
 - rule: Promotion Duo Party FAQ
@@ -126,7 +149,7 @@ rules:
       - promotion_type: "Duo Party"
   steps:
     - intent: pizza_duo_promotion_order
-    - action: action_recommend_items
+    - action: action_recommend_items  
     - action: duo_party_form
     - active_loop: duo_party_form
 
@@ -193,21 +216,3 @@ rules:
   # Return to form after handling the `duo_party_faq` intent
   - action: veggie_feast_form
   - active_loop: veggie_feast_form
-
-#
-#- rule: details on promotions was asked
-#  condition:
-#  - slot_was_set:
-#    - promotion_type: 
-#        - "Duo Party"
-#        - "Veggie Feast"
-#  steps:
-#  - intent: details_on_promotion
-#  - action: action_handle_details_on_promotion
-
-#### Removal of promotion
-#- rule: remove promotion
-#  steps:
-#  # - action: utter_summarize_complete_order
-#  - intent: remove_promotion_from_order
-#  - action: action_remove_promotion

@@ -130,6 +130,16 @@ responses:
   - text: You can French Fries or Caprese Salad on this promotion. Want to order a Veggie Feast?
   utter_veggie_feast_faq/ask_mix_pizzas:
   - text: You can only get vegetarian on this promotion! Want to order a Veggie Feast?
+
+
+  utter_ask_veggie_feast_form_first_side_dish_promotion:
+  - text: "What side dish would you like to accompany your {promotion_type}? We suggest pairing it with {recommend_side_dish} for a delightful combination."
+  - text: "Consider adding {recommend_side_dish} to enhance your {promotion_type} experience. What's your preference for the first side dish?"
+
+  utter_ask_veggie_feast_form_second_side_dish_promotion:
+  - text: "Why not include {recommend_side_dish} as well for second side dish in your {promotion_type}? What's your choice for the second side dish?"
+  - text: "For your {promotion_type}, a fantastic combination is {recommend_side_dish} with {first_side_dish_promotion}. What second side dish would you like to add?"
+
 #
   ## vague promotion faq
   utter_vague_promotion:
@@ -153,6 +163,7 @@ responses:
   - text: Perfect, your {promotion_type} was added to your order. Would you like to order something else?
 
   ### duo party promotion faq
+  
   utter_ask_duo_party_form_first_pizza_promotion:
   - text: I don't think i got your first pizza, in {promotion_type} for starters I would recommend you to try our {recommend_pizza} Pizza. What would you like to take on your first pizza?
   - text: What would you like to take on your first pizza in {promotion_type}? You might like our {recommend_pizza} Pizza.
@@ -269,7 +280,6 @@ actions:
 - action_change_promotion_item
 - action_promotion_add
 - action_remove_promotion
-- action_check_cart_is_empty
 - action_validate_promotion_posibility
 - action_activate_recommend_promotion_form
 - validate_duo_party_form
@@ -297,18 +307,11 @@ entities:
 - total_promotion_order
 - complete_promotion_orders
 - promotion_numbering
-- is_cart_empty
 - is_max_promotion_reached
 slots:
   is_max_promotion_reached:
     type: bool
     initial_value: false  
-    mappings:
-    - type: custom
-  # TODO: add validation for final order utter
-  is_cart_empty:
-    type: bool    
-    initial_value: true
     mappings:
     - type: custom
   promotion_numbering:
