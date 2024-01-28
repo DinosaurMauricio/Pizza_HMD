@@ -25,7 +25,7 @@ intents:
 #- order_promotion
 - order_promotion_vague
 - promotion_order_confirm
-- pizza_duo_promotion_order
+- pizza_promotion_order
 - submit_promotion_confirm_positive
 - submit_promotion_confirm_negative
 - stop_promotion_order
@@ -33,7 +33,6 @@ intents:
 - change_item_promotion_specific
 - remove_promotion_from_order
 - promotion_order_accept_recommended
-- pizza_veggie_promotion_order
 
 responses:
   utter_out_of_scope:
@@ -451,7 +450,6 @@ forms:
   duo_party_form:
     ignored_intents:
       - pizza_order_start
-      - pizza_veggie_promotion_order
     required_slots:
     - first_pizza_promotion
     - second_pizza_promotion
@@ -459,7 +457,6 @@ forms:
   veggie_feast_form:
     ignored_intents:
       - pizza_order_start
-      - pizza_duo_promotion_order
     required_slots:
     - first_pizza_promotion
     - first_side_dish_promotion

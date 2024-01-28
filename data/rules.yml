@@ -148,8 +148,9 @@ rules:
     - slot_was_set:
       - promotion_type: "Duo Party"
   steps:
-    - intent: pizza_duo_promotion_order
-    - action: action_recommend_items  
+    - action: utter_duo_party_order_start
+    - intent: pizza_promotion_order
+    - action: action_recommend_items
     - action: duo_party_form
     - active_loop: duo_party_form
 
@@ -190,7 +191,8 @@ rules:
     - slot_was_set:
       - promotion_type: "Veggie Feast"
   steps:
-    - intent: pizza_veggie_promotion_order
+    - action: utter_veggie_feast_order_start
+    - intent: pizza_promotion_order
     - action: action_recommend_items
     - action: veggie_feast_form
     - active_loop: veggie_feast_form

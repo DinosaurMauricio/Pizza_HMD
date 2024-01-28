@@ -277,7 +277,7 @@ stories:
 - story: duo party promotion
   steps:
   - action: utter_duo_party_order_start
-  - intent: pizza_duo_promotion_order
+  - intent: pizza_promotion_order
   - action: action_recommend_items
   - action: duo_party_form
   - active_loop: duo_party_form
@@ -295,7 +295,7 @@ stories:
 - story: veggie feast promotion
   steps:
   - action: utter_veggie_feast_order_start
-  - intent: pizza_veggie_promotion_order
+  - intent: pizza_promotion_order
   - action: action_recommend_items
   - action: veggie_feast_form
   - active_loop: veggie_feast_form
@@ -343,16 +343,12 @@ stories:
 
 - story: User doesn't want the promotion anymore - Duo party
   steps:
-  - intent: pizza_duo_promotion_order
-  - action: action_recommend_items
-  - action: duo_party_form
   - active_loop: duo_party_form
+  - action: duo_party_form
   - checkpoint: deactivate_current_form
 
 - story: User doesn't want the promotion anymore - Veggie Feast
   steps:
-  - intent: pizza_veggie_promotion_order
-  - action: action_recommend_items
   - action: veggie_feast_form
   - active_loop: veggie_feast_form
   - checkpoint: deactivate_current_form

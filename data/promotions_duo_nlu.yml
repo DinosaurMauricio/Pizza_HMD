@@ -79,7 +79,7 @@ nlu:
     - i would like to change this promotion for Veggie Feast
 
 # TODO: Fix this to accept recommend, recommendation, recommended
-- intent: pizza_duo_promotion_order
+- intent: pizza_promotion_order
   examples: |
     - I'll go with [pepperoni](first_pizza_promotion) and [funghi](second_pizza_promotion)
     - i want another [Hawaii](second_pizza_promotion)
@@ -124,6 +124,18 @@ nlu:
     - i will go for [Vegetarian](first_pizza_promotion) for first option
     - i will go for [Margherita](second_pizza_promotion) for second option
     - i will take [French Fries](first_side_dish_promotion) as a side
+    - for first side dish i will take [French Fries](first_side_dish_promotion)
+    - for seconds sides [Caprese Salad](second_side_dish_promotion)
+    - i will take [French Fries](first_side_dish_promotion) as first side dish
+    - i think i will go for [Caprese Salad](second_side_dish_promotion) as second side dish
+    - first side dish [French Fries](first_side_dish_promotion)
+    - second side dish [Caprese Salad](second_side_dish_promotion)
+    - i would like to have [French Fries](first_side_dish_promotion) as first side dish
+    - first side dish [French Fries](first_side_dish_promotion) and second side dish [Caprese Salad](second_side_dish_promotion)
+    - maybe [French Fries](first_side_dish_promotion) as first side dish and [Caprese Salad](second_side_dish_promotion) as second side dish
+    - [French Fries](first_side_dish_promotion) as first side dish and [Caprese Salad](second_side_dish_promotion) as second side dish
+    - [French Fries](first_side_dish_promotion) and [Caprese Salad](second_side_dish_promotion) as side dishess
+
 
 - intent: submit_promotion_confirm_positive
   examples: |
