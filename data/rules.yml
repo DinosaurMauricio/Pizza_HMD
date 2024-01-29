@@ -8,6 +8,18 @@ rules:
   - intent: out_of_scope
   - action: utter_out_of_scope
 
+- rule: handle ambiguous confirmation
+  steps:
+  - intent: ambigous_confirmation
+  - action: utter_ambiguous_confirmation
+
+- rule: check current order
+  steps:
+   - intent: ask_current_order
+   - action: action_check_current_order_is_empty
+   - action: action_total_order
+   - action: utter_current_order
+
 #################### PIZZA ORDERING ####################
 - rule: Activate pizza order form
   steps:
@@ -78,8 +90,8 @@ rules:
 
 - rule: respond to FAQs
   steps:
-  - intent: promotions_faq
-  - action: utter_promotions_faq
+  - intent: general_promotions_faq
+  - action: utter_general_promotions_faq
 
 
 - rule: details on promotions was asked
@@ -140,8 +152,8 @@ rules:
   - slot_was_set:
       - promotion_type: "Duo Party"
   steps:
-  - intent: duo_party_faq
-  - action: utter_duo_party_faq
+  - intent: specific_promotions_faq
+  - action: utter_specific_promotions_faq
 
 - rule: Activate Duo Party Form
   condition:
@@ -169,10 +181,10 @@ rules:
   condition:
   - active_loop: duo_party_form
   steps:
-  # This unhappy path handles the case of an intent `duo_party_faq`.
-  - intent: duo_party_faq
-  - action: utter_duo_party_faq
-  # Return to form after handling the `duo_party_faq` intent
+  # This unhappy path handles the case of an intent `specific_promotions_faq`.
+  - intent: specific_promotions_faq
+  - action: utter_specific_promotions_faq
+  # Return to form after handling the `specific_promotions_faq` intent
   - action: duo_party_form
   - active_loop: duo_party_form
    
@@ -183,8 +195,8 @@ rules:
   - slot_was_set:
       - promotion_type: "Veggie Feast"
   steps:
-  - intent: veggie_feast_faq
-  - action: utter_veggie_feast_faq
+  - intent: specific_promotions_faq
+  - action: utter_specific_promotions_faq
 
 - rule: Activate Veggie Feast Form
   condition:
@@ -212,9 +224,9 @@ rules:
   condition:
   - active_loop: veggie_feast_form
   steps:
-  # This unhappy path handles the case of an intent `duo_party_faq`.
-  - intent: veggie_feast_faq
-  - action: utter_veggie_feast_faq
-  # Return to form after handling the `duo_party_faq` intent
+  # This unhappy path handles the case of an intent `specific_promotions_faq`.
+  - intent: specific_promotions_faq
+  - action: utter_specific_promotions_faq
+  # Return to form after handling the `specific_promotions_faq` intent
   - action: veggie_feast_form
   - active_loop: veggie_feast_form

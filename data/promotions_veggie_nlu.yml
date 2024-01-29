@@ -1,40 +1,102 @@
 version: "3.1"
 nlu:
-- intent: veggie_feast_faq/ask_available_side_dishes
+- intent: specific_promotions_faq/ask_available_side_dishes
   examples: |
-    - What sides do you offer for [Veggie Feast](promotion_type)?
+    - What sides do you offer for [Duo Party](promotion_type)?
     - What are the side dishes for [Veggie Feast](promotion_type)?
-    - What sides are available for [Veggie Feast](promotion_type)?
-    - Which side dishes are available in [Veggie Feast](promotion_type)?
-    - I'm interested in [Veggie Feast](promotion_type), can you tell me what side dishes I can get?
-    - I would like to know the side dishes in [Veggie Feast](promotion_type).
-    - Can you tell me what is available for [Veggie Feast](promotion_type) in terms of side dishes?
-    - Can you share the available side dishes on [Veggie Feast](promotion_type)?
+    - What sides are available for [Duo Party](promotion_type)?
+    - Which side dishes are available in [Veggie Feast](promotion_type)
+    - I'm intersted in [Veggie Feast](promotion_type), can you tell me what side dishes can i get?
+    - I would like to know the side dishes in [Duo Party](promotion_type)
+    - Can you tell me what is available for [Veggie Feast](promotion_type) on the side dishes
+    - Can you share the available side dishes on [Duo Party](promotion_type)?
     - Share details about the side dishes in the [Veggie Feast](promotion_type).
-    - What comes on the side with the [Veggie Feast](promotion_type)?
-#
-#- intent: veggie_feast_faq/ask_on_available_pizzas
-#  examples: |
-#    - What pizzas are included in the [Veggie Feast](promotion_type)?
-#    - Tell me about the available pizzas for [Veggie Feast](promotion_type).
-#    - Which pizzas can I get with the [Veggie Feast](promotion_type)?
-#    - Can you list the pizzas included in the [Veggie Feast](promotion_type)?
-#    - I'm interested in [Veggie Feast](promotion_type), what pizzas are part of it?
-#    - What are the pizza options for [Veggie Feast](promotion_type)?
-#    - Share details about the pizzas available in [Veggie Feast](promotion_type).
-#    - What kinds of pizzas come with the [Veggie Feast](promotion_type)?
-#    - Tell me the pizza choices for [Veggie Feast](promotion_type).
-#    - Which pizza flavors are included in the [Veggie Feast](promotion_type)?
-#
-#- intent: duo_party_faq/ask_mix_pizzas
-#  examples: |
-#    - Can I get a funghi pizza instead of the vegetarian pizza in the [Veggie Feast](promotion_type)?
-#    - Is it possible to substitute the vegetariana with a Funghi pizza in the [Veggie Feast](promotion_type)?
-#    - Can I swap the Vegetaria for a funghi pizza in the [Veggie Feast](promotion_type)?
-#    - In the [Veggie Feast](promotion_type), can I choose a hawaii pizza instead of the vegetarian?
-#    - Is there an option to replace the vegetarian with a pepperoni pizza in the [Veggie Feast](promotion_type)?
-#    - Can I customize the pizza selection in the [Veggie Feast](promotion_type) by choosing a Funghi pizza?
-#    - If I prefer, can I have a Funghi pizza instead of the Vegetarian in the [Veggie Feast](promotion_type)?
-#    - Are substitutions allowed, like getting a Funghi pizza instead of the Vegetariana in the [Veggie Feast](promotion_type)?
-#    - Can I change one of the pizzas to a funghi in the [Veggie Feast](promotion_type)?
-#    - Is there flexibility to modify the pizza choices, like selecting a Funghi pizza instead of the Vegetariana in the [Veggie Feast](promotion_type)?
+    - What comes on the side with the [Duo Party](promotion_type)?
+    - what sides are included in the promotion?
+    - what side dishes are included in the promotion?
+    - what can i get on the side with the promotion?
+    - what comes on the side with the promotion?
+    - can you tell me what comes on the side with the promotion?
+
+- intent: specific_promotions_faq/ask_on_available_pizzas
+  examples: |
+    - What pizzas are included in the [Duo Party](promotion_type)?
+    - Tell me about the available pizzas for [Veggie Feast](promotion_type).
+    - Which pizzas can I get with the [Duo Party](promotion_type)?
+    - Can you list the pizzas included in the [Veggie Feast](promotion_type)?
+    - I'm interested in [Veggie Feast](promotion_type), what pizzas are part of it?
+    - What are the pizza options for [Duo Party](promotion_type)?
+    - Share details about the pizzas available in [Veggie Feast](promotion_type).
+    - What kinds of pizzas come with the [Duo Party](promotion_type)?
+    - Tell me the pizza choices for [Veggie Feast](promotion_type).
+    - Which pizza flavors are included in the [Duo Party](promotion_type)?
+    - What pizzas are included in the promotion?
+    - what kind of pizzas can i get with the promotion?
+    - can you tell me what pizzas are included in the promotion?
+    - what are the pizza options for the promotion?
+    - what can i pick from the pizza options for the promotion?
+
+- intent: specific_promotions_faq/ask_mix_pizzas
+  examples: |
+    - Can I get different pizzas in the [Duo Party](promotion_type)?
+    - Can I get two different pizzas in the [Veggie Feast](promotion_type)?
+    - In the [Duo Party](promotion_type), can I get two different pizzas?
+    - Are mixed pizzas allowed in the [Veggie Feast](promotion_type)?
+    - Can I choose different pizza flavors for the [Veggie Feast](promotion_type)?
+    - Is it possible to mix and match pizzas in the [Duo Party](promotion_type)?
+    - Are there options to customize the pizza selection in the [Veggie Feast](promotion_type)?
+    - Can I select different types of pizzas for the [Duo Party](promotion_type)?
+    - What are the rules for selecting pizza flavors in the [Veggie Feast](promotion_type)?
+    - Is there flexibility in choosing pizza varieties for the [Duo Party](promotion_type)?
+    - Can I get different pizzas in the promotion?
+    - Can I get two different pizzas in the promotion?
+    - Is it possible to mix pizzas in the promotion?
+
+- intent: specific_promotions_faq/ask_third_pizza
+  examples: |
+    - Can I get a third pizza in [Duo Party](promotion_type)?
+    - Can I get three pizzas in [Veggie Feast](promotion_type) instead of two?
+    - Can i change the number of pizzas in [Duo Party](promotion_type)?
+    - Can I get three pizzas in [Veggie Feast](promotion_type) instead of the side dish?
+    - Would it be possible to get three pizzas in [Duo Party](promotion_type)?
+    - Is it possible to change the side dish for a third pizza in [Veggie Feast](promotion_type)?
+    - I would like to get three pizzas in [Duo Party](promotion_type)
+    - is it possible to get another pizza instead?
+    - can i get another pizza instead?
+    - could i switch for another pizza for the promotion?
+
+- intent: specific_promotions_faq/ask_change_pizza_for_side_dish
+  examples: |
+    - Would it be possible to change a pizza for a side dish in [Duo Party](promotion_type)?
+    - Can I change one of the pizzas for a side dish in [Veggie Feast](promotion_type)?
+    - Can I get a side dish instead of one of the pizzas in [Duo Party](promotion_type)?
+    - Is it possible to change one of the pizzas for a side dish in [Veggie Feast](promotion_type)?
+    - Change one of the pizzas for a side dish in [Duo Party](promotion_type)
+    - I would like to change one of the pizzas for a side dish in [Veggie Feast](promotion_type)
+    - I rather have second side dish instead of one of the pizzas in [Duo Party](promotion_type)
+    - could i get a side dish instead of another pizza?
+    - can i get a side dish instead of another pizza?
+    - can i get another side dish on the promotion?
+    - is it possible to get another side dish on the promotion?
+
+- intent: specific_promotions_faq/ask_different_size_pizza
+  examples: |
+    - Can I get a different size pizza in [Duo Party](promotion_type)?
+    - Could i get a different size pizza in [Veggie Feast](promotion_type)?
+    - is it possible to get a large pizza instead of two medium pizzas in [Duo Party](promotion_type)?
+    - can it be two small pizzas instead in [Veggie Feast](promotion_type)?
+    - can i get a large pizza instead of two medium pizzas in [Duo Party](promotion_type)?
+    - can i get two small pizzas instead in [Veggie Feast](promotion_type)?
+    - could i get a differnt size of pizza?
+    - can i change the size of pizza?
+    - is it possible to get a different size of pizza?
+    - can i get a different size of pizza?
+
+- intent: specific_promotions_faq/ask_change_promotion_type
+  examples: |
+    - could i switch to other promotion?
+    - is it possible to change this promotion?
+    - can i change this promotion for another?
+    - i would like to change this promotion for other promotion
+    - can i get instead another promotion?
+    - i would like to change this promotion for another one you have

@@ -205,8 +205,8 @@ stories:
 
 - story: ask for promotions
   steps:
-  - intent: promotions_faq
-  - action: utter_promotions_faq
+  - intent: general_promotions_faq
+  - action: utter_general_promotions_faq
 # TODO: could be extended so that it can reject and ask for other promotions
 
 # ex. "I want to order a promotion" or "I'm vegetarian and want a promotion"

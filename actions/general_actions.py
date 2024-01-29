@@ -30,3 +30,20 @@ class ActionOrderNumber(Action):
         number_person = tracker.get_slot("phone_number")
         order_number = str(name_person + "_"+number_person)
         return [SlotSet("order_number", order_number)]
+
+
+class ActionCheckCurrentOrderIsEmpty(Action):
+    def name(self):
+        return 'action_check_current_order_is_empty'
+
+    def run(self, dispatcher, tracker, domain):
+        side_dishes_list = tracker.get_slot("side_dishes") or []
+        pizzas_complete_order_list = tracker.get_slot(
+            "pizzas_complete_order") or []
+        promotions_order_list = tracker.get_slot(
+            "complete_promotion_orders") or []
+
+        if not promotions_order_list and not pizzas_complete_order_list and not side_dishes_list:
+            return [SlotSet("is_cart_empty", True)]
+        else:
+            return [SlotSet("is_cart_empty", False)]

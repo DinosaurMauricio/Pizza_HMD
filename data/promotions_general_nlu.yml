@@ -1,6 +1,6 @@
 version: "3.1"
 nlu:
-- intent: promotions_faq/ask_general_pizza_promotions
+- intent: general_promotions_faq/ask_general_pizza_promotions
   examples: |
     - What offers do you have?
     - What are your offers?
@@ -38,7 +38,7 @@ nlu:
     - What are your current special offers?
     - Any promotions I should know about?
 
-- intent: promotions_faq/ask_promotions_takeout
+- intent: general_promotions_faq/ask_promotions_takeout
   examples: |
     - Does the promotions only apply on take away?
     - Can the offers be on delivery?
@@ -65,7 +65,7 @@ nlu:
     - can you order for take out your promotions?
     - are your promotions available for delivery?
 
-- intent: promotions_faq/ask_how_to_apply_promotion
+- intent: general_promotions_faq/ask_how_to_apply_promotion
   examples: |
     - How can i apply a promotion?
     - Can you tell me how deals work?
@@ -90,7 +90,7 @@ nlu:
     - Can you guide me on ordering a promotion?
     - How do I apply promotions to my order?
   
-- intent: promotions_faq/ask_promotions_on_side_dishes
+- intent: general_promotions_faq/ask_promotions_on_side_dishes
   examples: |
     - does your promotions include side dishes?
     - do you include side dishes on your deals?
@@ -115,7 +115,7 @@ nlu:
     - Do promotions include any sides?
     - Are side dishes part of your current promotions?
 
-- intent: promotions_faq/details_on_both_promotions
+- intent: general_promotions_faq/details_on_both_promotions
   examples: |
     - can you share all promotions you have?
     - can you tell me more about both promotions?
@@ -133,7 +133,7 @@ nlu:
     - can you tell me about [Duo Party](promotion_type) and [Veggie Feast](promotion_type)?
     - can you tell me about [Veggie Feast](promotion_type) and [Duo Party](promotion_type)?
 
-- intent: promotions_faq/ask_how_many_promotions_can_take
+- intent: general_promotions_faq/ask_how_many_promotions_can_take
   examples: |
     - how many promotions can i have in my order?
     - how many promotions can i order?
@@ -145,7 +145,7 @@ nlu:
     - is there an issue if i order more than one promotion?
     - can i order more than one promotion?
 
-- intent: promotions_faq/ask_ask_multiple_promotions
+- intent: general_promotions_faq/ask_ask_multiple_promotions
   examples: |
     - i would like to have two promotions in my order
     - can i order two promotions?
@@ -157,7 +157,7 @@ nlu:
     - can i take one veggie feast and duo party?
     - can i have duo party and veggie feast?
 
-- intent: promotions_faq/ask_reinsert_promotion
+- intent: general_promotions_faq/ask_reinsert_promotion
   examples: |
     - i removed a promotion by mistake, can you add it again?
     - i removed a promotion by mistake, can you add it back?
@@ -166,7 +166,7 @@ nlu:
     - can i reinsert a promotion i just removed?
     - can you add back a promotion i removed?
 
-- intent: promotions_faq/remove_promotion
+- intent: general_promotions_faq/remove_promotion
   examples: |
     - i want to remove a promotion from my order
     - could i remove a promotion from my order?
@@ -334,6 +334,7 @@ nlu:
     - i will take another [Veggie Feast](promotion_type)
     - i want to order another [Duo Party](promotion_type)
     - add another [Veggie Feast](promotion_type)
+    - add a [Duo Party](promotion_type)
 
 - intent: stop_promotion_order
   examples: |
@@ -356,6 +357,7 @@ nlu:
     - i dont need this promotion anymore
     - cancel this promotion order
     - cancel this promotion
+    - ah ok, then i don't want this promotion anymore
 
 - intent: confirm_stop_promotion_order
   examples: |
@@ -366,6 +368,7 @@ nlu:
     - yes, i want to stop this promotion order
     - affirmative, please stop this promotion
     - yes i want to cancel it
+    - yes i would like to cancel this promotion
 
 
 # specific intent
@@ -423,3 +426,63 @@ nlu:
     - eliminate [first](promotion_numbering) promotion
     - delete [second](promotion_numbering) promotion
     - delete [first](promotion_numbering) promotion
+
+
+
+# TODO: Fix this to accept recommend, recommendation, recommended
+- intent: pizza_promotion_order
+  examples: |
+    - I'll go with [pepperoni](first_pizza_promotion) and [funghi](second_pizza_promotion)
+    - i want another [Hawaii](second_pizza_promotion)
+    - add another [Margherita](second_pizza_promotion)
+    - i think i will go for another [Pepperoni](second_pizza_promotion)
+    - for my [Duo Party](promotion_type) I want [Funghi](first_pizza_promotion)
+    - for my [Duo Party](promotion_type) I want [Hawaii](first_pizza_promotion)
+    - i would like [Margherita](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - i want [Pepperoni](first_pizza_promotion) for starters
+    - i want [Vegetarian](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - i want [Funghi](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - i think i will go with the [Margherita](first_pizza_promotion)
+    - thanks but i will have [Pepperoni](first_pizza_promotion)
+    - i will have [Vegetarian](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - i would prefer to have [Funghi](first_pizza_promotion)
+    - i would prefer to have [Hawaii](first_pizza_promotion) and as a second pizza i will choose [Margherita](second_pizza_promotion)
+    - [Hawaii](first_pizza_promotion) initially
+    - for my first pizza i want [Margherita](first_pizza_promotion)
+    - i will take [Pepperoni](first_pizza_promotion) for starters and [Vegetarian](second_pizza_promotion)
+    - i will take [Funghi](first_pizza_promotion) and [French Fries](first_side_dish_promotion)
+    - how about some [Chicken Wings](first_side_dish_promotion) and [Hawaii](first_pizza_promotion) pizza
+    - i will take [Margherita](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
+    - i will take [Pepperoni](first_pizza_promotion) and [Vegetarian](second_pizza_promotion) and some [French Fries](first_side_dish_promotion) for my promotion
+    - in my order i will have [Funghi](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
+    - for my side dish i think i will go with [Caprese Salad](first_side_dish_promotion)
+    - for my second pizza i think i will have [Margherita](second_pizza_promotion)
+    - for second pizza i will have [Hawaii](second_pizza_promotion)
+    - maybe i will go for [Funghi](second_pizza_promotion) for my second pizza
+    - second pizza i will have [Hawaii](second_pizza_promotion)
+    - my second pizza will be [Margherita](second_pizza_promotion)
+    - for first pizza i will have [Pepperoni](first_pizza_promotion) and for second [Hawaii](second_pizza_promotion)
+    - for my second pizza i will have [Margherita](second_pizza_promotion)
+    - i want [Margherita](first_pizza_promotion) and [Hawaii](second_pizza_promotion) for my promotion
+    - make it [Margherita](first_pizza_promotion) and [Hawaii](second_pizza_promotion) with [French Fries](first_side_dish_promotion)
+    - for first make it [Pepperoni](first_pizza_promotion)
+    - for second make it [Hawaii](second_pizza_promotion)
+    - for first [Vegetarian](first_pizza_promotion)
+    - for second [Margherita](second_pizza_promotion)
+    - for starters i will take [Vegetarian](first_pizza_promotion)
+    - for seconds i will take [Margherita](second_pizza_promotion)
+    - i will go for [Pepperoni](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
+    - i will go for [Vegetarian](first_pizza_promotion) for first option
+    - i will go for [Margherita](second_pizza_promotion) for second option
+    - i will take [French Fries](first_side_dish_promotion) as a side
+    - for first side dish i will take [French Fries](first_side_dish_promotion)
+    - for seconds sides [Caprese Salad](second_side_dish_promotion)
+    - i will take [French Fries](first_side_dish_promotion) as first side dish
+    - i think i will go for [Caprese Salad](second_side_dish_promotion) as second side dish
+    - first side dish [French Fries](first_side_dish_promotion)
+    - second side dish [Caprese Salad](second_side_dish_promotion)
+    - i would like to have [French Fries](first_side_dish_promotion) as first side dish
+    - first side dish [French Fries](first_side_dish_promotion) and second side dish [Caprese Salad](second_side_dish_promotion)
+    - maybe [French Fries](first_side_dish_promotion) as first side dish and [Caprese Salad](second_side_dish_promotion) as second side dish
+    - [French Fries](first_side_dish_promotion) as first side dish and [Caprese Salad](second_side_dish_promotion) as second side dish
+    - [French Fries](first_side_dish_promotion) and [Caprese Salad](second_side_dish_promotion) as side dishess

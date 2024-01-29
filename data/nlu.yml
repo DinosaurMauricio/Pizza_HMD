@@ -158,6 +158,7 @@ nlu:
     - Find me at house number 901, street 234 Birch Avenue
     - House num 123, 456 Pine Street is where I reside
     - my address is via della malpensada 150
+    - 123 sesame street
 - intent: response_name_phone
   examples: |
     - Name is [Mauricio] and my number is [3331112222]
@@ -189,6 +190,7 @@ nlu:
     - num is [9876543210](phone_number)
     - phone is [9998887776](phone_number)
     - my name is [Mai](client_name)
+    - [juanito](client_name) [123123123](phone_number)
 
 - intent: response_negative
   examples: |
@@ -226,3 +228,50 @@ nlu:
     - book a flight from milan to ny
     - how far is the square
     - give me the directions to time square
+    - What is the capital of France?
+    - Tell me a joke.
+    - Can you recommend a good movie?
+    - Who won the World Series last year?
+    - What's the weather like in Tokyo today?
+    - How tall is Mount Everest?
+    - Find me a recipe for chocolate cake.
+    - Recommend a book for me to read.
+    - What's the latest technology news?
+    - Give me a summary of Shakespeare's Hamlet.
+
+
+- intent: ambigous_confirmation
+  examples: |
+    - yes
+    - correct
+    - that's right
+    - that's correct
+    - that's it
+    - affirmative
+    - yeah
+    - yep
+    - yup
+    - right
+    - exactly
+    - indeed
+    - you got it
+    - yesss
+    - yeah
+    - right
+    - sure
+
+- intent: ask_current_order
+  examples: |
+    - what is my current order?
+    - what is in my order?
+    - can you tell me what I ordered so far?
+    - what is in my cart?
+    - what is in my basket?
+    - so far what have I ordered?
+    - could you tell me what I ordered?
+    - what is in my current order?
+    - can you tell me what I ordered?
+    - how much stuff do I have in my order?
+    - could you please tell me what I ordered?
+    - what is in my current order?
+    - could you please tell me what I ordered so far?

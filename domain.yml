@@ -18,10 +18,9 @@ intents:
 - repeat_side_dish_menu
 - cancel_side_dish
 - remove_side_dish
-- promotions_faq
+- general_promotions_faq
 - details_on_promotion
-- duo_party_faq
-- veggie_feast_faq
+- specific_promotions_faq
 #- order_promotion
 - order_promotion_vague
 - promotion_order_confirm
@@ -33,10 +32,12 @@ intents:
 - change_item_promotion_specific
 - remove_promotion_from_order
 - promotion_order_accept_recommended
+- ask_current_order
+- ambigous_confirmation
 
 responses:
   utter_out_of_scope:
-  - text: Sorry, I can't handle that request.
+  - text: Sorry, I can't handle that request. You can ask me to order a pizza or a promotion, or ask me about our promotions.
   utter_wrong_pizza_type:
   - text: Sorry, we don't have that pizza type. Please choose another one.
   utter_wrong_pizza_size:
@@ -92,24 +93,24 @@ responses:
   utter_veggie_feast_order_start:
   - text: Great choice, let's start your Veggie Feast order. What would you like to have on your first side dish?
 
-  utter_promotions_faq/ask_general_pizza_promotions:
+  utter_general_promotions_faq/ask_general_pizza_promotions:
   - text: We currently have two great promotions Veggie Feast and Duo Party! Would you like more details on any specific offer?
-  utter_promotions_faq/ask_promotions_takeout:
+  utter_general_promotions_faq/ask_promotions_takeout:
   - text: Our promotions apply for both home delivery and take out. Would you like more details on any specific offer?
-  utter_promotions_faq/ask_how_to_apply_promotion:
+  utter_general_promotions_faq/ask_how_to_apply_promotion:
   - text: Tell me what promotion you want! We we won't be able to apply your promotion if you start a pizza order. Which promotion would you like to order? Do you need more details?
-  utter_promotions_faq/ask_promotions_on_side_dishes:
+  utter_general_promotions_faq/ask_promotions_on_side_dishes:
   - text: Our current promotions include side dishes and pizzas! Would you like more details on our promotions?
-  utter_promotions_faq/details_on_both_promotions:
+  utter_general_promotions_faq/details_on_both_promotions:
   - text: With Duo Party promotion you can buy 2 large pizzas and get 1 side dish for free of your choice and with Veggie Feast promotion you can buy 1 large vegetarian pizza and get 2 vegetarian side dishes of your choice for free
-  utter_promotions_faq/ask_how_many_promotions_can_take:
+  utter_general_promotions_faq/ask_how_many_promotions_can_take:
   - text: You are limited to two promotions per costumer.
-  utter_promotions_faq/ask_reinsert_promotion:
+  utter_general_promotions_faq/ask_reinsert_promotion:
   - text: I can't reinsert a promotion once removed, but certenly I can help you to order a new one! Which promotion would you like to order?
-  utter_promotions_faq/remove_promotion:
+  utter_general_promotions_faq/remove_promotion:
   - text: I can take care of that, which promotion would you like to remove?
   - text: Sure, which promotion would you like to remove?
-  utter_promotions_faq/ask_ask_multiple_promotions:
+  utter_general_promotions_faq/ask_ask_multiple_promotions:
   - text: You can order multiple promotions, but you have to order them one by one. Which promotion would you like to order?
   - text: You can only order one promotion at a time. Which promotion would you like to order?
   
@@ -122,13 +123,7 @@ responses:
 #
   # veggie_ feast
   utter_specific_veggie_feast_promotion:
-  - text: With Veggie Feast promotion you can buy 1 large vegetarian pizza and get 2 vegetarian side dishes of your choice for free. Would you like to order it?
-  utter_veggie_feast_faq/ask_on_available_pizzas:
-  - text: Only vegetarian applies for this promotion. Want to order a Veggie Feast?
-  utter_veggie_feast_faq/ask_available_side_dishes:
-  - text: You can French Fries or Caprese Salad on this promotion. Want to order a Veggie Feast?
-  utter_veggie_feast_faq/ask_mix_pizzas:
-  - text: You can only get vegetarian on this promotion! Want to order a Veggie Feast?
+  - text: With Veggie Feast promotion you can buy 1 large vegetarian pizza and get 2 vegetarian side dishes of your choice for free.
 
 
   utter_ask_veggie_feast_form_first_side_dish_promotion:
@@ -143,6 +138,7 @@ responses:
   ## vague promotion faq
   utter_vague_promotion:
   - text: Sorry, I couldn't understand, could you please provide which promotion you are interested in? We currently offer Duo Party and Veggie Feast.
+  - text: We don't have a promotion with the specific name you mentioned, but we do have Duo Party and Veggie Feast. Which one would you like to order?
 
   # order promotion
   utter_vague_order_promotion:
@@ -161,7 +157,7 @@ responses:
   utter_recommend_other_items:
   - text: Perfect, your {promotion_type} was added to your order. Would you like to order something else?
 
-  ### duo party promotion faq
+  ### duo party promotion form
   
   utter_ask_duo_party_form_first_pizza_promotion:
   - text: I don't think i got your first pizza, in {promotion_type} for starters I would recommend you to try our {recommend_pizza} Pizza. What would you like to take on your first pizza?
@@ -175,24 +171,100 @@ responses:
   utter_ask_duo_party_form_first_side_dish_promotion:
   - text: Which side dish you want in your {promotion_type}? We think {first_pizza_promotion} would go great with your {recommend_side_dish} pizza.
   - text: How about {recommend_side_dish} to go along with your {first_pizza_promotion} pizza. Which side dish you want for your {promotion_type}?
-  utter_ask_duo_party_form_second_side_dish_promotion:
-  - text: With {first_side_dish_promotion} how about you add {second_side_dish_promotion} to your {promotion_type}. Which second side dish would you like?
-  - text: An usual combination for {promotion_type} is {second_side_dish_promotion} with {recommend_side_dish}. Which second side dish would you like?
-  
-  utter_duo_party_faq/ask_on_available_pizzas:
-  - text: You can get any medium Pizza you want for this promotion, it includes Funghi, Pepperoni, Vegetarian, Margherita and Hawaii.
-  utter_duo_party_faq/ask_available_side_dishes:
-  - text: You can get any Side Dish you want for this promotion, it includes French Fries, Chicken Wings, Bacon Jalapeño and Caprese Salad.
-  utter_duo_party_faq/ask_mix_pizzas:
-  - text: Both pizzas can be of different type, it doesn't have to be the same one!
-  utter_duo_party_faq/ask_third_pizza:
-  - text: Sorry, you can only get 2 pizzas on this promotion.
-  utter_duo_party_faq/ask_change_pizza_for_side_dish:
-  - text: Sorry, you can only get 1 side dish on this promotion.
-  utter_duo_party_faq/ask_different_size_pizza:
-  - text: The promotion just applies on medium pizzas, sorry!
-  utter_duo_party_faq/ask_change_promotion_type:
-  - text: To order a different promotion, you have to finish or cancel your current promotion order. Would you like to cancel your current promotion order?
+
+  ### other
+
+  utter_ambiguous_confirmation:
+  - text: Sorry, could you be more specific on the task you want confirm? You can confirm the pizza, promotion, or order.
+  - text: Apologies, I could not understand, can you specify what you wanted to confirm? You can confirm your pizza choice, promotion or order.
+  - text: My apologies, could you specify the task you're interested in? Feel free to confirm your pizza choice, promotion or order.
+  - text: Excuse me, I did not get what you are trying to confirm. You have the option to confirm your pizza, proceed with placing an order or promotion
+  - text: Sorry, I didn't understand. Could you please provide more details about the task you want to do? You can confirm your pizza choice, promotion or order.
+
+
+  ### specific promotion faq
+  utter_specific_promotions_faq/ask_on_available_pizzas:
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Duo Party"
+      text: You can get any medium Pizza you want for Duo Party, it includes Funghi, Pepperoni, Vegetarian, Margherita and Hawaii.
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Veggie Feast"
+      text: Only vegetarian applies for Veggie Feast promotion.
+    - text: Our pizza availability depends on the promotion, you can ask me a specific promotion!
+
+  utter_specific_promotions_faq/ask_available_side_dishes:
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Duo Party"
+      text: You can get any Side Dish you want for Duo Party, it includes French Fries, Chicken Wings, Bacon Jalapeño and Caprese Salad. 
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Veggie Feast"
+      text: You can French Fries or Caprese Salad on Veggie Feast promotion.
+    - text: Our side dish availability depends on the promotion, you can ask me a specific promotion!
+
+  utter_specific_promotions_faq/ask_mix_pizzas:
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Duo Party"
+      text: Both pizzas can be of different type in Duo Party, it doesn't have to be the same one!
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Veggie Feast"
+      text: You only get one large Vegetarian pizza for Veggie Feast. So we can't change or add other pizzas.
+    - text: Please ask about the specific promotion you are interested as this applies differnt on each of our promotions!
+
+  utter_specific_promotions_faq/ask_third_pizza:
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Duo Party"
+      text: Sorry, you can only get 2 pizzas on Duo Party.
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Veggie Feast"
+      text: Sorry, only 1 large vegetarian is included in Veggie Feast.
+    - text: Sorry but we are unable to change our promotions.
+
+
+  utter_specific_promotions_faq/ask_change_pizza_for_side_dish:
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Duo Party"
+      text: Sorry, you can only get 1 side dish on Duo Party.
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Veggie Feast"
+      text: We cannot make this change this change. You can only get 2 side dishes on Veggie Feast.
+    - text: Sorry but we are unable to change our promotions.
+
+  utter_specific_promotions_faq/ask_different_size_pizza:
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Duo Party"
+      text: In Duo Party we can only give  medium pizzas, sorry!
+    - condition:
+      - type: slot
+        name: promotion_type
+        value: "Veggie Feast"
+      text: Veggie Feast only includes one Large pizza, sorry but we cannot change instead.
+    - text: We cannot make changes on our pizza sizes, our promotions already have defined pizza sizes!
+
+  utter_specific_promotions_faq/ask_change_promotion_type:
+  - text: To order a different promotion, you have to finish or cancel your current promotion order. 
+
 
   ### Change item in promotion
   utter_promotion_change:
@@ -229,11 +301,23 @@ responses:
   utter_promotion_limit_reached:
   - text: Sorry, you can only order two promotions per costumer. Would you like to remove one of your promotions? or maybe order pizza without a promotion?
 
-  ### Empty cart
-  utter_empty_cart:
-  - text: You have not ordered anything yet, how about you ask for our promotions or pizza?
+  ### Check current order
+  utter_current_order:
+  - condition:
+    - type: slot
+      name: is_cart_empty
+      value: true
+    text: You have not ordered anything yet, how about you ask for our promotions or pizza?
+  - text: Your current order is {total_order}. Would you like to order something else?
+  - text: Now you have {total_order} in your order. Would you like to order something else?
+  - text: Your order now includes {total_order}. Would you like to order something else?
+  - text: Right now you have {total_order} in your order. Would you like to order something else?
+
+  
 
 actions:
+- utter_ambiguous_confirmation
+- utter_current_order
 - utter_promotion_limit_reached
 - utter_recommend_other_items
 - utter_promotion_canceled
@@ -281,6 +365,7 @@ actions:
 - action_remove_promotion
 - action_validate_promotion_posibility
 - action_activate_recommend_promotion_form
+- action_check_current_order_is_empty
 - validate_duo_party_form
 - validate_pizza_order_form
 entities:
@@ -307,10 +392,16 @@ entities:
 - complete_promotion_orders
 - promotion_numbering
 - is_max_promotion_reached
+- is_cart_empty
 slots:
   is_max_promotion_reached:
     type: bool
     initial_value: false  
+    mappings:
+    - type: custom
+  is_cart_empty:
+    type: bool
+    initial_value: true  
     mappings:
     - type: custom
   promotion_numbering:
@@ -323,6 +414,7 @@ slots:
         - second
   # this is to store ALL the promotions ordered
   complete_promotion_orders:
+    influence_conversation: false
     type: list
     mappings:
     - type: from_entity
@@ -330,6 +422,7 @@ slots:
   # this is to store the items when ordering a promotion
   total_promotion_order:
     type: any
+    influence_conversation: false
     mappings:
     - type: from_entity
       entity: total_promotion_order
@@ -343,6 +436,7 @@ slots:
         - Veggie Feast
   pizzas_complete_order:
     type: list
+    influence_conversation: false
     mappings:
     - type: from_entity
       entity: pizzas_complete_order
@@ -377,6 +471,7 @@ slots:
     - type: custom
   total_order:
     type: any
+    influence_conversation: false
     mappings:
     - type: custom
   side_dish:
@@ -385,11 +480,13 @@ slots:
     - type: from_entity
       entity: side_dish
   side_dishes:
+    influence_conversation: false
     type: list
     mappings:
     - type: from_entity
       entity: side_dishes
   total_side_dishes:
+    influence_conversation: false
     type: any
     mappings:
     - type: custom

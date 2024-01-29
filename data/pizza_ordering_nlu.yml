@@ -149,6 +149,7 @@ nlu:
     - yes, that's the pizza I've been waiting for
     - yes, that's the correct size and type
     - that's exactly the pizza I wanted
+    - confirm my pizza
 - intent: pizza_order_confirm_negative
   examples: |
     - The pizza order is not correct
@@ -201,3 +202,4 @@ nlu:
     - I confirm, the order is correct
     - that's my entire order, thank you
     - I confirm everything in my order is right
+    - confirm order
