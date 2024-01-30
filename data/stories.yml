@@ -397,4 +397,3 @@ stories:
   - action: utter_confirmation_promotion_order_placement
   - action: action_get_recommendation_for_user
   - action: action_promotion_reset
-

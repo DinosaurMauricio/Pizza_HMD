@@ -55,13 +55,20 @@ class ActionPromotionAdd(Action):
         complete_promotion_orders = tracker.get_slot(
             "complete_promotion_orders") or []
 
-        complete_promotion_orders.append({
-            "promotion_type": promotion_type,
-            "first_side_dish_promotion": first_side,
-            "second_side_dish_promotion": second_side,
-            "first_pizza_promotion": first_pizza,
-            "second_pizza_promotion": second_pizza
-        })
+        if promotion_type == "Duo Party":
+            complete_promotion_orders.append({
+                "promotion_type": promotion_type,
+                "first_side_dish_promotion": first_side,
+                "first_pizza_promotion": first_pizza,
+                "second_pizza_promotion": second_pizza
+            })
+        else:
+            complete_promotion_orders.append({
+                "promotion_type": promotion_type,
+                "first_side_dish_promotion": first_side,
+                "second_side_dish_promotion": second_side,
+                "first_pizza_promotion": first_pizza
+            })
 
         return [SlotSet("complete_promotion_orders", complete_promotion_orders)]
 
