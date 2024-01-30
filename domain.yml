@@ -88,7 +88,7 @@ responses:
   - text: You have {total_side_dishes} as side dishes in your order. Anything else?
 
   utter_duo_party_order_start:
-  - text: Let's get your party started wtih your Duo Party order. What would you like to have on your first pizza?
+  - text: Let's get your party started with your Duo Party order. What would you like to have on your first pizza?
 
   utter_veggie_feast_order_start:
   - text: Let's start your Veggie Feast order with some of our specialties. What would you like to have on your first side dish?
@@ -278,7 +278,7 @@ responses:
 
   ### Cancel promotion
   utter_ask_continue_with_promotion:
-  - text: Do you want to stop ordering this promotion? If I heard wrong, plase tell me what do you want on your {promotion_type} promotion.
+  - text: Do you want to stop ordering this promotion? If I heard wrong, plase tell me what do you want on your promotion.
 
   utter_promotion_canceled:
   - text: No problem, we will cancel your promotion order. Can I help you to order one of our pizzas or other promotions?

@@ -333,18 +333,9 @@ stories:
   - intent: complete_order_confirm
   - action: utter_name_phone
 
-- story: cancel promotion after chosen - duo
+- story: cancel promotion after chosen
   steps:
-  - action: utter_duo_party_order_start
-  - intent: stop_promotion_order
-  - action: utter_ask_continue_with_promotion
-  - intent: confirm_stop_promotion_order
-  - action: action_promotion_reset
-  - action: utter_promotion_canceled
-
-- story: cancel promotion after chosen - veggie
-  steps:
-  - action: utter_veggie_feast_order_start
+  - action: action_activate_recommend_promotion_form
   - intent: stop_promotion_order
   - action: utter_ask_continue_with_promotion
   - intent: confirm_stop_promotion_order
@@ -638,3 +629,104 @@ stories:
     - requested_slot: null
   - active_loop: null
   - action: utter_summarize_pizza_order
+
+- story: order promotion - duo
+  steps:
+  - intent: order_promotion_specific
+    entities:
+    - promotion_type: Duo Party
+  - slot_was_set:
+    - promotion_type: Duo Party
+  - action: action_validate_promotion_posibility
+  - slot_was_set:
+    - is_max_promotion_reached: false
+  - action: action_activate_recommend_promotion_form
+  - intent: pizza_promotion_order
+    entities:
+    - first_pizza_promotion: Funghi
+  - slot_was_set:
+    - first_pizza_promotion: Funghi
+  - action: action_recommend_items
+  - slot_was_set:
+    - recommend_pizza: Hawaii
+  - slot_was_set:
+    - recommend_side_dish: Chicken Wings
+  - action: duo_party_form
+  - active_loop: duo_party_form
+  - slot_was_set:
+    - first_pizza_promotion: Funghi
+  - slot_was_set:
+    - requested_slot: second_pizza_promotion
+  - intent: pizza_promotion_order
+    entities:
+    - second_pizza_promotion: Hawaii
+  - slot_was_set:
+    - second_pizza_promotion: Hawaii
+  - action: duo_party_form
+  - slot_was_set:
+    - second_pizza_promotion: Hawaii
+  - slot_was_set:
+    - requested_slot: first_side_dish_promotion
+  - intent: pizza_promotion_order
+    entities:
+    - side_dish: Chicken Wings
+  - slot_was_set:
+    - side_dish: Chicken Wings
+  - intent: pizza_promotion_order
+    entities:
+    - first_side_dish_promotion: French Fries
+  - slot_was_set:
+    - first_side_dish_promotion: French Fries
+  - action: duo_party_form
+  - slot_was_set:
+    - first_side_dish_promotion: French Fries
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_promotion_total_order
+  - slot_was_set:
+    - total_promotion_order: Duo Party includes one medium Funghi pizza, one medium Hawaii pizza and French Fries as a side dish
+  - action: utter_summarize_promotion_order
+
+- story: order promotion - veggie
+  steps:
+  - intent: order_promotion_specific
+    entities:
+    - promotion_type: Veggie Feast
+  - slot_was_set:
+    - promotion_type: Veggie Feast
+  - action: action_validate_promotion_posibility
+  - slot_was_set:
+    - is_max_promotion_reached: false
+  - action: action_activate_recommend_promotion_form
+  - slot_was_set:
+    - first_pizza_promotion: Vegetarian
+  - intent: pizza_promotion_order
+    entities:
+    - first_side_dish_promotion: Caprese Salad
+  - slot_was_set:
+    - first_side_dish_promotion: Caprese Salad
+  - action: action_recommend_items
+  - action: veggie_feast_form
+  - active_loop: veggie_feast_form
+  - slot_was_set:
+    - first_pizza_promotion: Vegetarian
+  - slot_was_set:
+    - first_side_dish_promotion: Caprese Salad
+  - slot_was_set:
+    - requested_slot: second_side_dish_promotion
+  - intent: pizza_promotion_order
+    entities:
+    - second_side_dish_promotion: French Fries
+  - slot_was_set:
+    - second_side_dish_promotion: French Fries
+  - action: veggie_feast_form
+  - slot_was_set:
+    - second_side_dish_promotion: French Fries
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_promotion_total_order
+  - slot_was_set:
+    - total_promotion_order: Veggie Feast includes one large Vegetarian pizza, one Caprese Salad and French Fries as side dishes
+  - action: utter_summarize_promotion_order

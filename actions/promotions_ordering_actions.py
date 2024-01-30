@@ -294,7 +294,7 @@ class ActionActivateRecommendedPromotion(Action):
         else:
             dispatcher.utter_message(
                 response="utter_veggie_feast_order_start")
-            return []
+            return [SlotSet("first_pizza_promotion", "Vegetarian")]
            # return [FollowupAction('veggie_feast_form')]
 
 

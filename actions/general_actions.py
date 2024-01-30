@@ -62,6 +62,11 @@ class ActionGetRecommendationForUser(Action):
         is_vegetarian = tracker.get_slot("is_vegetarian")
         is_max_promotion_reached = tracker.get_slot("is_max_promotion_reached")
 
+        if len(promotions_order_list) == MAX_PROMOTIONS:
+            dispatcher.utter_message(
+                response="utter_recommendation_max_promotion_reached")
+            return []
+
         if not is_max_promotion_reached:
             # no promotions have been ordered
             if not promotions_order_list:
