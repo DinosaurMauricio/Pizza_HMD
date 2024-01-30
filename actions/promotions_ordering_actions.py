@@ -137,6 +137,7 @@ class ActionRecommendPromotion(Action):
                 response=f"utter_vague_order_promotion")
             return [SlotSet("promotion_type", None)]
 
+        print(promotion_type)
         return [SlotSet("promotion_type", promotion_type)]
 
 
@@ -200,9 +201,9 @@ class ActionPromotionTotalOrder(Action):
             size = "large"
 
             if first_side_dish == second_side_dish:
-                total_order_promotion += f" includes one size {first_pizza_promotion} pizza and two {first_side_dish} as a side dishes"
+                total_order_promotion += f" includes one {size} {first_pizza_promotion} pizza and two {first_side_dish} as a side dishes"
             else:
-                total_order_promotion += f" includes one size {first_pizza_promotion} pizza, one {first_side_dish} and {second_side_dish} as side dishes"
+                total_order_promotion += f" includes one {size} {first_pizza_promotion} pizza, one {first_side_dish} and {second_side_dish} as side dishes"
 
         return [SlotSet("total_promotion_order", total_order_promotion)]
 
@@ -288,3 +289,31 @@ class ActionActivateRecommendedPromotion(Action):
                 response="utter_veggie_feast_order_start")
             return []
            # return [FollowupAction('veggie_feast_form')]
+
+
+class ActionIsPromotionTypeQuestionSet(Action):
+    def name(self):
+        return 'action_is_promotion_type_question_set'
+
+    def run(self, dispatcher, tracker, domain):
+        promotion_type_question = tracker.get_slot(
+            "promotion_type_question")
+        promotion_type = tracker.get_slot("promotion_type")
+
+        print(promotion_type_question, promotion_type)
+        # if there was a question about a speciic promotion type, promotion_type_question will be set
+        if promotion_type_question is None:
+            # we check if promotion_type is set, if it is, it means that the user already ordered a promotion and wants to ask about it such as "what side dishes can i get in this promotion?"
+            if promotion_type is not None:
+                return [SlotSet("promotion_type_question", promotion_type)]
+            # else of coure promotion type is sets and its a vague question
+
+        return []
+
+
+class ActionRestartPromotionTypeQuestion(Action):
+    def name(self):
+        return 'action_restart_promotion_type_question'
+
+    def run(self, dispatcher, tracker, domain):
+        return [SlotSet("promotion_type_question", None)]

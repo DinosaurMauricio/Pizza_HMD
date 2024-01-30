@@ -69,6 +69,9 @@ nlu:
     - [big](pizza_size)
     - just [one](pizza_amount)
     - just [1](pizza_amount)
+    - [three](pizza_amount) in [medium](pizza_size)
+    - [two](pizza_amount) in [small](pizza_size)
+    - [one](pizza_amount) in [large](pizza_size)
     - [one](pizza_amount) pizza [funghi](pizza_type)
     - i'd like [three](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type)
     - I'd like to order [3](pizza_amount)  [small](pizza_size) [hawaii](pizza_type) please

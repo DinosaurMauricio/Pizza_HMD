@@ -3,20 +3,20 @@ nlu:
   - lookup: side_dish
     examples: |
       - Chicken Wings
-      - Bacon Jalapeño
+      - Bacon Jalapeno
       - Caprese Salad
       - French Fries
 
   - lookup: first_side_dish_promotion
     examples: |
       - Chicken Wings
-      - Bacon Jalapeño
+      - Bacon Jalapeno
       - Caprese Salad
       - French Fries
 
   - lookup: second_side_dish_promotion
     examples: |
       - Chicken Wings
-      - Bacon Jalapeño
+      - Bacon Jalapeno
       - Caprese Salad
       - French Fries

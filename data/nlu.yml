@@ -18,6 +18,7 @@ nlu:
     - hello
 - intent: init_request
   examples: |
+    - what is on the menu?
     - can you give me the pizza menu for today?
     - I want pizza
     - I want to order a pizza
@@ -259,6 +260,7 @@ nlu:
     - yeah
     - right
     - sure
+    - it's correct
 
 - intent: ask_current_order
   examples: |
@@ -275,3 +277,5 @@ nlu:
     - could you please tell me what I ordered?
     - what is in my current order?
     - could you please tell me what I ordered so far?
+    - tell me my order
+    - tell me my current order

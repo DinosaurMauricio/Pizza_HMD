@@ -33,52 +33,54 @@ nlu:
   examples: |
     - I'd like to order [French Fries](side_dish).
     - Can you add [Chicken Wings](side_dish) to my order?
-    - Give me [Bacon Jalapeño](side_dish) with my pizza, please.
+    - Give me [Bacon Jalapeno](side_dish) with my pizza, please.
     - Include [Caprese Salad](side_dish) in my order.
     - Add [French Fries](side_dish) as a side dish.
     - Please put [Chicken Wings](side_dish) in my order.
-    - I'm craving [Bacon Jalapeño](side_dish) today.
+    - I'm craving [Bacon Jalapeno](side_dish) today.
     - Make sure to include [Caprese Salad](side_dish) in my order.
     - I want [French Fries](side_dish) with my meal.
     - Include [Chicken Wings](side_dish) as one of the sides.
-    - Can I get [Bacon Jalapeño](side_dish) with my order?
+    - Can I get [Bacon Jalapeno](side_dish) with my order?
     - Add [Caprese Salad](side_dish) to my meal.
     - [French Fries](side_dish) would be a great addition.
     - Please add [Chicken Wings](side_dish) to my order.
-    - I want [Bacon Jalapeño](side_dish).
+    - I want [Bacon Jalapeno](side_dish).
     - I want [Caprese Salad](side_dish).
     - I'd like [French Fries](side_dish).
     - I want [Chicken Wings](side_dish).
-    - [Bacon Jalapeño](side_dish)
+    - [Bacon Jalapeno](side_dish)
     - [Caprese Salad](side_dish)
     - [French Fries](side_dish)
     - [Chicken Wings](side_dish)
     - I'd like [Caprese Salad](side_dish) on the side.
     - I want [French Fries](side_dish) as a side dish.
     - [Chicken Wings](side_dish) would complete my order.
-    - Include [Bacon Jalapeño](side_dish) in my meal.
+    - Include [Bacon Jalapeno](side_dish) in my meal.
     - Add [Caprese Salad](side_dish) to my order, please.
+    - Another side dish I want is [French Fries](side_dish).
+    - Maybe add [Chicken Wings](side_dish) to my order.
 - intent: remove_side_dish
   examples: |
     - I want to remove [French Fries](side_dish).
     - Can you remove [Chicken Wings](side_dish) from my order?
-    - Remove [Bacon Jalapeño](side_dish) from my order.
+    - Remove [Bacon Jalapeno](side_dish) from my order.
     - I don't want [Caprese Salad](side_dish) anymore.
     - Remove [French Fries](side_dish) from my order.
     - Please remove [Chicken Wings](side_dish) from my order.
-    - I changed my mind on [Bacon Jalapeño](side_dish).
+    - I changed my mind on [Bacon Jalapeno](side_dish).
     - I don't want [Caprese Salad](side_dish) anymore.
     - I don't want [French Fries](side_dish) anymore.
     - I don't want [Chicken Wings](side_dish) anymore.
-    - I don't want [Bacon Jalapeño](side_dish) anymore.
+    - I don't want [Bacon Jalapeno](side_dish) anymore.
     - Eliminate [Caprese Salad](side_dish) from my order.
     - Eliminate [French Fries](side_dish) from my order.
     - Eliminate [Chicken Wings](side_dish) from my order.
-    - Eliminate [Bacon Jalapeño](side_dish) from my order.
+    - Eliminate [Bacon Jalapeno](side_dish) from my order.
     - Remove [Caprese Salad](side_dish)
     - Remove [French Fries](side_dish)
     - Remove [Chicken Wings](side_dish)
-    - Remove [Bacon Jalapeño](side_dish)
+    - Remove [BBacon Jalapeno](side_dish)
     - I want to remove [Caprese Salad](side_dish).
     - Can you remove [French Fries](side_dish)?
 - intent: cancel_side_dish

@@ -19,7 +19,6 @@ rules:
    - action: action_check_current_order_is_empty
    - action: action_total_order
    - action: utter_current_order
-
 #################### PIZZA ORDERING ####################
 - rule: Activate pizza order form
   steps:
@@ -43,6 +42,7 @@ rules:
   - intent: pizza_order_confirm_positive
   - action: action_pizza_order_add
   - action: utter_pizza_order_confirm_positive
+  - action: action_get_recommendation_for_user
 
 - rule: Activate costumer details form
   steps:
@@ -113,11 +113,17 @@ rules:
   - action: action_recommend_promotion
 
 
+- rule: order promotion vague
+  steps:
+  - intent: order_promotion_specific
+  - action: action_validate_promotion_posibility
+
 - rule: add promotion order to list
   steps:
   - intent: submit_promotion_confirm_positive
   - action: action_promotion_add
-  - action: utter_recommend_other_items
+  - action: utter_confirmation_promotion_order_placement
+  - action: action_get_recommendation_for_user
   - action: action_promotion_reset
 
 - rule: decline duo party form want to change item
@@ -145,15 +151,19 @@ rules:
   - intent: remove_promotion_from_order
   - action: action_remove_promotion
 
-  ############## Duo Party Promotion ##############
-
-- rule: Promotion Duo Party FAQ
+- rule: Promotion Specific FAQ
   condition:
   - slot_was_set:
       - promotion_type: "Duo Party"
+      - promotion_type: "Veggie Feast"
   steps:
   - intent: specific_promotions_faq
+  - action: action_is_promotion_type_question_set
   - action: utter_specific_promotions_faq
+  - action: action_restart_promotion_type_question
+
+  ############## Duo Party Promotion ##############
+
 
 - rule: Activate Duo Party Form
   condition:
@@ -183,20 +193,14 @@ rules:
   steps:
   # This unhappy path handles the case of an intent `specific_promotions_faq`.
   - intent: specific_promotions_faq
+  - action: action_is_promotion_type_question_set
   - action: utter_specific_promotions_faq
   # Return to form after handling the `specific_promotions_faq` intent
+  - action: action_restart_promotion_type_question
   - action: duo_party_form
   - active_loop: duo_party_form
    
   ############## Veggie Feast Promotion ##############
-
-- rule: Promotion Veggie Feast FAQ
-  condition:
-  - slot_was_set:
-      - promotion_type: "Veggie Feast"
-  steps:
-  - intent: specific_promotions_faq
-  - action: utter_specific_promotions_faq
 
 - rule: Activate Veggie Feast Form
   condition:
@@ -226,7 +230,9 @@ rules:
   steps:
   # This unhappy path handles the case of an intent `specific_promotions_faq`.
   - intent: specific_promotions_faq
+  - action: action_is_promotion_type_question_set
   - action: utter_specific_promotions_faq
   # Return to form after handling the `specific_promotions_faq` intent
+  - action: action_restart_promotion_type_question
   - action: veggie_feast_form
   - active_loop: veggie_feast_form

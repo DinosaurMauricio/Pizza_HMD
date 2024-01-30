@@ -52,17 +52,17 @@ class ActionSideDishRemove(Action):
             side_dishes_list.remove(side_dish)
             dispatcher.utter_message(
                 text=f"I removed {side_dish} from your order")
-
-            element_counts = Counter(side_dishes_list)
-            side_dishes = [f'{value} {key}' for key,
-                           value in element_counts.items()]
-            # create the string of side dishes
-            total_side_dishes = " and ".join(side_dishes)
         else:
             dispatcher.utter_message(
                 text=f"You have no {side_dish} in your order")
 
         if not side_dishes_list:
             total_side_dishes = "nothing"
+        else:
+            element_counts = Counter(side_dishes_list)
+            side_dishes = [f'{value} {key}' for key,
+                           value in element_counts.items()]
+            # create the string of side dishes
+            total_side_dishes = " and ".join(side_dishes)
 
         return [SlotSet("side_dish", side_dish), SlotSet("side_dishes", side_dishes_list), SlotSet("total_side_dishes", total_side_dishes)]

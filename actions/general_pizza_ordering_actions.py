@@ -54,7 +54,7 @@ class ActionPizzaTotalOrder(Action):
             total_side_dishes = " and ".join(side_dishes)
 
             if total_side_dishes != "":
-                order_details = order_details + " with " + total_side_dishes
+                order_details += total_side_dishes
 
         return [SlotSet("total_order", order_details)]
 

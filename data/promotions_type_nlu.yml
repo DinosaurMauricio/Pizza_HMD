@@ -5,6 +5,11 @@ nlu:
     - Duo Party
     - Veggie Feast
 
+- lookup: promotion_type_question
+  examples: |
+    - Duo Party
+    - Veggie Feast
+
 - lookup: promotion_numbering
   examples: |
     - first

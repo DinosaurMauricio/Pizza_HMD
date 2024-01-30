@@ -202,32 +202,6 @@ nlu:
     - What's the deal with [Duo Party](promotion_type)?
     - i would like to hear more about [Duo Party](promotion_type)
 
-#- intent: order_promotion
-#  examples: |
-#    - I'd like to order the [Duo Party](promotion_type) promotion.
-#    - I want the [Duo Party](promotion_type)
-#    - I'm interested in getting the [Veggie Feast](promotion_type).
-#    - Include the [Duo Party](promotion_type) in my upcoming order.
-#    - I want to order the [Veggie Feast](promotion_type)
-#    - I'm need an order for the [Veggie Feast](promotion_type).
-#    - I'd like to include the [Veggie Feast](promotion_type)
-#    - Order the [Duo Party](promotion_type) promotion
-#    - Can you arrange for the [Veggie Feast](promotion_type)?
-#    - I want to order the [Duo Party](promotion_type) for takeout.
-#    - Include the [Veggie Feast](promotion_type) promotion
-#    - I'm placing an order, and I'd like to add the [Duo Party](promotion_type).
-#    - Can I order the [Veggie Feast](promotion_type) promotion?
-#    - I would like to order [Veggie Feast](promotion_type)
-#    - I want to order [Duo Party](promotion_type)
-#    - Can I get the [Veggie Feast](promotion_type), please?
-#    - I'd like to order the [Duo Party](promotion_type).
-#    - Add the [Veggie Feast](promotion_type) to my order.
-#    - Place an order for the [Duo Party](promotion_type).
-#    - Include the [Veggie Feast](promotion_type) in my order.
-#    - Can you arrange the [Duo Party](promotion_type) for me?
-#    - I'm interested in ordering the [Veggie Feast](promotion_type).
-#
-#
 - intent: order_promotion_vague
   examples: | 
     - i want to order a promotion
@@ -242,7 +216,15 @@ nlu:
     - i want to order a special
     - can you recommend me a special?
     - i want another promotion
+    - promotion for [party]{"entity":"is_reunion", "value":"True"}
+    - promotion with [only vegetables]{"entity":"is_vegetarian", "value":"True"}
     - i want a promotion for a [party]{"entity":"is_reunion", "value":"True"}
+    - do you have promotions for [party]{"entity":"is_reunion", "value":"True"}?
+    - is there a promotion with only [vegetables]{"entity":"is_vegetarian", "value":"True"}?
+    - i want a promotion for [one person]{"entity":"is_reunion", "value":"False"}
+    - i need a promotion for [one person]{"entity":"is_reunion", "value":"False"}
+    - is there a offer for just [one person]{"entity":"is_reunion", "value":"False"}?
+    - it's only me so i want a promotion for [one person]{"entity":"is_reunion", "value":"False"}
     - [i have a vegan]{"entity":"is_vegetarian", "value":"True"} [friend coming]{"entity":"is_reunion", "value":"True"}, what can you recommend me?
     - I have a suprise [party]{"entity":"is_reunion", "value":"True"} for a friend whom [doesn't eat meat]{"entity":"is_vegetarian", "value":"True"} do you have any deals on veggies?
     - I'd like to order one of your special deals, i want pizza but my [friends]{"entity":"is_reunion", "value":"True"} want some side dishes
@@ -273,6 +255,10 @@ nlu:
     - do you have any promotions for a [party]{"entity":"is_reunion", "value":"True"}?
     - [i like a lot vegetables]{"entity": "is_vegetarian", "value": "True"} food, do you have any promotions?
     - i want a promotion [without meat]{"entity": "is_vegetarian", "value": "True"}, do you have any?
+    - some friends that are coming [prefer vegetables]{"entity": "is_vegetarian", "value": "True"}, what promotion can you recomend me?
+    - i would prefer [vegetarian food]{"entity": "is_vegetarian", "value": "True"} for today, do you have any promotion for that?
+    - i'm having a [reunion]{"entity": "is_reunion", "value": "True"} with some friends, do you have any promotions?
+    - i have a [reunion]{"entity": "is_reunion", "value": "True"} do you have any promotions?
 
 - intent: promotion_order_accept_recommended
   examples: |
@@ -290,51 +276,33 @@ nlu:
     - I want to accept this promotion
     - Totally, it's what I need right now
     - i will take this promotion
+    - I think i will get this promotion
+    - i would like to take this promotion
+    - yes i would like this promotion
 
-- intent: promotion_order_confirm #TODO: change this to order_specific_promotion
+- intent: order_promotion_specific 
   examples: |
+    - i want a [Veggie Feast](promotion_type) promotion
+    - I want to take now a [Duo Party](promotion_type) promotion
     - i want to order a [Duo Party](promotion_type)
     - i want to order a [Veggie Feast](promotion_type)
     - Yes, i want [Duo Party](promotion_type) promotion
     - I would love to have [Duo Party](promotion_type)  promotion
-    - I think i will take [Veggie Feast](promotion_type)  offer
-    - of course, i want a [Pepperoni](first_pizza_promotion) for my combo
-    - okay, i would like a [Hawaii](first_pizza_promotion) in my promotion
-    - yes for my [Veggie Feast] i want some [French Fries](first_side_dish_promotion)
-    - i will take it, can i get some [Bacon Jalapeño](first_side_dish_promotion) on my deal?
-    - [Duo Party](promotion_type) sounds good to me, can I have a [Funghi](first_pizza_promotion) with it?
-    - [Veggie Feast](promotion_type) sounds interesting, can you add a [Caprese Salad](first_side_dish_promotion)?
-    - I need [Margherita] on my promotion [Duo Party] promotion
-    - I want the [Duo Party](promotion_type) promotion with a [Funghi](first_pizza_promotion) pizza
-    - I'll take the [Veggie Feast](promotion_type) promotion with [Caprese Salad](first_side_dish_promotion)
-    - Yes, add a [Margherita](first_pizza_promotion) pizza to my [Duo Party](promotion_type) promotion
+    - [Duo Party](promotion_type) sounds good to me
+    - [Veggie Feast](promotion_type) sounds interesting
     - Sure, I'll go for [Duo Party](promotion_type) promotion
     - Absolutely, [Veggie Feast](promotion_type) is what I need
     - Confirming my order for [Duo Party](promotion_type) promotion
     - Yes, I'd like to proceed with [Veggie Feast](promotion_type)
     - I'm in, give me the [Duo Party](promotion_type) deal
-    - Yes, I want to avail the [Veggie Feast](promotion_type) offer
-    - Yes, include a [Pepperoni](first_pizza_promotion) in my combo
-    - I'd like to add a [Hawaii](first_pizza_promotion) to my promotion
-    - Yes, for my [Veggie Feast], I want [French Fries](first_side_dish_promotion)
-    - I'll take it, add [Chicken Wings](first_side_dish_promotion) to my deal
-    - Include a [Funghi](first_pizza_promotion) with my [Duo Party](promotion_type)
-    - I want [Veggie Feast](promotion_type) with a side of [Caprese Salad](first_side_dish_promotion)
-    - Add a [Margherita] pizza to my [Duo Party](promotion_type) promotion
-    - Yes, include a [Funghi](first_pizza_promotion) in my [Veggie Feast](promotion_type)
-    - I'll take the [Duo Party](promotion_type) promotion with [Bacon Jalapeño](first_side_dish_promotion)
-    - Confirming my order for [Veggie Feast](promotion_type) with [Caprese Salad](first_side_dish_promotion)
-    - Yes, add for my second pizza [Margherita](second_pizza_promotion) pizza to my [Duo Party](promotion_type) deal
-    - i want [Vegetarian](second_pizza_promotion) for my second pizza
-    - i'm craving for [Vegetarian](second_pizza_promotion) as the second option
-    - as second option i will have [Funghi](second_pizza_promotion)
-    - first [Vegetarian](first_pizza_promotion) and second [Margherita](second_pizza_promotion)
-    - i will have [Bacon Jalapeno](first_side_dish_promotion) with a [Margherita](first_pizza_promotion) pizza
     - i want another [Duo Party](promotion_type)
     - i will take another [Veggie Feast](promotion_type)
     - i want to order another [Duo Party](promotion_type)
     - add another [Veggie Feast](promotion_type)
     - add a [Duo Party](promotion_type)
+    - i will go fo the promotion [Duo Party](promotion_type)
+    - i will pick the promotion [Veggie Feast](promotion_type)
+    - i choose [Veggie Feast](promotion_type) for my promotion
 
 - intent: stop_promotion_order
   examples: |
@@ -368,7 +336,7 @@ nlu:
     - yes, i want to stop this promotion order
     - affirmative, please stop this promotion
     - yes i want to cancel it
-    - yes i would like to cancel this promotion
+    - yes cancel this promotion
 
 
 # specific intent
@@ -399,7 +367,7 @@ nlu:
     - modify second side dish with [French Fries](second_side_dish_promotion)
     - change [Margherita](first_pizza_promotion) for [Funghi](first_pizza_promotion)	
     - change [Hawaii](second_pizza_promotion) for [Vegetarian](second_pizza_promotion)
-# might need to check if for example they said change french fries for hawaii, see if this is possible
+    
 
 - intent: remove_promotion_from_order
   examples: |
@@ -478,6 +446,7 @@ nlu:
     - for first side dish i will take [French Fries](first_side_dish_promotion)
     - for seconds sides [Caprese Salad](second_side_dish_promotion)
     - i will take [French Fries](first_side_dish_promotion) as first side dish
+    - i will take [French Fries](first_side_dish_promotion) as second side dish
     - i think i will go for [Caprese Salad](second_side_dish_promotion) as second side dish
     - first side dish [French Fries](first_side_dish_promotion)
     - second side dish [Caprese Salad](second_side_dish_promotion)
@@ -486,3 +455,11 @@ nlu:
     - maybe [French Fries](first_side_dish_promotion) as first side dish and [Caprese Salad](second_side_dish_promotion) as second side dish
     - [French Fries](first_side_dish_promotion) as first side dish and [Caprese Salad](second_side_dish_promotion) as second side dish
     - [French Fries](first_side_dish_promotion) and [Caprese Salad](second_side_dish_promotion) as side dishess
+    - i will take [French Fries](first_pizza_promotion) for my first promotion side dish
+    - for firsts side i will take [French Fries](first_side_dish_promotion)
+    - for seconds side i will take [Caprese Salad](second_side_dish_promotion)
+    - as first side dish for my promotion i want [French Fries](first_side_dish_promotion)
+    - for my second side dish for my promotion i want [Caprese Salad](second_side_dish_promotion)
+    - for my first pizza i will get [Hawaii](first_pizza_promotion) and for second [Funghi](second_pizza_promotion)
+    - for my promotion side dish I want [French Fries](first_side_dish_promotion)
+    - for my promotion side dish I want [French Fries](first_side_dish_promotion)
