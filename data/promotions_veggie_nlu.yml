@@ -24,6 +24,7 @@ nlu:
     - what about in [Duo Party](promotion_type_question), what side dishes can i get on that promotion?
     - what side dishes can i get for [Veggie Feast](promotion_type_question)
     - what sides are included in for [Veggie Feast](promotion_type_question)
+    - what other side dishes do you have for this promotion?
 
 - intent: specific_promotions_faq/ask_on_available_pizzas
   examples: |

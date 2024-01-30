@@ -25,7 +25,6 @@ nlu:
     - What do you have for todays menu?
     - What pizzas do you have for today?
     - What do you have for today's menu?
-    - What pizzas do you have for today?
     - What pizza do you offer?
     - I feel like eating pizza
     - I want to order pizza
@@ -58,7 +57,6 @@ nlu:
     - I'm considering ordering pizza
     - Tell me about the pizza choices you have
     - What's the pizza menu for today like?
-
 - intent: order_take_home
   examples: |
     - take it away
@@ -99,7 +97,6 @@ nlu:
     - I want take away, please
     - I'll take it with me, thanks
     - is takeout available?
-
 - intent: order_delivery
   examples: |
     - delivery
@@ -192,7 +189,6 @@ nlu:
     - phone is [9998887776](phone_number)
     - my name is [Mai](client_name)
     - [juanito](client_name) [123123123](phone_number)
-
 - intent: response_negative
   examples: |
     - no
@@ -217,7 +213,6 @@ nlu:
     - I don't believe so
     - no that would be it
     - no that would be all
-
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
@@ -239,8 +234,6 @@ nlu:
     - Recommend a book for me to read.
     - What's the latest technology news?
     - Give me a summary of Shakespeare's Hamlet.
-
-
 - intent: ambigous_confirmation
   examples: |
     - yes
@@ -257,11 +250,8 @@ nlu:
     - indeed
     - you got it
     - yesss
-    - yeah
-    - right
     - sure
     - it's correct
-
 - intent: ask_current_order
   examples: |
     - what is my current order?
@@ -275,7 +265,6 @@ nlu:
     - can you tell me what I ordered?
     - how much stuff do I have in my order?
     - could you please tell me what I ordered?
-    - what is in my current order?
     - could you please tell me what I ordered so far?
     - tell me my order
     - tell me my current order

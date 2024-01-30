@@ -117,6 +117,7 @@ rules:
   steps:
   - intent: order_promotion_specific
   - action: action_validate_promotion_posibility
+  - action: action_activate_recommend_promotion_form
 
 - rule: add promotion order to list
   steps:

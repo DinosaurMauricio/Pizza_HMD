@@ -397,3 +397,244 @@ stories:
   - action: utter_confirmation_promotion_order_placement
   - action: action_get_recommendation_for_user
   - action: action_promotion_reset
+
+## Interactive stories
+- story: Duo Party Ordering
+  steps:
+  - intent: order_promotion_vague
+    entities:
+    - is_reunion: 'True'
+  - slot_was_set:
+    - is_reunion: 'True'
+  - action: action_validate_promotion_posibility
+  - slot_was_set:
+    - is_max_promotion_reached: false
+  - action: action_recommend_promotion
+  - slot_was_set:
+    - promotion_type: Duo Party
+  - intent: promotion_order_accept_recommended
+  - action: utter_duo_party_order_start
+  - intent: pizza_promotion_order
+    entities:
+    - first_pizza_promotion: Hawaii
+  - slot_was_set:
+    - first_pizza_promotion: Hawaii
+  - action: action_recommend_items
+  - slot_was_set:
+    - recommend_pizza: Hawaii
+  - slot_was_set:
+    - recommend_side_dish: Bacon Jalapeno
+  - action: duo_party_form
+  - active_loop: duo_party_form
+  - slot_was_set:
+    - first_pizza_promotion: Hawaii
+  - slot_was_set:
+    - requested_slot: second_pizza_promotion
+  - intent: pizza_promotion_order
+    entities:
+    - second_pizza_promotion: Funghi
+  - slot_was_set:
+    - second_pizza_promotion: Funghi
+  - action: duo_party_form
+  - slot_was_set:
+    - second_pizza_promotion: Funghi
+  - slot_was_set:
+    - requested_slot: first_side_dish_promotion
+  - intent: order_side_dish
+    entities:
+    - side_dish: Bacon Jalapeno
+  - slot_was_set:
+    - side_dish: Bacon Jalapeno
+  - intent: order_side_dish
+    entities:
+    - side_dish: French Fries
+  - slot_was_set:
+    - side_dish: French Fries
+  - intent: pizza_promotion_order
+    entities:
+    - first_side_dish_promotion: French Fries
+  - slot_was_set:
+    - first_side_dish_promotion: French Fries
+  - action: duo_party_form
+  - slot_was_set:
+    - first_side_dish_promotion: French Fries
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_promotion_total_order
+  - slot_was_set:
+    - total_promotion_order: Duo Party includes one medium Hawaii pizza, one medium Funghi pizza and French Fries as a side dish
+  - action: utter_summarize_promotion_order
+  - intent: submit_promotion_confirm_positive
+  - action: action_promotion_add
+  - slot_was_set:
+    - complete_promotion_orders:
+      - promotion_type: Duo Party
+        first_side_dish_promotion: French Fries
+        second_side_dish_promotion: null
+        first_pizza_promotion: Hawaii
+        second_pizza_promotion: Funghi
+  - action: utter_confirmation_promotion_order_placement
+  - action: action_get_recommendation_for_user
+  - action: action_promotion_reset
+  - slot_was_set:
+    - promotion_type: null
+  - slot_was_set:
+    - is_reunion: null
+  - slot_was_set:
+    - is_vegetarian: null
+  - slot_was_set:
+    - first_pizza_promotion: null
+  - slot_was_set:
+    - recommend_side_dish: null
+  - slot_was_set:
+    - recommend_pizza: null
+  - slot_was_set:
+    - second_pizza_promotion: null
+  - slot_was_set:
+    - second_side_dish_promotion: null
+  - slot_was_set:
+    - first_side_dish_promotion: null
+  - slot_was_set:
+    - total_promotion_order: null
+
+- story: Veggie Feast Ordering
+  steps:
+  - intent: order_promotion_vague
+    entities:
+    - is_vegetarian: 'True'
+  - slot_was_set:
+    - is_vegetarian: 'True'
+  - action: action_validate_promotion_posibility
+  - slot_was_set:
+    - is_max_promotion_reached: false
+  - action: action_recommend_promotion
+  - slot_was_set:
+    - promotion_type: Veggie Feast
+  - intent: promotion_order_accept_recommended
+  - action: utter_veggie_feast_order_start
+  - intent: pizza_promotion_order
+    entities:
+    - first_side_dish_promotion: French Fries
+  - slot_was_set:
+    - first_side_dish_promotion: French Fries
+  - action: action_recommend_items
+  - slot_was_set:
+    - first_pizza_promotion: Vegetarian
+  - slot_was_set:
+    - recommend_side_dish: French Fries
+  - action: veggie_feast_form
+  - active_loop: veggie_feast_form
+  - slot_was_set:
+    - first_pizza_promotion: Vegetarian
+  - slot_was_set:
+    - first_side_dish_promotion: French Fries
+  - slot_was_set:
+    - requested_slot: second_side_dish_promotion
+  - intent: pizza_promotion_order
+    entities:
+    - second_side_dish_promotion: Caprese Salad
+  - slot_was_set:
+    - second_side_dish_promotion: Caprese Salad
+  - action: veggie_feast_form
+  - slot_was_set:
+    - second_side_dish_promotion: Caprese Salad
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_promotion_total_order
+  - slot_was_set:
+    - total_promotion_order: Veggie Feast includes one size Vegetarian pizza, one French Fries and Caprese Salad as side dishes
+  - action: utter_summarize_promotion_order
+  - intent: submit_promotion_confirm_positive
+  - action: action_promotion_add
+  - slot_was_set:
+    - complete_promotion_orders:
+      - promotion_type: Veggie Feast
+        first_side_dish_promotion: French Fries
+        second_side_dish_promotion: Caprese Salad
+        first_pizza_promotion: Vegetarian
+        second_pizza_promotion: null
+  - action: utter_confirmation_promotion_order_placement
+  - action: action_get_recommendation_for_user
+  - action: action_promotion_reset
+  - slot_was_set:
+    - promotion_type: null
+  - slot_was_set:
+    - is_reunion: null
+  - slot_was_set:
+    - is_vegetarian: null
+  - slot_was_set:
+    - first_pizza_promotion: null
+  - slot_was_set:
+    - recommend_side_dish: null
+  - slot_was_set:
+    - recommend_pizza: null
+  - slot_was_set:
+    - second_pizza_promotion: null
+  - slot_was_set:
+    - second_side_dish_promotion: null
+  - slot_was_set:
+    - first_side_dish_promotion: null
+  - slot_was_set:
+    - total_promotion_order: null
+
+- story: order specific promotion - duo party
+  steps:
+  - intent: order_promotion_specific
+    entities:
+    - promotion_type: Duo Party
+  - slot_was_set:
+    - promotion_type: Duo Party
+  - action: action_validate_promotion_posibility
+  - slot_was_set:
+    - is_max_promotion_reached: false
+  - action: action_activate_recommend_promotion_form
+
+- story: order specific promotion - veggie
+  steps:
+  - intent: order_promotion_specific
+    entities:
+    - promotion_type: Veggie Feast
+  - slot_was_set:
+    - promotion_type: Veggie Feast
+  - action: action_validate_promotion_posibility
+  - slot_was_set:
+    - is_max_promotion_reached: false
+  - action: action_activate_recommend_promotion_form
+
+- story: order pizza
+  steps:
+  - intent: pizza_order_start
+    entities:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: pizza_order_start
+    entities:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_amount: two
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: pizza_order_start
+    entities:
+    - pizza_size: 10"
+  - slot_was_set:
+    - pizza_size: 10"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 10''
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_summarize_pizza_order
