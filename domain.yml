@@ -9,7 +9,7 @@ intents:
 - order_delivery_address
 - order_take_home
 - out_of_scope
-- response_name_phone
+- response_name_location
 - response_negative
 - welcome_greet
 - complete_order_confirm
@@ -59,15 +59,15 @@ responses:
   utter_pizza_order_change:
   - text: So you want {pizza_amount} {pizza_type} pizzas in {pizza_size} instead. Is that correct?
   utter_order_takeout:
-  - text: Thank you {client_name}, we will contact you at {phone_number}.  Do you prefer takeaway or home delivery?
-  utter_name_phone:
-  - text: To finish your order, what is your name and phone number?
-  utter_ask_client_name:
+  - text: Thank you {PERSON} at {LOC}.  Do you prefer takeaway or home delivery?
+  utter_name_location:
+  - text: To finish your order, what is your name and location?
+  utter_ask_PERSON:
   - text: I didn't catch your name. Can you please repeat it?
   - text: Can you repeat your name?
-  utter_ask_phone_number:
-  - text: Sorry, I didn't get your phone number. Can you please repeat it?
-  - text: I didn't catch your number, could you please repeat your phone number?
+  utter_ask_LOC:
+  - text: Sorry, I didn't get your location. Can you please repeat it?
+  - text: I didn't catch your location, could you please repeat it?
   utter_order_complete:
   - text: Here is your order number {order_number}. Your order will be ready in 15 minutes. Thanks for the opportunity to serve you
   utter_delivery_address:
@@ -369,7 +369,7 @@ actions:
 - utter_pizza_order_confirm_positive
 - utter_pizza_order_change
 - utter_order_takeout
-- utter_name_phone
+- utter_name_location
 - utter_default
 - utter_ask_for_side_dish_options
 - utter_repeat_side_dish_menu
@@ -410,8 +410,8 @@ entities:
 - pizza_size
 - pizza_amount
 - pizzas_complete_order
-- client_name
-- phone_number
+- PERSON
+- LOC
 - order_number
 - side_dish
 - side_dishes
@@ -501,16 +501,16 @@ slots:
     mappings:
     - type: from_entity
       entity: pizza_type
-  client_name:
+  PERSON:
     type: any
     mappings:
     - type: from_entity
-      entity: client_name
-  phone_number:
+      entity: PERSON
+  LOC:
     type: any
     mappings:
     - type: from_entity
-      entity: phone_number
+      entity: LOC
   order_number:
     type: any
     mappings:
@@ -588,8 +588,8 @@ forms:
     - pizza_size
   costumer_details_form:
     required_slots:
-    - client_name
-    - phone_number
+    - PERSON
+    - LOC
   duo_party_form:
     ignored_intents:
       - pizza_order_start

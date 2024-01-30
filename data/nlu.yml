@@ -157,38 +157,38 @@ nlu:
     - House num 123, 456 Pine Street is where I reside
     - my address is via della malpensada 150
     - 123 sesame street
-- intent: response_name_phone
+- intent: response_name_location
   examples: |
-    - Name is [Mauricio] and my number is [3331112222]
-    - [Mateo] and [3331112222]
-    - My name is [Alice](client_name) and my number is [123456789](phone_number)
-    - [Bob](client_name) and [987654321](phone_number)
-    - [Charlie](client_name) [5551234567](phone_number)
-    - [David](client_name) and my number is [999888777](phone_number)
-    - I'm [Eva](client_name) with phone number [1112233445](phone_number)
-    - This is [Frank](client_name) speaking, number is [4445556666](phone_number)
-    - [Grace](client_name) and [7778889999](phone_number)
-    - My name's [Hank](client_name), contact me at [2223334444](phone_number)
-    - [Ivy](client_name) [1231231234](phone_number)
-    - [Jack](client_name) here, my number is [9990001111](phone_number)
-    - [Katie](client_name) and my num [6667778888](phone_number)
-    - [Liam](client_name) and phone number [3334445555](phone_number)
-    - my phone number is [1112223333](phone_number) and my name is [Jose](client_name)
-    - phone is [2223334444](phone_number) and name is [Lisa](client_name)
-    - number is [3334445555](phone_number) and I'm [Mike](client_name)
-    - [Nancy](client_name) and number is [4445556666](phone_number)
-    - name is [Oscar] and number is [5556667777]
-    - I'm [Isabel](client_name), and my contact number is [1234567890](phone_number)
-    - [James] here, my phone is [9876543210](phone_number)
-    - I go by [Leo](client_name), and my phone is [9998887776](phone_number)
-    - name is [Mai](client_name)
-    - i go by [Fede](client_name)
-    - they call me [Mike](client_name)
-    - my number is [1234567890](phone_number)
-    - num is [9876543210](phone_number)
-    - phone is [9998887776](phone_number)
-    - my name is [Mai](client_name)
-    - [juanito](client_name) [123123123](phone_number)
+    - Name is [Mauricio](PERSON) and my location is [Mexico](LOC)
+    - [Eduardo](PERSON) and [Germany](LOC)
+    - My name is [Mateo](PERSON) and my location is [LOC](LOC)
+    - [Bob](PERSON) and [Italy](LOC)
+    - [Charlie](PERSON) [Australia](LOC)
+    - [David](PERSON) and my location is [New Zeland](LOC)
+    - I'm [Eva](PERSON) with location [Japan](LOC)
+    - This is [Jack](PERSON) speaking, number is [India](LOC)
+    - [Grace](PERSON) and [China](LOC)
+    - My name's [Katie](PERSON), contact me at [Mexico](LOC)
+    - [Ivy](PERSON) [Ecuador](LOC)
+    - [Liam](PERSON) here, my location is [Italy](LOC)
+    - [Marta](PERSON) and my location is [Spain](LOC)
+    - [Federica](PERSON) and location [Brazil](LOC)
+    - my location [Korea](LOC) and my name is [Sara](PERSON)
+    - location is [Pakistan](LOC) and name is [Jose](PERSON)
+    - location is [Norway](LOC) and I'm [James](PERSON)
+    - [Nancy](PERSON) and location is [Iceland](LOC)
+    - name is [James] and location is [Mexico](LOC
+    - I'm [Isabel](PERSON), and my location is [Italy](LOC)
+    - [Mike] here, my location is [Norway](LOC)
+    - I go by [Mai](PERSON), and my location is [Hungary](LOC)
+    - name is [Mauricio](PERSON)
+    - i go by [Eduardo](PERSON)
+    - they call me [Luis](PERSON)
+    - my location is [Mexico](LOC)
+    - location is [Peru](LOC)
+    - my name is [Lisa](PERSON)
+    - [Fransisco](PERSON) [Iceland](LOC)
+    - [Iceland](LOC)
 - intent: response_negative
   examples: |
     - no

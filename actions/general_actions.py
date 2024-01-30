@@ -26,8 +26,8 @@ class ActionOrderNumber(Action):
         return 'action_order_number'
 
     def run(self, dispatcher, tracker, domain):
-        name_person = tracker.get_slot("client_name")
-        number_person = tracker.get_slot("phone_number")
+        name_person = tracker.get_slot("PERSON")
+        number_person = tracker.get_slot("LOC")
         order_number = str(name_person + "_"+number_person)
         return [SlotSet("order_number", order_number)]
 

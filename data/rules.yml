@@ -46,7 +46,7 @@ rules:
 
 - rule: Activate costumer details form
   steps:
-  - intent: response_name_phone
+  - intent: response_name_location
   - action: costumer_details_form
   - active_loop: costumer_details_form
 

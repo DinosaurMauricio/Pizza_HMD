@@ -98,31 +98,31 @@ stories:
   - action: action_total_order
   - action: utter_summarize_complete_order
   - intent: complete_order_confirm
-  - action: utter_name_phone
+  - action: utter_name_location
 
 - story: get details customer details
   steps:
   - action: action_total_order
   - action: utter_summarize_complete_order
   - intent: complete_order_confirm
-  - action: utter_name_phone
+  - action: utter_name_location
 
 - story: order delivery
   steps:
-  - action: utter_name_phone
+  - action: utter_name_location
   - intent: order_delivery
   - action: utter_delivery_address
 
 
 - story: give costumer details
   steps:
-  - intent: response_name_phone
+  - intent: response_name_location
   - action: costumer_details_form
   - active_loop: costumer_details_form
   - slot_was_set:
-    - requested_slot: client_name
+    - requested_slot: PERSON
   - slot_was_set:
-    - requested_slot: phone_number
+    - requested_slot: LOC
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
@@ -331,7 +331,7 @@ stories:
   - action: action_total_order
   - action: utter_summarize_complete_order
   - intent: complete_order_confirm
-  - action: utter_name_phone
+  - action: utter_name_location
 
 - story: cancel promotion after chosen
   steps:
