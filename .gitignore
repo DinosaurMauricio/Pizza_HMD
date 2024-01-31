@@ -13,3 +13,6 @@
 # Ignore pycache
 actions/__pycache__/*
 /__pycache__/*
+
+# Ignore results
+results/*

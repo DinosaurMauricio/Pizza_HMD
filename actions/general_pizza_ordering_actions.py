@@ -42,13 +42,17 @@ class ActionPizzaTotalOrder(Action):
 
             order_details = order_details + " and ".join(promotions)
 
-        order_details += ". "
         if pizzas_complete_order_list is not None:
+            # check if had promotions and check if it has other orders
+            if order_details != "" and pizzas_complete_order_list:
+                order_details += " and "
             order_details = order_details + " and ".join(
                 [f" {pizza['amount']} {pizza['type']} {pizza['size']} size" for pizza in pizzas_complete_order_list])
 
-        order_details += ". "
         if side_dishes_list is not None:
+            # check if it had promotions or orders and check if it has side dishes
+            if order_details != "" and side_dishes_list:
+                order_details += " with "
             element_counts = Counter(side_dishes_list)
             side_dishes = [f'{value} {key}' for key,
                            value in element_counts.items()]

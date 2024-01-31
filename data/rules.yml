@@ -79,11 +79,6 @@ rules:
     - intent: response_negative
     - action: action_total_order
     - action: utter_summarize_complete_order
-#- rule: remove all side dishes
-#  steps:
-#    - intent: cancel_side_dish
-#    - action: action_remove_all_side_dishes
-#    - action: utter_cancel_side_dish
 
 #################### PROMOTIONS #####################
 

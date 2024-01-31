@@ -76,6 +76,9 @@ pipeline:
     epochs: 70
     retrieval_intent: specific_promotions_faq
     constrain_similarities: true
+  - name: FallbackClassifier
+    threshold: 0.35
+    ambiguity_threshold: 0.1
 
 policies:
   - name: RulePolicy

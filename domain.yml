@@ -85,7 +85,7 @@ responses:
   utter_cancel_side_dish:
   - text: Sure, we won't add any side dish to your order, can you confirm your order?
   utter_side_dishes_order:
-  - text: You have {total_side_dishes} as side dishes in your order. Anything else?
+  - text: You have now {total_side_dishes} as side dishes in your order. Anything else?
 
   utter_duo_party_order_start:
   - text: Let's get your party started with your Duo Party order. What would you like to have on your first pizza?
@@ -146,7 +146,7 @@ responses:
   utter_recommend_duo_party_promotion:
   - text: I can you recommend getting the Duo Party promotion, it includes 2 medium pizzas and 1 side dish of your choice. Would you like to order it?
   utter_recommend_veggie_feast_promotion:
-  - text: If you would like a vegetarian meal, I would recommend getting the Veggie Feast promotion, Would you like to order it?
+  - text: If you would like a vegetarian meal, I would recommend getting the Veggie Feast promotion, It includes 1 large vegetarian pizza and 2 vegetarian side dishes. Would you like to order it?
 
   utter_summarize_promotion_order:
   - text: We are almost done, could you please only confirm your promotion {total_promotion_order}?
@@ -193,7 +193,7 @@ responses:
       - type: slot
         name: promotion_type_question
         value: "Veggie Feast"
-      text: Only vegetarian applies for Veggie Feast promotion.
+      text: We only offer a large vegetarian pizza for Veggie Feast.
     - text: Our pizza availability depends on the promotion, you can ask me a specific promotion!
 
   utter_specific_promotions_faq/ask_available_side_dishes:
@@ -240,12 +240,12 @@ responses:
       - type: slot
         name: promotion_type_question
         value: "Duo Party"
-      text: Sorry, you can only get 1 side dish on Duo Party.
+      text: Sorry, you can only get 1 side dish and 2 medium pizzas of your choice on Duo Party.
     - condition:
       - type: slot
         name: promotion_type_question
         value: "Veggie Feast"
-      text: We cannot make this change this change. You can only get 2 side dishes on Veggie Feast.
+      text: We cannot make this change this change. You can only get 1 large vegetarian and 2 side dishes on Veggie Feast.
     - text: Sorry but we are unable to change our promotions.
 
   utter_specific_promotions_faq/ask_different_size_pizza:
@@ -386,8 +386,8 @@ actions:
 - action_order_number
 - action_total_order
 - action_add_side_dish
-- action_remove_all_side_dishes
 - action_remove_side_dish
+- action_remove_all_side_dishes
 - action_handle_details_on_promotion
 - action_recommend_items
 - action_promotion_total_order

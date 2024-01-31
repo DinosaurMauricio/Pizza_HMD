@@ -25,8 +25,8 @@ class ActionSideDishAdd(Action):
             # create the string of side dishes
             total_side_dishes = " and ".join(side_dishes)
 
-            dispatcher.utter_message(
-                text=f"I added {side_dish} to your order")
+            # dispatcher.utter_message(
+            #    text=f"I added {side_dish} to your order")
 
         return [SlotSet("total_side_dishes", total_side_dishes), SlotSet("side_dishes", side_dishes_list)]
 
@@ -50,14 +50,14 @@ class ActionSideDishRemove(Action):
 
         if side_dishes_list is not None and side_dish in side_dishes_list:
             side_dishes_list.remove(side_dish)
-            dispatcher.utter_message(
-                text=f"I removed {side_dish} from your order")
+            # dispatcher.utter_message(
+            #    text=f"I removed {side_dish} from your order")
         else:
             dispatcher.utter_message(
                 text=f"You have no {side_dish} in your order")
 
         if not side_dishes_list:
-            total_side_dishes = "nothing"
+            total_side_dishes = "no"
         else:
             element_counts = Counter(side_dishes_list)
             side_dishes = [f'{value} {key}' for key,

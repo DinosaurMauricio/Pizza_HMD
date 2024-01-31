@@ -1,0 +1,1273 @@
+version: "3.1"
+nlu:
+- intent: general_promotions_faq/ask_reinsert_promotion
+  examples: |
+    - can you reinsert my promotion?
+    - i removed a promotion by mistake, can you add it again?
+    - i removed a promotion by mistake, can you add it back?
+    - can you add back a promotion i removed?
+- intent: specific_promotions_faq/ask_change_promotion_type
+  examples: |
+    - i would like to change this promotion for other promotion
+    - is it possible to change this promotion?
+    - could i switch to other promotion?
+    - i would like to change this promotion for another one you have
+    - can i get instead another promotion?
+- intent: general_promotions_faq/ask_ask_multiple_promotions
+  examples: |
+    - can i have duo party and veggie feast?
+    - can i take one veggie feast and duo party?
+    - i will take two promotions of Duo Party
+    - can i order two promotions?
+    - could i order more than one promotion?
+    - i would like to have two promotions in my order
+    - for my order i would like to order more than one promotion
+- intent: specific_promotions_faq/ask_third_pizza
+  examples: |
+    - Can I get three pizzas in [Veggie Feast](promotion_type_question) instead of the side dish?
+    - Can I get three pizzas in [Veggie Feast](promotion_type_question) instead of two?
+    - Can I get a third pizza in [Duo Party](promotion_type_question)?
+    - Would it be possible to get three pizzas in [Duo Party](promotion_type_question)?
+    - I would like to get three pizzas in [Duo Party](promotion_type_question)
+    - Is it possible to change the side dish for a third pizza in [Veggie Feast](promotion_type_question)?
+- intent: general_promotions_faq/ask_how_many_promotions_can_take
+  examples: |
+    - what's the max number of promotions i can order?
+    - can i order more than one promotion?
+    - is there a limit on number of promotions i can order?
+    - what's the limit on the number of promotions i can order?
+    - how many promotions can i order?
+    - what's the maximum number of promotions i can order?
+    - how many promotions can i have in my order?
+- intent: specific_promotions_faq/ask_different_size_pizza
+  examples: |
+    - can i get a large pizza instead of two medium pizzas in [Duo Party](promotion_type_question)?
+    - can i change the size of pizza?
+    - Could i get a different size pizza in [Veggie Feast](promotion_type_question)?
+    - Can I get a different size pizza in [Duo Party](promotion_type_question)?
+    - can i get a different size of pizza?
+    - can i get two small pizzas instead in [Veggie Feast](promotion_type_question)?
+    - could i get a differnt size of pizza?
+    - is it possible to get a different size of pizza?
+- intent: specific_promotions_faq/ask_change_pizza_for_side_dish
+  examples: |
+    - Can I get a side dish instead of one of the pizzas in [Duo Party](promotion_type_question)?
+    - I rather have second side dish instead of one of the pizzas in [Duo Party](promotion_type_question)
+    - Would it be possible to change a pizza for a side dish in [Duo Party](promotion_type_question)?
+    - I would like to change one of the pizzas for a side dish in [Veggie Feast](promotion_type_question)
+    - Can I change one of the pizzas for a side dish in [Veggie Feast](promotion_type_question)?
+    - Is it possible to change one of the pizzas for a side dish in [Veggie Feast](promotion_type_question)?
+    - is it possible to get another side dish on the promotion?
+    - can i get a side dish instead of another pizza?
+    - could i get a side dish instead of another pizza?
+- intent: general_promotions_faq/remove_promotion
+  examples: |
+    - could i remove a promotion from my order?
+    - i want to remove a promotion from my order
+    - i woud like to remove a promotion from my order
+    - can i remove a promotion from my order?
+    - can i remove offers from my order?
+    - actually, i want to remove the promotion
+    - can i remove deals from my order?
+    - is it possible to remove an order?
+    - can i remove promotions?
+    - can i remove one of my promotions?
+- intent: general_promotions_faq/details_on_both_promotions
+  examples: |
+    - can you tell me about [Veggie Feast](promotion_type) and [Duo Party](promotion_type)?
+    - explain [Veggie Feast](promotion_type) and [Duo Party](promotion_type) to me
+    - can you share all promotions you have?
+    - explain both promotions to me
+    - please explain [Veggie Feast](promotion_type) and [Duo Party](promotion_type)
+    - explain [Duo Party](promotion_type) and [Veggie Feast](promotion_type)
+    - what are the details on both promotions?
+    - can you tell me about [Duo Party](promotion_type) and [Veggie Feast](promotion_type)?
+    - give me details on both promotions
+    - can you tell me more about both promotions?
+- intent: specific_promotions_faq/ask_mix_pizzas
+  examples: |
+    - Can I get different pizzas in the [Duo Party](promotion_type_question)?
+    - Can I get two different pizzas in the [Veggie Feast](promotion_type_question)?
+    - Is it possible to mix pizzas in the promotion?
+    - Are there options to customize the pizza selection in the [Veggie Feast](promotion_type_question)?
+    - Are mixed pizzas allowed in the [Veggie Feast](promotion_type_question)?
+    - Can I get different pizzas in the promotion?
+    - Can I choose different pizza flavors for the [Veggie Feast](promotion_type_question)?
+    - Is there flexibility in choosing pizza varieties for the [Duo Party](promotion_type_question)?
+    - Can I select different types of pizzas for the [Duo Party](promotion_type_question)?
+    - Can I get two different pizzas in the promotion?
+- intent: specific_promotions_faq/ask_on_available_pizzas
+  examples: |
+    - what pizzas can i get on this promotion?
+    - Can you list the pizzas included in the [Veggie Feast](promotion_type_question)?
+    - Which pizza flavors are included in the [Duo Party](promotion_type_question)?
+    - Share details about the pizzas available in [Veggie Feast](promotion_type_question).
+    - What pizzas are included in the promotion?
+    - What pizzas are included in the [Duo Party](promotion_type_question)?
+    - What are the pizza options for [Duo Party](promotion_type_question)?
+    - Which pizzas can I get with the [Duo Party](promotion_type_question)?
+    - Tell me about the available pizzas for [Veggie Feast](promotion_type_question).
+    - What kinds of pizzas come with the [Duo Party](promotion_type_question)?
+    - Tell me the pizza choices for [Veggie Feast](promotion_type_question).
+    - what can i pick from the pizza options for the promotion?
+    - I'm interested in [Veggie Feast](promotion_type_question), what pizzas are part of it?
+- intent: specific_promotions_faq/ask_available_side_dishes
+  examples: |
+    - Can you tell me what is available for [Veggie Feast](promotion_type_question) on the side dishes
+    - I would like to know the side dishes in [Duo Party](promotion_type_question)
+    - what other side dishes do you have for this promotion?
+    - can you tell me what comes on the side with the promotion?
+    - what comes on the side with the promotion?
+    - Can you share the available side dishes on [Duo Party](promotion_type_question)?
+    - Share details about the side dishes in the [Veggie Feast](promotion_type_question).
+    - what side dishes are included in the promotion?
+    - What comes on the side with the [Duo Party](promotion_type_question)?
+    - I'm intersted in [Veggie Feast](promotion_type_question), can you tell me what side dishes can i get?
+    - what side dishes can i get for [Veggie Feast](promotion_type_question)
+    - Which side dishes are available in [Veggie Feast](promotion_type_question)
+    - what can i get on the side with the promotion?
+    - what sides are included in for [Veggie Feast](promotion_type_question)
+    - What sides are available for [Duo Party](promotion_type_question)?
+- intent: general_promotions_faq/ask_how_to_apply_promotion
+  examples: |
+    - What's the procedure for applying a promotion?
+    - What's the process for applying promotions?
+    - How can i apply a promotion?
+    - Can you tell me how deals work?
+    - Explain how deals work.
+    - Tell me the steps to use a deal.
+    - Tell me how to apply a deal.
+    - How do I apply promotions to my order?
+    - How can i order a promotion?
+    - Walk me through ordering promotions.
+    - Explain how to redeem deals.
+    - Can you guide me through ordering a promotion?
+    - Can you help me understand ordering promotions?
+    - Explain how to use deals.
+    - How do I apply a promotion?
+    - How do I use a promotion?
+    - What steps do I follow to order a promotion?
+    - How can I order a promotion?
+- intent: general_promotions_faq/ask_promotions_on_side_dishes
+  examples: |
+    - Do promotions include any sides?
+    - Do your promotions include sides?
+    - Are side dishes included in your promotions?
+    - Are side dishes part of the deal?
+    - Do your promotions feature side dishes?
+    - Are there side dishes with your deals?
+    - Are sides included in your deals?
+    - Are side dishes part of your current deals?
+    - Do deals include side items?
+    - Do promotions offer side dishes?
+    - Are side dishes part of your deals?
+    - Are there sides with your promotions?
+    - Are side dishes part of your current promotions?
+    - do you include side dishes on your deals?
+    - Do deals include side dishes?
+    - Are side dishes part of your promotions?
+    - Do promotions cover side items?
+    - Are side items included in your deals?
+- intent: general_promotions_faq/ask_promotions_takeout
+  examples: |
+    - Can I get the promotional items delivered to my address?
+    - Are the promotions limited to takeout orders only?
+    - Can the offers be on delivery?
+    - can you order for take out your promotions?
+    - Are takeout promotions different from delivery promotions?
+    - Is delivery included in the promotional offers?
+    - Are the promotions available if I opt for delivery?
+    - Are the deals exclusive to takeout orders?
+    - Can I order a promotion for home delivery?
+    - Is takeout the only way to benefit from the promotions?
+    - Does the promotions only apply on take away?
+    - Is takeout the only option for getting the deals?
+    - Can I apply the promotions when ordering for delivery?
+    - Can I get the deals if I choose delivery instead of takeout?
+    - Can I order a promotion for delivery?
+    - Can I receive the promotional discounts for a delivered order?
+    - Can I enjoy the deals when I choose delivery?
+    - Can I order a promotion and have it delivered to my location?
+    - Do the offers apply to both takeout and delivery orders?
+- intent: general_promotions_faq/ask_general_pizza_promotions
+  examples: |
+    - Do you have any promotions for today?
+    - Can you inform me about your current specials?
+    - What promotions are running currently?
+    - What deals do you have?
+    - Are there any exclusive deals available?
+    - please provide offers info
+    - What promotions do you have for today?
+    - Are there any discounts right now?
+    - Any specials for today?
+    - Do you have any deals?
+    - What are your current special offers?
+    - Any promotions available?
+    - Do you have any offers?
+    - Tell me about your current offers and promotions.
+    - Can you tell me about your ongoing offers?
+    - Any special discounts today?
+    - What kind of specials are available?
+    - today specials
+    - Any special deals on the menu?
+    - give me promotions information
+    - What promotions do you offer?
+    - promotions information
+    - Tell me about you promotions
+    - What offers do you have?
+    - What are your current discounts?
+    - Any exclusive offers today?
+    - Tell me about your current promotions.
+    - What are your offers?
+- intent: confirm_stop_promotion_order
+  examples: |
+    - correct i ant to get something else
+    - yes, please stop the promotion ordering
+    - yes cancel this promotion
+    - yes i want to cancel it
+    - i'm sure i don't want this promotion anymore
+    - yes, i want to stop this promotion order
+- intent: repeat_side_dish_menu
+  examples: |
+    - I want to hear the side dish menu again
+    - What were the side dishes again?
+    - Can you tell me the side dishes once more?
+    - I missed the side dishes. Repeat them, please
+    - I forgot the side dish menu. Repeat it for me, please
+    - Can you repeat the side dish options?
+    - What are the side dish options one more time?
+    - I need to hear the side dishes again
+- intent: welcome_greet
+  examples: |
+    - just going to say hi
+    - Hey
+    - greetings
+    - long time no see
+    - Hi there
+    - Howdy
+    - hello
+    - hi there
+    - Hi
+    - hey
+    - howdy
+- intent: ask_current_order
+  examples: |
+    - could you tell me what I ordered?
+    - what is in my cart?
+    - how much stuff do I have in my order?
+    - what is in my current order?
+    - tell me my current order
+    - can you tell me what I ordered so far?
+    - could you please tell me what I ordered so far?
+    - so far what have I ordered?
+    - could you please tell me what I ordered?
+    - can you tell me what I ordered?
+    - what is in my basket?
+    - what is my current order?
+- intent: ask_for_side_dish_options
+  examples: |
+    - Could you recommend some side dishes?
+    - Do you have any side dishes?
+    - Can you tell me about the side dishes?
+    - Give me the side dish menu
+    - Any choices for side dishes?
+    - What are the side dish choices?
+    - Give me information about the available sides
+    - I'm curious about the side dish choices
+    - What are the side dishes?
+    - Share details about the sides on the menu.
+    - Tell me more about the side options
+    - What sides do you offer?
+- intent: cancel_side_dish
+  examples: |
+    - Nevermind, no side dish.
+    - Cancel side dish.
+    - Disregard the side dishes.
+    - I don't want a side dish.
+    - I dont't want any side dish
+    - I don't want a side dish anymore.
+    - I don't want a side dish after all.
+    - Don't add anything.
+    - I just want the pizza, afterall.
+    - I just want the pizza, no side dish.
+    - Scratch the side dishes.
+    - I've changed my mind on the side dish.
+- intent: ambigous_confirmation
+  examples: |
+    - yes
+    - yep
+    - exactly
+    - right
+    - yup
+    - it's correct
+    - sure
+    - that's it
+    - indeed
+    - you got it
+    - that's right
+    - affirmative
+- intent: remove_promotion_from_order
+  examples: |
+    - i need to remove the [second](promotion_numbering) promotion
+    - i woud like to remove the [first](promotion_numbering) promotion from my order
+    - remove [first](promotion_numbering) promotion
+    - is it possible to remove the [second](promotion_numbering) promotion from my order?
+    - remove [second](promotion_numbering) promotion
+    - delete [first](promotion_numbering) promotion
+    - i want to remove the [first](promotion_numbering) promotion from my order
+    - eliminate [second](promotion_numbering) promotion
+    - could i remove the [second](promotion_numbering) promotion from my order?
+    - i want to remove the [first](promotion_numbering) promotion
+    - is it possible to remove the [second](promotion_numbering) promotion?
+    - i need to remove the [second](promotion_numbering) promotion from my order afterall
+    - can i remove the [first](promotion_numbering) promotion from my order?
+- intent: submit_promotion_confirm_negative
+  examples: |
+    - i changed my mind on the pizza, can it be changed?
+    - i changed my mind on the second side dish, can it be changed?
+    - i would like to change my promotion order
+    - actually, could i modify some items?
+    - if i can, i would like to change a pizza
+    - i changed my mind on the first side dish, can it be changed?
+    - is it possible to change the side dish?
+    - i changed my mind on the side dish, can it be changed?
+    - i changed my mind on the second pizza, can it be changed?
+    - i would like to make some changes in my promotion
+    - i want to change my promotion order
+    - could i change my promotion order items?
+    - could i change some items on my promotion order?
+    - i want to change my promotion pizza
+- intent: promotion_order_accept_recommended
+  examples: |
+    - i would love to have this offer
+    - Definitely, I want this promotion
+    - yes, i want this deal
+    - Totally, it's what I need right now
+    - I'll take this promotion, it's exactly what I'm looking for
+    - I'm confirming my order, this promotion works for me
+    - i so totally will take this promotion
+    - I think its the best option for me and my friends to have this offer
+    - i will take this promotion
+    - this sounds like a good deal to me, i will take it
+    - I want to accept this promotion
+    - i would like to take this promotion
+    - i need this promotion
+- intent: submit_promotion_confirm_positive
+  examples: |
+    - everything is fine for my promotion
+    - now my promotion is correct
+    - that is what i want for my deal
+    - that's what i want for my promotion
+    - confirm my promotion
+    - that is what i want for my promotion
+    - the promotion order is ok
+    - my promotion order is correct
+    - everything is now fine for my promotion
+    - my promotion is ok Now
+    - those are the things i ordered for my promotion
+    - affirmative, the promotion is correct
+    - the promotion is now correct
+    - my offer is correct
+    - i like the promotion now
+- intent: details_on_promotion
+  examples: |
+    - tell me about [Veggie Feast](promotion_type)
+    - can you share the details on [Duo Party](promotion_type)
+    - i would like to know more about [Veggie Feast](promotion_type) please
+    - Details about [Duo Party](promotion_type)?
+    - give me more details on your promotion
+    - what can i get for [Veggie Feast]?
+    - What's in the [Duo Party](promotion_type) promotion?
+    - What's included in [Veggie Feast](promotion_type)?
+    - What's the deal with [Duo Party](promotion_type)?
+    - What do I get with [Duo Party](promotion_type)?
+    - tell me about [Duo Party](promotion_type)
+    - Tell me about [Veggie Feast](promotion_type), please.
+    - Explain [Duo Party](promotion_type) to me.
+    - Tell me about [Veggie Feast](promotion_type).
+- intent: out_of_scope
+  examples: |
+    - give me the directions to time square
+    - Find me a recipe for chocolate cake.
+    - what is your name
+    - do you have a sister
+    - are you real
+    - Who's the US President?
+    - Can you recommend a good movie?
+    - book a flight from milan to ny
+    - What is 2 + 2?
+    - Who won the World Series last year?
+    - Give me a summary of Shakespeare's Hamlet.
+    - do you have shoes
+    - How tall is Mount Everest?
+    - Recommend a book for me to read.
+    - What is the capital of France?
+- intent: stop_promotion_order
+  examples: |
+    - i don't want this promotion anymore
+    - yes, i'm sure i don't want this promotion anymore
+    - afterall i won't take this promotion
+    - cancel this promotion order
+    - i rather have something else
+    - ah ok, then i don't want this promotion anymore
+    - i changed my mind, i don't want this promotion anymore
+    - i'm sorry but at the end i don't want this promotion anymore
+    - i'm sure i don't want this order anymore
+    - i will get something else, not this promotion
+    - stop the promotion order
+    - yeah, please stop this order
+    - no please stop the promotion order
+    - i dont need this promotion anymore
+    - please cancel this order, i don't want this promotion anymore
+    - i would like to stop this promotion order
+- intent: remove_side_dish
+  examples: |
+    - Can you remove [Chicken Wings](side_dish) from my order?
+    - Please remove [Chicken Wings](side_dish) from my order.
+    - I don't want [French Fries](side_dish) anymore.
+    - I want to remove [French Fries](side_dish).
+    - Remove [French Fries](side_dish) from my order.
+    - Remove [Caprese Salad](side_dish)
+    - Eliminate [Bacon Jalapeno](side_dish) from my order.
+    - Eliminate [Chicken Wings](side_dish) from my order.
+    - Eliminate [French Fries](side_dish) from my order.
+    - Eliminate [Caprese Salad](side_dish) from my order.
+    - Remove [Chicken Wings](side_dish)
+    - I want to remove [Caprese Salad](side_dish).
+    - I don't want [Bacon Jalapeno](side_dish) anymore.
+    - I changed my mind on [Bacon Jalapeno](side_dish).
+    - I don't want [Caprese Salad](side_dish) anymore.
+    - Remove [Bacon Jalapeno](side_dish) from my order.
+- intent: order_delivery_address
+  examples: |
+    - Find me at house number 901, street 234 Birch Avenue
+    - 123 sesame street
+    - No. 876 on street 543 Cedar Lane is my address
+    - House num 123, 456 Pine Street is where I reside
+    - my address is house number 345, 678 Cedar Street
+    - my address is via della malpensada 150
+    - I'm located at #789, 012 Fir Street
+    - my address is #123, 456 Main Street
+    - #345, 678 Hemlock Lane is my current address
+    - The address is house num 876, street 543 Poplar Lane
+    - #789, 321 Elm Avenue, Apt 5B
+    - my address is No 678, 901 Spruce Lane
+    - #432, 109 Pineapple Lane is my address
+    - You can find me at house number 210 on street 987 Sycamore Avenue
+    - house number 987, 654 Oak Lane
+    - Apartment No. 543, 210 Birch Lane
+    - Building No 876, 543 Maple Avenue
+    - Building No 234, 567 Oak Avenue is where I live
+- intent: response_negative
+  examples: |
+    - I would rather not
+    - nah
+    - not at all
+    - not a chance
+    - not on your life
+    - nu uh
+    - nope
+    - not really
+    - not feeling it
+    - not interested
+    - negative
+    - not in the mood
+    - I don't believe so
+    - definitely not
+    - I'm afraid not
+    - no that would be it
+    - not happening
+    - I disagree
+- intent: order_promotion_specific
+  examples: |
+    - i want another [Duo Party](promotion_type)
+    - i want to order a [Duo Party](promotion_type)
+    - add another [Veggie Feast](promotion_type)
+    - [Duo Party](promotion_type) sounds good to me
+    - Sure, I'll go for [Duo Party](promotion_type) promotion
+    - I would love to have [Duo Party](promotion_type)  promotion
+    - Absolutely, [Veggie Feast](promotion_type) is what I need
+    - [Veggie Feast](promotion_type) sounds interesting
+    - i want a [Veggie Feast](promotion_type) promotion
+    - Yes, i want [Duo Party](promotion_type) promotion
+    - i will take another [Veggie Feast](promotion_type)
+    - i will pick the promotion [Veggie Feast](promotion_type)
+    - Yes, I'd like to proceed with [Veggie Feast](promotion_type)
+    - Confirming my order for [Duo Party](promotion_type) promotion
+    - i want to order another [Duo Party](promotion_type)
+    - i want to order a [Veggie Feast](promotion_type)
+    - I'm in, give me the [Duo Party](promotion_type) deal
+    - i will go fo the promotion [Duo Party](promotion_type)
+- intent: pizza_order_confirm_positive
+  examples: |
+    - yes, that matches my pizza
+    - yeah, the pizza is correct
+    - absolutely, that's the correct pizza
+    - the pizza seems right
+    - sure, that's right
+    - of course, that's correct pizza i ordered
+    - that's exactly the pizza I wanted
+    - sure, that's the pizza I asked for
+    - correct, that's the pizza i wanted
+    - indeed, that's the right pizza
+    - certainly, that's the right one
+    - Yess, the pizza i wanted
+    - the pizza is correct
+    - that's the pizza I'm looking for
+    - yes, that's the pizza I've been waiting for
+    - yes, that's the correct size and type
+    - yes, thats the size, type and amount of pizza i wanted
+    - definitely, that's the pizza
+    - absolutely, that's it
+- intent: complete_order_confirm
+  examples: |
+    - that will be all
+    - I think that's the correct one
+    - the order is fine, thank you
+    - that's it, the order is correct
+    - that's the correct order
+    - that's the complete order
+    - that would be all, thanks
+    - I confirm everything in my order is right
+    - that's the right one, the complete order
+    - that's my entire order, thank you
+    - everything looks good to me
+    - that's my order
+    - I confirm, the order is correct
+    - the order seems right
+    - I agree, it's the complete order
+    - the order seems okay
+    - yep, that's what I ordered
+    - everything seems right in my order
+    - absolutely, my order is correct
+- intent: pizza_order_confirm_negative
+  examples: |
+    - that's not the correct
+    - It's not the correct pizza
+    - that's not the right pizza
+    - I don't want this pizza, its wrong
+    - that's not the correct pizza
+    - the pizza amount is not correct
+    - There's a mistake on the pizza
+    - the pizza is not right
+    - that's not the pizza I ordered
+    - I ordered something else
+    - It's the wrong pizza
+    - the pizza is wrong
+    - the pizza type is not correct
+    - the pizza is not correct
+    - The pizza order is wrong
+    - the type of pizza is wrong
+    - The pizza order is incorrect
+    - the amount of pizza is wrong
+    - the size of pizza is wrong
+    - It's not the right pizza
+- intent: change_item_promotion_specific
+  examples:
+  - text: |
+      can i change my second side dish for a [French Fries](second_side_dish_promotion)?
+  - text: |
+      i would like to change my first pizza for a [Margherita](first_pizza_promotion)
+  - text: |
+      change [Margherita](first_pizza_promotion) for [Funghi](first_pizza_promotion)	
+  - text: |
+      i think i will change my second pizza for a [Vegetarian](second_pizza_promotion)
+  - text: |
+      it seems i made a mistake on my second side dish, can i change it for a [French Fries](second_side_dish_promotion)?
+  - text: |
+      the second pizza i got it wrong, could it be a [Margherita](second_pizza_promotion)?
+  - text: |
+      change second Pizza for a [Margherita](second_pizza_promotion)
+  - text: |
+      i want to eat more healthy, can i get a [Caprese Salad](second_side_dish_promotion) as second side dish?
+  - text: |
+      modify the first side dish for a [French Fries](first_side_dish_promotion)
+  - text: |
+      sorry, but i rather have a [Hawaii](second_pizza_promotion) as second Pizza
+  - text: |
+      modify the second side dish for a [Chicken Wings](second_side_dish_promotion)
+  - text: |
+      change first side dish for a [French Fries](first_side_dish_promotion)
+  - text: |
+      if its possible i would like to change my second pizza for a [Margherita](second_pizza_promotion)
+  - text: |
+      i think i rather have [Chicken Wings](second_side_dish_promotion) as second side dish
+  - text: |
+      change second side dish for a [Chicken Wings](second_side_dish_promotion)
+  - text: |
+      modify second side dish with [French Fries](second_side_dish_promotion)
+  - text: |
+      change [Hawaii](second_pizza_promotion) for [Vegetarian](second_pizza_promotion)
+  - text: |
+      i made a mistake on my promotion order. please change the first pizza for a [Hawaii](first_pizza_promotion)
+  - text: |
+      i made an error on my promotion, i wanted a [Pepperoni](second_pizza_promotion) as second Pizza
+  - text: |
+      i would like to change my first side dish for a [French Fries](first_side_dish_promotion)
+- intent: order_side_dish
+  examples: |
+    - Add [Caprese Salad](side_dish) to my meal.
+    - [Bacon Jalapeno](side_dish)
+    - I'm craving [Bacon Jalapeno](side_dish) today.
+    - [Chicken Wings](side_dish) would complete my order.
+    - Include [Caprese Salad](side_dish) in my order.
+    - Make sure to include [Caprese Salad](side_dish) in my order.
+    - I'd like to order [French Fries](side_dish).
+    - Include [Chicken Wings](side_dish) as one of the sides.
+    - I want [French Fries](side_dish) with my meal.
+    - Add [Caprese Salad](side_dish) to my order, please.
+    - [Caprese Salad](side_dish)
+    - I'd like [Caprese Salad](side_dish) on the side.
+    - Can you add [Chicken Wings](side_dish) to my order?
+    - [Chicken Wings](side_dish)
+    - [French Fries](side_dish) would be a great addition.
+    - [French Fries](side_dish)
+    - I want [Caprese Salad](side_dish).
+    - I want [Bacon Jalapeno](side_dish).
+    - I'd like [French Fries](side_dish).
+    - Another side dish I want is [French Fries](side_dish).
+    - Please put [Chicken Wings](side_dish) in my order.
+    - Can I get [Bacon Jalapeno](side_dish) with my order?
+    - I want [French Fries](side_dish) as a side dish.
+    - I want [Chicken Wings](side_dish).
+- intent: response_name_location
+  examples: |
+    - [Marta](PERSON) and my location is [Spain](LOC)
+    - [Federica](PERSON) and location [Brazil](LOC)
+    - my name is [Lisa](PERSON)
+    - [David](PERSON) and my location is [New Zeland](LOC)
+    - I'm [Eva](PERSON) with location [Japan](LOC)
+    - [Iceland](LOC)
+    - [Ivy](PERSON) [Ecuador](LOC)
+    - they call me [Luis](PERSON)
+    - My name is [Mateo](PERSON) and my location is [LOC](LOC)
+    - my location [Korea](LOC) and my name is [Sara](PERSON)
+    - My name's [Katie](PERSON), contact me at [Mexico](LOC)
+    - [Bob](PERSON) and [Italy](LOC)
+    - i go by [Eduardo](PERSON)
+    - [Liam](PERSON) here, my location is [Italy](LOC)
+    - my location is [Mexico](LOC)
+    - I'm [Isabel](PERSON), and my location is [Italy](LOC)
+    - location is [Norway](LOC) and I'm [James](PERSON)
+    - [Charlie](PERSON) [Australia](LOC)
+    - Name is [Mauricio](PERSON) and my location is [Mexico](LOC)
+    - [Fransisco](PERSON) [Iceland](LOC)
+    - location is [Pakistan](LOC) and name is [Jose](PERSON)
+    - This is [Jack](PERSON) speaking, number is [India](LOC)
+    - [Eduardo](PERSON) and [Germany](LOC)
+    - location is [Peru](LOC)
+- intent: pizza_order_change
+  examples: |
+    - i would like [small](pizza_size) instead
+    - rather have a [medium](pizza_size) instead
+    - I want [funghi](pizza_type) instead
+    - i prefer [pepperoni](pizza_type) instead
+    - I want to change the size to [medium](pizza_size)
+    - i rather have [vegetarian](pizza_type) instead
+    - I want my pizza in [medium](pizza_size) instead
+    - can i get a [vegetarian](pizza_type) instead?
+    - I'd like a  [margherita](pizza_type) pizza instead.
+    - I want a [hawaii](pizza_type) instead.
+    - the [small](pizza_size) is too small, i want [medium](pizza_size)
+    - i prefer [small](pizza_size) instead
+    - actually, i'd like [small](pizza_size) pizza.
+    - I want to change the size to [large](pizza_size)
+    - actually, i would like a [small](pizza_size) [vegetarian](pizza_type).
+    - i need [two](pizza_amount) instead
+    - I want my pizza in [small](pizza_size) instead
+    - i rather have [three](pizza_amount) instead
+    - I want a [pepperoni](pizza_type) instead.
+    - I want a [margherita](pizza_type) instead.
+    - actually, can I get [margherita](pizza_type)?
+    - i would like [small](pizza_size) [margherita](pizza_type) instead
+    - i prefer [large](pizza_size) [hawaii](pizza_type) instead
+    - I changed my mind. Can I get  a [funghi](pizza_type) instead?
+- intent: order_delivery
+  examples: |
+    - for delivery, please
+    - arrange for delivery at my place
+    - I prefer delivery
+    - can you arrange delivery?
+    - deliver to my location
+    - to my home, for delivery
+    - delivery to my residence
+    - have it delivered, please
+    - arrange for it to be delivered
+    - delivery
+    - for delivery to my place
+    - I want it delivered
+    - I prefer delivery to my home
+    - I'd like it delivered
+    - arrange for home delivery
+    - I want it brought to my location
+    - I'd like doorstep delivery
+    - bring it to my specified address
+    - bring it to my address
+    - delivery service, please
+    - doorstep drop-off, please
+    - I prefer home delivery
+    - delivery, please
+    - deliver to my specified address
+    - bring it to my house
+    - arrange for delivery, please
+    - delivery option, please
+- intent: order_take_home
+  examples: |
+    - take away option, please
+    - make it to go, please
+    - I'm taking it to go
+    - is take away an option?
+    - take away is fine
+    - packing it for take away
+    - can I get that to go?
+    - to take away, if possible
+    - I prefer it for take away
+    - for take away, thank you
+    - can you pack that for take out?
+    - take it to go
+    - I'd like to take it home
+    - I want it to go
+    - can you make it for take away?
+    - take it away
+    - I'll take it with me
+    - takeaway is my preference
+    - take out, please
+    - I prefer taking it out
+    - I want take away, please
+    - for takeout, please
+    - I'd like it for take away
+    - to go, please
+    - can you make it portable?
+    - make it takeaway
+    - make it takeout, please
+    - is takeout available?
+    - for takeaway, thank you
+    - take out
+- intent: init_request
+  examples: |
+    - What's on the pizza menu today?
+    - What do you have for todays menu?
+    - I'm interested in ordering pizza
+    - I want to know more about your pizzas
+    - Can you recommend a pizza to me?
+    - Tell me about the pizza choices you have
+    - I'm hungry for pizza
+    - Tell me what pizzas you have
+    - What pizzas do you have for today?
+    - I'm in the mood for some pizza
+    - What are the pizza choices for today?
+    - Tell me about your pizza offerings
+    - I'm considering ordering pizza
+    - What's the pizza selection like?
+    - I'd like to check out your pizza menu
+    - Tell me about the available pizza varieties
+    - What's on the menu for pizza?
+    - What kind of pizza can I get?
+    - can you give me the pizza menu for today?
+    - I want to order pizza
+    - What's available for pizza today?
+    - I'm interested in your pizza offerings
+    - I want to see the pizza menu
+    - I want to order a pizza
+    - I feel like eating pizza
+    - What's on offer for pizza?
+    - I'm looking for information on your pizza menu
+    - what is on the menu?
+    - What's the pizza menu for today like?
+    - Let's explore the pizza choices
+    - I want pizza
+- intent: order_promotion_vague
+  examples: |
+    - [i'm a vegan]{"entity": "is_vegetarian", "value": "True"}, do you have any deals?
+    - i want a promotion with [no meat]{"entity": "is_vegetarian", "value": "True"}
+    - [i don't want meat]{"entity": "is_vegetarian", "value": "True"} and i want a promotion
+    - i want another promotion
+    - What promotions do you have for a [group]{"entity": "is_reunion", "value": "True"} with varied dietary requirements?
+    - i want to order a promotion
+    - i have a [reunion]{"entity": "is_reunion", "value": "True"} do you have any promotions?
+    - [i like a lot vegetables]{"entity": "is_vegetarian", "value": "True"} food, do you have any promotions?
+    - i want to place a promotion order
+    - I'm looking for a promotion suitable for a [gathering]{"entity": "is_reunion", "value": "True"}, any suggestions?
+    - I'm having a [party]{"entity": "is_reunion", "value": "True"}, do you have any promotions?
+    - i would prefer [vegetarian food]{"entity": "is_vegetarian", "value": "True"} for today, do you have any promotion for that?
+    - I'm not sure which promotion to choose. Any recommendations if i want something with [meat]{"entity": "is_vegetarian", "value": "False"}?
+    - promotion with [only vegetables]{"entity": "is_vegetarian", "value": "True"}
+    - it's only me so i want a promotion for [one person]{"entity": "is_reunion", "value": "False"}
+    - i feel like [eating vegetables]{"entity": "is_vegetarian", "value": "True"} today, do you have any special?
+    - I'm having a family [reunion]{"entity": "is_reunion", "value": "True"}, do you have any deals?
+    - We're having a [party]{"entity": "is_reunion", "value": "True"}, do you have any promotions for a [group]{"entity": "is_reunion", "value": "True"}?
+    - some friends that are coming [prefer vegetables]{"entity": "is_vegetarian", "value": "True"}, what promotion can you recomend me?
+    - do you have any promotions for a [party]{"entity": "is_reunion", "value": "True"}?
+    - I want to order a promotion, but I'm not sure which one to go for, i feel like eating some [veggies]{"entity": "is_vegetarian", "value": "True"} today
+    - I'm considering a promotion for our [celebration]{"entity": "is_reunion", "value": "True"}, what do you recommend?
+    - is there a offer for just [one person]{"entity": "is_reunion", "value": "False"}?
+    - Can you suggest a special deal for my [event]{"entity": "is_reunion", "value": "True"}?
+    - can i have a promotion please?
+    - i'm having a [reunion]{"entity": "is_reunion", "value": "True"} with some friends, do you have any promotions?
+    - i want a promotion for a [party]{"entity": "is_reunion", "value": "True"}
+    - do you have a promotion for [party]{"entity": "is_reunion", "value": "True"}?
+    - can i have one of the deals?
+    - i need a promotion for [one person]{"entity": "is_reunion", "value": "False"}
+    - i want a promotion for [one person]{"entity": "is_reunion", "value": "False"}
+    - i want to order a deal
+    - i want a promotion [without meat]{"entity": "is_vegetarian", "value": "True"}, do you have any?
+    - i will have a promotion Please
+    - We're having a family [reunion] {"entity":"is_reunion", "value":"True"}, any group deals available?
+    - [No meat]{"entity": "is_vegetarian", "value": "True"} for me today, any special offers?
+    - What promotions do you have for someone who [prefers vegetables]{"entity": "is_vegetarian", "value": "True"} options?
+    - Any promotions for a [party]{"entity": "is_reunion", "value": "True"} with a mix of meat and [vegetarian food]{"entity": "is_vegetarian", "value": "True"} options?
+    - Any promotions suitable for a [group]{"entity": "is_reunion", "value": "True"} with diverse food preferences?
+    - I'm not sure what promotion to choose, can you help me decide, i have some [friends over]{"entity": "is_reunion", "value": "True"}?
+    - i'm staying [alone]{"entity": "is_reunion", "value": "False"} at the office and i would like to order some special for myself
+    - do you have promotions for [party]{"entity": "is_reunion", "value": "True"}?
+    - i would like to order a promotion
+    - [i have a vegan]{"entity": "is_vegetarian", "value": "True"} [friend coming]{"entity": "is_reunion", "value": "True"}, what can you recommend me?
+- intent: pizza_promotion_order
+  examples: |
+    - for first side i will take [French Fries](first_side_dish_promotion)
+    - i will take [French Fries](first_side_dish_promotion) as second side dish
+    - i would prefer to have [Funghi](first_pizza_promotion)
+    - for my second pizza i want [Funghi](second_pizza_promotion)
+    - for my second pizza i will have [Margherita](second_pizza_promotion)
+    - for second make it [Hawaii](second_pizza_promotion)
+    - i will take [French Fries](first_side_dish_promotion) as first side dish
+    - i want another [Hawaii](second_pizza_promotion)
+    - i think i will go for [Caprese Salad](second_side_dish_promotion) as second side dish
+    - second side dish [Caprese Salad](second_side_dish_promotion)
+    - for my second side dish for my promotion i want [Caprese Salad](second_side_dish_promotion)
+    - for starters i will take [Vegetarian](first_pizza_promotion)
+    - i will take [French Fries](first_pizza_promotion) for my first promotion side dish
+    - i think i will go with the [Margherita](first_pizza_promotion)
+    - i want [Margherita](first_pizza_promotion) and [Hawaii](second_pizza_promotion) for my promotion
+    - for my [Duo Party](promotion_type) I want [Hawaii](first_pizza_promotion)
+    - for second [Margherita](second_pizza_promotion)
+    - first side dish [French Fries](first_side_dish_promotion)
+    - for my second pizza i think i will have [Margherita](second_pizza_promotion)
+    - i will take [Pepperoni](first_pizza_promotion) and [Vegetarian](second_pizza_promotion) and some [French Fries](first_side_dish_promotion) for my promotion
+    - i want a [Pepperoni](first_pizza_promotion) for my first pizza on my promotion
+    - for seconds side i will take [Caprese Salad](second_side_dish_promotion)
+    - for seconds i will take [Margherita](second_pizza_promotion)
+    - i will take [Funghi](first_pizza_promotion) and [French Fries](first_side_dish_promotion)
+    - i will take [Pepperoni](first_pizza_promotion) for starters and [Vegetarian](second_pizza_promotion)
+    - for my [Duo Party](promotion_type) I want [Funghi](first_pizza_promotion)
+    - [Hawaii](first_pizza_promotion) initially
+    - i will take [French Fries](first_side_dish_promotion) as a side
+    - for my second pizza i will take [Funghi](second_pizza_promotion)
+    - [French Fries](first_side_dish_promotion) and [Caprese Salad](second_side_dish_promotion) as side dishess
+    - for seconds sides [Caprese Salad](second_side_dish_promotion)
+    - for first [Vegetarian](first_pizza_promotion)
+    - i will take [Caprese Salad](second_side_dish_promotion) for my second side dish
+    - i will go for [Pepperoni](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
+    - how about some [Chicken Wings](first_side_dish_promotion) and [Hawaii](first_pizza_promotion) pizza
+    - i will have [Vegetarian](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - maybe i will go for [Funghi](second_pizza_promotion) for my second pizza
+    - i want [Pepperoni](first_pizza_promotion) for starters
+    - for second pizza i will have [Hawaii](second_pizza_promotion)
+    - thanks but i will have [Pepperoni](first_pizza_promotion)
+    - first side dish [French Fries](first_side_dish_promotion) and second side dish [Caprese Salad](second_side_dish_promotion)
+    - as my second side dish i want [Caprese Salad](second_side_dish_promotion)
+    - for first make it [Pepperoni](first_pizza_promotion)
+    - i will go for [Margherita](second_pizza_promotion) for second option
+    - in my order i will have [Funghi](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
+    - i would like [Margherita](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - for my first pizza i want [Margherita](first_pizza_promotion)
+    - i will go for [Vegetarian](first_pizza_promotion) for first option
+    - for first side dish i will take [French Fries](first_side_dish_promotion)
+    - for first pizza i will have [Pepperoni](first_pizza_promotion) and for second [Hawaii](second_pizza_promotion)
+    - i will take [French Fries](first_side_dish_promotion) as my side dish
+    - for my first pizza i will take [Hawaii](first_pizza_promotion)
+    - i would like to have [French Fries](first_side_dish_promotion) as first side dish
+    - for my side dish i think i will go with [Caprese Salad](first_side_dish_promotion)
+    - [French Fries](first_side_dish_promotion) as first side dish and [Caprese Salad](second_side_dish_promotion) as second side dish
+    - i want [Vegetarian](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - i will take [Margherita](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
+- intent: pizza_order_start
+  examples: |
+    - [Vegetarian](pizza_type) [small](pizza_size) pizza [two](pizza_amount)
+    - [one](pizza_amount) [Pepperoni](pizza_type) pizza [medium](pizza_size)
+    - How about [one](pizza_amount) [small](pizza_size) [Pepperoni](pizza_type) pizza?
+    - How about [three](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizzas
+    - [Vegetarian](pizza_type) pizza [small](pizza_size)  [two](pizza_amount)
+    - I want to order [two](pizza_amount) [large](pizza_size) [Pepperoni](pizza_type) pizzas, please
+    - small [hawaii](pizza_type) pizza
+    - [medium](pizza_size)
+    - [Funghi](pizza_type)
+    - [one](pizza_amount) [Margherita](pizza_type) [medium](pizza_size) pizza
+    - [one](pizza_amount) in [large](pizza_size)
+    - [Vegetarian](pizza_type) pizza pizza
+    - I want [one](pizza_amount) [Funghi](pizza_type) [small](pizza_size) pizza
+    - [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
+    - I want [large](pizza_size) [Pepperoni](pizza_type) pizza.
+    - [Hawaii](pizza_type) pizza
+    - [Margherita](pizza_type) [medium](pizza_size) pizza [6](pizza_amount)
+    - [1](pizza_amount) [Hawaii](pizza_type) [large](pizza_size) pizza
+    - I want [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
+    - [Margherita](pizza_type) pizza [medium](pizza_size)  [6](pizza_amount)
+    - I'd like to order [large](pizza_size) [Pepperoni](pizza_type) pizza, [three](pizza_amount) of them
+    - [two](pizza_amount) in [small](pizza_size)
+    - [four](pizza_amount) [medium](pizza_size) pizza [Pepperoni](pizza_type)
+    - [medium](pizza_size) please
+    - I want [four](pizza_amount) [small](pizza_size) pizza [Funghi](pizza_type)
+    - [2](pizza_amount) please
+    - I want [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
+    - [Margherita](pizza_type)
+    - [two](pizza_amount) [large](pizza_size) pizza [hawaii](pizza_type)
+    - I'd like to order [two](pizza_amount) [medium](pizza_size) [Margherita](pizza_type) pizzas
+    - [one](pizza_amount) [Margherita](pizza_type) pizza [medium](pizza_size)
+    - just [1](pizza_amount)
+    - [two](pizza_amount)
+    - [1](pizza_amount) [Hawaii](pizza_type) pizza [large](pizza_size)
+    - I want [Funghi](pizza_type) pizza
+    - I'd like to order [3](pizza_amount)  [small](pizza_size) [hawaii](pizza_type) please
+    - [large](pizza_size)
+    - I'll take [three](pizza_amount) [medium](pizza_size) [Hawaii](pizza_type) pizzas.
+    - [big](pizza_size)
+    - [two](pizza_amount) please
+    - I want [two](pizza_amount) [large](pizza_size) [Pepperoni](pizza_type)
+    - [hawaii](pizza_type) pizza small please
+    - I'd like to order [Vegetarian](pizza_type) pizza, [two](pizza_amount) [large](pizza_size).
+    - I'll go with [medium](pizza_size) [Vegetarian](pizza_type) pizza, [four](pizza_amount) please
+    - [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
+    - I [hawaii](pizza_type) pizza small
+    - [Pepperoni](pizza_type) pizza [medium](pizza_size)   [4](pizza_amount)
+    - [two](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type) please
+    - I think I'll choose [small](pizza_size) [Margherita](pizza_type) pizza.
+    - I want [Funghi](pizza_type) pizza please
+    - [Hawaii](pizza_type)
+    - [one](pizza_amount) [Pepperoni](pizza_type) [medium](pizza_size) pizza
+    - Can you prepare [three](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) pizzas for me?
+    - [one](pizza_amount) [Funghi](pizza_type) pizza [small](pizza_size)
+    - [4](pizza_amount) [large](pizza_size) pizza [Hawaii](pizza_type)
+    - [3](pizza_amount) [Vegetarian](pizza_type) pizza [small](pizza_size)
+    - [Vegetarian](pizza_type)
+    - I think I'll go with [two](pizza_amount) [medium](pizza_size) [Pepperoni](pizza_type) pizzas.
+    - [two](pizza_amount) [medium](pizza_size) [Pepperoni](pizza_type) pizza
+    - [Funghi](pizza_type) pizza [small](pizza_size)  [three](pizza_amount)
+    - [small](pizza_size) please
+    - [four](pizza_amount) [small](pizza_size) pizza [Funghi](pizza_type)
+    - [hawaii](pizza_type) pizza small
+    - [3](pizza_amount) [Vegetarian](pizza_type) [small](pizza_size) pizza
+    - just [2](pizza_amount) [large](pizza_size) [Hawaii](pizza_type) pizza
+    - [Funghi](pizza_type) pizza
+    - [Hawaii](pizza_type) pizza [large](pizza_size)  [9](pizza_amount)
+    - [Margherita](pizza_type) pizza
+    - [Pepperoni](pizza_type) pizza
+    - [four](pizza_amount) [medium](pizza_size) pizza [Margherita](pizza_type)
+    - I think I'll choose [one](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
+    - I want [2](pizza_amount) [medium](pizza_size) pizza [hawaii](pizza_type) please
+    - [three](pizza_amount) in [medium](pizza_size)
+- synonym: 'True'
+  examples: |
+    - party
+    - only vegetables
+    - vegetables
+    - i have a vegan
+    - friend coming
+    - doesn't eat meat
+    - friends
+    - friends coming
+    - i don't want meat
+    - eating vegetables
+    - reunion
+    - gathering
+    - I just eat vegetables
+    - veggies
+    - No meat
+    - group
+    - prefers vegetables
+    - vegetarian food
+    - celebration
+    - event
+    - friends over
+    - vegetarian preferences
+    - i'm a vegan
+    - i like a lot vegetables
+    - without meat
+    - prefer vegetables
+    - no meat
+- synonym: 'False'
+  examples: |
+    - one person
+    - alone
+    - meat
+- synonym: 10"
+  examples: |
+    - 10
+    - 10 inch
+    - small
+    - Small
+    - size S
+    - S
+    - small size
+    - 10-inch
+    - ten inches
+    - tiny
+    - little
+    - compact
+    - petite
+    - small sized
+    - Small size
+    - Small Sized
+- synonym: 12"
+  examples: |
+    - medium size
+    - medium sized
+    - Medium size
+    - Medium Sized
+    - 12
+    - 12 inch
+    - Medium
+    - medium
+    - normal
+    - twelve inch
+    - size M
+    - M
+    - 12-inch
+    - twelve inches
+    - regular
+    - standard
+- synonym: 14"
+  examples: |
+    - large sized
+    - large size
+    - Large sized
+    - Large Size
+    - 14
+    - 14 inch
+    - large
+    - size L
+    - L
+    - 14-inch
+    - fourteen inches
+    - big
+    - Big
+    - sizable
+    - extensive
+    - big sized
+- synonym: 18"
+  examples: |
+    - jump size
+    - 18
+    - jumbo
+    - XXL
+    - size XXL
+    - extra large size
+    - extra large sized
+    - enormous
+    - gigantic
+    - massive
+    - huge
+    - oversized
+    - vast
+    - mega
+    - mega sized
+- synonym: Funghi
+  examples: |
+    - Funghi
+    - Mushroom
+    - Mushrooms
+    - Mushroom pizza
+    - Mushrooms pizza
+    - Pizza Funghi
+    - Funghi flavor
+    - Pizza with mushrooms
+    - Funghi style
+    - Funghi topping
+    - Mushroom topping
+    - Mushrooms topping
+    - Mushroom-flavored
+- synonym: Hawaii
+  examples: |
+    - Hawaii
+    - Hawaiian
+    - Hawaiian style
+    - Hawaii pizza
+    - Pizza Hawaii
+    - Tropical pizza
+    - Pineapple and ham pizza
+    - Hawaiian delight
+    - Pacific flavor
+    - Aloha pizza
+    - Tropicana pizza
+- synonym: Margherita
+  examples: |
+    - Margherita
+    - margherita
+    - Classic Margherita
+    - Margherita style
+    - Margherita pizza
+    - Original Margherita
+    - Traditional Margherita
+    - Margherita flavor
+    - Classic Italian Margherita
+    - Authentic Margherita
+- synonym: Pepperoni
+  examples: |
+    - Pepperoni
+    - Pepp
+    - Classic Pepperoni
+    - Pepperoni style
+    - Pepperoni pizza
+    - Original Pepperoni
+    - Traditional Pepperoni
+    - Pepperoni flavor
+    - Classic Italian Pepperoni
+- synonym: Vegetarian
+  examples: |
+    - Vegetarian
+    - Vegetable
+    - Veggie
+    - Veggie delight
+    - Vegetarian pizza
+    - Vegetable pizza
+    - Garden pizza
+    - Green delight
+    - Veggie special
+    - Plant-based pizza
+    - Meatless pizza
+    - Veggie blend
+    - Vegetarian option
+    - Veggie choice
+- synonym: Chicken Wings
+  examples: |
+    - Wings
+    - Drumettes
+    - Winglets
+    - Wing Pieces
+    - Chicken Drumettes
+- synonym: Bacon Jalapeno
+  examples: |
+    - Becon
+    - Jalapeno
+    - Bacon Jalapeno
+    - Jalapeño
+    - Jalapeno Bites
+    - Bacon with Jalapeno
+    - Jalapenos with Bacon
+    - Bacon and Jalapeno
+    - Jalapeno and Bacon
+    - Bacon Jalapeno Bites
+    - Jalapeno Bacon Bites
+- synonym: Caprese Salad
+  examples: |
+    - Tomato Salad with Mozzarella
+    - Fresh Tomato and Mozzarella Salad
+    - Classic Caprese
+    - Mozzarella and Tomato Dish
+    - Tomato and Cheese Delight
+    - Basil Infused Tomato Salad
+    - Italian Tomato and Mozzarella Mix
+    - Tomato and Cheese Medley
+    - Traditional Caprese Dish
+    - Mozzarella Tomato Plate
+- synonym: French Fries
+  examples: |
+    - Fries
+    - Potato Fries
+    - Thin Cut Potatoes
+    - Golden Fries
+    - Crispy Potato Sticks
+    - Fried Potato Strips
+    - Skinny Potatoes
+    - Deep-Fried Potato Slices
+    - Classic Fries
+    - Traditional French Fries
+- synonym: first
+  examples: |
+    - 1st
+    - First
+    - Initial
+    - Primary
+    - Foremost
+    - Premier
+    - Leading
+- synonym: second
+  examples: |
+    - 2nd
+    - Second
+    - Secondary
+    - Subsequent
+    - Next
+    - Latter
+    - Alternate
+    - Additional
+    - Consequent
+- lookup: pizza_amount
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+- lookup: pizza_size
+  examples: |
+    - 10"
+    - 12"
+    - 14"
+    - 18"
+- lookup: pizza_type
+  examples: |
+    - Funghi
+    - Hawaii
+    - Margherita
+    - Pepperoni
+    - Vegetarian
+- lookup: first_pizza_promotion
+  examples: |
+    - Funghi
+    - Hawaii
+    - Margherita
+    - Pepperoni
+    - Vegetarian
+- lookup: second_pizza_promotion
+  examples: |
+    - Funghi
+    - Hawaii
+    - Margherita
+    - Pepperoni
+    - Vegetarian
+- lookup: promotion_type
+  examples: |
+    - Duo Party
+    - Veggie Feast
+- lookup: promotion_type_question
+  examples: |
+    - Duo Party
+    - Veggie Feast
+- lookup: promotion_numbering
+  examples: |
+    - first
+    - second
+- lookup: side_dish
+  examples: |
+    - Chicken Wings
+    - Bacon Jalapeno
+    - Caprese Salad
+    - French Fries
+- lookup: first_side_dish_promotion
+  examples: |
+    - Chicken Wings
+    - Bacon Jalapeno
+    - Caprese Salad
+    - French Fries
+- lookup: second_side_dish_promotion
+  examples: |
+    - Chicken Wings
+    - Bacon Jalapeno
+    - Caprese Salad
+    - French Fries

@@ -60,6 +60,7 @@ nlu:
     - Add [Caprese Salad](side_dish) to my order, please.
     - Another side dish I want is [French Fries](side_dish).
     - Maybe add [Chicken Wings](side_dish) to my order.
+    - I will also take [Chicken Wings](side_dish) to my order
 - intent: remove_side_dish
   examples: |
     - I want to remove [French Fries](side_dish).
@@ -83,6 +84,9 @@ nlu:
     - Remove [BBacon Jalapeno](side_dish)
     - I want to remove [Caprese Salad](side_dish).
     - Can you remove [French Fries](side_dish)?
+    - Please remove [Chicken Wings](side_dish).
+    - Please eliminate [French Fires](side_dish)
+    - oh, could you please remove the [French Fries]?
 - intent: cancel_side_dish
   examples: |
     - Nevermind, no side dish.

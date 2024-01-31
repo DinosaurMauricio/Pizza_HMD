@@ -1,0 +1,184 @@
+version: "3.1"
+nlu:
+- intent: general_promotions_faq/ask_general_pizza_promotions
+  examples: |
+    - What offers do you have?
+    - What are your offers?
+    - Do you have any deals?
+    - What deals do you have?
+    - Any specials for today?
+    - What are your specials?
+    - Tell me about you promotions
+    - promotions information
+    - please provide offers info
+    - Deals details please
+    - Specials information please
+    - today specials 
+    - give me promotions information
+    - give specials details
+    - Do you have any offers?
+    - Any promotions available?
+    - Tell me about your current promotions.
+    - Are there any discounts right now?
+    - What promotions do you offer?
+    - Any special discounts today?
+    - Can you share details on your current deals?
+    - What kind of specials are available?
+    - Any exclusive offers today?
+    - What promotions are running currently?
+    - Can you tell me about your ongoing offers?
+    - Do you have any promotions for today?
+    - What are your current discounts?
+    - Any special deals on the menu?
+    - Can you inform me about your current specials?
+    - What promotions do you have for today?
+    - Any discounts on certain items?
+    - Tell me about your current offers and promotions.
+    - Are there any exclusive deals available?
+    - What are your current special offers?
+    - Any promotions I should know about?
+
+- intent: general_promotions_faq/ask_promotions_takeout
+  examples: |
+    - Does the promotions only apply on take away?
+    - Can the offers be on delivery?
+    - Are deals only available on take away?
+    - Can I order a promotion for delivery?
+    - Are the promotions limited to takeout orders only?
+    - Can I get the deals if I choose delivery instead of takeout?
+    - Do the offers apply to both takeout and delivery orders?
+    - Is takeout the only option for getting the deals?
+    - Do the promotional discounts apply to delivery as well?
+    - Are the deals exclusive to takeout orders?
+    - Can I order a promotion for home delivery?
+    - Do the special offers cover both takeout and delivery?
+    - Are the promotions available if I opt for delivery?
+    - Can I enjoy the deals when I choose delivery?
+    - Is takeout the only way to benefit from the promotions?
+    - Can I receive the promotional discounts for a delivered order?
+    - Are the offers valid for both takeout and delivery services?
+    - Can I get the promotional items delivered to my address?
+    - Is delivery included in the promotional offers?
+    - Can I apply the promotions when ordering for delivery?
+    - Are takeout promotions different from delivery promotions?
+    - Can I order a promotion and have it delivered to my location?
+    - can you order for take out your promotions?
+    - are your promotions available for delivery?
+    - is this promotion available for take away?
+
+- intent: general_promotions_faq/ask_how_to_apply_promotion
+  examples: |
+    - How can i apply a promotion?
+    - Can you tell me how deals work?
+    - How can i order a promotion?
+    - How do I use a promotion?
+    - Explain how deals work.
+    - Can you guide me through ordering a promotion?
+    - How do I apply a promotion?
+    - Tell me the steps to use a deal.
+    - How can I order a promotion?
+    - What's the process for applying promotions?
+    - Explain how to use deals.
+    - Can you help me understand ordering promotions?
+    - How do I redeem a promotion?
+    - Tell me how to apply a deal.
+    - What steps do I follow to order a promotion?
+    - Explain the process of applying promotions.
+    - How can I use a deal?
+    - Walk me through ordering promotions.
+    - What's the procedure for applying a promotion?
+    - Explain how to redeem deals.
+    - Can you guide me on ordering a promotion?
+    - How do I apply promotions to my order?
+  
+- intent: general_promotions_faq/ask_promotions_on_side_dishes
+  examples: |
+    - does your promotions include side dishes?
+    - do you include side dishes on your deals?
+    - Do your deals come with side dishes?
+    - Are side dishes included in your promotions?
+    - Do promotions have side items?
+    - Are side dishes part of your deals?
+    - Do your promotions include sides?
+    - Are there side dishes with your deals?
+    - Do deals include side items?
+    - Are side dishes part of your promotions?
+    - Do promotions offer side dishes?
+    - Are sides included in your deals?
+    - Do your promotions come with side items?
+    - Are side dishes part of the deal?
+    - Do deals include side dishes?
+    - Are there sides with your promotions?
+    - Do promotions cover side items?
+    - Are side dishes part of your current deals?
+    - Do your promotions feature side dishes?
+    - Are side items included in your deals?
+    - Do promotions include any sides?
+    - Are side dishes part of your current promotions?
+
+- intent: general_promotions_faq/details_on_both_promotions
+  examples: |
+    - can you share all promotions you have?
+    - can you tell me more about both promotions?
+    - can you tell me about [Duo Party](promotion_type) and [Veggie Feast](promotion_type)?
+    - explain both promotions to me
+    - what are the details on both promotions?
+    - please explain [Duo Party](promotion_type) and [Veggie Feast](promotion_type)
+    - please explain [Veggie Feast](promotion_type) and [Duo Party](promotion_type)
+    - explain [Duo Party](promotion_type) and [Veggie Feast](promotion_type)
+    - explain [Veggie Feast](promotion_type) and [Duo Party](promotion_type) to me
+    - can you tell me about [Veggie Feast](promotion_type) and [Duo Party](promotion_type)?
+    - would you be able to explain me [Duo Party](promotion_type) and [Veggie Feast](promotion_type)?
+    - give me details on both promotions
+    - give me details on [Duo Party](promotion_type) and [Veggie Feast](promotion_type)
+    - can you tell me about [Duo Party](promotion_type) and [Veggie Feast](promotion_type)?
+    - can you tell me about [Veggie Feast](promotion_type) and [Duo Party](promotion_type)?
+
+- intent: general_promotions_faq/ask_how_many_promotions_can_take
+  examples: |
+    - how many promotions can i have in my order?
+    - how many promotions can i order?
+    - what's the max number of promotions i can order?
+    - what's the maximum number of promotions i can order?
+    - what's the limit on the number of promotions i can order?
+    - what's the maximum number of promotions i can have in my order?
+    - is there a limit on number of promotions i can order?
+    - is there an issue if i order more than one promotion?
+    - can i order more than one promotion?
+
+- intent: general_promotions_faq/ask_ask_multiple_promotions
+  examples: |
+    - i would like to have two promotions in my order
+    - can i order two promotions?
+    - i will take two promotions of Duo Party
+    - i want to order more than one promotion
+    - for my order i would like to order more than one promotion
+    - could i order more than one promotion?
+    - i want to order more than one promotion
+    - can i take one veggie feast and duo party?
+    - can i have duo party and veggie feast?
+
+- intent: general_promotions_faq/ask_reinsert_promotion
+  examples: |
+    - i removed a promotion by mistake, can you add it again?
+    - i removed a promotion by mistake, can you add it back?
+    - afterall i don't want to remove my promotion, can you add it back?
+    - can you reinsert my promotion?
+    - can i reinsert a promotion i just removed?
+    - can you add back a promotion i removed?
+    - is it possible to reinsert my promotion i just removed?
+
+- intent: general_promotions_faq/remove_promotion
+  examples: |
+    - i want to remove a promotion from my order
+    - could i remove a promotion from my order?
+    - can i remove a promotion from my order?
+    - i need to remove a promotion from my order afterall
+    - i woud like to remove a promotion from my order
+    - is it possible to remove an order?
+    - actually, i want to remove the promotion
+    - forget my promotion
+    - can i remove one of my promotions?
+    - can i remove promotions?
+    - can i remove deals from my order?
+    - can i remove offers from my order?

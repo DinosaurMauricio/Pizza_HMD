@@ -132,7 +132,7 @@ nlu:
     - yes, that's the correct pizza
     - yeah, the pizza is correct 
     - the pizza is correct 
-    - sure, that's right
+    - sure, that is the right pizza
     - absolutely, that's it
     - indeed, that's the right pizza
     - definitely, that's the pizza
@@ -197,8 +197,8 @@ nlu:
     - everything looks good to me
     - everything seems right in my order
     - yep, that's what I ordered
-    - that will be all
-    - that would be all, thanks
+    - that will be all with my order
+    - that would be all with my order, thanks
     - the order is fine, thank you
     - that's it, the order is correct
     - that's the right one, the complete order

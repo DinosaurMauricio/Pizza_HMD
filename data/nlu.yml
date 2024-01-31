@@ -213,6 +213,7 @@ nlu:
     - I don't believe so
     - no that would be it
     - no that would be all
+    - no that would be all thanks
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
