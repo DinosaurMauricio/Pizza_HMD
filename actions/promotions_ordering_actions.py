@@ -144,8 +144,7 @@ class ActionRecommendPromotion(Action):
                 response=f"utter_vague_order_promotion")
             return [SlotSet("promotion_type", None)]
 
-        print(promotion_type)
-        return [SlotSet("promotion_type", promotion_type)]
+        return [SlotSet("promotion_type", promotion_type), SlotSet("is_reunion", None), SlotSet("is_vegetarian", None)]
 
 
 class ActionRecommendItems(Action):

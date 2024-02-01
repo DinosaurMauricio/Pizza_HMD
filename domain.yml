@@ -85,10 +85,15 @@ responses:
   utter_cancel_side_dish:
   - text: Sure, we won't add any side dish to your order, can you confirm your order?
   utter_side_dishes_order:
-  - text: You have now {total_side_dishes} as side dishes in your order. Anything else?
+    - condition:
+      - type: slot
+        name: is_side_dish_total_empty
+        value: true
+      text: You have no side dishes on your order right now, would you like to order one?
+    - text: You have now {total_side_dishes} as side dishes in your order. Anything else?
 
   utter_duo_party_order_start:
-  - text: Let's get your party started with your Duo Party order. What would you like to have on your first pizza?
+  - text: Let's get your party started with your Duo Party order. What would you like to have on your first pizza? If you have any questions ask me!
 
   utter_veggie_feast_order_start:
   - text: Let's start your Veggie Feast order with some of our specialties. What would you like to have on your first side dish?
@@ -330,7 +335,7 @@ responses:
   - text: Have you looked at our promotions? You can ask me for details about them!
   - text: Have you asked about our promotions? We have Duo Party for your gatherings!
   - text: Did you know about our promotions? We have Veggie Feast for vegetarians!
-  - text: Don't miss out in our promotions, as about them!
+  - text: Don't miss out in our promotions, ask about them!
   
   utter_recommendation_max_promotion_reached:
   - text: Remember also to ask about our side dishes or take another pizza
@@ -431,7 +436,13 @@ entities:
 - is_max_promotion_reached
 - is_cart_empty
 - promotion_type_question
+- is_side_dish_total_empty
 slots:
+  is_side_dish_total_empty:
+    type: bool
+    initial_value: true  
+    mappings:
+    - type: custom
   promotion_type_question:
     type: any
     mappings:

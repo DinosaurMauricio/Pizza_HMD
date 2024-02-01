@@ -73,15 +73,36 @@ rules:
     - action: utter_order_complete
 
 #################### SIDE DISHES ####################
-- rule : finish order side dishes + confirm order
+- rule : finish order + confirm order
   steps:
-    - action: utter_side_dishes_order
+    #- action: utter_side_dishes_order
     - intent: response_negative
     - action: action_total_order
     - action: utter_summarize_complete_order
 
+- rule: remove side dish
+  steps:
+  - intent: remove_side_dish
+  - action: action_remove_side_dish
+  - action: utter_side_dishes_order
+  - action: action_get_recommendation_for_user
+
+- rule: add side dish
+  steps:
+  - intent: order_side_dish
+  - action: action_add_side_dish
+  - action: utter_side_dishes_order
+  - action: action_get_recommendation_for_user
+
 #################### PROMOTIONS #####################
 
+- rule:  accept vague recommendation
+  steps:
+  - action: action_validate_promotion_posibility
+  - action: action_recommend_promotion
+  - intent: promotion_order_accept_recommended
+  - action: action_activate_recommend_promotion_form
+  #todo add
 
 - rule: respond to FAQs
   steps:
@@ -100,7 +121,6 @@ rules:
   - action: action_handle_details_on_promotion
 
 
-# This sets the promotion type slot to the value of the entity 'promotion_type'
 - rule: order promotion vague
   steps:
   - intent: order_promotion_vague
@@ -108,7 +128,7 @@ rules:
   - action: action_recommend_promotion
 
 
-- rule: order promotion vague
+- rule: order promotion specific
   steps:
   - intent: order_promotion_specific
   - action: action_validate_promotion_posibility

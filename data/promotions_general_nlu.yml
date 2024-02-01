@@ -103,6 +103,10 @@ nlu:
     - I think i will get this promotion
     - i would like to take this promotion
     - yes i would like this promotion
+    - this promotion is what i want
+    - yeah, i will take this promotion
+    - totally, this promotion is what i need
+    - yes, i want this promotion
 
 - intent: order_promotion_specific 
   examples: |
@@ -225,8 +229,6 @@ nlu:
     - eliminate [first](promotion_numbering) promotion
     - delete [second](promotion_numbering) promotion
     - delete [first](promotion_numbering) promotion
-
-
 
 # TODO: Fix this to accept recommend, recommendation, recommended
 - intent: pizza_promotion_order
