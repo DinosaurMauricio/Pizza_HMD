@@ -125,6 +125,7 @@ nlu:
     - can you tell me about [Duo Party](promotion_type) and [Veggie Feast](promotion_type)?
     - explain both promotions to me
     - what are the details on both promotions?
+    - tell me about both promotions
     - please explain [Duo Party](promotion_type) and [Veggie Feast](promotion_type)
     - please explain [Veggie Feast](promotion_type) and [Duo Party](promotion_type)
     - explain [Duo Party](promotion_type) and [Veggie Feast](promotion_type)
@@ -184,3 +185,12 @@ nlu:
     - can i remove promotions?
     - can i remove deals from my order?
     - can i remove offers from my order?
+  
+- intent: general_promotions_faq/unknown_knowledge
+  examples: |
+    - do you have any drinks on your promos?
+    - do you have any desserts ?
+    - do you have any drinks?
+    - does your promotions have any drinks?
+    - do you have any desserts on your promos?
+    - do you have any desserts on your promotions?
