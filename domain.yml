@@ -34,6 +34,9 @@ intents:
 - ask_current_order
 - ambigous_confirmation
 responses:
+  utter_please_rephrase:
+  - text: I'm having trouble grasping your point. Could you express it in a different way?
+  - text: I don't think I fully understand your what you just said. Can you phrase it in another way?
   utter_out_of_scope:
   - text: Sorry, I can't handle that request. You can ask me for pizza, side dishes or the promotion we have.
   utter_wrong_pizza_type:

@@ -345,6 +345,7 @@ nlu:
     - yes, i confirm the promotion
     - i want to confirm this promotion
     - yes i confirm my promotion
+    - confirm promotion
     
 # this is more vague when change is not specified
 - intent: submit_promotion_confirm_negative

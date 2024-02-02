@@ -162,6 +162,7 @@ nlu:
     - yes, that's the correct size and type
     - that's exactly the pizza I wanted
     - confirm my pizza
+    - confirm pizza
 - intent: pizza_order_confirm_negative
   examples: |
     - The pizza order is not correct

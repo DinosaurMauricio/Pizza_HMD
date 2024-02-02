@@ -19,6 +19,11 @@ rules:
    - action: action_check_current_order_is_empty
    - action: action_total_order
    - action: utter_current_order
+
+- rule: Message with low NLU confidence
+  steps:
+  - intent: nlu_fallback
+  - action: utter_please_rephrase
 #################### PIZZA ORDERING ####################
 - rule: Activate pizza order form
   steps:
