@@ -290,11 +290,14 @@ class ActionActivateRecommendedPromotion(Action):
                 response="utter_duo_party_order_start")
             return []
             # return [FollowupAction('duo_party_form')]
-        else:
+        elif promotion_type == "Veggie Feast":
             dispatcher.utter_message(
                 response="utter_veggie_feast_order_start")
             return [SlotSet("first_pizza_promotion", "Vegetarian")]
            # return [FollowupAction('veggie_feast_form')]
+        else:
+            dispatcher.utter_message(response="utter_vague_promotion")
+            return [SlotSet("promotion_type", None)]
 
 
 class ActionIsPromotionTypeQuestionSet(Action):

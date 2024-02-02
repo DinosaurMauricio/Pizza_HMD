@@ -131,7 +131,7 @@ class ValidatePizzaOrderForm(FormValidationAction):
             for size_word in possible_size_words:
                 if size_word in text_of_last_user_message:
                     # Convert size_word to the corresponding pizza size
-                    index = possible_size_words.index(size_word)
+                    index = possible_size_words.index(size_word.lower())
                     converted_pizza_size = available_pizza_sizes[index]
                     return {"pizza_size": converted_pizza_size}
 

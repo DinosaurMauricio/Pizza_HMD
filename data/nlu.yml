@@ -16,6 +16,7 @@ nlu:
     - greetings
     - long time no see
     - hello
+    - good morning
 - intent: init_request
   examples: |
     - what is on the menu?
@@ -56,6 +57,8 @@ nlu:
     - Can you share details about your pizza selection?
     - I'm considering ordering pizza
     - Tell me about the pizza choices you have
+    - I would like to order pizza, what types do you have?
+    - I would like to order pizza, what do you have?
     - What's the pizza menu for today like?
 - intent: order_take_home
   examples: |
@@ -253,6 +256,9 @@ nlu:
     - yesss
     - sure
     - it's correct
+    - i do
+    - I do
+    - i confirm
 - intent: ask_current_order
   examples: |
     - what is my current order?

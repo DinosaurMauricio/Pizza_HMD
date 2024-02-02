@@ -25,6 +25,7 @@ nlu:
     - what side dishes can i get for [Veggie Feast](promotion_type_question)
     - what sides are included in for [Veggie Feast](promotion_type_question)
     - what other side dishes do you have for this promotion?
+    - what are the side dish options for this promotion?
 
 - intent: specific_promotions_faq/ask_on_available_pizzas
   examples: |
@@ -44,6 +45,8 @@ nlu:
     - what are the pizza options for the promotion?
     - what can i pick from the pizza options for the promotion?
     - what pizzas can i get on this promotion?
+    - what type of pizzas can i buy with the promotion?
+    - what type of pizzas are included in the promotion?
 
 - intent: specific_promotions_faq/ask_mix_pizzas
   examples: |

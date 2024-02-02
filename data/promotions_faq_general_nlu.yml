@@ -37,6 +37,8 @@ nlu:
     - Are there any exclusive deals available?
     - What are your current special offers?
     - Any promotions I should know about?
+    - Ok, if you insist, tell me about your current promotions.
+    - i would like to see your promotions
 
 - intent: general_promotions_faq/ask_promotions_takeout
   examples: |

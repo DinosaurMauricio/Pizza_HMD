@@ -96,14 +96,6 @@ rules:
 
 #################### PROMOTIONS #####################
 
-- rule:  accept vague recommendation
-  steps:
-  - action: action_validate_promotion_posibility
-  - action: action_recommend_promotion
-  - intent: promotion_order_accept_recommended
-  - action: action_activate_recommend_promotion_form
-  #todo add
-
 - rule: respond to FAQs
   steps:
   - intent: general_promotions_faq
@@ -127,6 +119,12 @@ rules:
   - action: action_validate_promotion_posibility
   - action: action_recommend_promotion
 
+- rule:  accept vague recommendation
+  steps:
+  - action: action_validate_promotion_posibility
+  - action: action_recommend_promotion
+  - intent: promotion_order_accept_recommended
+  - action: action_activate_recommend_promotion_form
 
 - rule: order promotion specific
   steps:

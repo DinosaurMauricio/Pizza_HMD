@@ -43,7 +43,7 @@ responses:
   utter_wrong_pizza_size:
   - text: Sorry, we don't have that size of pizza. We have small, medium and large.
   utter_welcome_greet:
-  - text: Hello There! Welcome to Pizzbot. How can I help you?
+  - text: Hello There! Welcome to Pizzabot. How can I help you?
   utter_init_request:
   - text: Okay. In today's menu, we have Funghi, Hawaii, Margherita, Pepperoni, Vegetarian, all available in sizes Small, Medium or Large. We also have side dishes and some promotions available! What would you like to have?
   utter_ask_pizza_order_form_pizza_size:
@@ -75,9 +75,9 @@ responses:
   utter_default:
   - text: Sorry, I didn’t understand that. Can you please repeat it?
   utter_summarize_pizza_order:
-  - text: Okay Great. Your order is {pizza_amount} {pizza_type} pizzas in {pizza_size} size. Can you confirm please?
+  - text: Okay Great. Your order is {pizza_amount} {pizza_type} pizzas in {pizza_size} size. Can you confirm your pizza, please?
   utter_summarize_complete_order:
-  - text: Your complete order is {total_order}. Can you confirm please?
+  - text: Your complete order is {total_order}. Can you confirm your order, please?
   utter_ask_for_side_dish_options:
   - text: We have the following side dishes available in the menu, French Fries, Chicken Wings, Bacon Jalapeño, Caprese Salad. What would you like to have?
   utter_repeat_side_dish_menu:
@@ -109,7 +109,7 @@ responses:
   utter_general_promotions_faq/ask_promotions_on_side_dishes:
   - text: Our current promotions include side dishes and pizzas! Would you like more details on our promotions?
   utter_general_promotions_faq/details_on_both_promotions:
-  - text: With Duo Party promotion you can buy 2 large pizzas and get 1 side dish for free of your choice and with Veggie Feast promotion you can buy 1 large vegetarian pizza and get 2 vegetarian side dishes of your choice for free
+  - text: With Duo Party promotion you can buy 2 medium pizzas and get 1 side dish for free of your choice and with Veggie Feast promotion you can buy 1 large vegetarian pizza and get 2 vegetarian side dishes of your choice for free
   utter_general_promotions_faq/ask_how_many_promotions_can_take:
   - text: You are limited to two promotions per costumer.
   utter_general_promotions_faq/ask_reinsert_promotion:
@@ -125,7 +125,7 @@ responses:
   ##duo party
 
   utter_specific_duo_party_promotion:
-  - text: With Duo Party promotion you can buy 2 large pizzas and get 1 side dish for free of your choice.
+  - text: With Duo Party promotion you can buy 2 medium pizzas and get 1 side dish for free of your choice.
 
   # veggie_ feast
   utter_specific_veggie_feast_promotion:

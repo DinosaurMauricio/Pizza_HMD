@@ -20,6 +20,8 @@ nlu:
     - Tell me about [Veggie Feast](promotion_type), please.
     - What's the deal with [Duo Party](promotion_type)?
     - i would like to hear more about [Duo Party](promotion_type)
+    - Yes, i want to know about the [Duo Party](promotion_type_question)
+    - can you give me more details on the [Veggie Feast](promotion_type_question) promotion
 
 - intent: order_promotion_vague
   examples: | 
@@ -110,6 +112,9 @@ nlu:
 
 - intent: order_promotion_specific 
   examples: |
+    - i would like to order one [Veggies Feast](promotion_type)
+    - i want to order a [Duo Party](promotion_type)
+    - i want to order a [Veggie Feast](promotion_type)
     - i want a [Duo Party](promotion_type) promotion
     - i want a [Veggie Feast](promotion_type) promotion
     - i will get a [Veggie Feast] promotion also
@@ -134,6 +139,7 @@ nlu:
     - i will go fo the promotion [Duo Party](promotion_type)
     - i will pick the promotion [Veggie Feast](promotion_type)
     - i choose [Veggie Feast](promotion_type) for my promotion
+    - i would like to order the [Duo Party](promotion_type) promotion
 
 - intent: stop_promotion_order
   examples: |
@@ -231,6 +237,7 @@ nlu:
     - delete [first](promotion_numbering) promotion
 
 # TODO: Fix this to accept recommend, recommendation, recommended
+# TODO: Fix, separate the intent for the first and second promotion
 - intent: pizza_promotion_order
   examples: |
     - I'll go with [pepperoni](first_pizza_promotion) and [funghi](second_pizza_promotion)
@@ -306,6 +313,9 @@ nlu:
     - i will take [French Fries](first_side_dish_promotion) as my side dish
     - as first side dish in my promotion i will take [Caprese Salad](first_side_dish_promotion)
     - i will take [Caprese Salad](second_side_dish_promotion) for my second side dish
+    - i want [Funghi](first_pizza_promotion) for my first pizza
+    - yes i would like [Funghi](first_pizza_promotion) for my first pizza
+    - yes i will take [Hawaii](second_pizza_promotion) for my second pizza
 
 
 - intent: submit_promotion_confirm_positive
@@ -330,6 +340,8 @@ nlu:
     - i'm done now, my promotion is ok
     - confirm my promotion
     - my promotion is ok
+    - yes, i confirm the promotion
+    - i want to confirm this promotion
     
 # this is more vague when change is not specified
 - intent: submit_promotion_confirm_negative

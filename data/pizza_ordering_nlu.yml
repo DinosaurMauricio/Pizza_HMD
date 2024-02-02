@@ -7,6 +7,13 @@ nlu:
     - I want [Funghi](pizza_type) pizza
     - I want [Funghi](pizza_type) pizza please
     - I [hawaii](pizza_type) pizza small
+    - i would like the [Pepperoni](pizza_type) pizza
+    - [a]{"enity": "pizza_amount", "value": "one"} [small](pizza_size) [hawaii](pizza_type) pizza
+    - [a]{"enity": "pizza_amount", "value": "one"} [hawaii](pizza_type)
+    - [a]{"enity": "pizza_amount", "value": "one"} [small](pizza_size) [hawaii](pizza_type)
+    - [a]{"enity": "pizza_amount", "value": "one"} [medium](pizza_size) [hawaii](pizza_type) pizza
+    - [a]{"enity": "pizza_amount", "value": "one"} [large](pizza_size) [hawaii](pizza_type) pizza please
+    - [a]{"enity": "pizza_amount", "value": "one"} pizza
     - I want [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
     - I want [four](pizza_amount) [small](pizza_size) pizza [Funghi](pizza_type)
     - I want [2](pizza_amount) [medium](pizza_size) pizza [hawaii](pizza_type) please
@@ -73,6 +80,7 @@ nlu:
     - [two](pizza_amount) in [small](pizza_size)
     - [one](pizza_amount) in [large](pizza_size)
     - [one](pizza_amount) pizza [funghi](pizza_type)
+    - I'd like to have [two](pizza_amount) [small](pizza_size) [funghi](pizza_type) pizzas
     - i'd like [three](pizza_amount) [medium](pizza_size) pizza [margherita](pizza_type)
     - I'd like to order [3](pizza_amount)  [small](pizza_size) [hawaii](pizza_type) please
     - I want to order [two](pizza_amount) [large](pizza_size) [Pepperoni](pizza_type) pizzas, please
@@ -94,6 +102,7 @@ nlu:
     - I'd like to order [Vegetarian](pizza_type) pizza, [two](pizza_amount) [large](pizza_size).
     - I want [large](pizza_size) [Pepperoni](pizza_type) pizza.
     - I think I'll go with [two](pizza_amount) [medium](pizza_size) [Pepperoni](pizza_type) pizzas.
+    - I'd like a [small](pizza_size) [Margherita](pizza_type) pizza.
 - intent: pizza_order_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?

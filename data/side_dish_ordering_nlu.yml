@@ -17,6 +17,14 @@ nlu:
     - What are the side dishes?
     - What are the side dish options?
     - What are the side dish choices?
+    - I would like to order side dishes
+    - I want to see the side dish menu
+    - I would like to see the sides
+    - I would like to hear the sides
+    - I would like to order sides
+    - I would like to order side dishes, what are the options?
+    - Can I order side dishes?
+    - I would like to order side dishes, what can you offer me?
 - intent: repeat_side_dish_menu
   examples: |
     - Can you repeat the side dish options?
@@ -61,6 +69,11 @@ nlu:
     - Another side dish I want is [French Fries](side_dish).
     - Maybe add [Chicken Wings](side_dish) to my order.
     - I will also take [Chicken Wings](side_dish) to my order
+    - Additionally, I want [Bacon Jalapeno](side_dish).
+    - Additionally, I'd like [Caprese Salad](side_dish).
+    - please add [French Fries](side_dish) to my order
+    - please add [Chicken Wings](side_dish) too
+    - I would like to add [Bacon Jalapeno](side_dish)
 - intent: remove_side_dish
   examples: |
     - I want to remove [French Fries](side_dish).
@@ -87,6 +100,7 @@ nlu:
     - Please remove [Chicken Wings](side_dish).
     - Please eliminate [French Fires](side_dish)
     - oh, could you please remove the [French Fries]?
+    - Forget it, I don't want [Chicken Wings] anymore.
 - intent: cancel_side_dish
   examples: |
     - Nevermind, no side dish.
