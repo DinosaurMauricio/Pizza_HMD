@@ -33,7 +33,6 @@ intents:
 - promotion_order_accept_recommended
 - ask_current_order
 - ambigous_confirmation
-
 responses:
   utter_out_of_scope:
   - text: Sorry, I can't handle that request. You can ask me for pizza, side dishes or the promotion we have.
@@ -175,13 +174,13 @@ responses:
   - text: What would you like to take on your first pizza in {promotion_type}? You might like our {recommend_pizza} Pizza.
   - text: I can recommend {recommend_pizza} for starters. What would you like for your first pizza in {promotion_type}?
   utter_ask_duo_party_form_second_pizza_promotion:
-  - text: "{first_pizza_promotion} is included as your first pizza in your promotion. What will you take for second pizza?"
+  - text: "{first_pizza_promotion} is now included as your first pizza in your promotion. What will you take for second pizza?"
   - text: "We added {first_pizza_promotion} to your order, I think you would love {recommend_pizza} as your second pizza!"
-  - text: Your first pizza is{first_pizza_promotion} for your promotion, you might love to try {recommend_pizza} as your second pizza, which one will you take in?
+  - text: Your first pizza is {first_pizza_promotion} in your promotion, you might love to try {recommend_pizza} as your second pizza, which one will you take in?
   utter_ask_duo_party_form_first_side_dish_promotion:
   - text: Which side dish you want in your {promotion_type}? We think {second_pizza_promotion} would go great with your {recommend_side_dish} pizza.
   - text: How about {recommend_side_dish} to go along with your {second_pizza_promotion} pizza. Which side dish you want for your {promotion_type}?
-  - text: Great your second pizza is {second_pizza_promotion}, what side dish would you like to add?
+  - text: Great, your second pizza is {second_pizza_promotion}, what side dish would will you add to your promo?
 
   ### other
 
@@ -189,6 +188,9 @@ responses:
   - text: Sorry, could you be more specific on what you want confirm? For example, do you want to confirm the pizza, promotion, or order?
   - text: Apologies, I could not understand, can you specify what you wanted to confirm? You can confirm your pizza choice, promotion or order.
   - text: My apologies, could you specify the task you're interested in? Do you want to confirm your pizza choice, promotion or order.
+
+  utter_wrong_confirmation:
+  - text: Sorry, I don't think I can confirm that at the moment. Maybe you meant to confirm something else?
 
   ### specific promotion faq
   utter_specific_promotions_faq/ask_on_available_pizzas:
@@ -353,6 +355,7 @@ responses:
   - text: Do you want to get another Veggie Feast promo?
 
 actions:
+- utter_wrong_confirmation
 - utter_ambiguous_confirmation
 - utter_current_order
 - utter_promotion_limit_reached

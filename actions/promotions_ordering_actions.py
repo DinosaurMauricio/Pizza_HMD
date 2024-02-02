@@ -238,7 +238,7 @@ class ActonRemovePromotion(Action):
         promotion_to_remove = promotion_mapping.get(promotion_numbering, -1)
 
         try:
-            if promotion_to_remove is not -1:
+            if promotion_to_remove != -1:
                 dispatcher.utter_message(
                     message=f"Okay, I removed your {complete_promotion_orders[promotion_to_remove]['promotion_type']} promotion.")
 

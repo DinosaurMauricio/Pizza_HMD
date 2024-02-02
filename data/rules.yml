@@ -134,6 +134,7 @@ rules:
 
 - rule: add promotion order to list
   steps:
+  - action: utter_summarize_promotion_order
   - intent: submit_promotion_confirm_positive
   - action: action_promotion_add
   - action: utter_confirmation_promotion_order_placement

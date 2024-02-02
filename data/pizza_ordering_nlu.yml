@@ -8,12 +8,12 @@ nlu:
     - I want [Funghi](pizza_type) pizza please
     - I [hawaii](pizza_type) pizza small
     - i would like the [Pepperoni](pizza_type) pizza
-    - [a]{"enity": "pizza_amount", "value": "one"} [small](pizza_size) [hawaii](pizza_type) pizza
-    - [a]{"enity": "pizza_amount", "value": "one"} [hawaii](pizza_type)
-    - [a]{"enity": "pizza_amount", "value": "one"} [small](pizza_size) [hawaii](pizza_type)
-    - [a]{"enity": "pizza_amount", "value": "one"} [medium](pizza_size) [hawaii](pizza_type) pizza
-    - [a]{"enity": "pizza_amount", "value": "one"} [large](pizza_size) [hawaii](pizza_type) pizza please
-    - [a]{"enity": "pizza_amount", "value": "one"} pizza
+    - [a]{"entity": "pizza_amount", "value": "one"} [small](pizza_size) [hawaii](pizza_type) pizza
+    - [a]{"entity": "pizza_amount", "value": "one"} [hawaii](pizza_type)
+    - [a]{"entity": "pizza_amount", "value": "one"} [small](pizza_size) [hawaii](pizza_type)
+    - [a]{"entity": "pizza_amount", "value": "one"} [medium](pizza_size) [hawaii](pizza_type) pizza
+    - [a]{"entity": "pizza_amount", "value": "one"} [large](pizza_size) [hawaii](pizza_type) pizza please
+    - [a]{"entity": "pizza_amount", "value": "one"} pizza
     - I want [Funghi](pizza_type) [small](pizza_size) pizza [three](pizza_amount)
     - I want [four](pizza_amount) [small](pizza_size) pizza [Funghi](pizza_type)
     - I want [2](pizza_amount) [medium](pizza_size) pizza [hawaii](pizza_type) please

@@ -240,6 +240,8 @@ nlu:
 # TODO: Fix, separate the intent for the first and second promotion
 - intent: pizza_promotion_order
   examples: |
+    - on my first pizza i want [Pepperoni](first_pizza_promotion)
+    - on my second pizza i will take [Hawaii](second_pizza_promotion)
     - I'll go with [pepperoni](first_pizza_promotion) and [funghi](second_pizza_promotion)
     - i want another [Hawaii](second_pizza_promotion)
     - add another [Margherita](second_pizza_promotion)
@@ -342,6 +344,7 @@ nlu:
     - my promotion is ok
     - yes, i confirm the promotion
     - i want to confirm this promotion
+    - yes i confirm my promotion
     
 # this is more vague when change is not specified
 - intent: submit_promotion_confirm_negative

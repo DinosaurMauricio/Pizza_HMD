@@ -360,6 +360,78 @@ stories:
   - active_loop: null
   - action: utter_summarize_pizza_order
 
+- story: wrong vague confirmation - pizza
+  steps:
+  - action: utter_summarize_pizza_order
+  - intent: ambigous_confirmation
+  - action: utter_ambiguous_confirmation
+  - intent: submit_promotion_confirm_positive
+  - action: utter_wrong_confirmation
+
+- story: wrong vague confirmation - pizza 2
+  steps:
+  - action: utter_summarize_pizza_order
+  - intent: ambigous_confirmation
+  - action: utter_ambiguous_confirmation
+  - intent: complete_order_confirm
+  - action: utter_wrong_confirmation
+
+- story: correct confirmation - pizza
+  steps:
+  - action: utter_summarize_pizza_order
+  - intent: ambigous_confirmation
+  - action: utter_ambiguous_confirmation
+  - intent: pizza_order_confirm_positive
+  - action: utter_pizza_order_confirm_positive
+
+- story: wrong vague confirmation - promotion
+  steps:
+  - action: utter_summarize_promotion_order
+  - intent: ambigous_confirmation
+  - action: utter_ambiguous_confirmation
+  - intent: pizza_order_confirm_positive
+  - action: utter_wrong_confirmation
+
+- story: wrong vague confirmation - promotion 2
+  steps:
+  - action: utter_summarize_promotion_order
+  - intent: ambigous_confirmation
+  - action: utter_ambiguous_confirmation
+  - intent: complete_order_confirm
+  - action: utter_wrong_confirmation
+
+- story: correct confirmation - promotion
+  steps:
+  - action: utter_summarize_promotion_order
+  - intent: ambigous_confirmation
+  - action: utter_ambiguous_confirmation
+  - intent: submit_promotion_confirm_positive
+  - action: action_promotion_add
+  - action: utter_confirmation_promotion_order_placement
+
+- story: wrong vague confirmation - order
+  steps:
+  - action: utter_summarize_complete_order
+  - intent: ambigous_confirmation
+  - action: utter_ambiguous_confirmation
+  - intent: pizza_order_confirm_positive
+  - action: utter_wrong_confirmation
+
+- story: wrong vague confirmation - order 2
+  steps:
+  - action: utter_summarize_complete_order
+  - intent: ambigous_confirmation
+  - action: utter_ambiguous_confirmation
+  - intent: submit_promotion_confirm_positive
+  - action: utter_wrong_confirmation
+
+- story: correct confirmation - order
+  steps:
+  - action: utter_summarize_complete_order
+  - intent: ambigous_confirmation
+  - action: utter_ambiguous_confirmation
+  - intent: complete_order_confirm
+  - action: utter_name_location
 
 ## Interactive stories
 - story: Duo Party Ordering
