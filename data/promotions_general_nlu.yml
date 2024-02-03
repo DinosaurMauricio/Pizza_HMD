@@ -236,89 +236,100 @@ nlu:
     - delete [second](promotion_numbering) promotion
     - delete [first](promotion_numbering) promotion
 
-# TODO: Fix this to accept recommend, recommendation, recommended
-# TODO: Fix, separate the intent for the first and second promotion
-- intent: pizza_promotion_order
+- intent: first_pizza_promotion_ordering
   examples: |
     - on my first pizza i want [Pepperoni](first_pizza_promotion)
+    - for my initial pizza [Funghi](first_pizza_promotion)
+    - for my initial pizza I want [Hawaii](first_pizza_promotion)
+    - i would like [Margherita](first_pizza_promotion) for first pizza
+    - i want [Pepperoni](first_pizza_promotion) for starters
+    - i want [Funghi](first_pizza_promotion) for my [Duo Party](promotion_type)
+    - i think i will go with the [Margherita](first_pizza_promotion)
+    - i will have [Vegetarian](first_pizza_promotion) for first pizza
+    - i would prefer for first pizza [Funghi](first_pizza_promotion)
+    - for first pizza i would prefer to have [Hawaii](first_pizza_promotion)
+    - [Hawaii](first_pizza_promotion) initially
+    - for my first pizza i want [Margherita](first_pizza_promotion)
+    - i will take [Pepperoni](first_pizza_promotion) for starters
+    - i will take [Funghi](first_pizza_promotion) for initial pizza
+    - i will take [Margherita](first_pizza_promotion) for first pizza
+    - for first make it [Pepperoni](first_pizza_promotion)
+    - for first pizza [Vegetarian](first_pizza_promotion)
+    - for starters i will take [Vegetarian](first_pizza_promotion)
+    - i want [Funghi](first_pizza_promotion) for my first pizza
+    - yes i would like [Funghi](first_pizza_promotion) for my first pizza
+    - to begin wtih i will go for [Pepperoni](first_pizza_promotion)
+    - i will go for [Vegetarian](first_pizza_promotion) for first option
+    - in my order i will have [Funghi](first_pizza_promotion)
+
+- intent: second_pizza_promotion_ordering
+  examples: |
     - on my second pizza i will take [Hawaii](second_pizza_promotion)
-    - I'll go with [pepperoni](first_pizza_promotion) and [funghi](second_pizza_promotion)
     - i want another [Hawaii](second_pizza_promotion)
     - add another [Margherita](second_pizza_promotion)
     - i think i will go for another [Pepperoni](second_pizza_promotion)
-    - for my [Duo Party](promotion_type) I want [Funghi](first_pizza_promotion)
-    - for my [Duo Party](promotion_type) I want [Hawaii](first_pizza_promotion)
-    - i would like [Margherita](first_pizza_promotion) for my [Duo Party](promotion_type)
-    - i want [Pepperoni](first_pizza_promotion) for starters
-    - i want [Vegetarian](first_pizza_promotion) for my [Duo Party](promotion_type)
-    - i want [Funghi](first_pizza_promotion) for my [Duo Party](promotion_type)
-    - i think i will go with the [Margherita](first_pizza_promotion)
-    - thanks but i will have [Pepperoni](first_pizza_promotion)
-    - i will have [Vegetarian](first_pizza_promotion) for my [Duo Party](promotion_type)
-    - i would prefer to have [Funghi](first_pizza_promotion)
-    - i would prefer to have [Hawaii](first_pizza_promotion) and as a second pizza i will choose [Margherita](second_pizza_promotion)
-    - [Hawaii](first_pizza_promotion) initially
-    - for my first pizza i want [Margherita](first_pizza_promotion)
-    - i will take [Pepperoni](first_pizza_promotion) for starters and [Vegetarian](second_pizza_promotion)
-    - i will take [Funghi](first_pizza_promotion) and [French Fries](first_side_dish_promotion)
-    - how about some [Chicken Wings](first_side_dish_promotion) and [Hawaii](first_pizza_promotion) pizza
-    - i will take [Margherita](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
-    - i will take [Pepperoni](first_pizza_promotion) and [Vegetarian](second_pizza_promotion) and some [French Fries](first_side_dish_promotion) for my promotion
-    - in my order i will have [Funghi](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
-    - for my side dish i think i will go with [Caprese Salad](first_side_dish_promotion)
-    - for my second pizza i think i will have [Margherita](second_pizza_promotion)
+    - as a second pizza i will choose [Margherita](second_pizza_promotion)
+    - as a second pizza i will choose [Funghi](second_pizza_promotion)
+    - [Vegetarian](second_pizza_promotion) for seconds
+    - and [Hawaii](second_pizza_promotion) for second pizza
+    - for second make it [Hawaii](second_pizza_promotion)
+    - for second [Vegetarian](second_pizza_promotion)
+    - for seconds i will take [Vegetarian](second_pizza_promotion)
+    - in my order i will have [Funghi](second_pizza_promotion) for seconds
+    - yes i will take [Pepperoni](second_pizza_promotion) for my second pizza
+    - i will go for [Pepperoni](second_pizza_promotion) for second option
     - for second pizza i will have [Hawaii](second_pizza_promotion)
     - maybe i will go for [Funghi](second_pizza_promotion) for my second pizza
     - second pizza i will have [Hawaii](second_pizza_promotion)
     - my second pizza will be [Margherita](second_pizza_promotion)
-    - for first pizza i will have [Pepperoni](first_pizza_promotion) and for second [Hawaii](second_pizza_promotion)
+    - make it [Margherita](second_pizza_promotion) for second pizza
     - for my second pizza i will have [Margherita](second_pizza_promotion)
-    - i want [Margherita](first_pizza_promotion) and [Hawaii](second_pizza_promotion) for my promotion
-    - make it [Margherita](first_pizza_promotion) and [Hawaii](second_pizza_promotion) with [French Fries](first_side_dish_promotion)
-    - for first make it [Pepperoni](first_pizza_promotion)
-    - for second make it [Hawaii](second_pizza_promotion)
-    - for first [Vegetarian](first_pizza_promotion)
-    - for second [Margherita](second_pizza_promotion)
-    - for starters i will take [Vegetarian](first_pizza_promotion)
-    - for seconds i will take [Margherita](second_pizza_promotion)
-    - i will go for [Pepperoni](first_pizza_promotion) and [Hawaii](second_pizza_promotion)
-    - i will go for [Vegetarian](first_pizza_promotion) for first option
-    - i will go for [Margherita](second_pizza_promotion) for second option
-    - i will take [French Fries](first_side_dish_promotion) as a side
-    - for first side dish i will take [French Fries](first_side_dish_promotion)
-    - for seconds sides [Caprese Salad](second_side_dish_promotion)
-    - i will take [French Fries](first_side_dish_promotion) as first side dish
-    - i will take [French Fries](first_side_dish_promotion) as second side dish
-    - i think i will go for [Caprese Salad](second_side_dish_promotion) as second side dish
-    - first side dish [French Fries](first_side_dish_promotion)
-    - second side dish [Caprese Salad](second_side_dish_promotion)
-    - i would like to have [French Fries](first_side_dish_promotion) as first side dish
-    - first side dish [French Fries](first_side_dish_promotion) and second side dish [Caprese Salad](second_side_dish_promotion)
-    - maybe [French Fries](first_side_dish_promotion) as first side dish and [Caprese Salad](second_side_dish_promotion) as second side dish
-    - [French Fries](first_side_dish_promotion) as first side dish and [Caprese Salad](second_side_dish_promotion) as second side dish
-    - [French Fries](first_side_dish_promotion) and [Caprese Salad](second_side_dish_promotion) as side dishess
-    - i will take [French Fries](first_pizza_promotion) for my first promotion side dish
-    - for first side i will take [French Fries](first_side_dish_promotion)
-    - for seconds side i will take [Caprese Salad](second_side_dish_promotion)
-    - as first side dish for my promotion i want [French Fries](first_side_dish_promotion)
-    - for my second side dish for my promotion i want [Caprese Salad](second_side_dish_promotion)
-    - for my first pizza i will get [Hawaii](first_pizza_promotion) and for second [Funghi](second_pizza_promotion)
-    - for my promotion side dish I want [French Fries](first_side_dish_promotion)
-    - for my promotion side dish I want [French Fries](first_side_dish_promotion)
-    - for my first pizza i will take [Hawaii](first_pizza_promotion)
-    - for my second pizza i want [Funghi](second_pizza_promotion)
-    - i will take [French Fries](first_side_dish_promotion) as first side dish
-    - as my first side dish i want [French Fries](first_side_dish_promotion)
-    - as my second side dish i want [Caprese Salad](second_side_dish_promotion)
-    - i want a [Pepperoni](first_pizza_promotion) for my first pizza on my promotion
-    - for my second pizza i will take [Funghi](second_pizza_promotion)
-    - i will take [French Fries](first_side_dish_promotion) as my side dish
-    - as first side dish in my promotion i will take [Caprese Salad](first_side_dish_promotion)
-    - i will take [Caprese Salad](second_side_dish_promotion) for my second side dish
-    - i want [Funghi](first_pizza_promotion) for my first pizza
-    - yes i would like [Funghi](first_pizza_promotion) for my first pizza
-    - yes i will take [Hawaii](second_pizza_promotion) for my second pizza
+    - for my second pizza i will have [Pepperoni](second_pizza_promotion)
 
+- intent: first_side_dish_promotion_ordering
+  examples: |
+    - [French Fries](first_side_dish_promotion) for my first side dish 
+    - [Caprese Salad](first_side_dish_promotion) as my promotion side dish
+    - for my promotion side dish I want [French Fries](first_side_dish_promotion)
+    - how about some [Chicken Wings](first_side_dish_promotion)  for my first side dish
+    - how about some [Bacon Jalapeno](first_side_dish_promotion)  for my first side dish
+    - i will take [French Fries](first_side_dish_promotion) as a side
+    - for my side dish i think i will go with [Caprese Salad](first_side_dish_promotion)
+    - for my side dish i think i will go with [Chicken Wings](first_side_dish_promotion)
+    - [French Fries](first_side_dish_promotion) as first side dish
+    - maybe [French Fries](first_side_dish_promotion) as first side dish 
+    - i would like to have [French Fries](first_side_dish_promotion) as first side dish
+    - i would like to have [Bacon Jalapeno](first_side_dish_promotion) as first side dish
+    - first side dish [French Fries](first_side_dish_promotion)
+    - i will take [French Fries](first_side_dish_promotion) as first side dish
+    - i will take [Chicken Wings](first_side_dish_promotion) as first side dish
+    - for first side dish i will take [French Fries](first_side_dish_promotion)
+    - for first side i will take [French Fries](first_side_dish_promotion)
+    - for first side i will take [Chicken Wings](first_side_dish_promotion)
+    - as first side dish in my promotion i will take [Caprese Salad](first_side_dish_promotion)
+    - i want for my first side dish [Bacon Jalapeno](first_side_dish_promotion)
+
+- intent: second_side_dish_promotion_ordering
+  examples: |
+    - for seconds sides [Caprese Salad](second_side_dish_promotion)
+    - i will take [French Fries](second_side_dish_promotion) as second side dish
+    - i think i will go for [Caprese Salad](second_side_dish_promotion) as second side dish
+    - i think i will go for [Bacon Jalapeno](second_side_dish_promotion) as second side dish
+    - second side dish [Caprese Salad](second_side_dish_promotion)
+    - second side dish [Chicken Wings](second_side_dish_promotion)
+    - [Caprese Salad](second_side_dish_promotion) as second side dish
+    - for my second side dish for my promotion i want [Caprese Salad](second_side_dish_promotion)
+    - i will take [Caprese Salad](second_side_dish_promotion) for my second side dish
+    - as my second side dish i want [Caprese Salad](second_side_dish_promotion)
+    - as my second side dish i want [Chicken Wings](second_side_dish_promotion)
+    - for seconds side i will take [Caprese Salad](second_side_dish_promotion)
+    - for seconds side i will take [Bacon Jalapeno](second_side_dish_promotion)
+    - as second side dish for my promotion i want [French Fries](second_side_dish_promotion)
+    - i will take [French Fries](second_side_dish_promotion) as second side dish
+    - as my second side dish i want [French Fries](second_side_dish_promotion)
+    - i will take [French Fries](second_side_dish_promotion) as second side
+    - i will take [Chicken Wings](second_side_dish_promotion) as second side
+    - i will take [Bacon Jalapeno](second_side_dish_promotion) as second side
 
 - intent: submit_promotion_confirm_positive
   examples: |

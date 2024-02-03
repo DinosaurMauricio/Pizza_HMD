@@ -89,15 +89,15 @@ rules:
   steps:
   - intent: remove_side_dish
   - action: action_remove_side_dish
+  - action: utter_removed_side_dish_feedback
   - action: utter_side_dishes_order
-  - action: action_get_recommendation_for_user
 
 - rule: add side dish
   steps:
   - intent: order_side_dish
   - action: action_add_side_dish
+  - action: utter_added_side_dish_feedback
   - action: utter_side_dishes_order
-  - action: action_get_recommendation_for_user
 
 #################### PROMOTIONS #####################
 
@@ -191,7 +191,17 @@ rules:
       - promotion_type: "Duo Party"
   steps:
     - action: utter_duo_party_order_start
-    - intent: pizza_promotion_order
+    - intent: first_pizza_promotion_ordering
+    - action: action_recommend_items
+    - action: duo_party_form
+    - active_loop: duo_party_form
+
+- rule: Activate Duo Party Form
+  condition:
+    - slot_was_set:
+      - promotion_type: "Duo Party"
+  steps:
+    - intent: first_pizza_promotion_ordering
     - action: action_recommend_items
     - action: duo_party_form
     - active_loop: duo_party_form
@@ -228,7 +238,17 @@ rules:
       - promotion_type: "Veggie Feast"
   steps:
     - action: utter_veggie_feast_order_start
-    - intent: pizza_promotion_order
+    - intent: first_side_dish_promotion_ordering
+    - action: action_recommend_items
+    - action: veggie_feast_form
+    - active_loop: veggie_feast_form
+
+- rule: Activate Veggie Feast Form
+  condition:
+    - slot_was_set:
+      - promotion_type: "Veggie Feast"
+  steps:
+    - intent: first_side_dish_promotion_ordering
     - action: action_recommend_items
     - action: veggie_feast_form
     - active_loop: veggie_feast_form

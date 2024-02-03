@@ -82,7 +82,6 @@ class ActionChangePromotionOrderItem(Action):
             tracker)
         promotion_type = tracker.get_slot("promotion_type")
 
-        # TODO: if it were trying to change something not valid on the promotion you would throw an utter that its not possible to change
         if promotion_type == "Duo Party":
             return [SlotSet("first_pizza_promotion", first_pizza),
                     SlotSet("second_pizza_promotion", second_pizza),
@@ -120,6 +119,8 @@ class ActionRecommendPromotion(Action):
 
         # if there are already two promotions on the order, we don't recommend any more
         is_max_promotion_reached = tracker.get_slot("is_max_promotion_reached")
+        print(is_max_promotion_reached)
+        print('hmmm it should be here...')
         if is_max_promotion_reached:
             dispatcher.utter_message(
                 response="utter_promotion_limit_reached")
@@ -247,7 +248,7 @@ class ActonRemovePromotion(Action):
                 if len(complete_promotion_orders) > 0:
                     # if there are still promotions left, in this case index can be 0 because either 0 or 1 was removed so the other one is still there
                     dispatcher.utter_message(
-                        text=f"You still have {complete_promotion_orders[0]['promotion_type']} on your order.")
+                        text=f"I removed your promotion, you still have {complete_promotion_orders[0]['promotion_type']} on your order.")
                 else:
                     dispatcher.utter_message(
                         text=f"You have no more promotions on your order.")
@@ -284,6 +285,11 @@ class ActionActivateRecommendedPromotion(Action):
 
     def run(self, dispatcher, tracker, domain):
         promotion_type = tracker.get_slot("promotion_type")
+        is_max_promotion_reached = tracker.get_slot("is_max_promotion_reached")
+
+        if is_max_promotion_reached:
+            dispatcher.utter_message(response="utter_promotion_limit_reached")
+            return [SlotSet("promotion_type", None)]
 
         if promotion_type == "Duo Party":
             dispatcher.utter_message(
@@ -296,6 +302,7 @@ class ActionActivateRecommendedPromotion(Action):
             return [SlotSet("first_pizza_promotion", "Vegetarian")]
            # return [FollowupAction('veggie_feast_form')]
         else:
+
             dispatcher.utter_message(response="utter_vague_promotion")
             return [SlotSet("promotion_type", None)]
 

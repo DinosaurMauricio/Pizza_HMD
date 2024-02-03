@@ -23,7 +23,10 @@ intents:
 - specific_promotions_faq
 - order_promotion_vague
 - order_promotion_specific
-- pizza_promotion_order
+- first_pizza_promotion_ordering
+- second_pizza_promotion_ordering
+- first_side_dish_promotion_ordering
+- second_side_dish_promotion_ordering
 - submit_promotion_confirm_positive
 - submit_promotion_confirm_negative
 - stop_promotion_order
@@ -58,7 +61,7 @@ responses:
   utter_pizza_order_confirm_negative:
   - text: What would you like to change?
   utter_pizza_order_confirm_positive:
-  - text: Great, we added your pizza to the order. Anything else?
+  - text: Great, we added your pizza to the order. Anything else? Remember you can always ask about your complete order!
   utter_pizza_order_change:
   - text: So you want {pizza_amount} {pizza_type} pizzas in {pizza_size} instead. Is that correct?
   utter_order_takeout:
@@ -94,8 +97,37 @@ responses:
       - type: slot
         name: is_side_dish_total_empty
         value: true
-      text: You have no side dishes on your order right now, would you like to order one?
-    - text: You have now {total_side_dishes} as side dishes in your order. Anything else?
+      text: Your side dishes order is empty right now.
+    - text: Right now you have {total_side_dishes} as side dishes in your order. Want to order anything else?
+    - text: In your order you have {total_side_dishes}. Anything else you want to add? 
+  utter_added_side_dish_feedback:
+  - text: Great choice, we have added your side dish to your total order.
+  - text: We've included your side dish on your order. We hope you love it.
+  - text: Nice choice, we have included your side dish in your order.
+
+  utter_removed_side_dish_feedback:
+    - condition:
+      - type: slot
+        name: is_side_dish_total_empty
+        value: true
+      - type: slot
+        name: was_requested_side_dish_in_order
+        value: true
+      text: No problem, we deleted that side dish from your total order.
+    - condition:
+      - type: slot
+        name: is_side_dish_total_empty
+        value: true
+      text: You have no side dishes on your order right now. If you want to know what side dishes we offer, ask me!
+    - condition:
+      - type: slot
+        name: was_requested_side_dish_in_order
+        value: false
+      text: We don't have that side dish in your order.
+    - text: Ok, I removed that side dish from your complete order 
+    - text: No problem, we deleted that side dish from your total order
+    - text: No worries, I removed that side dish from the total order
+  
 
   ## general promotion faq
 
@@ -120,7 +152,7 @@ responses:
   - text: You can order multiple promotions, but you have to order them one by one. Which promotion would you like to order?
   - text: You can only order one promotion at a time. Which promotion would you like to order?
   utter_general_promotions_faq/unknown_knowledge:
-  - text: Sorry, I currently don't have any information on that. You can ask me about our promotions or pizza!
+  - text: Sorry, I currently don't have any information on your request.
   
   ## specific promotion faq
   ##duo party
@@ -151,7 +183,7 @@ responses:
 
   ## vague promotion faq
   utter_vague_promotion:
-  - text: Sorry, I couldn't understand, could you please provide which promotion you are interested in? We currently offer Duo Party and Veggie Feast.
+  - text: Sorry, could you please provide which promotion you are interested in? We currently offer Duo Party and Veggie Feast.
   - text: We don't have a promotion with the specific name you mentioned, but we do have Duo Party and Veggie Feast. Which one would you like to order?
 
   # order promotion
@@ -165,10 +197,10 @@ responses:
   utter_summarize_promotion_order:
   - text: We are almost done, could you please only confirm your promotion {total_promotion_order}?
   - text: I just need you to confirm your promotion {total_promotion_order}!
-  - text: To finish your promotion order, please confirm your promotion is {total_promotion_order}.
+  - text: To finish your promotion order, please confirm your promotion {total_promotion_order}.
 
   utter_confirmation_promotion_order_placement:
-  - text: Perfect, your {promotion_type} was added to your order. Would you like to order something else?
+  - text: Perfect, your {promotion_type} was added to your order. Would you like to order something else? You can always ask about your complete order!
 
   ### duo party promotion form
   
@@ -323,6 +355,7 @@ responses:
   - text: Right now you have {total_order} in your order. Would you like to order something else?
 
 ## Recommendation
+
   utter_recommendation_for_user_reunion:
   - text: Have you looked at our promotions? You can ask me for details about them!
   - text: Have you asked about our promotions? We have Duo Party for your reunion!
@@ -443,7 +476,14 @@ entities:
 - is_cart_empty
 - promotion_type_question
 - is_side_dish_total_empty
+- was_requested_side_dish_in_order
 slots:
+  was_requested_side_dish_in_order:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: custom
   is_side_dish_total_empty:
     type: bool
     initial_value: true  

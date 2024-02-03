@@ -54,18 +54,17 @@ class ActionGetRecommendationForUser(Action):
         return 'action_get_recommendation_for_user'
 
     def run(self, dispatcher, tracker, domain):
-        recommendation = ""
 
         promotions_order_list = tracker.get_slot(
             "complete_promotion_orders") or []
         is_reunion = tracker.get_slot("is_reunion")
         is_vegetarian = tracker.get_slot("is_vegetarian")
         is_max_promotion_reached = tracker.get_slot("is_max_promotion_reached")
-
+        # number of max promotions is reached so we just recommend other items
         if len(promotions_order_list) == MAX_PROMOTIONS:
             dispatcher.utter_message(
                 response="utter_recommendation_max_promotion_reached")
-            return []
+            return [SlotSet("is_max_promotion_reached", True)]
 
         if not is_max_promotion_reached:
             # no promotions have been ordered

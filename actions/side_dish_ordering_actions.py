@@ -44,21 +44,26 @@ class ActionSideDishRemove(Action):
     def run(self, dispatcher, tracker, domain):
         side_dish = tracker.get_slot("side_dish")
         side_dishes_list = tracker.get_slot("side_dishes") or []
+        side_was_in_list_but_removed = False
         if side_dishes_list is not None and side_dish in side_dishes_list:
             side_dishes_list.remove(side_dish)
-            # dispatcher.utter_message(
-            #    text=f"I removed {side_dish} from your order")
-        # else:
-        #    dispatcher.utter_message(
-        #        text=f"You have no {side_dish} in your order")
+            side_was_in_list_but_removed = True
 
-        if not side_dishes_list:
-            return [SlotSet("side_dishes", side_dishes_list), SlotSet("is_side_dish_total_empty", True)]
+        # the list removed an item but now it's empty
+        if side_was_in_list_but_removed and not side_dishes_list:
+            return [SlotSet("was_requested_side_dish_in_order", side_was_in_list_but_removed), SlotSet("side_dish", None),
+                    SlotSet("side_dishes", side_dishes_list), SlotSet("is_side_dish_total_empty", True)]
+
+        # the list is now empty but the side was never in the order
+        if not side_dishes_list and not side_was_in_list_but_removed:
+            return [SlotSet("was_requested_side_dish_in_order", side_was_in_list_but_removed), SlotSet("side_dishes", side_dishes_list), SlotSet("is_side_dish_total_empty", True)]
         else:
+            # the list still has elements we have to check the was it was in the list
+
             element_counts = Counter(side_dishes_list)
             side_dishes = [f'{value} {key}' for key,
                            value in element_counts.items()]
             # create the string of side dishes
             total_side_dishes = " and ".join(side_dishes)
-
-            return [SlotSet("side_dish", None), SlotSet("side_dishes", side_dishes_list), SlotSet("total_side_dishes", total_side_dishes), SlotSet("is_side_dish_total_empty", False)]
+            return [SlotSet("was_requested_side_dish_in_order", side_was_in_list_but_removed), SlotSet("side_dish", None),
+                    SlotSet("side_dishes", side_dishes_list), SlotSet("total_side_dishes", total_side_dishes), SlotSet("is_side_dish_total_empty", False)]

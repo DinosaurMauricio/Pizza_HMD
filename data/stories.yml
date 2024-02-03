@@ -137,8 +137,8 @@ stories:
     entities:
     - side_dish: "Caprese Salad"
   - action: action_add_side_dish
+  - action: utter_added_side_dish_feedback
   - action: utter_side_dishes_order
-  - action: action_get_recommendation_for_user
 
 - story: question on side dish menu + add side dish
   steps:
@@ -148,8 +148,8 @@ stories:
     entities:
     - side_dish: "French fries"
   - action: action_add_side_dish
+  - action: utter_added_side_dish_feedback
   - action: utter_side_dishes_order
-  - action: action_get_recommendation_for_user
 
 - story: repeat side dish menu + add side
   steps:
@@ -161,8 +161,8 @@ stories:
     entities:
     - side_dish: "Chicken wings"
   - action: action_add_side_dish
+  - action: utter_added_side_dish_feedback
   - action: utter_side_dishes_order
-  - action: action_get_recommendation_for_user
 
 - story: remove side dish from order
   steps:
@@ -170,8 +170,8 @@ stories:
     entities:
     - side_dish: "French fries"
   - action: action_remove_side_dish
+  - action: utter_removed_side_dish_feedback
   - action: utter_side_dishes_order
-  - action: action_get_recommendation_for_user
 
 - story: add and remove side dish from order
   steps:
@@ -183,14 +183,15 @@ stories:
     entities:
     - side_dish: "Chicken wings"
   - action: action_add_side_dish
+  - action: utter_added_side_dish_feedback
   - action: utter_side_dishes_order
-  - action: action_get_recommendation_for_user
   - intent: remove_side_dish
     entities:
     - side_dish: "Chicken wings"
   - action: action_remove_side_dish
+  - action: utter_removed_side_dish_feedback
   - action: utter_side_dishes_order
-  - action: action_get_recommendation_for_user
+
 
 - story: cancel side dish + repeat side dish menu
   steps:
@@ -216,44 +217,9 @@ stories:
   steps:
   - intent: general_promotions_faq
   - action: utter_general_promotions_faq
-  
-- story: duo party promotion
-  steps:
-  - action: utter_duo_party_order_start
-  - intent: pizza_promotion_order
-  - action: action_recommend_items
-  - action: duo_party_form
-  - active_loop: duo_party_form
-  - slot_was_set:
-    - requested_slot: first_pizza_promotion
-  - slot_was_set:
-    - requested_slot: second_pizza_promotion
-  - slot_was_set:
-    - requested_slot: first_side_dish_promotion
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - checkpoint: end_promotion_vague
-
-- story: veggie feast promotion
-  steps:
-  - action: utter_veggie_feast_order_start
-  - intent: pizza_promotion_order
-  - action: action_recommend_items
-  - action: veggie_feast_form
-  - active_loop: veggie_feast_form
-  - slot_was_set:
-    - requested_slot: first_side_dish_promotion
-  - slot_was_set:
-    - requested_slot: second_side_dish_promotion
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - checkpoint: end_promotion_vague
 
 - story: submit promotion form
   steps:
-  - checkpoint: end_promotion_vague
   - action: action_promotion_total_order
   - action: utter_summarize_promotion_order
   - intent: submit_promotion_confirm_positive
@@ -449,7 +415,7 @@ stories:
     - promotion_type: Duo Party
   - intent: promotion_order_accept_recommended
   - action: action_activate_recommend_promotion_form
-  - intent: pizza_promotion_order
+  - intent: first_pizza_promotion_ordering
     entities:
     - first_pizza_promotion: Hawaii
   - slot_was_set:
@@ -465,7 +431,7 @@ stories:
     - first_pizza_promotion: Hawaii
   - slot_was_set:
     - requested_slot: second_pizza_promotion
-  - intent: pizza_promotion_order
+  - intent: second_pizza_promotion_ordering
     entities:
     - second_pizza_promotion: Funghi
   - slot_was_set:
@@ -475,7 +441,7 @@ stories:
     - second_pizza_promotion: Funghi
   - slot_was_set:
     - requested_slot: first_side_dish_promotion
-  - intent: pizza_promotion_order
+  - intent: first_side_dish_promotion_ordering
     entities:
     - first_side_dish_promotion: French Fries
   - slot_was_set:
@@ -538,7 +504,7 @@ stories:
     - promotion_type: Veggie Feast
   - intent: promotion_order_accept_recommended
   - action: action_activate_recommend_promotion_form
-  - intent: pizza_promotion_order
+  - intent: first_side_dish_promotion_ordering
     entities:
     - first_side_dish_promotion: French Fries
   - slot_was_set:
@@ -556,7 +522,7 @@ stories:
     - first_side_dish_promotion: French Fries
   - slot_was_set:
     - requested_slot: second_side_dish_promotion
-  - intent: pizza_promotion_order
+  - intent: second_side_dish_promotion_ordering
     entities:
     - second_side_dish_promotion: Caprese Salad
   - slot_was_set:
@@ -615,7 +581,7 @@ stories:
   - slot_was_set:
     - is_max_promotion_reached: false
   - action: action_activate_recommend_promotion_form
-  - intent: pizza_promotion_order
+  - intent: first_pizza_promotion_ordering
     entities:
     - first_pizza_promotion: Funghi
   - slot_was_set:
@@ -631,7 +597,7 @@ stories:
     - first_pizza_promotion: Funghi
   - slot_was_set:
     - requested_slot: second_pizza_promotion
-  - intent: pizza_promotion_order
+  - intent: second_pizza_promotion_ordering
     entities:
     - second_pizza_promotion: Hawaii
   - slot_was_set:
@@ -641,12 +607,7 @@ stories:
     - second_pizza_promotion: Hawaii
   - slot_was_set:
     - requested_slot: first_side_dish_promotion
-  - intent: pizza_promotion_order
-    entities:
-    - side_dish: Chicken Wings
-  - slot_was_set:
-    - side_dish: Chicken Wings
-  - intent: pizza_promotion_order
+  - intent: first_side_dish_promotion_ordering
     entities:
     - first_side_dish_promotion: French Fries
   - slot_was_set:
@@ -675,7 +636,7 @@ stories:
   - action: action_activate_recommend_promotion_form
   - slot_was_set:
     - first_pizza_promotion: Vegetarian
-  - intent: pizza_promotion_order
+  - intent: first_side_dish_promotion_ordering
     entities:
     - first_side_dish_promotion: Caprese Salad
   - slot_was_set:
@@ -689,7 +650,7 @@ stories:
     - first_side_dish_promotion: Caprese Salad
   - slot_was_set:
     - requested_slot: second_side_dish_promotion
-  - intent: pizza_promotion_order
+  - intent: second_side_dish_promotion_ordering
     entities:
     - second_side_dish_promotion: French Fries
   - slot_was_set:
