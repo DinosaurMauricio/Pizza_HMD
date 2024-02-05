@@ -101,6 +101,8 @@ nlu:
     - Tropicana pizza
 - synonym: Margherita
   examples: |
+    - margerita
+    - margarita
     - Margherita
     - margherita
     - Classic Margherita
@@ -113,6 +115,9 @@ nlu:
     - Authentic Margherita
 - synonym: Pepperoni
   examples: |
+    - pepperoni
+    - Peperoni
+    - peperoni
     - Pepperoni
     - Pepp
     - Classic Pepperoni
@@ -124,9 +129,9 @@ nlu:
     - Classic Italian Pepperoni
 - synonym: Vegetarian
   examples: |
+    - vegetarian
     - Vegetarian
     - Vegetable
-    - Veggie
     - Veggie delight
     - Vegetarian pizza
     - Vegetable pizza
@@ -140,6 +145,9 @@ nlu:
     - Veggie choice
 - synonym: Chicken Wings
   examples: |
+    - wings
+    - chicken wings
+    - chicken
     - Wings
     - Drumettes
     - Winglets
@@ -147,6 +155,9 @@ nlu:
     - Chicken Drumettes
 - synonym: Bacon Jalapeno
   examples: |
+    - bacon
+    - bacon jalapeno
+    - jalapeno
     - Becon
     - Jalapeno
     - Bacon Jalapeno
@@ -160,6 +171,9 @@ nlu:
     - Jalapeno Bacon Bites
 - synonym: Caprese Salad
   examples: |
+    - caprese salad
+    - caprese
+    - salad
     - Tomato Salad with Mozzarella
     - Fresh Tomato and Mozzarella Salad
     - Classic Caprese
@@ -172,6 +186,8 @@ nlu:
     - Mozzarella Tomato Plate
 - synonym: French Fries
   examples: |
+    - fries
+    - french fries
     - Fries
     - Potato Fries
     - Thin Cut Potatoes

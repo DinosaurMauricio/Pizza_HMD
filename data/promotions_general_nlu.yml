@@ -238,6 +238,8 @@ nlu:
 
 - intent: first_pizza_promotion_ordering
   examples: |
+    - for my first pizza i will take [pepperoni](first_pizza_promotion)
+    - for my fist pizza i will take [pepperoni](first_pizza_promotion)
     - on my first pizza i want [Pepperoni](first_pizza_promotion)
     - for my initial pizza [Funghi](first_pizza_promotion)
     - for my initial pizza I want [Hawaii](first_pizza_promotion)
@@ -261,6 +263,8 @@ nlu:
     - to begin wtih i will go for [Pepperoni](first_pizza_promotion)
     - i will go for [Vegetarian](first_pizza_promotion) for first option
     - in my order i will have [Funghi](first_pizza_promotion)
+    - first pizza [Hawaii](first_pizza_promotion)
+    - first pizza [Pepperoni](first_pizza_promotion)
 
 - intent: second_pizza_promotion_ordering
   examples: |
@@ -285,6 +289,10 @@ nlu:
     - make it [Margherita](second_pizza_promotion) for second pizza
     - for my second pizza i will have [Margherita](second_pizza_promotion)
     - for my second pizza i will have [Pepperoni](second_pizza_promotion)
+    - i will have [pepperoni](second_pizza_promotion) for second pizza
+    - i will take [pepperoni](second_pizza_promotion) for second pizza
+    - second pizza [Pepperoni](second_pizza_promotion)
+    - second pizza [Vegetarian](second_pizza_promotion)
 
 - intent: first_side_dish_promotion_ordering
   examples: |

@@ -190,7 +190,7 @@ responses:
   utter_vague_order_promotion:
   - text: We have two promotions available, Duo Party and Veggie Feast. Which one would you like to order?
   utter_recommend_duo_party_promotion:
-  - text: I can you recommend getting the Duo Party promotion, it includes 2 medium pizzas and 1 side dish of your choice. Would you like to order it?
+  - text: I can recommend you getting the Duo Party promotion, it includes 2 medium pizzas and 1 side dish of your choice. Would you like to order it?
   utter_recommend_veggie_feast_promotion:
   - text: If you would like a vegetarian meal, I would recommend getting the Veggie Feast promotion, It includes 1 large vegetarian pizza and 2 vegetarian side dishes. Would you like to order it?
 
@@ -200,8 +200,7 @@ responses:
   - text: To finish your promotion order, please confirm your promotion {total_promotion_order}.
 
   utter_confirmation_promotion_order_placement:
-  - text: Perfect, your {promotion_type} was added to your order. Would you like to order something else? You can always ask about your complete order!
-
+  - text: Perfect, your {promotion_type} was added to your order. Would you like to order something else?
   ### duo party promotion form
   
   utter_ask_duo_party_form_first_pizza_promotion:
